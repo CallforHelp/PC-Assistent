@@ -44,6 +44,11 @@ public class BG_Info {
 		System.out.println("DNS Server     :"+ BG.getDNSServer());
 
 	}
+	public String uberSchrift() {
+		String s ="3S";
+		
+		return s;
+	}
 	
 	public String timetoBuild() {
 		String time = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(new Date());
@@ -192,7 +197,7 @@ public class BG_Info {
 	
 public  ArrayList<String>[] getBGInfo() {
 	
-	BG_Info bg = new BG_Info();
+	//BG_Info bg = new BG_Info();
 	
 
 	
