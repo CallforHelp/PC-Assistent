@@ -1,13 +1,18 @@
-package prototype;
+package bginfo;
 
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.net.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 
 public class BG_Info {
+	 
+		
 	
 	public static void main(String[] args) throws Exception {
 		BG_Info BG = new BG_Info();
@@ -17,28 +22,34 @@ public class BG_Info {
 		
 		System.out.println("Schul-Support-Services HiTEC e.V.");
 		System.out.println("********************************");
-		System.out.println("PC Info");
+		System.out.println("            PC Info");
 		System.out.println("********************************");
 		
 		System.out.println("Host Name     :"+ BG.getLocalHost());
 		System.out.println("User Name     :"+ BG.getUserName());
 		System.out.println("OS Version    :"+ BG.getOSversion());
 		System.out.println("OS Architektur:"+ BG.getOSArchitecture());
-		System.out.println("Muster Images :");
+		System.out.println("Muster Images :"+ BG.getMusterImages());
 		
 		System.out.println("********************************");
-		System.out.println("NETZWERK");
+		System.out.println("            NETZWERK");
 		System.out.println("********************************");
 		
 		System.out.println("Adresse local  :"+ BG.getLocalAdresse());
 		System.out.println("Subnet Mask    :"+ BG.getSubnetMask());
 		System.out.println("MAC Adresse    :"+ BG.getMacAddress());
-		System.out.println("Machine Domain :"+ BG.getMusterImages());
+		System.out.println("Machine Domain :"+ BG.getMachindomain());
 		System.out.println("Default Gateway:"+ BG.getDefaultgateway());
-		System.out.println("DHCP Server    :");
-		System.out.println("DNS Server     :");
+		System.out.println("DHCP Server    :"+ BG.getDHCPServer());
+		System.out.println("DNS Server     :"+ BG.getDNSServer());
 
 	}
+	public String uberSchrift() {
+		String s ="3S";
+		
+		return s;
+	}
+	
 	public String timetoBuild() {
 		String time = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(new Date());
 		return time;
@@ -59,7 +70,18 @@ public class BG_Info {
 		return OsArch;
 	}
 	public String getMusterImages() {
-		return "";
+		String musterImages = "";
+		String OsVersion= new Properties(System.getProperties()).getProperty("os.name");
+		
+		if (OsVersion.contains("10")) {
+			musterImages= "CottonCandy W10";
+			
+		}else 
+			if (OsVersion.contains("7"))
+				musterImages= "CottonCandy W7";
+		
+		
+		return musterImages;
 	} 
 	
 	/*****************************************************************************************/
@@ -96,6 +118,20 @@ public class BG_Info {
 		return result;
 		
 	}
+	public String getMachindomain() throws IOException {
+		String domain="";
+		String line;
+		Process ipfconfig= Runtime.getRuntime().exec("ipconfig /all");
+		Reader input = new InputStreamReader(ipfconfig.getInputStream());
+
+		BufferedReader resultOutput = new BufferedReader(input);
+		while((line=resultOutput.readLine()) != null) {
+			   if(line.contains("DNS-Suffixsuchliste")) {
+				   domain=line.split(":\\s")[1];
+			   }
+		}
+		return domain;
+	}
 	public String getSubnetMask() throws SocketException, IOException {
 		NetworkInterface networkInterface = NetworkInterface.getByInetAddress(InetAddress.getLocalHost());
 		short prflen= networkInterface.getInterfaceAddresses().get(0).getNetworkPrefixLength();
@@ -108,46 +144,97 @@ public class BG_Info {
 		return submask;
 
 	}
-	public String getDefaultgateway() throws SocketException, UnknownHostException {
-		return"";
+	public String getDefaultgateway() throws IOException {
+		
+		String defaultgateway="";
+		String line;
+		
+		Process ipfconfig= Runtime.getRuntime().exec("ipconfig /all");
+		Reader input = new InputStreamReader(ipfconfig.getInputStream());
+
+		BufferedReader resultOutput = new BufferedReader(input);
+		
+		while( (line=resultOutput.readLine()) != null ) {
+		   if(line.contains("Standardgateway")) {
+			   defaultgateway=line.split(":\\s")[1];
+		   }
+		}
+		return defaultgateway;
 	}
-	public String getDHCPServer() {
+	
+	public String getDHCPServer() throws IOException {
 		String dhcpserver="";
+		String line;
+		Process ipfconfig= Runtime.getRuntime().exec("ipconfig /all");
+		Reader input = new InputStreamReader(ipfconfig.getInputStream());
+
+		BufferedReader resultOutput = new BufferedReader(input);
+		while((line=resultOutput.readLine()) != null) {
+			   if(line.contains("DHCP-")) {
+				   dhcpserver=line.split(":\\s")[1];
+			   }
+		}
+		
 		return dhcpserver;
 	}
-	public String getDNSServer() {
+	
+	public String getDNSServer() throws IOException  {
 		String dnsserver="";
+		String line;
+		Process ipfconfig= Runtime.getRuntime().exec("ipconfig /all");
+		Reader input = new InputStreamReader(ipfconfig.getInputStream());
+
+		BufferedReader resultOutput = new BufferedReader(input);
+		while((line=resultOutput.readLine()) != null) {
+			   if(line.contains("DNS-Server")) {
+				   dnsserver=line.split(":\\s")[1];
+			   }
+		}
 		return dnsserver;
 	}
 	
 	
 	
-/*public  String printBGINFO() throws UnknownHostException, SocketException {
-		
-		BG_Info BG = new BG_Info();
-	System.out.println("Was brauche ich für BG_Info");
-	try {
-		System.out.println( "Host Name : " + BG.getLocalHost());
-	} catch (UnknownHostException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	try {
-		System.out.println( "Adresse local: " + BG.getLocalAdresse());
-	} catch (UnknownHostException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-		
-	try {
-		System.out.println("MAC Adresse: "+BG.getMacAddress()+"\n");
-	} catch (SocketException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-
-	return "Hostname: "+BG.getLocalHost()+"\n"+"IP: "+BG.getLocalAdresse()+"\n"+"MacAdresse: "+BG.getMacAddress()+"\n";	
-	}
+public  ArrayList<String>[] getBGInfo() {
 	
-*/
+	//BG_Info bg = new BG_Info();
+	
+
+	
+	return null;
+}
+
+public void printBGinfo() throws Exception{
+	
+	BG_Info BG = new BG_Info();
+	
+	System.out.println("3S");
+	System.out.println("BG_Info");
+	System.out.println("time to build :"+ BG.timetoBuild());
+	
+	System.out.println("Schul-Support-Services HiTEC e.V.");
+	System.out.println("********************************");
+	System.out.println("            PC Info");
+	System.out.println("********************************");
+	
+	System.out.println("Host Name     :"+ BG.getLocalHost());
+	System.out.println("User Name     :"+ BG.getUserName());
+	System.out.println("OS Version    :"+ BG.getOSversion());
+	System.out.println("OS Architektur:"+ BG.getOSArchitecture());
+	System.out.println("Muster Images :"+ BG.getMusterImages());
+	
+	System.out.println("********************************");
+	System.out.println("            NETZWERK");
+	System.out.println("********************************");
+	
+	System.out.println("Adresse local  :"+ BG.getLocalAdresse());
+	System.out.println("Subnet Mask    :"+ BG.getSubnetMask());
+	System.out.println("MAC Adresse    :"+ BG.getMacAddress());
+	System.out.println("Machine Domain :"+ BG.getMachindomain());
+	System.out.println("Default Gateway:"+ BG.getDefaultgateway());
+	System.out.println("DHCP Server    :"+ BG.getDHCPServer());
+	System.out.println("DNS Server     :"+ BG.getDNSServer());
+
+}
+		
 }
