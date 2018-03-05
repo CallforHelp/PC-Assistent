@@ -2,7 +2,6 @@ package bginfo;
 
 import java.awt.EventQueue;
 import java.io.IOException;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -10,6 +9,9 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.Color;
 import javax.swing.JTextPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
 import java.awt.Font;
 import javax.swing.JTextArea;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -24,14 +26,31 @@ public class BgInfoFrame extends JFrame {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 376621476984946157L;
+	private static final long serialVersionUID = 1L;
+	/**
+	 * 
+	 */
+	//private static final long serialVersionUID = 376621476984946157L;
 	private JPanel contentPane;
 	private final BG_Info bg = new BG_Info();
+	private WebsiteReader web = new WebsiteReader();
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		 try {
+	           //UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+	            UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+	        } catch (UnsupportedLookAndFeelException ex) {
+	            ex.printStackTrace();
+	        } catch (IllegalAccessException ex) {
+	            ex.printStackTrace();
+	        } catch (InstantiationException ex) {
+	            ex.printStackTrace();
+	        } catch (ClassNotFoundException ex) {
+	            ex.printStackTrace();
+	        }
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -55,6 +74,7 @@ public class BgInfoFrame extends JFrame {
 		setResizable(false);
 		setBounds(100, 100, 396, 635);
 		setLocation(430,45);
+		
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -62,7 +82,7 @@ public class BgInfoFrame extends JFrame {
 		
 		JTextPane textPane_2 = new JTextPane();
 		textPane_2.setToolTipText("Uberschrift");
-		textPane_2.setText("**********************************************************");
+		textPane_2.setText("***************************************************************************");
 		textPane_2.setForeground(Color.BLUE);
 		textPane_2.setFont(new Font("Times New Roman", Font.PLAIN, 10));
 		
@@ -85,7 +105,7 @@ public class BgInfoFrame extends JFrame {
 		
 		JTextPane textPane = new JTextPane();
 		textPane.setToolTipText("Uberschrift");
-		textPane.setText("**********************************************************");
+		textPane.setText("***************************************************************************");
 		textPane.setForeground(Color.BLUE);
 		textPane.setFont(new Font("Times New Roman", Font.PLAIN, 10));
 		
@@ -131,7 +151,7 @@ public class BgInfoFrame extends JFrame {
 		
 		JTextPane textPane_1 = new JTextPane();
 		textPane_1.setToolTipText("Uberschrift");
-		textPane_1.setText("**********************************************************");
+		textPane_1.setText("***************************************************************************");
 		textPane_1.setForeground(Color.BLUE);
 		textPane_1.setFont(new Font("Times New Roman", Font.PLAIN, 10));
 		
@@ -142,7 +162,7 @@ public class BgInfoFrame extends JFrame {
 		
 		JTextPane textPane_3 = new JTextPane();
 		textPane_3.setToolTipText("Uberschrift");
-		textPane_3.setText("**********************************************************");
+		textPane_3.setText("***************************************************************************");
 		textPane_3.setForeground(Color.BLUE);
 		textPane_3.setFont(new Font("Times New Roman", Font.PLAIN, 10));
 		
@@ -255,15 +275,26 @@ public class BgInfoFrame extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				System.out.println("action by clik");
+				try {
+					web.openWebSiteExample();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
-		btnFehlerMelden.setBackground(Color.DARK_GRAY);
+		btnFehlerMelden.setBackground(Color.WHITE);
 		btnFehlerMelden.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnFehlerMelden.setForeground(Color.RED);
 		
 		JTextArea txtrTimetobiuld = new JTextArea();
 		txtrTimetobiuld.setToolTipText("3S");
 		txtrTimetobiuld.setText(bg.timetoBuild());
+		
+		JButton btnExit = new JButton("CHAT");
+		btnExit.setForeground(Color.RED);
+		btnExit.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnExit.setBackground(Color.WHITE);
 		
 		
 		
@@ -275,16 +306,70 @@ public class BgInfoFrame extends JFrame {
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addContainerGap()
+							.addComponent(txtrNetzwerk, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addContainerGap()
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(txtrDefaultGateway, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtrDnsServer, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtrDhcpServer, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addComponent(textArea_10, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(txtrDhcpServerinhalt, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE))
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addComponent(textArea_9, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(txtrDefaultGatewayinhalt, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE))
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+									.addComponent(btnExit, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE)
+									.addGroup(gl_contentPane.createSequentialGroup()
+										.addComponent(textArea_11, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(ComponentPlacement.RELATED)
+										.addComponent(txtrDnsServerinhalt, GroupLayout.PREFERRED_SIZE, 138, GroupLayout.PREFERRED_SIZE)))))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addContainerGap()
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(btnFehlerMelden)
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+										.addComponent(txtrIpAdresse, GroupLayout.PREFERRED_SIZE, 94, GroupLayout.PREFERRED_SIZE)
+										.addComponent(txtrSubnetMask, GroupLayout.PREFERRED_SIZE, 94, GroupLayout.PREFERRED_SIZE)
+										.addComponent(txtrMacAdresse, GroupLayout.PREFERRED_SIZE, 94, GroupLayout.PREFERRED_SIZE)
+										.addComponent(txtrDomain, GroupLayout.PREFERRED_SIZE, 94, GroupLayout.PREFERRED_SIZE))
+									.addGap(45)
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+										.addGroup(gl_contentPane.createSequentialGroup()
+											.addComponent(textArea_8, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
+											.addPreferredGap(ComponentPlacement.RELATED)
+											.addComponent(txtrDomaininhalt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+										.addGroup(gl_contentPane.createSequentialGroup()
+											.addComponent(textArea_7, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
+											.addPreferredGap(ComponentPlacement.RELATED)
+											.addComponent(txtrMacAdresseinhalt, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE))
+										.addGroup(gl_contentPane.createSequentialGroup()
+											.addComponent(textArea_6, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
+											.addPreferredGap(ComponentPlacement.RELATED)
+											.addComponent(txtrSubnetMaskinhalt, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE))
+										.addGroup(gl_contentPane.createSequentialGroup()
+											.addComponent(textArea, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
+											.addPreferredGap(ComponentPlacement.RELATED)
+											.addComponent(txtrIpAdresseinahlt, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE)))))
+							.addGap(53))
+						.addComponent(textPane_3, GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
+						.addComponent(textPane_1, GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addContainerGap()
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 								.addComponent(txtrBginfo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addGroup(gl_contentPane.createSequentialGroup()
 									.addComponent(txtrs, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
 									.addGap(169)
-									.addComponent(txtrTimetobiuld)
+									.addComponent(txtrTimetobiuld, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 									.addGap(34))
 								.addComponent(txtrSchulsupportservicesHitecEv, GroupLayout.PREFERRED_SIZE, 276, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textPane_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textPane, GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
 								.addGroup(gl_contentPane.createSequentialGroup()
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 										.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
@@ -316,61 +401,10 @@ public class BgInfoFrame extends JFrame {
 											.addPreferredGap(ComponentPlacement.UNRELATED)
 											.addComponent(txtrHostNameinhalt, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)))
 									.addGap(96))
-								.addComponent(txtrPcinfo, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)))
-						.addComponent(textPane_1, GroupLayout.PREFERRED_SIZE, 406, GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(txtrNetzwerk, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE))
-						.addComponent(textPane_3, GroupLayout.PREFERRED_SIZE, 406, GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addContainerGap()
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(txtrDefaultGateway, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtrDnsServer, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtrDhcpServer, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(textArea_11, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(txtrDnsServerinhalt, GroupLayout.PREFERRED_SIZE, 84, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(textArea_10, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(txtrDhcpServerinhalt, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(textArea_9, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(txtrDefaultGatewayinhalt, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE))))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addContainerGap()
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-								.addComponent(btnFehlerMelden, Alignment.LEADING)
-								.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addComponent(txtrIpAdresse, GroupLayout.PREFERRED_SIZE, 94, GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtrSubnetMask, GroupLayout.PREFERRED_SIZE, 94, GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtrMacAdresse, GroupLayout.PREFERRED_SIZE, 94, GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtrDomain, GroupLayout.PREFERRED_SIZE, 94, GroupLayout.PREFERRED_SIZE))
-									.addGap(45)
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addComponent(textArea_8, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.RELATED)
-											.addComponent(txtrDomaininhalt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addComponent(textArea_7, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.RELATED)
-											.addComponent(txtrMacAdresseinhalt, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE))
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addComponent(textArea_6, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.RELATED)
-											.addComponent(txtrSubnetMaskinhalt, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE))
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addComponent(textArea, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.RELATED)
-											.addComponent(txtrIpAdresseinahlt, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE)))))
-							.addGap(53)))
+								.addComponent(txtrPcinfo, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.RELATED, 8, Short.MAX_VALUE))
+						.addComponent(textPane, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
+						.addComponent(textPane_2, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE))
 					.addContainerGap())
 		);
 		gl_contentPane.setVerticalGroup(
@@ -455,8 +489,10 @@ public class BgInfoFrame extends JFrame {
 						.addComponent(txtrDnsServer, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(textArea_11, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(txtrDnsServerinhalt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-					.addComponent(btnFehlerMelden)
+					.addPreferredGap(ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(btnFehlerMelden)
+						.addComponent(btnExit, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap())
 		);
 		contentPane.setLayout(gl_contentPane);

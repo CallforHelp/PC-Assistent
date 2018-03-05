@@ -1,4 +1,4 @@
-package prototype;
+package bginfo;
 
 import java.io.*;
 import java.util.*;
@@ -6,16 +6,14 @@ import java.net.*;
 
 public class WebsiteReader {
 	
-	String webSeite ="https://hades.3s-desk.de/login.php"; 
+	String webSeite ="https://www.3s-hamburg.de/kontakt/"; 
 	
 	public static void main(String[] args) throws IOException, IOException {
 		
 		WebsiteReader web = new WebsiteReader();
-		web.openWebSiteExample();
-		web.webScraperExample();
+		//web.openWebSiteExample();
+		//web.webScraperExample();
 		web.startFIleInput();
-		WebsiteLogin login = new WebsiteLogin();
-		login.httpPostLogin();
 		
 	}
 	//browser starten

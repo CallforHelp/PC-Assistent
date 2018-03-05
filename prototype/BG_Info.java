@@ -11,7 +11,7 @@ import java.util.*;
 
 
 public class BG_Info {
-	 
+	
 		
 	
 	public static void main(String[] args) throws Exception {
@@ -43,6 +43,11 @@ public class BG_Info {
 		System.out.println("DHCP Server    :"+ BG.getDHCPServer());
 		System.out.println("DNS Server     :"+ BG.getDNSServer());
 
+	}
+	public String uberSchrift() {
+		String s ="3S";
+		
+		return s;
 	}
 	
 	public String timetoBuild() {
@@ -116,9 +121,15 @@ public class BG_Info {
 	public String getMachindomain() throws IOException {
 		String domain="";
 		String line;
-		Process ipfconfig= Runtime.getRuntime().exec("ipconfig /all");
-		Reader input = new InputStreamReader(ipfconfig.getInputStream());
-
+		Process ipfconfig = null;
+		Reader input = null;
+		
+		if(new Properties(System.getProperties()).getProperty("os.name").contains("Win")) {
+			ipfconfig= Runtime.getRuntime().exec("ipconfig /all");
+		}else
+			 ipfconfig= Runtime.getRuntime().exec("netstat -rn");
+			
+		input = new InputStreamReader(ipfconfig.getInputStream());
 		BufferedReader resultOutput = new BufferedReader(input);
 		while((line=resultOutput.readLine()) != null) {
 			   if(line.contains("DNS-Suffixsuchliste")) {
@@ -128,8 +139,12 @@ public class BG_Info {
 		return domain;
 	}
 	public String getSubnetMask() throws SocketException, IOException {
+		
 		NetworkInterface networkInterface = NetworkInterface.getByInetAddress(InetAddress.getLocalHost());
+		//System.out.println(networkInterface);
 		short prflen= networkInterface.getInterfaceAddresses().get(0).getNetworkPrefixLength();
+		
+		
 		int shft = 0xffffffff<<(32-prflen);
 		int oct1 = ((byte) ((shft&0xff000000)>>24)) & 0xff;
 		int oct2 = ((byte) ((shft&0x00ff0000)>>16)) & 0xff;
@@ -192,7 +207,7 @@ public class BG_Info {
 	
 public  ArrayList<String>[] getBGInfo() {
 	
-	BG_Info bg = new BG_Info();
+	//BG_Info bg = new BG_Info();
 	
 
 	
