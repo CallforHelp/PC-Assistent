@@ -1,4 +1,4 @@
-package prototype;
+package bginfo;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -44,20 +44,7 @@ public class ShowGUI {
         //actions
         trayIcon.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-            	BG_Info bg = new BG_Info();
-                try {
-					JOptionPane.showMessageDialog(null,
-					       bg.printBGINFO());
-				} catch (HeadlessException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (UnknownHostException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (SocketException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+            	
             }
         });
         

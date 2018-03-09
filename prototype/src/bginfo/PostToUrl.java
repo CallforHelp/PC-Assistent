@@ -1,4 +1,4 @@
-package prototype;
+package bginfo;
 
 import java.io.*;
 import java.net.*;

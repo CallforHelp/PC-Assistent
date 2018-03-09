@@ -1,4 +1,4 @@
-package prototype;
+package bginfo;
 
 
 public class CallForHelp {

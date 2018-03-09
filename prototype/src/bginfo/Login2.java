@@ -1,4 +1,4 @@
-package prototype;
+package bginfo;
 
 import java.util.ArrayList;
 import java.util.List;

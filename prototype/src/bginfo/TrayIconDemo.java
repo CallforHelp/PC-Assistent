@@ -1,6 +1,6 @@
 
 
-package prototype;  
+package bginfo;  
 
 import java.awt.*;
 import java.awt.event.*;
