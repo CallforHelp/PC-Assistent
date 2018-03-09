@@ -24,7 +24,15 @@ import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 import java.awt.event.KeyEvent;
 import java.awt.event.InputEvent;
-
+import javax.swing.JInternalFrame;
+import javax.swing.JLayeredPane;
+import javax.swing.border.BevelBorder;
+import org.eclipse.wb.swing.FocusTraversalOnArray;
+import java.awt.Component;
+import java.awt.SystemColor;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.Box;
 
 
 public class BgInfoFrame extends JFrame {
@@ -95,13 +103,13 @@ public class BgInfoFrame extends JFrame {
 		
 		JTextArea txtrs = new JTextArea();
 		txtrs.setEditable(false);
-		txtrs.setBounds(81, 26, 30, 16);
+		txtrs.setBounds(115, 26, 30, 16);
 		txtrs.setText("3S");
 		txtrs.setToolTipText("3S");
 		
 		JTextArea txtrBginfo = new JTextArea();
 		txtrBginfo.setEditable(false);
-		txtrBginfo.setBounds(17, 26, 44, 16);
+		txtrBginfo.setBounds(157, 26, 44, 16);
 		txtrBginfo.setToolTipText("3S");
 		txtrBginfo.setText("BG_Info");
 		
@@ -355,6 +363,57 @@ public class BgInfoFrame extends JFrame {
 		txtrTimetobiuld.setToolTipText("3S");
 		txtrTimetobiuld.setText(bg.timetoBuild());
 		contentPane.setLayout(null);
+		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBorderPainted(false);
+		menuBar.setBackground(Color.WHITE);
+		menuBar.setBounds(10, 0, 386, 23);
+		contentPane.add(menuBar);
+		
+		JMenu mnNewMenu = new JMenu("Datei");
+		menuBar.add(mnNewMenu);
+		
+		JMenuItem mntmNewMenuItem_1 = new JMenuItem("New menu item");
+		mntmNewMenuItem_1.setBackground(Color.WHITE);
+		mnNewMenu.add(mntmNewMenuItem_1);
+		
+		JMenuItem mntmNewMenuItem_2 = new JMenuItem("New menu item");
+		mntmNewMenuItem_2.setBackground(Color.WHITE);
+		mnNewMenu.add(mntmNewMenuItem_2);
+		
+		JMenuItem mntmBeenden = new JMenuItem("Beenden");
+		
+		mntmBeenden.addMouseListener(new MouseAdapter() {	
+			@Override
+			public void mousePressed(MouseEvent e) {
+				System.out.println("test beenden  pressed");
+			}
+		});
+		mntmBeenden.setBackground(Color.WHITE);
+		mnNewMenu.add(mntmBeenden);
+		
+		JMenu mnNewMenuBearbeiten = new JMenu("Bearbeiten");
+		mnNewMenuBearbeiten.setBackground(Color.WHITE);
+		menuBar.add(mnNewMenuBearbeiten);
+		
+		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Kopie");
+		mntmNewMenuItem_3.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_COPY, InputEvent.CTRL_MASK));
+		mntmNewMenuItem_3.setBackground(Color.WHITE);
+		mnNewMenuBearbeiten.add(mntmNewMenuItem_3);
+		
+		JMenuItem mntmEinfgen = new JMenuItem("Einfügen");
+		mntmEinfgen.setBackground(Color.WHITE);
+		mntmEinfgen.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_PASTE, InputEvent.CTRL_MASK));
+		mnNewMenuBearbeiten.add(mntmEinfgen);
+		
+		JMenu mnInfo = new JMenu("Info");
+		menuBar.add(mnInfo);
+		
+		JMenuItem mntmbers = new JMenuItem("über 3s");
+		mntmbers.setSelectedIcon(new ImageIcon("C:\\Users\\banih\\git\\Call-for-a-Help\\prototype\\src\\bginfo\\images\\3s_logo.png"));
+		mntmbers.setHorizontalAlignment(SwingConstants.CENTER);
+		mntmbers.setBackground(Color.WHITE);
+		mnInfo.add(mntmbers);
 		contentPane.add(txtrNetzwerk);
 		contentPane.add(txtrDefaultGateway);
 		contentPane.add(txtrDnsServer);
@@ -432,50 +491,7 @@ public class BgInfoFrame extends JFrame {
 		btnFehlerMelden.setBackground(Color.WHITE);
 		btnFehlerMelden.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnFehlerMelden.setForeground(Color.RED);
-		
-		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBorderPainted(false);
-		menuBar.setBackground(Color.WHITE);
-		menuBar.setBounds(16, 0, 230, 23);
-		contentPane.add(menuBar);
-		
-		JMenu mnNewMenu = new JMenu("Datei");
-		menuBar.add(mnNewMenu);
-		
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem("New menu item");
-		mntmNewMenuItem_1.setBackground(Color.WHITE);
-		mnNewMenu.add(mntmNewMenuItem_1);
-		
-		JMenuItem mntmNewMenuItem_2 = new JMenuItem("New menu item");
-		mntmNewMenuItem_2.setBackground(Color.WHITE);
-		mnNewMenu.add(mntmNewMenuItem_2);
-		
-		JMenuItem mntmBeenden = new JMenuItem("Beenden");
-		mntmBeenden.setBackground(Color.WHITE);
-		mnNewMenu.add(mntmBeenden);
-		
-		JMenu mnNewMenuBearbeiten = new JMenu("Bearbeiten");
-		mnNewMenuBearbeiten.setBackground(Color.WHITE);
-		menuBar.add(mnNewMenuBearbeiten);
-		
-		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Kopie");
-		mntmNewMenuItem_3.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_COPY, InputEvent.CTRL_MASK));
-		mntmNewMenuItem_3.setBackground(Color.WHITE);
-		mnNewMenuBearbeiten.add(mntmNewMenuItem_3);
-		
-		JMenuItem mntmEinfgen = new JMenuItem("Einfügen");
-		mntmEinfgen.setBackground(Color.WHITE);
-		mntmEinfgen.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_PASTE, InputEvent.CTRL_MASK));
-		mnNewMenuBearbeiten.add(mntmEinfgen);
-		
-		JMenu mnInfo = new JMenu("Info");
-		menuBar.add(mnInfo);
-		
-		JMenuItem mntmbers = new JMenuItem("über 3s");
-		mntmbers.setSelectedIcon(new ImageIcon("C:\\Users\\banih\\git\\Call-for-a-Help\\prototype\\src\\bginfo\\images\\3s_logo.png"));
-		mntmbers.setHorizontalAlignment(SwingConstants.CENTER);
-		mntmbers.setBackground(Color.WHITE);
-		mnInfo.add(mntmbers);
+		setVisible(true);
 		
 	}
 }
