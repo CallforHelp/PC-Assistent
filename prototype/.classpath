@@ -2,12 +2,12 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/banih/git/Call-for-a-Help/prototype/httpcomponents-client-4.3.3/lib/commons-codec-1.6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/banih/git/Call-for-a-Help/prototype/httpcomponents-client-4.3.3/lib/commons-logging-1.1.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/banih/git/Call-for-a-Help/prototype/httpcomponents-client-4.3.3/lib/fluent-hc-4.3.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/banih/git/Call-for-a-Help/prototype/httpcomponents-client-4.3.3/lib/httpclient-4.3.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/banih/git/Call-for-a-Help/prototype/httpcomponents-client-4.3.3/lib/httpclient-cache-4.3.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/banih/git/Call-for-a-Help/prototype/httpcomponents-client-4.3.3/lib/httpcore-4.3.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/banih/git/Call-for-a-Help/prototype/httpcomponents-client-4.3.3/lib/httpmime-4.3.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/banih/git/Call-for-a-Help/prototype/src/httpcomponents-client-4.3.3/lib/commons-codec-1.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/banih/git/Call-for-a-Help/prototype/src/httpcomponents-client-4.3.3/lib/commons-logging-1.1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/banih/git/Call-for-a-Help/prototype/src/httpcomponents-client-4.3.3/lib/fluent-hc-4.3.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/banih/git/Call-for-a-Help/prototype/src/httpcomponents-client-4.3.3/lib/httpclient-4.3.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/banih/git/Call-for-a-Help/prototype/src/httpcomponents-client-4.3.3/lib/httpclient-cache-4.3.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/banih/git/Call-for-a-Help/prototype/src/httpcomponents-client-4.3.3/lib/httpcore-4.3.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/banih/git/Call-for-a-Help/prototype/src/httpcomponents-client-4.3.3/lib/httpmime-4.3.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
