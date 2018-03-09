@@ -12,10 +12,9 @@ import java.util.*;
 
 public class BG_Info {
 	
-		
-	
 	public static void main(String[] args) throws Exception {
 		BG_Info BG = new BG_Info();
+		
 		System.out.println("3S");
 		System.out.println("BG_Info");
 		System.out.println("time to build :"+ BG.timetoBuild());
@@ -27,6 +26,7 @@ public class BG_Info {
 		
 		System.out.println("Host Name     :"+ BG.getLocalHost());
 		System.out.println("User Name     :"+ BG.getUserName());
+		System.out.println("SchulNummer     :"+ BG.getSchulNr());
 		System.out.println("OS Version    :"+ BG.getOSversion());
 		System.out.println("OS Architektur:"+ BG.getOSArchitecture());
 		System.out.println("Muster Images :"+ BG.getMusterImages());
@@ -43,6 +43,10 @@ public class BG_Info {
 		System.out.println("DHCP Server    :"+ BG.getDHCPServer());
 		System.out.println("DNS Server     :"+ BG.getDNSServer());
 
+	}
+	private String getSchulNr() {
+		String schulNr ="";
+		return schulNr;
 	}
 	public String uberSchrift() {
 		String s ="3S";

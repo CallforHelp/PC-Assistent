@@ -4,9 +4,6 @@ import java.awt.EventQueue;
 import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import java.awt.Color;
 import javax.swing.JTextPane;
 import javax.swing.UIManager;
@@ -14,15 +11,19 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import java.awt.Font;
 import javax.swing.JTextArea;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
-import javax.swing.JLayeredPane;
-import javax.swing.border.BevelBorder;
 import javax.swing.SwingConstants;
+
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.KeyStroke;
+import java.awt.event.KeyEvent;
+import java.awt.event.InputEvent;
 
 
 
@@ -75,14 +76,14 @@ public class BgInfoFrame extends JFrame {
 	 * @throws IOException 
 	 */
 	public BgInfoFrame() throws IOException {
+		setBackground(Color.WHITE);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setResizable(false);
-		setBounds(100, 100, 396, 635);
+		setBounds(100, 100, 414, 600);
 		setLocation(430,45);
 		
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
 		JTextPane textPane_2 = new JTextPane();
@@ -93,21 +94,25 @@ public class BgInfoFrame extends JFrame {
 		textPane_2.setFont(new Font("Times New Roman", Font.PLAIN, 10));
 		
 		JTextArea txtrs = new JTextArea();
-		txtrs.setBounds(17, 5, 30, 16);
+		txtrs.setEditable(false);
+		txtrs.setBounds(81, 26, 30, 16);
 		txtrs.setText("3S");
 		txtrs.setToolTipText("3S");
 		
 		JTextArea txtrBginfo = new JTextArea();
+		txtrBginfo.setEditable(false);
 		txtrBginfo.setBounds(17, 26, 44, 16);
 		txtrBginfo.setToolTipText("3S");
 		txtrBginfo.setText("BG_Info");
 		
 		JTextArea txtrSchulsupportservicesHitecEv = new JTextArea();
+		txtrSchulsupportservicesHitecEv.setEditable(false);
 		txtrSchulsupportservicesHitecEv.setBounds(17, 48, 276, 16);
 		txtrSchulsupportservicesHitecEv.setToolTipText("3S");
 		txtrSchulsupportservicesHitecEv.setText("Schul-Support-Services HiTEC e.V.");
 		
 		JTextArea txtrPcinfo = new JTextArea();
+		txtrPcinfo.setEditable(false);
 		txtrPcinfo.setBounds(17, 86, 60, 17);
 		txtrPcinfo.setFont(new Font("Monospaced", Font.PLAIN, 12));
 		txtrPcinfo.setToolTipText("3S");
@@ -121,26 +126,31 @@ public class BgInfoFrame extends JFrame {
 		textPane.setFont(new Font("Times New Roman", Font.PLAIN, 10));
 		
 		JTextArea txtrHostName = new JTextArea();
+		txtrHostName.setEditable(false);
 		txtrHostName.setBounds(17, 130, 66, 16);
 		txtrHostName.setToolTipText("3S");
 		txtrHostName.setText("Host Name ");
 		
 		JTextArea txtrUserName = new JTextArea();
+		txtrUserName.setEditable(false);
 		txtrUserName.setBounds(17, 173, 64, 16);
 		txtrUserName.setToolTipText("3S");
 		txtrUserName.setText("User Name");
 		
 		JTextArea txtrOsVersion = new JTextArea();
+		txtrOsVersion.setEditable(false);
 		txtrOsVersion.setBounds(17, 151, 94, 16);
 		txtrOsVersion.setToolTipText("3S");
 		txtrOsVersion.setText("Os Version ");
 		
 		JTextArea txtrOsArchitektur = new JTextArea();
+		txtrOsArchitektur.setEditable(false);
 		txtrOsArchitektur.setBounds(17, 195, 77, 16);
 		txtrOsArchitektur.setToolTipText("3S");
 		txtrOsArchitektur.setText("OS Architektur");
 		
 		JTextArea txtrMusterImages = new JTextArea();
+		txtrMusterImages.setEditable(false);
 		txtrMusterImages.setBounds(17, 217, 82, 16);
 		txtrMusterImages.setToolTipText("3S");
 		txtrMusterImages.setText("Muster Images");
@@ -178,6 +188,7 @@ public class BgInfoFrame extends JFrame {
 		textPane_1.setFont(new Font("Times New Roman", Font.PLAIN, 10));
 		
 		JTextArea txtrNetzwerk = new JTextArea();
+		txtrNetzwerk.setEditable(false);
 		txtrNetzwerk.setBounds(17, 260, 60, 21);
 		txtrNetzwerk.setToolTipText("3S");
 		txtrNetzwerk.setText("Netzwerk");
@@ -191,26 +202,31 @@ public class BgInfoFrame extends JFrame {
 		textPane_3.setFont(new Font("Times New Roman", Font.PLAIN, 10));
 		
 		JTextArea txtrIpAdresse = new JTextArea();
+		txtrIpAdresse.setEditable(false);
 		txtrIpAdresse.setBounds(17, 314, 94, 16);
 		txtrIpAdresse.setToolTipText("3S");
 		txtrIpAdresse.setText("IP Adresse");
 		
 		JTextArea txtrSubnetMask = new JTextArea();
+		txtrSubnetMask.setEditable(false);
 		txtrSubnetMask.setBounds(17, 336, 94, 16);
 		txtrSubnetMask.setToolTipText("3S");
 		txtrSubnetMask.setText("Subnet Mask");
 		
 		JTextArea txtrMacAdresse = new JTextArea();
+		txtrMacAdresse.setEditable(false);
 		txtrMacAdresse.setBounds(17, 358, 94, 16);
 		txtrMacAdresse.setToolTipText("3S");
 		txtrMacAdresse.setText("Mac Adresse");
 		
 		JTextArea txtrDomain = new JTextArea();
+		txtrDomain.setEditable(false);
 		txtrDomain.setBounds(17, 380, 94, 16);
 		txtrDomain.setToolTipText("3S");
 		txtrDomain.setText("Domain");
 		
 		JTextArea txtrDefaultGateway = new JTextArea();
+		txtrDefaultGateway.setEditable(false);
 		txtrDefaultGateway.setBounds(17, 402, 128, 16);
 		txtrDefaultGateway.setToolTipText("3S");
 		txtrDefaultGateway.setText("Default Gateway");
@@ -236,11 +252,13 @@ public class BgInfoFrame extends JFrame {
 		textArea_8.setText(":");
 		
 		JTextArea txtrDhcpServer = new JTextArea();
+		txtrDhcpServer.setEditable(false);
 		txtrDhcpServer.setBounds(17, 424, 73, 16);
 		txtrDhcpServer.setToolTipText("3S");
 		txtrDhcpServer.setText("DHCP Server");
 		
 		JTextArea txtrDnsServer = new JTextArea();
+		txtrDnsServer.setEditable(false);
 		txtrDnsServer.setBounds(17, 446, 64, 16);
 		txtrDnsServer.setToolTipText("3S");
 		txtrDnsServer.setText("DNS Server");
@@ -261,93 +279,81 @@ public class BgInfoFrame extends JFrame {
 		textArea_11.setText(":");
 		
 		JTextArea txtrHostNameinhalt = new JTextArea();
+		txtrHostNameinhalt.setEditable(false);
 		txtrHostNameinhalt.setBounds(148, 130, 150, 16);
 		txtrHostNameinhalt.setToolTipText("3S");
 		txtrHostNameinhalt.setText(bg.getLocalHost());
 		
 		JTextArea txtrOsVersioninhalt = new JTextArea();
+		txtrOsVersioninhalt.setEditable(false);
 		txtrOsVersioninhalt.setBounds(157, 151, 134, 16);
 		txtrOsVersioninhalt.setToolTipText("3S");
 		txtrOsVersioninhalt.setText(bg.getOSversion());
 		
 		JTextArea txtrUserNameInhalt = new JTextArea();
+		txtrUserNameInhalt.setEditable(false);
 		txtrUserNameInhalt.setBounds(157, 173, 134, 16);
 		txtrUserNameInhalt.setToolTipText("3S");
 		txtrUserNameInhalt.setText(bg.getUserName());
 		
 		JTextArea txtrOsArchitektur_1 = new JTextArea();
+		txtrOsArchitektur_1.setEditable(false);
 		txtrOsArchitektur_1.setBounds(157, 195, 134, 16);
 		txtrOsArchitektur_1.setToolTipText("3S");
 		txtrOsArchitektur_1.setText(bg.getOSArchitecture());
 		
 		JTextArea txtrMusterImages_1 = new JTextArea();
+		txtrMusterImages_1.setEditable(false);
 		txtrMusterImages_1.setBounds(157, 217, 134, 16);
 		txtrMusterImages_1.setToolTipText("3S");
 		txtrMusterImages_1.setText(bg.getMusterImages());
 		
 		JTextArea txtrIpAdresseinahlt = new JTextArea();
+		txtrIpAdresseinahlt.setEditable(false);
 		txtrIpAdresseinahlt.setBounds(174, 314, 135, 16);
 		txtrIpAdresseinahlt.setToolTipText("3S");
 		txtrIpAdresseinahlt.setText(bg.getLocalAdresse());
 		
 		JTextArea txtrSubnetMaskinhalt = new JTextArea();
+		txtrSubnetMaskinhalt.setEditable(false);
 		txtrSubnetMaskinhalt.setBounds(174, 336, 120, 16);
 		txtrSubnetMaskinhalt.setToolTipText("3S");
 		txtrSubnetMaskinhalt.setText(bg.getSubnetMask());
 		
 		JTextArea txtrMacAdresseinhalt = new JTextArea();
-		txtrMacAdresseinhalt.setBounds(174, 358, 149, 16);
+		txtrMacAdresseinhalt.setEditable(false);
+		txtrMacAdresseinhalt.setBounds(175, 358, 149, 16);
 		txtrMacAdresseinhalt.setToolTipText("3S");
 		txtrMacAdresseinhalt.setText(bg.getMacAddress());
 		
 		JTextArea txtrDomaininhalt = new JTextArea();
-		txtrDomaininhalt.setBounds(174, 380, 0, 16);
+		txtrDomaininhalt.setEditable(false);
+		txtrDomaininhalt.setBounds(174, 380, 120, 16);
 		txtrDomaininhalt.setToolTipText("3S");
 		txtrDomaininhalt.setText(bg.getMachindomain());
 		
 		JTextArea txtrDefaultGatewayinhalt = new JTextArea();
-		txtrDefaultGatewayinhalt.setBounds(175, 402, 128, 16);
+		txtrDefaultGatewayinhalt.setEditable(false);
+		txtrDefaultGatewayinhalt.setBounds(175, 402, 92, 16);
 		txtrDefaultGatewayinhalt.setToolTipText("3S");
 		txtrDefaultGatewayinhalt.setText(bg.getDefaultgateway());
 		
 		JTextArea txtrDhcpServerinhalt = new JTextArea();
+		txtrDhcpServerinhalt.setEditable(false);
 		txtrDhcpServerinhalt.setBounds(175, 424, 92, 16);
 		txtrDhcpServerinhalt.setToolTipText("3S");
 		txtrDhcpServerinhalt.setText(bg.getDHCPServer());
 		
 		JTextArea txtrDnsServerinhalt = new JTextArea();
-		txtrDnsServerinhalt.setBounds(175, 446, 138, 16);
+		txtrDnsServerinhalt.setEditable(false);
+		txtrDnsServerinhalt.setBounds(175, 446, 92, 16);
 		txtrDnsServerinhalt.setToolTipText("3S");
 		txtrDnsServerinhalt.setText(bg.getDNSServer());
 		
-		JButton btnFehlerMelden = new JButton("Fehler Melden ");
-		btnFehlerMelden.setBounds(17, 474, 116, 24);
-		btnFehlerMelden.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				System.out.println("action by clik");
-				try {
-					web.openWebSiteExample();
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-		btnFehlerMelden.setBackground(Color.WHITE);
-		btnFehlerMelden.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnFehlerMelden.setForeground(Color.RED);
-		
 		JTextArea txtrTimetobiuld = new JTextArea();
-		txtrTimetobiuld.setBounds(216, 5, 113, 16);
+		txtrTimetobiuld.setBounds(281, 48, 113, 16);
 		txtrTimetobiuld.setToolTipText("3S");
 		txtrTimetobiuld.setText(bg.timetoBuild());
-		
-		JButton btnExit = new JButton("CHAT");
-		btnExit.setBounds(207, 474, 116, 24);
-		btnExit.setForeground(Color.RED);
-		btnExit.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnExit.setBackground(Color.WHITE);
 		contentPane.setLayout(null);
 		contentPane.add(txtrNetzwerk);
 		contentPane.add(txtrDefaultGateway);
@@ -357,10 +363,8 @@ public class BgInfoFrame extends JFrame {
 		contentPane.add(txtrDhcpServerinhalt);
 		contentPane.add(textArea_9);
 		contentPane.add(txtrDefaultGatewayinhalt);
-		contentPane.add(btnExit);
 		contentPane.add(textArea_11);
 		contentPane.add(txtrDnsServerinhalt);
-		contentPane.add(btnFehlerMelden);
 		contentPane.add(txtrIpAdresse);
 		contentPane.add(txtrSubnetMask);
 		contentPane.add(txtrMacAdresse);
@@ -398,16 +402,80 @@ public class BgInfoFrame extends JFrame {
 		contentPane.add(textPane);
 		contentPane.add(textPane_2);
 		
-		JLayeredPane layeredPane = new JLayeredPane();
-		layeredPane.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		layeredPane.setBounds(17, 498, 361, 83);
-		contentPane.add(layeredPane);
-		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\banih\\git\\Call-for-a-Help\\prototype\\src\\bginfo\\images\\3s_logo.png"));
-		lblNewLabel.setBounds(12, 12, 349, 71);
-		layeredPane.add(lblNewLabel);
+		lblNewLabel.setBounds(27, 474, 325, 90);
+		contentPane.add(lblNewLabel);
+		
+		JButton btnChat = new JButton("Chat");
+		btnChat.setBounds(278, 399, 116, 24);
+		contentPane.add(btnChat);
+		btnChat.setForeground(Color.RED);
+		btnChat.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnChat.setBackground(Color.WHITE);
+		
+		JButton btnFehlerMelden = new JButton("Fehler Melden ");
+		btnFehlerMelden.setBounds(278, 443, 116, 24);
+		contentPane.add(btnFehlerMelden);
+		btnFehlerMelden.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.out.println("action by clik");
+				try {
+					web.openWebSiteExample();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnFehlerMelden.setBackground(Color.WHITE);
+		btnFehlerMelden.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnFehlerMelden.setForeground(Color.RED);
+		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBorderPainted(false);
+		menuBar.setBackground(Color.WHITE);
+		menuBar.setBounds(16, 0, 230, 23);
+		contentPane.add(menuBar);
+		
+		JMenu mnNewMenu = new JMenu("Datei");
+		menuBar.add(mnNewMenu);
+		
+		JMenuItem mntmNewMenuItem_1 = new JMenuItem("New menu item");
+		mntmNewMenuItem_1.setBackground(Color.WHITE);
+		mnNewMenu.add(mntmNewMenuItem_1);
+		
+		JMenuItem mntmNewMenuItem_2 = new JMenuItem("New menu item");
+		mntmNewMenuItem_2.setBackground(Color.WHITE);
+		mnNewMenu.add(mntmNewMenuItem_2);
+		
+		JMenuItem mntmBeenden = new JMenuItem("Beenden");
+		mntmBeenden.setBackground(Color.WHITE);
+		mnNewMenu.add(mntmBeenden);
+		
+		JMenu mnNewMenuBearbeiten = new JMenu("Bearbeiten");
+		mnNewMenuBearbeiten.setBackground(Color.WHITE);
+		menuBar.add(mnNewMenuBearbeiten);
+		
+		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Kopie");
+		mntmNewMenuItem_3.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_COPY, InputEvent.CTRL_MASK));
+		mntmNewMenuItem_3.setBackground(Color.WHITE);
+		mnNewMenuBearbeiten.add(mntmNewMenuItem_3);
+		
+		JMenuItem mntmEinfgen = new JMenuItem("Einfügen");
+		mntmEinfgen.setBackground(Color.WHITE);
+		mntmEinfgen.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_PASTE, InputEvent.CTRL_MASK));
+		mnNewMenuBearbeiten.add(mntmEinfgen);
+		
+		JMenu mnInfo = new JMenu("Info");
+		menuBar.add(mnInfo);
+		
+		JMenuItem mntmbers = new JMenuItem("über 3s");
+		mntmbers.setSelectedIcon(new ImageIcon("C:\\Users\\banih\\git\\Call-for-a-Help\\prototype\\src\\bginfo\\images\\3s_logo.png"));
+		mntmbers.setHorizontalAlignment(SwingConstants.CENTER);
+		mntmbers.setBackground(Color.WHITE);
+		mnInfo.add(mntmbers);
 		
 	}
 }
