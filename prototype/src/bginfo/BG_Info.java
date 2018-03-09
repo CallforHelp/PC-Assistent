@@ -12,41 +12,11 @@ import java.util.*;
 
 public class BG_Info {
 	
-	public static void main(String[] args) throws Exception {
-		BG_Info BG = new BG_Info();
 		
-		System.out.println("3S");
-		System.out.println("BG_Info");
-		System.out.println("time to build :"+ BG.timetoBuild());
+	public String getSchulNummer() {
+		String schulNummer="SchulNummer";
 		
-		System.out.println("Schul-Support-Services HiTEC e.V.");
-		System.out.println("********************************");
-		System.out.println("            PC Info");
-		System.out.println("********************************");
-		
-		System.out.println("Host Name     :"+ BG.getLocalHost());
-		System.out.println("User Name     :"+ BG.getUserName());
-		System.out.println("SchulNummer     :"+ BG.getSchulNr());
-		System.out.println("OS Version    :"+ BG.getOSversion());
-		System.out.println("OS Architektur:"+ BG.getOSArchitecture());
-		System.out.println("Muster Images :"+ BG.getMusterImages());
-		
-		System.out.println("********************************");
-		System.out.println("            NETZWERK");
-		System.out.println("********************************");
-		
-		System.out.println("Adresse local  :"+ BG.getLocalAdresse());
-		System.out.println("Subnet Mask    :"+ BG.getSubnetMask());
-		System.out.println("MAC Adresse    :"+ BG.getMacAddress());
-		System.out.println("Machine Domain :"+ BG.getMachindomain());
-		System.out.println("Default Gateway:"+ BG.getDefaultgateway());
-		System.out.println("DHCP Server    :"+ BG.getDHCPServer());
-		System.out.println("DNS Server     :"+ BG.getDNSServer());
-
-	}
-	private String getSchulNr() {
-		String schulNr ="";
-		return schulNr;
+		return schulNummer;
 	}
 	public String uberSchrift() {
 		String s ="3S";

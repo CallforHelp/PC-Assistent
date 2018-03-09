@@ -1,5 +1,5 @@
 package bginfo;
-
+/*
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +22,7 @@ import org.apache.http.util.EntityUtils;
  * @author AmazingCode.de
  *
  */
-
+/*
 public class Login2 {
 	
 	public static String loginAndGetHTML() throws Exception {
@@ -72,3 +72,4 @@ public class Login2 {
 	}
 
 }
+*/
