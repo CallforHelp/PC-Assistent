@@ -20,7 +20,7 @@ public class TestCallforAHelp {
 		TestCallforAHelp start = new TestCallforAHelp();
 		start .testBG_Info();
 		//start.testCallForaHelpGui();
-		//start.testBgInfoFrame();
+		start.testBgInfoFrame();
 		//start.testWebsiteReader();
 	}
 

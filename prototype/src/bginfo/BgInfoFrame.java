@@ -41,7 +41,7 @@ public class BgInfoFrame extends JFrame {
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setResizable(false);
-		setBounds(100, 100, 395, 635);
+		setBounds(100, 100, 569, 635);
 		setLocation(430,45);
 		
 		contentPane = new JPanel();
@@ -65,7 +65,7 @@ public class BgInfoFrame extends JFrame {
 		txtrs.setToolTipText("3S");
 		
 		JTextArea txtrBginfo = new JTextArea();
-		txtrBginfo.setBounds(17, 26, 45, 16);
+		txtrBginfo.setBounds(17, 26, 94, 16);
 		txtrBginfo.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 12));
 		txtrBginfo.setBackground(Color.WHITE);
 		txtrBginfo.setToolTipText("3S");
@@ -87,13 +87,13 @@ public class BgInfoFrame extends JFrame {
 		textPane.setFont(new Font("Times New Roman", Font.PLAIN, 10));
 		
 		JTextArea txtrHostName = new JTextArea();
-		txtrHostName.setBounds(17, 130, 66, 16);
+		txtrHostName.setBounds(17, 130, 94, 16);
 		txtrHostName.setBackground(Color.WHITE);
 		txtrHostName.setToolTipText("3S");
 		txtrHostName.setText("Host Name ");
 		
 		JTextArea txtrUserName = new JTextArea();
-		txtrUserName.setBounds(17, 173, 64, 16);
+		txtrUserName.setBounds(17, 173, 94, 16);
 		txtrUserName.setBackground(Color.WHITE);
 		txtrUserName.setToolTipText("3S");
 		txtrUserName.setText("User Name");
@@ -105,13 +105,13 @@ public class BgInfoFrame extends JFrame {
 		txtrOsVersion.setText("Os Version ");
 		
 		JTextArea txtrOsArchitektur = new JTextArea();
-		txtrOsArchitektur.setBounds(17, 195, 77, 16);
+		txtrOsArchitektur.setBounds(17, 195, 94, 16);
 		txtrOsArchitektur.setBackground(Color.WHITE);
 		txtrOsArchitektur.setToolTipText("3S");
 		txtrOsArchitektur.setText("OS Architektur");
 		
 		JTextArea txtrMusterImages = new JTextArea();
-		txtrMusterImages.setBounds(17, 217, 82, 16);
+		txtrMusterImages.setBounds(17, 217, 108, 24);
 		txtrMusterImages.setBackground(Color.WHITE);
 		txtrMusterImages.setToolTipText("3S");
 		txtrMusterImages.setText("Muster Images");
@@ -306,7 +306,7 @@ public class BgInfoFrame extends JFrame {
 		txtrMacAdresseinhalt.setText(bg.getMacAddress());
 		
 		JTextArea txtrDomaininhalt = new JTextArea();
-		txtrDomaininhalt.setBounds(174, 402, 63, 16);
+		txtrDomaininhalt.setBounds(174, 402, 93, 16);
 		txtrDomaininhalt.setBackground(Color.WHITE);
 		txtrDomaininhalt.setToolTipText("3S");
 		txtrDomaininhalt.setText(bg.getMachindomain());
@@ -348,7 +348,7 @@ public class BgInfoFrame extends JFrame {
 		btnFehlerMelden.setForeground(Color.RED);
 		
 		JTextArea txtrTimetobiuld = new JTextArea();
-		txtrTimetobiuld.setBounds(262, 5, 115, 16);
+		txtrTimetobiuld.setBounds(262, 48, 124, 16);
 		txtrTimetobiuld.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 12));
 		txtrTimetobiuld.setBackground(Color.WHITE);
 		txtrTimetobiuld.setToolTipText("3S");
@@ -361,12 +361,12 @@ public class BgInfoFrame extends JFrame {
 		btnExit.setBackground(Color.WHITE);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(17, 531, 366, 63);
+		lblNewLabel.setBounds(27, 532, 342, 63);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\bani\\eclipse-workspace\\ProjektCallForAHelp\\src\\bginfo\\images\\3s_logo.png"));
+		lblNewLabel.setIcon(new ImageIcon(BgInfoFrame.class.getResource("/bginfo/images/3s_logo.png")));
 		
 		JTextArea txtrSchulnummer = new JTextArea();
-		txtrSchulnummer.setBounds(17, 239, 82, 16);
+		txtrSchulnummer.setBounds(17, 244, 82, 16);
 		txtrSchulnummer.setToolTipText("3S");
 		txtrSchulnummer.setText("SchulNummer");
 		txtrSchulnummer.setBackground(Color.WHITE);
@@ -446,6 +446,12 @@ public class BgInfoFrame extends JFrame {
 		txtrPcinfo.setBackground(Color.WHITE);
 		txtrPcinfo.setBounds(17, 88, 94, 21);
 		contentPane.add(txtrPcinfo);
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.setSelectedIcon(new ImageIcon(BgInfoFrame.class.getResource("/bginfo/images/Rounded_Button.png")));
+		btnNewButton.setIcon(new ImageIcon(BgInfoFrame.class.getResource("/bginfo/images/Rounded_Button.png")));
+		btnNewButton.setBounds(373, 136, 178, 75);
+		contentPane.add(btnNewButton);
 		
 	}
 }
