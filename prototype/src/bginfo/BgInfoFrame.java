@@ -18,7 +18,6 @@ import java.awt.event.MouseEvent;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
-import javax.swing.DropMode;
 
 
 
@@ -188,10 +187,11 @@ public class BgInfoFrame extends JFrame {
 		textPane_1.setFont(new Font("Times New Roman", Font.PLAIN, 10));
 		
 		JTextArea txtrNetzwerk = new JTextArea();
+		txtrNetzwerk.setEditable(false);
 		txtrNetzwerk.setWrapStyleWord(true);
-		txtrNetzwerk.setDropMode(DropMode.ON);
+		//txtrNetzwerk.setDropMode(DropMode.ON);
 		txtrNetzwerk.setForeground(Color.RED);
-		txtrNetzwerk.setBounds(162, 291, 94, 21);
+		txtrNetzwerk.setBounds(17, 290, 94, 21);
 		txtrNetzwerk.setBackground(Color.WHITE);
 		txtrNetzwerk.setToolTipText("3S");
 		txtrNetzwerk.setText("Netzwerk");
@@ -362,7 +362,7 @@ public class BgInfoFrame extends JFrame {
 		txtrDnsServerinhalt.setText(bg.getDNSServer());
 		
 		JButton btnFehlerMelden = new JButton("Fehler Melden ");
-		btnFehlerMelden.setBounds(45, 502, 116, 24);
+		btnFehlerMelden.setBounds(17, 502, 116, 24);
 		btnFehlerMelden.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -468,14 +468,15 @@ public class BgInfoFrame extends JFrame {
 		contentPane.add(textPane_1);
 		
 		JTextArea txtrPcinfo = new JTextArea();
+		txtrPcinfo.setEditable(false);
 		txtrPcinfo.setWrapStyleWord(true);
 		txtrPcinfo.setToolTipText("3S");
 		txtrPcinfo.setText("PC_Info");
 		txtrPcinfo.setForeground(Color.RED);
 		txtrPcinfo.setFont(new Font("Monospaced", Font.BOLD | Font.ITALIC, 15));
-		txtrPcinfo.setDropMode(DropMode.ON);
+		//txtrPcinfo.setDropMode(DropMode.ON);
 		txtrPcinfo.setBackground(Color.WHITE);
-		txtrPcinfo.setBounds(151, 86, 94, 21);
+		txtrPcinfo.setBounds(17, 88, 94, 21);
 		contentPane.add(txtrPcinfo);
 		
 	}
