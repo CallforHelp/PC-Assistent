@@ -1,6 +1,5 @@
 package bginfo;
 
-import java.awt.EventQueue;
 import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -8,7 +7,6 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.JTextPane;
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
 import java.awt.Font;
 import javax.swing.JTextArea;
@@ -28,43 +26,13 @@ public class BgInfoFrame extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	/**
-	 * 
+	 * Global Variable
 	 */
 	//private static final long serialVersionUID = 376621476984946157L;
 	private JPanel contentPane;
 	private final BG_Info bg = new BG_Info();
 	private WebsiteReader web = new WebsiteReader();
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		 try {
-	           //UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-	            UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
-	        } catch (UnsupportedLookAndFeelException ex) {
-	            ex.printStackTrace();
-	        } catch (IllegalAccessException ex) {
-	            ex.printStackTrace();
-	        } catch (InstantiationException ex) {
-	            ex.printStackTrace();
-	        } catch (ClassNotFoundException ex) {
-	            ex.printStackTrace();
-	        }
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					BgInfoFrame frame = new BgInfoFrame();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	
-	
 	/**
 	 * Create the frame.
 	 * @throws IOException 

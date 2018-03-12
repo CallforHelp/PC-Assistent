@@ -1,5 +1,10 @@
 package bginfo;
-
+/**
+ * 
+ * Eine Testklasse zur Verwendung eines Tests 
+ * Jede Funktion wird erweitert 
+ * Es ist ein Einfacher Test  
+*/
 import java.awt.EventQueue;
 import java.io.IOException;
 import java.net.SocketException;
@@ -12,7 +17,7 @@ public class TestCallforAHelp {
 		TestCallforAHelp start = new TestCallforAHelp();
 		//start .testBG_Info();
 		//start.testCallForaHelpGui();
-		start.testBgInfoFrame();
+		//start.testBgInfoFrame();
 		//start.testWebsiteReader();
 	}
 

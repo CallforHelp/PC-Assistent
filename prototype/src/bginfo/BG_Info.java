@@ -12,12 +12,7 @@ import java.util.*;
 
 public class BG_Info {
 	
-		
-	public String getSchulNummer() {
-		String schulNummer="SchulNummer";
-		
-		return schulNummer;
-	}
+	
 	public String uberSchrift() {
 		String s ="3S";
 		
@@ -30,9 +25,16 @@ public class BG_Info {
 	}
 	/*****************************************************************************************/
 	/*****************************PC_INFO***************************************************/
+	
 	public String getUserName() {
 		String userName = new Properties(System.getProperties()).getProperty("user.name");
 		return userName;
+	}
+	
+	public String getSchulNummer() {
+		String schulNummer="SchulNummer";
+		
+		return schulNummer;
 	}
 	public String getOSversion(){
 		String OsVersion= new Properties(System.getProperties()).getProperty("os.name");
@@ -177,48 +179,38 @@ public class BG_Info {
 		return dnsserver;
 	}
 	
-	
-	
-public  ArrayList<String>[] getBGInfo() {
-	
-	//BG_Info bg = new BG_Info();
-	
 
+	public void printBGinfo() throws Exception{
 	
-	return null;
-}
+		BG_Info BG = new BG_Info();
+	
+		System.out.println("3S");
+		System.out.println("BG_Info");
+		System.out.println("time to build :"+ BG.timetoBuild());
+	
+		System.out.println("Schul-Support-Services HiTEC e.V.");
+		System.out.println("********************************");
+		System.out.println("            PC Info");
+		System.out.println("********************************");
+	
+		System.out.println("Host Name     :"+ BG.getLocalHost());
+		System.out.println("User Name     :"+ BG.getUserName());
+		System.out.println("OS Version    :"+ BG.getOSversion());
+		System.out.println("OS Architektur:"+ BG.getOSArchitecture());
+		System.out.println("Muster Images :"+ BG.getMusterImages());
+	
+		System.out.println("********************************");
+		System.out.println("            NETZWERK");
+		System.out.println("********************************");
+	
+		System.out.println("Adresse local  :"+ BG.getLocalAdresse());
+		System.out.println("Subnet Mask    :"+ BG.getSubnetMask());
+		System.out.println("MAC Adresse    :"+ BG.getMacAddress());
+		System.out.println("Machine Domain :"+ BG.getMachindomain());
+		System.out.println("Default Gateway:"+ BG.getDefaultgateway());
+		System.out.println("DHCP Server    :"+ BG.getDHCPServer());
+		System.out.println("DNS Server     :"+ BG.getDNSServer());
 
-public void printBGinfo() throws Exception{
-	
-	BG_Info BG = new BG_Info();
-	
-	System.out.println("3S");
-	System.out.println("BG_Info");
-	System.out.println("time to build :"+ BG.timetoBuild());
-	
-	System.out.println("Schul-Support-Services HiTEC e.V.");
-	System.out.println("********************************");
-	System.out.println("            PC Info");
-	System.out.println("********************************");
-	
-	System.out.println("Host Name     :"+ BG.getLocalHost());
-	System.out.println("User Name     :"+ BG.getUserName());
-	System.out.println("OS Version    :"+ BG.getOSversion());
-	System.out.println("OS Architektur:"+ BG.getOSArchitecture());
-	System.out.println("Muster Images :"+ BG.getMusterImages());
-	
-	System.out.println("********************************");
-	System.out.println("            NETZWERK");
-	System.out.println("********************************");
-	
-	System.out.println("Adresse local  :"+ BG.getLocalAdresse());
-	System.out.println("Subnet Mask    :"+ BG.getSubnetMask());
-	System.out.println("MAC Adresse    :"+ BG.getMacAddress());
-	System.out.println("Machine Domain :"+ BG.getMachindomain());
-	System.out.println("Default Gateway:"+ BG.getDefaultgateway());
-	System.out.println("DHCP Server    :"+ BG.getDHCPServer());
-	System.out.println("DNS Server     :"+ BG.getDNSServer());
-
-}
+	}
 		
 }
