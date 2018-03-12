@@ -14,8 +14,7 @@ public class BG_Info {
 	
 	
 	public String uberSchrift() {
-		String s ="3S";
-		
+		String s ="3S";	
 		return s;
 	}
 	
@@ -23,8 +22,9 @@ public class BG_Info {
 		String time = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(new Date());
 		return time;
 	}
+	
 	/*****************************************************************************************/
-	/*****************************PC_INFO***************************************************/
+	/******************************************PC_INFO****************************************/
 	
 	public String getUserName() {
 		String userName = new Properties(System.getProperties()).getProperty("user.name");
@@ -61,7 +61,7 @@ public class BG_Info {
 	} 
 	
 	/*****************************************************************************************/
-	/*****************************NETZWERK***************************************************/
+	/****************************************** NETZWERK ****************************************/
 	
 	public String getLocalAdresse() throws UnknownHostException {
 		String result ="";
@@ -135,14 +135,14 @@ public class BG_Info {
 		String defaultgateway="";
 		String line;
 		
-		Process ipfconfig= Runtime.getRuntime().exec("ipconfig /all");
+		Process ipfconfig= Runtime.getRuntime().exec("netsh interface ipv4 show config");
 		Reader input = new InputStreamReader(ipfconfig.getInputStream());
 
 		BufferedReader resultOutput = new BufferedReader(input);
 		
 		while( (line=resultOutput.readLine()) != null ) {
 		   if(line.contains("Standardgateway")) {
-			   defaultgateway=line.split(":\\s")[1];
+			   defaultgateway=line.split(":\\s")[1].trim();
 		   }
 		}
 		return defaultgateway;
@@ -187,21 +187,23 @@ public class BG_Info {
 		System.out.println("3S");
 		System.out.println("BG_Info");
 		System.out.println("time to build :"+ BG.timetoBuild());
-	
+		
+		System.out.println("*********************************");	
 		System.out.println("Schul-Support-Services HiTEC e.V.");
-		System.out.println("********************************");
-		System.out.println("            PC Info");
-		System.out.println("********************************");
+		System.out.println("*********************************");
+		System.out.println("            PC Info              ");
+		System.out.println("*********************************");
 	
 		System.out.println("Host Name     :"+ BG.getLocalHost());
 		System.out.println("User Name     :"+ BG.getUserName());
+		System.out.println("SchulNummer   :"+ BG.getSchulNummer());
 		System.out.println("OS Version    :"+ BG.getOSversion());
 		System.out.println("OS Architektur:"+ BG.getOSArchitecture());
 		System.out.println("Muster Images :"+ BG.getMusterImages());
 	
-		System.out.println("********************************");
-		System.out.println("            NETZWERK");
-		System.out.println("********************************");
+		System.out.println("*********************************");
+		System.out.println("            NETZWERK             ");
+		System.out.println("*********************************");
 	
 		System.out.println("Adresse local  :"+ BG.getLocalAdresse());
 		System.out.println("Subnet Mask    :"+ BG.getSubnetMask());

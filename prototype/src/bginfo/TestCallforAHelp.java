@@ -1,13 +1,16 @@
 package bginfo;
+
+
+import java.awt.EventQueue;
+import java.io.IOException;
+import java.net.SocketException;
+
 /**
  * 
  * Eine Testklasse zur Verwendung eines Tests 
  * Jede Funktion wird erweitert 
  * Es ist ein Einfacher Test  
 */
-import java.awt.EventQueue;
-import java.io.IOException;
-import java.net.SocketException;
 
 public class TestCallforAHelp {
 
@@ -15,7 +18,7 @@ public class TestCallforAHelp {
 
 	public static void main(String[] args) throws SocketException, IOException {
 		TestCallforAHelp start = new TestCallforAHelp();
-		//start .testBG_Info();
+		start .testBG_Info();
 		//start.testCallForaHelpGui();
 		//start.testBgInfoFrame();
 		//start.testWebsiteReader();
