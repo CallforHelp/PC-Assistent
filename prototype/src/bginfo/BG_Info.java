@@ -16,12 +16,16 @@ public class BG_Info {
 	
 	
 	public String uberSchrift() {
+		
 		String s ="3S";	
+		
 		return s;
 	}
 	
 	public String timetoBuild() {
+		
 		String time = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(new Date());
+		
 		return time;
 	}
 	
@@ -29,53 +33,63 @@ public class BG_Info {
 	/******************************************PC_INFO****************************************/
 	
 	public String getUserName() {
+		
 		String userName = new Properties(System.getProperties()).getProperty("user.name");
+		
 		return userName;
 	}
 	
 	public String getSchulNummer() throws UnknownHostException {
+		
 		String schulNummer="";
-		 Pattern p = Pattern.compile("[0-9]{4}");
-		 Matcher m = p.matcher(InetAddress.getLocalHost().getHostName());
-		 if (m.find())
-		     // match
-			 schulNummer= m.group();
+		Pattern p = Pattern.compile("[0-9]{4}");
+		Matcher m = p.matcher(InetAddress.getLocalHost().getHostName());
+		
+		// match
+		if (m.find())
+			schulNummer= m.group();
+		
 		return schulNummer;
 	}
 	
 	public String getOSversion(){
+		
 		String OsVersion= new Properties(System.getProperties()).getProperty("os.name");
+		
 		return OsVersion;
 	}
 	
 	public String getOSArchitecture(){
+		
 		String OsArch= new Properties(System.getProperties()).getProperty("os.arch");
+		
 		return OsArch;
 	}
 	public String getMusterImages() throws IOException {
+		
 		String musterImages = "";
 		String line;
 		String location = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation";
 		String key = "Model";
- // Run reg query, then read output with StreamReader (internal class)
+			// Run reg query, then read output with StreamReader (internal class)
 		Process process = Runtime.getRuntime().exec("reg query " +location+" /v "+key);
-            
-           Reader input = new InputStreamReader(process.getInputStream());
-    		BufferedReader resultOutput = new BufferedReader(input);
-    		
-    		while((line=resultOutput.readLine()) != null) {
-    			if (line.contains("REG")){
-    				musterImages=line.split("REG_SZ")[1].trim();
-    				
-    			}
-    		}
+		
+		Reader input = new InputStreamReader(process.getInputStream());
+		BufferedReader resultOutput = new BufferedReader(input);
+		while((line=resultOutput.readLine()) != null) {
+			if (line.contains("REG")){
+				musterImages=line.split("REG_SZ")[1].trim();
+			}
+		}
+		
 		return musterImages;
-	} 
+	}
 	
 	/*****************************************************************************************/
 	/****************************************** NETZWERK ****************************************/
 	
 	public String getLocalAdresse() throws UnknownHostException {
+		
 		String result ="";
 		result= result + InetAddress.getLocalHost().getHostAddress();
 		return result;
@@ -83,30 +97,29 @@ public class BG_Info {
 	}
 	public String getMacAddress() throws SocketException{
 		
-	  String result = "";
-
-	  for ( NetworkInterface ni : Collections.list( NetworkInterface.getNetworkInterfaces() ) )
-	  {
-	    byte[] hardwareAddress = ni.getHardwareAddress();
-
-	    if ( hardwareAddress != null )
-	    {
-	      for ( int i = 0; i < hardwareAddress.length; i++ )
-	        result += String.format( (i==0?"":"-")+"%02X", hardwareAddress[i] );
-
-	      return result;
-	    }
-	  }
-
-	  return result;
+		String result = "";
+		for( NetworkInterface ni : Collections.list( NetworkInterface.getNetworkInterfaces() ) ){
+			byte[] hardwareAddress = ni.getHardwareAddress();
+			if( hardwareAddress != null ){
+				for ( int i = 0; i < hardwareAddress.length; i++ )
+					result += String.format( (i==0?"":"-")+"%02X", hardwareAddress[i] );
+				return result;
+			}
+		}
+		
+		return result;
 	}
+	
 	public String getLocalHost() throws UnknownHostException {
+		
 		String result ="";
 		result= result + InetAddress.getLocalHost().getHostName();
+		
 		return result;
 		
 	}
 	public String getMachindomain() throws IOException {
+		
 		String domain="";
 		String line;
 		Process ipfconfig = null;
@@ -117,12 +130,12 @@ public class BG_Info {
 		}else
 			 ipfconfig= Runtime.getRuntime().exec("netstat -rn");
 			
-		 input = new InputStreamReader(ipfconfig.getInputStream());
+		input = new InputStreamReader(ipfconfig.getInputStream());
 		BufferedReader resultOutput = new BufferedReader(input);
-		while((line=resultOutput.readLine()) != null) {
-			   if(line.contains("DNS-Suffixsuchliste")) {
-				   domain=line.split(":\\s")[1];
-			   }
+		while((line=resultOutput.readLine()) != null){
+			if(line.contains("DNS-Suffixsuchliste")){
+				domain=line.split(":\\s")[1];
+			}
 		}
 		return domain;
 	}
@@ -139,6 +152,7 @@ public class BG_Info {
 		int oct3 = ((byte) ((shft&0x0000ff00)>>8)) & 0xff;
 		int oct4 = ((byte) (shft&0x000000ff)) & 0xff;
 		String submask = oct1+"."+oct2+"."+oct3+"."+oct4;
+		
 		return submask;
 
 	}
@@ -157,41 +171,44 @@ public class BG_Info {
 			   defaultgateway=line.split(":\\s")[1].trim();
 		   }
 		}
+		
 		return defaultgateway;
 	}
 	
 	public String getDHCPServer() throws IOException {
+		
 		String dhcpserver="";
 		String line;
 		Process ipfconfig= Runtime.getRuntime().exec("ipconfig /all");
 		Reader input = new InputStreamReader(ipfconfig.getInputStream());
-
+		
 		BufferedReader resultOutput = new BufferedReader(input);
 		while((line=resultOutput.readLine()) != null) {
-			   if(line.contains("DHCP-")) {
-				   dhcpserver=line.split(":\\s")[1];
-			   }
+			if(line.contains("DHCP-")) {
+				dhcpserver=line.split(":\\s")[1];
+			}
 		}
 		
 		return dhcpserver;
 	}
 	
-	public String getDNSServer() throws IOException  {
+	public String getDNSServer() throws IOException{
+		
 		String dnsserver="";
 		String line;
 		Process ipfconfig= Runtime.getRuntime().exec("ipconfig /all");
 		Reader input = new InputStreamReader(ipfconfig.getInputStream());
 
 		BufferedReader resultOutput = new BufferedReader(input);
-		while((line=resultOutput.readLine()) != null) {
-			   if(line.contains("DNS-Server")) {
-				   dnsserver=line.split(":\\s")[1];
-			   }
+		while((line=resultOutput.readLine())!= null){
+			if(line.contains("DNS-Server")){
+				dnsserver=line.split(":\\s")[1];
+			}
 		}
+		
 		return dnsserver;
 	}
 	
-
 	public void printBGinfo() throws Exception{
 	
 		BG_Info BG = new BG_Info();
