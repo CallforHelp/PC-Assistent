@@ -8,6 +8,8 @@ import java.io.Reader;
 import java.net.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class BG_Info {
@@ -31,11 +33,16 @@ public class BG_Info {
 		return userName;
 	}
 	
-	public String getSchulNummer() {
-		String schulNummer="SchulNummer";
-		
+	public String getSchulNummer() throws UnknownHostException {
+		String schulNummer="";
+		 Pattern p = Pattern.compile("[0-9]{4}");
+		 Matcher m = p.matcher(InetAddress.getLocalHost().getHostName());
+		 if (m.find())
+		     // match
+			 schulNummer= m.group();
 		return schulNummer;
 	}
+	
 	public String getOSversion(){
 		String OsVersion= new Properties(System.getProperties()).getProperty("os.name");
 		return OsVersion;
@@ -45,18 +52,23 @@ public class BG_Info {
 		String OsArch= new Properties(System.getProperties()).getProperty("os.arch");
 		return OsArch;
 	}
-	public String getMusterImages() {
+	public String getMusterImages() throws IOException {
 		String musterImages = "";
-		String OsVersion= new Properties(System.getProperties()).getProperty("os.name");
-		
-		if (OsVersion.contains("10")) {
-			musterImages= "CottonCandy W10";
-			
-		}else 
-			if (OsVersion.contains("7"))
-				musterImages= "CottonCandy W7";
-		
-		
+		String line;
+		String location = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation";
+		String key = "Model";
+ // Run reg query, then read output with StreamReader (internal class)
+		Process process = Runtime.getRuntime().exec("reg query " +location+" /v "+key);
+            
+           Reader input = new InputStreamReader(process.getInputStream());
+    		BufferedReader resultOutput = new BufferedReader(input);
+    		
+    		while((line=resultOutput.readLine()) != null) {
+    			if (line.contains("REG")){
+    				musterImages=line.split("REG_SZ")[1].trim();
+    				
+    			}
+    		}
 		return musterImages;
 	} 
 	
@@ -105,7 +117,7 @@ public class BG_Info {
 		}else
 			 ipfconfig= Runtime.getRuntime().exec("netstat -rn");
 			
-		input = new InputStreamReader(ipfconfig.getInputStream());
+		 input = new InputStreamReader(ipfconfig.getInputStream());
 		BufferedReader resultOutput = new BufferedReader(input);
 		while((line=resultOutput.readLine()) != null) {
 			   if(line.contains("DNS-Suffixsuchliste")) {

@@ -16,6 +16,11 @@ import java.awt.event.MouseEvent;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+import java.awt.Cursor;
+import java.awt.Dimension;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JDesktopPane;
 
 
 
@@ -31,6 +36,7 @@ public class BgInfoFrame extends JFrame {
 	//private static final long serialVersionUID = 376621476984946157L;
 	private JPanel contentPane;
 	private final BG_Info bg = new BG_Info();
+	
 	private WebsiteReader web = new WebsiteReader();
 
 	/**
@@ -39,12 +45,18 @@ public class BgInfoFrame extends JFrame {
 	 */
 	public BgInfoFrame() throws IOException {
 		setBackground(Color.WHITE);
+		
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setResizable(false);
-		setBounds(100, 100, 569, 635);
+		setBounds(100, 100, 409, 635);
 		setLocation(430,45);
 		
 		contentPane = new JPanel();
+		
+		contentPane.setVerifyInputWhenFocusTarget(false);
+		contentPane.setPreferredSize(new Dimension(6, 10));
+		contentPane.setOpaque(false);
+		contentPane.setCursor(Cursor.getPredefinedCursor(Cursor.N_RESIZE_CURSOR));
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(UIManager.getBorder("CheckBox.border"));
 		setContentPane(contentPane);
@@ -228,13 +240,13 @@ public class BgInfoFrame extends JFrame {
 		textArea_8.setText(":");
 		
 		JTextArea txtrDhcpServer = new JTextArea();
-		txtrDhcpServer.setBounds(17, 446, 73, 16);
+		txtrDhcpServer.setBounds(17, 446, 116, 16);
 		txtrDhcpServer.setBackground(Color.WHITE);
 		txtrDhcpServer.setToolTipText("3S");
 		txtrDhcpServer.setText("DHCP Server");
 		
 		JTextArea txtrDnsServer = new JTextArea();
-		txtrDnsServer.setBounds(17, 468, 64, 16);
+		txtrDnsServer.setBounds(17, 468, 116, 16);
 		txtrDnsServer.setBackground(Color.WHITE);
 		txtrDnsServer.setToolTipText("3S");
 		txtrDnsServer.setText("DNS Server");
@@ -282,7 +294,7 @@ public class BgInfoFrame extends JFrame {
 		txtrOsArchitektur_1.setText(bg.getOSArchitecture());
 		
 		JTextArea txtrMusterImages_1 = new JTextArea();
-		txtrMusterImages_1.setBounds(151, 217, 134, 16);
+		txtrMusterImages_1.setBounds(151, 217, 186, 16);
 		txtrMusterImages_1.setBackground(Color.WHITE);
 		txtrMusterImages_1.setToolTipText("3S");
 		txtrMusterImages_1.setText(bg.getMusterImages());
@@ -306,7 +318,7 @@ public class BgInfoFrame extends JFrame {
 		txtrMacAdresseinhalt.setText(bg.getMacAddress());
 		
 		JTextArea txtrDomaininhalt = new JTextArea();
-		txtrDomaininhalt.setBounds(174, 402, 93, 16);
+		txtrDomaininhalt.setBounds(174, 402, 149, 16);
 		txtrDomaininhalt.setBackground(Color.WHITE);
 		txtrDomaininhalt.setToolTipText("3S");
 		txtrDomaininhalt.setText(bg.getMachindomain());
@@ -330,7 +342,7 @@ public class BgInfoFrame extends JFrame {
 		txtrDnsServerinhalt.setText(bg.getDNSServer());
 		
 		JButton btnFehlerMelden = new JButton("Fehler Melden ");
-		btnFehlerMelden.setBounds(17, 502, 116, 24);
+		btnFehlerMelden.setBounds(17, 522, 116, 24);
 		btnFehlerMelden.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -355,13 +367,13 @@ public class BgInfoFrame extends JFrame {
 		txtrTimetobiuld.setText(bg.timetoBuild());
 		
 		JButton btnExit = new JButton("Chat");
-		btnExit.setBounds(197, 502, 116, 24);
+		btnExit.setBounds(157, 522, 116, 24);
 		btnExit.setForeground(Color.RED);
 		btnExit.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnExit.setBackground(Color.WHITE);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(27, 532, 342, 63);
+		lblNewLabel.setBounds(27, 557, 342, 38);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setIcon(new ImageIcon(BgInfoFrame.class.getResource("/bginfo/images/3s_logo.png")));
 		
@@ -378,7 +390,7 @@ public class BgInfoFrame extends JFrame {
 		textArea_13.setBackground(Color.WHITE);
 		
 		JTextArea textArea_14 = new JTextArea();
-		textArea_14.setBounds(151, 239, 134, 16);
+		textArea_14.setBounds(156, 244, 134, 22);
 		textArea_14.setToolTipText("3S");
 		textArea_14.setBackground(Color.WHITE);
 		textArea_14.setText(bg.getSchulNummer());
@@ -446,12 +458,6 @@ public class BgInfoFrame extends JFrame {
 		txtrPcinfo.setBackground(Color.WHITE);
 		txtrPcinfo.setBounds(17, 88, 94, 21);
 		contentPane.add(txtrPcinfo);
-		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setSelectedIcon(new ImageIcon(BgInfoFrame.class.getResource("/bginfo/images/Rounded_Button.png")));
-		btnNewButton.setIcon(new ImageIcon(BgInfoFrame.class.getResource("/bginfo/images/Rounded_Button.png")));
-		btnNewButton.setBounds(373, 136, 178, 75);
-		contentPane.add(btnNewButton);
 		
 	}
 }
