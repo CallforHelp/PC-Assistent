@@ -1,5 +1,5 @@
 package bginfo;
-
+/*
 import java.io.*;
 import java.net.*;
 
@@ -42,8 +42,8 @@ public class PostToUrl
        } catch( Exception ex ) {
          System.out.println( "\nError: " + ex );
        } finally {
-         if( os != null ) try { os.close(); } catch( IOException ex ) {/*ok*/}
-         if( is != null ) try { is.close(); } catch( IOException ex ) {/*ok*/}
+         if( os != null ) try { os.close(); } catch( IOException ex ) {}
+         if( is != null ) try { is.close(); } catch( IOException ex ) {}
        }
    }
-}
+}*/
