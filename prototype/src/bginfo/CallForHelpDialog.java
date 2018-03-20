@@ -1,34 +1,28 @@
 package bginfo;
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import java.awt.Component;
-import javax.swing.Box;
 import java.awt.Color;
 import java.awt.Toolkit;
-import javax.swing.JSplitPane;
-import javax.swing.JEditorPane;
-import javax.swing.JLabel;
+
 import javax.swing.ImageIcon;
-import javax.swing.JTextField;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import java.awt.Label;
 
 public class CallForHelpDialog extends JDialog {
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6961734509536439873L;
+/**
+	 * 
+	 */
+
 /**
 	 * Create the dialog.
 	 */
 	public CallForHelpDialog() {
 	
-		
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-		setVisible(true);
 		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(CallForHelpDialog.class.getResource("/bginfo/images/3s_logo.png")));
 		getContentPane().setBackground(Color.WHITE);
