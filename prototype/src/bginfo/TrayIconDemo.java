@@ -7,6 +7,7 @@ import java.awt.event.*;
 import java.net.URL;
 import javax.swing.*;
 
+
 public class TrayIconDemo {
     
 	public static void main(String[] args) {

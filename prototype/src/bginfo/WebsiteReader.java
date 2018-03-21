@@ -2,18 +2,22 @@ package bginfo;
 
 import java.io.*;
 import java.util.*;
+
+
 import java.net.*;
 
 public class WebsiteReader {
 	
-	String webSeite ="https://www.3s-hamburg.de/kontakt/"; 
-	
+	private final String webSeite ="https://www.3s-hamburg.de/kontakt/"; 
+	private final BG_Info bginfo= new BG_Info();
 	//browser starten
+	
 	public void openWebSiteExample() throws IOException {
 		System.out.println("standard browswer wird aufgerufen");
-		new ProcessBuilder(new String[] { "cmd", "/c", "start",
-	                webSeite }).start();
-	    
+		if(bginfo.getOSversion().contains("win")) {
+			new ProcessBuilder(new String[] { "cmd", "/c", "start", webSeite }).start();
+		}else 
+			new ProcessBuilder(new String[] {"open", webSeite}).start();
 	}
 	//quelltext ausdrucken
 	public void webScraperExample () throws MalformedURLException, IOException{

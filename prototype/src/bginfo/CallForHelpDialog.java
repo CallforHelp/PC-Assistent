@@ -8,6 +8,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+
+
 public class CallForHelpDialog extends JDialog {
 /**
 	 * 
@@ -47,7 +49,7 @@ public class CallForHelpDialog extends JDialog {
 		
 		JLabel lblCopyright = new JLabel("Copyright \u00A9 2018 Hamburger Informatik Technologie-Center e.V. (HITeC).");
 		lblCopyright.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCopyright.setBounds(20, 151, 410, 14);
+		lblCopyright.setBounds(20, 151, 468, 14);
 		getContentPane().add(lblCopyright);
 		
 		JLabel lblAlleRechteVorbehalten = new JLabel("Alle Rechte vorbehalten. ");
