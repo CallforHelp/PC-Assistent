@@ -127,8 +127,7 @@ public class BG_Info {
 		String line;
 		Process ipfconfig = null;
 		Reader input = null;
-		
-		if(getOSversion().contains("win")) {
+		if(getOSversion().contains("W")||getOSversion().contains("w")) {
 			ipfconfig= Runtime.getRuntime().exec("ipconfig /all");
 			input = new InputStreamReader(ipfconfig.getInputStream());
 			BufferedReader resultOutput = new BufferedReader(input);
@@ -162,7 +161,7 @@ public class BG_Info {
 		String defaultgateway="";
 		String line;
 		Process ipfconfig=null;
-		if (getOSversion().contains("win")) {
+		if (getOSversion().contains("W")||getOSversion().contains("w") ) {
 			ipfconfig= Runtime.getRuntime().exec("netsh interface ipv4 show config");
 			Reader input = new InputStreamReader(ipfconfig.getInputStream());
 			BufferedReader resultOutput = new BufferedReader(input);
@@ -181,7 +180,7 @@ public class BG_Info {
 		String dhcpserver="";
 		String line;
 		Process ipfconfig= null; 
-		if(getOSversion().contains("win")) {
+		if(getOSversion().contains("W")||getOSversion().contains("w")){
 			ipfconfig= Runtime.getRuntime().exec("ipconfig /all");
 			Reader input = new InputStreamReader(ipfconfig.getInputStream());
 			BufferedReader resultOutput = new BufferedReader(input);
@@ -202,7 +201,7 @@ public class BG_Info {
 		Process ipfconfig= null;
 		Reader input = null;
 		
-		if(getOSversion().contains("win")) {
+		if(getOSversion().contains("W")||getOSversion().contains("w")){
 			ipfconfig = Runtime.getRuntime().exec("ipconfig /all");
 			input = new InputStreamReader(ipfconfig.getInputStream());
 			BufferedReader resultOutput = new BufferedReader(input);
