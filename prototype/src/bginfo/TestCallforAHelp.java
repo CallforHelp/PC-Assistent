@@ -19,7 +19,7 @@ public class TestCallforAHelp {
 	public static void main(String[] args) throws SocketException, IOException {
 		TestCallforAHelp start = new TestCallforAHelp();
 		start .testBG_Info();
-		//start.testCallForaHelpGui();
+		start.testCallForaHelpGui();
 		start.testBgInfoFrame();
 		//start.testWebsiteReader();
 	}
