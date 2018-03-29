@@ -1,23 +1,26 @@
 package bginfo;
 
-import java.awt.EventQueue;
 import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
+
 import java.awt.Color;
 import javax.swing.JTextPane;
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
 import java.awt.Font;
 import javax.swing.JTextArea;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
+import java.awt.Cursor;
+import java.awt.Dimension;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JDesktopPane;
 
 
 
@@ -28,249 +31,318 @@ public class BgInfoFrame extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	/**
-	 * 
+	 * Global Variable
 	 */
 	//private static final long serialVersionUID = 376621476984946157L;
 	private JPanel contentPane;
 	private final BG_Info bg = new BG_Info();
+	
 	private WebsiteReader web = new WebsiteReader();
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		 try {
-	           //UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-	            UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
-	        } catch (UnsupportedLookAndFeelException ex) {
-	            ex.printStackTrace();
-	        } catch (IllegalAccessException ex) {
-	            ex.printStackTrace();
-	        } catch (InstantiationException ex) {
-	            ex.printStackTrace();
-	        } catch (ClassNotFoundException ex) {
-	            ex.printStackTrace();
-	        }
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					BgInfoFrame frame = new BgInfoFrame();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	
-	
 	/**
 	 * Create the frame.
 	 * @throws IOException 
 	 */
 	public BgInfoFrame() throws IOException {
+		setBackground(Color.WHITE);
+		
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setResizable(false);
-		setBounds(100, 100, 396, 635);
+		setBounds(100, 100, 409, 635);
 		setLocation(430,45);
 		
 		contentPane = new JPanel();
+		
+		contentPane.setVerifyInputWhenFocusTarget(false);
+		contentPane.setPreferredSize(new Dimension(6, 10));
+		contentPane.setOpaque(false);
+		contentPane.setCursor(Cursor.getPredefinedCursor(Cursor.N_RESIZE_CURSOR));
 		contentPane.setBackground(Color.WHITE);
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBorder(UIManager.getBorder("CheckBox.border"));
 		setContentPane(contentPane);
 		
 		JTextPane textPane_2 = new JTextPane();
+		textPane_2.setBounds(5, 76, 381, 15);
+		textPane_2.setBackground(Color.WHITE);
 		textPane_2.setToolTipText("Uberschrift");
 		textPane_2.setText("***************************************************************************");
 		textPane_2.setForeground(Color.BLUE);
 		textPane_2.setFont(new Font("Times New Roman", Font.PLAIN, 10));
 		
 		JTextArea txtrs = new JTextArea();
+		txtrs.setBounds(17, 5, 30, 16);
+		txtrs.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 12));
+		txtrs.setBackground(Color.WHITE);
 		txtrs.setText("3S");
 		txtrs.setToolTipText("3S");
 		
 		JTextArea txtrBginfo = new JTextArea();
+		txtrBginfo.setBounds(17, 26, 94, 16);
+		txtrBginfo.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 12));
+		txtrBginfo.setBackground(Color.WHITE);
 		txtrBginfo.setToolTipText("3S");
 		txtrBginfo.setText("BG_Info");
 		
 		JTextArea txtrSchulsupportservicesHitecEv = new JTextArea();
+		txtrSchulsupportservicesHitecEv.setBounds(17, 48, 276, 16);
+		txtrSchulsupportservicesHitecEv.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 12));
+		txtrSchulsupportservicesHitecEv.setBackground(Color.WHITE);
 		txtrSchulsupportservicesHitecEv.setToolTipText("3S");
 		txtrSchulsupportservicesHitecEv.setText("Schul-Support-Services HiTEC e.V.");
 		
-		JTextArea txtrPcinfo = new JTextArea();
-		txtrPcinfo.setFont(new Font("Monospaced", Font.PLAIN, 12));
-		txtrPcinfo.setToolTipText("3S");
-		txtrPcinfo.setText("PC_Info");
-		
 		JTextPane textPane = new JTextPane();
+		textPane.setBounds(5, 109, 381, 15);
+		textPane.setBackground(Color.WHITE);
 		textPane.setToolTipText("Uberschrift");
 		textPane.setText("***************************************************************************");
 		textPane.setForeground(Color.BLUE);
 		textPane.setFont(new Font("Times New Roman", Font.PLAIN, 10));
 		
 		JTextArea txtrHostName = new JTextArea();
+		txtrHostName.setBounds(17, 130, 94, 16);
+		txtrHostName.setBackground(Color.WHITE);
 		txtrHostName.setToolTipText("3S");
 		txtrHostName.setText("Host Name ");
 		
 		JTextArea txtrUserName = new JTextArea();
+		txtrUserName.setBounds(17, 173, 94, 16);
+		txtrUserName.setBackground(Color.WHITE);
 		txtrUserName.setToolTipText("3S");
 		txtrUserName.setText("User Name");
 		
 		JTextArea txtrOsVersion = new JTextArea();
+		txtrOsVersion.setBounds(17, 151, 94, 16);
+		txtrOsVersion.setBackground(Color.WHITE);
 		txtrOsVersion.setToolTipText("3S");
 		txtrOsVersion.setText("Os Version ");
 		
 		JTextArea txtrOsArchitektur = new JTextArea();
+		txtrOsArchitektur.setBounds(17, 195, 94, 16);
+		txtrOsArchitektur.setBackground(Color.WHITE);
 		txtrOsArchitektur.setToolTipText("3S");
 		txtrOsArchitektur.setText("OS Architektur");
 		
 		JTextArea txtrMusterImages = new JTextArea();
+		txtrMusterImages.setBounds(17, 217, 108, 24);
+		txtrMusterImages.setBackground(Color.WHITE);
 		txtrMusterImages.setToolTipText("3S");
 		txtrMusterImages.setText("Muster Images");
 		
 		JTextArea textArea_1 = new JTextArea();
+		textArea_1.setBounds(133, 130, 3, 16);
+		textArea_1.setBackground(Color.WHITE);
 		textArea_1.setToolTipText("3S");
 		textArea_1.setText(":");
 		
 		JTextArea textArea_2 = new JTextArea();
+		textArea_2.setBounds(133, 173, 12, 16);
+		textArea_2.setBackground(Color.WHITE);
 		textArea_2.setToolTipText("3S");
 		textArea_2.setText(":");
 		
 		JTextArea textArea_3 = new JTextArea();
+		textArea_3.setBounds(133, 195, 12, 16);
+		textArea_3.setBackground(Color.WHITE);
 		textArea_3.setToolTipText("3S");
 		textArea_3.setText(":");
 		
 		JTextArea textArea_4 = new JTextArea();
+		textArea_4.setBounds(133, 217, 12, 16);
+		textArea_4.setBackground(Color.WHITE);
 		textArea_4.setToolTipText("3S");
 		textArea_4.setText(":");
 		
 		JTextArea textArea_5 = new JTextArea();
+		textArea_5.setBounds(133, 151, 12, 16);
+		textArea_5.setBackground(Color.WHITE);
 		textArea_5.setToolTipText("3S");
 		textArea_5.setText(":");
 		
 		JTextPane textPane_1 = new JTextPane();
+		textPane_1.setBounds(5, 277, 381, 15);
+		textPane_1.setBackground(Color.WHITE);
 		textPane_1.setToolTipText("Uberschrift");
 		textPane_1.setText("***************************************************************************");
 		textPane_1.setForeground(Color.BLUE);
 		textPane_1.setFont(new Font("Times New Roman", Font.PLAIN, 10));
 		
 		JTextArea txtrNetzwerk = new JTextArea();
+		txtrNetzwerk.setEditable(false);
+		txtrNetzwerk.setWrapStyleWord(true);
+		//txtrNetzwerk.setDropMode(DropMode.ON);
+		txtrNetzwerk.setForeground(Color.RED);
+		txtrNetzwerk.setBounds(17, 290, 94, 21);
+		txtrNetzwerk.setBackground(Color.WHITE);
 		txtrNetzwerk.setToolTipText("3S");
 		txtrNetzwerk.setText("Netzwerk");
-		txtrNetzwerk.setFont(new Font("Monospaced", Font.PLAIN, 12));
+		txtrNetzwerk.setFont(new Font("Monospaced", Font.BOLD | Font.ITALIC, 15));
 		
 		JTextPane textPane_3 = new JTextPane();
+		textPane_3.setBounds(5, 315, 381, 15);
+		textPane_3.setBackground(Color.WHITE);
 		textPane_3.setToolTipText("Uberschrift");
 		textPane_3.setText("***************************************************************************");
 		textPane_3.setForeground(Color.BLUE);
 		textPane_3.setFont(new Font("Times New Roman", Font.PLAIN, 10));
 		
 		JTextArea txtrIpAdresse = new JTextArea();
+		txtrIpAdresse.setBounds(17, 336, 94, 16);
+		txtrIpAdresse.setBackground(Color.WHITE);
 		txtrIpAdresse.setToolTipText("3S");
 		txtrIpAdresse.setText("IP Adresse");
 		
 		JTextArea txtrSubnetMask = new JTextArea();
+		txtrSubnetMask.setBounds(17, 358, 94, 16);
+		txtrSubnetMask.setBackground(Color.WHITE);
 		txtrSubnetMask.setToolTipText("3S");
 		txtrSubnetMask.setText("Subnet Mask");
 		
 		JTextArea txtrMacAdresse = new JTextArea();
+		txtrMacAdresse.setBounds(17, 380, 94, 16);
+		txtrMacAdresse.setBackground(Color.WHITE);
 		txtrMacAdresse.setToolTipText("3S");
 		txtrMacAdresse.setText("Mac Adresse");
 		
 		JTextArea txtrDomain = new JTextArea();
+		txtrDomain.setBounds(17, 402, 94, 16);
+		txtrDomain.setBackground(Color.WHITE);
 		txtrDomain.setToolTipText("3S");
 		txtrDomain.setText("Domain");
 		
 		JTextArea txtrDefaultGateway = new JTextArea();
+		txtrDefaultGateway.setBounds(17, 424, 128, 16);
+		txtrDefaultGateway.setBackground(Color.WHITE);
 		txtrDefaultGateway.setToolTipText("3S");
 		txtrDefaultGateway.setText("Default Gateway");
 		
 		JTextArea textArea = new JTextArea();
+		textArea.setBounds(156, 336, 12, 16);
+		textArea.setBackground(Color.WHITE);
 		textArea.setToolTipText("3S");
 		textArea.setText(":");
 		
 		JTextArea textArea_6 = new JTextArea();
+		textArea_6.setBounds(156, 358, 12, 16);
+		textArea_6.setBackground(Color.WHITE);
 		textArea_6.setToolTipText("3S");
 		textArea_6.setText(":");
 		
 		JTextArea textArea_7 = new JTextArea();
+		textArea_7.setBounds(156, 380, 12, 16);
+		textArea_7.setBackground(Color.WHITE);
 		textArea_7.setToolTipText("3S");
 		textArea_7.setText(":");
 		
 		JTextArea textArea_8 = new JTextArea();
+		textArea_8.setBounds(156, 402, 12, 16);
+		textArea_8.setBackground(Color.WHITE);
 		textArea_8.setToolTipText("3S");
 		textArea_8.setText(":");
 		
 		JTextArea txtrDhcpServer = new JTextArea();
+		txtrDhcpServer.setBounds(17, 446, 116, 16);
+		txtrDhcpServer.setBackground(Color.WHITE);
 		txtrDhcpServer.setToolTipText("3S");
 		txtrDhcpServer.setText("DHCP Server");
 		
 		JTextArea txtrDnsServer = new JTextArea();
+		txtrDnsServer.setBounds(17, 468, 116, 16);
+		txtrDnsServer.setBackground(Color.WHITE);
 		txtrDnsServer.setToolTipText("3S");
 		txtrDnsServer.setText("DNS Server");
 		
 		JTextArea textArea_9 = new JTextArea();
+		textArea_9.setBounds(157, 424, 12, 16);
+		textArea_9.setBackground(Color.WHITE);
 		textArea_9.setToolTipText("3S");
 		textArea_9.setText(":");
 		
 		JTextArea textArea_10 = new JTextArea();
+		textArea_10.setBounds(157, 446, 12, 16);
+		textArea_10.setBackground(Color.WHITE);
 		textArea_10.setToolTipText("3S");
 		textArea_10.setText(":");
 		
 		JTextArea textArea_11 = new JTextArea();
+		textArea_11.setBounds(157, 468, 12, 16);
+		textArea_11.setBackground(Color.WHITE);
 		textArea_11.setToolTipText("3S");
 		textArea_11.setText(":");
 		
 		JTextArea txtrHostNameinhalt = new JTextArea();
+		txtrHostNameinhalt.setBounds(148, 130, 150, 16);
+		txtrHostNameinhalt.setBackground(Color.WHITE);
 		txtrHostNameinhalt.setToolTipText("3S");
 		txtrHostNameinhalt.setText(bg.getLocalHost());
 		
 		JTextArea txtrOsVersioninhalt = new JTextArea();
+		txtrOsVersioninhalt.setBounds(151, 151, 134, 16);
+		txtrOsVersioninhalt.setBackground(Color.WHITE);
 		txtrOsVersioninhalt.setToolTipText("3S");
 		txtrOsVersioninhalt.setText(bg.getOSversion());
 		
 		JTextArea txtrUserNameInhalt = new JTextArea();
+		txtrUserNameInhalt.setBounds(151, 173, 134, 16);
+		txtrUserNameInhalt.setBackground(Color.WHITE);
 		txtrUserNameInhalt.setToolTipText("3S");
 		txtrUserNameInhalt.setText(bg.getUserName());
 		
 		JTextArea txtrOsArchitektur_1 = new JTextArea();
+		txtrOsArchitektur_1.setBounds(151, 195, 134, 16);
+		txtrOsArchitektur_1.setBackground(Color.WHITE);
 		txtrOsArchitektur_1.setToolTipText("3S");
 		txtrOsArchitektur_1.setText(bg.getOSArchitecture());
 		
 		JTextArea txtrMusterImages_1 = new JTextArea();
+		txtrMusterImages_1.setBounds(151, 217, 186, 16);
+		txtrMusterImages_1.setBackground(Color.WHITE);
 		txtrMusterImages_1.setToolTipText("3S");
 		txtrMusterImages_1.setText(bg.getMusterImages());
 		
 		JTextArea txtrIpAdresseinahlt = new JTextArea();
+		txtrIpAdresseinahlt.setBounds(174, 336, 135, 16);
+		txtrIpAdresseinahlt.setBackground(Color.WHITE);
 		txtrIpAdresseinahlt.setToolTipText("3S");
 		txtrIpAdresseinahlt.setText(bg.getLocalAdresse());
 		
 		JTextArea txtrSubnetMaskinhalt = new JTextArea();
+		txtrSubnetMaskinhalt.setBounds(174, 358, 120, 16);
+		txtrSubnetMaskinhalt.setBackground(Color.WHITE);
 		txtrSubnetMaskinhalt.setToolTipText("3S");
 		txtrSubnetMaskinhalt.setText(bg.getSubnetMask());
 		
 		JTextArea txtrMacAdresseinhalt = new JTextArea();
+		txtrMacAdresseinhalt.setBounds(174, 380, 149, 16);
+		txtrMacAdresseinhalt.setBackground(Color.WHITE);
 		txtrMacAdresseinhalt.setToolTipText("3S");
 		txtrMacAdresseinhalt.setText(bg.getMacAddress());
 		
 		JTextArea txtrDomaininhalt = new JTextArea();
+		txtrDomaininhalt.setBounds(174, 402, 149, 16);
+		txtrDomaininhalt.setBackground(Color.WHITE);
 		txtrDomaininhalt.setToolTipText("3S");
 		txtrDomaininhalt.setText(bg.getMachindomain());
 		
 		JTextArea txtrDefaultGatewayinhalt = new JTextArea();
+		txtrDefaultGatewayinhalt.setBounds(175, 424, 128, 16);
+		txtrDefaultGatewayinhalt.setBackground(Color.WHITE);
 		txtrDefaultGatewayinhalt.setToolTipText("3S");
 		txtrDefaultGatewayinhalt.setText(bg.getDefaultgateway());
 		
 		JTextArea txtrDhcpServerinhalt = new JTextArea();
+		txtrDhcpServerinhalt.setBounds(175, 446, 92, 16);
+		txtrDhcpServerinhalt.setBackground(Color.WHITE);
 		txtrDhcpServerinhalt.setToolTipText("3S");
 		txtrDhcpServerinhalt.setText(bg.getDHCPServer());
 		
 		JTextArea txtrDnsServerinhalt = new JTextArea();
+		txtrDnsServerinhalt.setBounds(175, 468, 138, 16);
+		txtrDnsServerinhalt.setBackground(Color.WHITE);
 		txtrDnsServerinhalt.setToolTipText("3S");
 		txtrDnsServerinhalt.setText(bg.getDNSServer());
 		
 		JButton btnFehlerMelden = new JButton("Fehler Melden ");
+		btnFehlerMelden.setBounds(17, 522, 116, 24);
 		btnFehlerMelden.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -288,214 +360,104 @@ public class BgInfoFrame extends JFrame {
 		btnFehlerMelden.setForeground(Color.RED);
 		
 		JTextArea txtrTimetobiuld = new JTextArea();
+		txtrTimetobiuld.setBounds(262, 48, 124, 16);
+		txtrTimetobiuld.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 12));
+		txtrTimetobiuld.setBackground(Color.WHITE);
 		txtrTimetobiuld.setToolTipText("3S");
 		txtrTimetobiuld.setText(bg.timetoBuild());
 		
-		JButton btnExit = new JButton("CHAT");
+		JButton btnExit = new JButton("Chat");
+		btnExit.setBounds(157, 522, 116, 24);
 		btnExit.setForeground(Color.RED);
 		btnExit.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnExit.setBackground(Color.WHITE);
 		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(27, 557, 342, 38);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setIcon(new ImageIcon(BgInfoFrame.class.getResource("/bginfo/images/3s_logo.png")));
 		
+		JTextArea txtrSchulnummer = new JTextArea();
+		txtrSchulnummer.setBounds(17, 244, 82, 16);
+		txtrSchulnummer.setToolTipText("3S");
+		txtrSchulnummer.setText("SchulNummer");
+		txtrSchulnummer.setBackground(Color.WHITE);
 		
+		JTextArea textArea_13 = new JTextArea();
+		textArea_13.setBounds(133, 239, 12, 16);
+		textArea_13.setToolTipText("3S");
+		textArea_13.setText(":");
+		textArea_13.setBackground(Color.WHITE);
 		
-		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(txtrNetzwerk, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addContainerGap()
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(txtrDefaultGateway, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtrDnsServer, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtrDhcpServer, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(textArea_10, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(txtrDhcpServerinhalt, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(textArea_9, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(txtrDefaultGatewayinhalt, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-									.addComponent(btnExit, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE)
-									.addGroup(gl_contentPane.createSequentialGroup()
-										.addComponent(textArea_11, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(ComponentPlacement.RELATED)
-										.addComponent(txtrDnsServerinhalt, GroupLayout.PREFERRED_SIZE, 138, GroupLayout.PREFERRED_SIZE)))))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addContainerGap()
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(btnFehlerMelden)
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addComponent(txtrIpAdresse, GroupLayout.PREFERRED_SIZE, 94, GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtrSubnetMask, GroupLayout.PREFERRED_SIZE, 94, GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtrMacAdresse, GroupLayout.PREFERRED_SIZE, 94, GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtrDomain, GroupLayout.PREFERRED_SIZE, 94, GroupLayout.PREFERRED_SIZE))
-									.addGap(45)
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addComponent(textArea_8, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.RELATED)
-											.addComponent(txtrDomaininhalt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addComponent(textArea_7, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.RELATED)
-											.addComponent(txtrMacAdresseinhalt, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE))
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addComponent(textArea_6, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.RELATED)
-											.addComponent(txtrSubnetMaskinhalt, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE))
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addComponent(textArea, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.RELATED)
-											.addComponent(txtrIpAdresseinahlt, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE)))))
-							.addGap(53))
-						.addComponent(textPane_3, GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
-						.addComponent(textPane_1, GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addContainerGap()
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(txtrBginfo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(txtrs, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-									.addGap(169)
-									.addComponent(txtrTimetobiuld, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-									.addGap(34))
-								.addComponent(txtrSchulsupportservicesHitecEv, GroupLayout.PREFERRED_SIZE, 276, GroupLayout.PREFERRED_SIZE)
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
-											.addComponent(txtrHostName, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-											.addComponent(txtrOsVersion, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE))
-										.addComponent(txtrMusterImages, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtrOsArchitektur, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtrUserName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-									.addGap(22)
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addComponent(textArea_5, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.UNRELATED)
-											.addComponent(txtrOsVersioninhalt, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE))
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addComponent(textArea_2, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.UNRELATED)
-											.addComponent(txtrUserNameInhalt, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE))
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addComponent(textArea_4, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.UNRELATED)
-											.addComponent(txtrMusterImages_1, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE))
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addComponent(textArea_3, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.UNRELATED)
-											.addComponent(txtrOsArchitektur_1, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE))
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addComponent(textArea_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.UNRELATED)
-											.addComponent(txtrHostNameinhalt, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)))
-									.addGap(96))
-								.addComponent(txtrPcinfo, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(ComponentPlacement.RELATED, 8, Short.MAX_VALUE))
-						.addComponent(textPane, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
-						.addComponent(textPane_2, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE))
-					.addContainerGap())
-		);
-		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(txtrs, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(txtrTimetobiuld, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(5)
-					.addComponent(txtrBginfo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(txtrSchulsupportservicesHitecEv, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(1)
-					.addComponent(textPane_2, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(txtrPcinfo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(textPane, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(txtrHostName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textArea_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(txtrHostNameinhalt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(5)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(txtrOsVersion, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textArea_5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(txtrOsVersioninhalt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(txtrUserName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textArea_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(txtrUserNameInhalt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(txtrOsArchitektur, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textArea_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(txtrOsArchitektur_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(txtrMusterImages, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textArea_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(txtrMusterImages_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(textPane_1, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(txtrNetzwerk, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(textPane_3, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(txtrIpAdresse, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textArea, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(txtrIpAdresseinahlt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(txtrSubnetMask, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textArea_6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(txtrSubnetMaskinhalt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(txtrMacAdresse, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textArea_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(txtrMacAdresseinhalt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(txtrDomain, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textArea_8, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(txtrDomaininhalt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(txtrDefaultGateway, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textArea_9, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(txtrDefaultGatewayinhalt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(txtrDhcpServer, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textArea_10, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(txtrDhcpServerinhalt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(txtrDnsServer, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textArea_11, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(txtrDnsServerinhalt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnFehlerMelden)
-						.addComponent(btnExit, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap())
-		);
-		contentPane.setLayout(gl_contentPane);
+		JTextArea textArea_14 = new JTextArea();
+		textArea_14.setBounds(156, 244, 134, 22);
+		textArea_14.setToolTipText("3S");
+		textArea_14.setBackground(Color.WHITE);
+		textArea_14.setText(bg.getSchulNummer());
+		contentPane.setLayout(null);
+		contentPane.add(btnFehlerMelden);
+		contentPane.add(txtrDefaultGateway);
+		contentPane.add(txtrDnsServer);
+		contentPane.add(txtrDhcpServer);
+		contentPane.add(textArea_10);
+		contentPane.add(txtrDhcpServerinhalt);
+		contentPane.add(textArea_9);
+		contentPane.add(txtrDefaultGatewayinhalt);
+		contentPane.add(btnExit);
+		contentPane.add(textArea_11);
+		contentPane.add(txtrDnsServerinhalt);
+		contentPane.add(txtrIpAdresse);
+		contentPane.add(txtrSubnetMask);
+		contentPane.add(txtrMacAdresse);
+		contentPane.add(txtrDomain);
+		contentPane.add(textArea_8);
+		contentPane.add(txtrDomaininhalt);
+		contentPane.add(textArea_7);
+		contentPane.add(txtrMacAdresseinhalt);
+		contentPane.add(textArea_6);
+		contentPane.add(txtrSubnetMaskinhalt);
+		contentPane.add(textArea);
+		contentPane.add(txtrIpAdresseinahlt);
+		contentPane.add(textPane_3);
+		contentPane.add(txtrBginfo);
+		contentPane.add(txtrs);
+		contentPane.add(txtrTimetobiuld);
+		contentPane.add(txtrSchulsupportservicesHitecEv);
+		contentPane.add(txtrHostName);
+		contentPane.add(txtrOsVersion);
+		contentPane.add(txtrMusterImages);
+		contentPane.add(txtrOsArchitektur);
+		contentPane.add(txtrUserName);
+		contentPane.add(txtrSchulnummer);
+		contentPane.add(textArea_5);
+		contentPane.add(txtrOsVersioninhalt);
+		contentPane.add(textArea_2);
+		contentPane.add(txtrUserNameInhalt);
+		contentPane.add(textArea_4);
+		contentPane.add(txtrMusterImages_1);
+		contentPane.add(textArea_3);
+		contentPane.add(txtrOsArchitektur_1);
+		contentPane.add(textArea_1);
+		contentPane.add(txtrHostNameinhalt);
+		contentPane.add(textArea_13);
+		contentPane.add(textArea_14);
+		contentPane.add(textPane);
+		contentPane.add(textPane_2);
+		contentPane.add(lblNewLabel);
+		contentPane.add(txtrNetzwerk);
+		contentPane.add(textPane_1);
+		
+		JTextArea txtrPcinfo = new JTextArea();
+		txtrPcinfo.setEditable(false);
+		txtrPcinfo.setWrapStyleWord(true);
+		txtrPcinfo.setToolTipText("3S");
+		txtrPcinfo.setText("PC_Info");
+		txtrPcinfo.setForeground(Color.RED);
+		txtrPcinfo.setFont(new Font("Monospaced", Font.BOLD | Font.ITALIC, 15));
+		//txtrPcinfo.setDropMode(DropMode.ON);
+		txtrPcinfo.setBackground(Color.WHITE);
+		txtrPcinfo.setBounds(17, 88, 94, 21);
+		contentPane.add(txtrPcinfo);
 		
 	}
 }

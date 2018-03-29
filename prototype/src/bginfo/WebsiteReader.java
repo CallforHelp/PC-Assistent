@@ -8,14 +8,6 @@ public class WebsiteReader {
 	
 	String webSeite ="https://www.3s-hamburg.de/kontakt/"; 
 	
-	public static void main(String[] args) throws IOException, IOException {
-		
-		WebsiteReader web = new WebsiteReader();
-		//web.openWebSiteExample();
-		//web.webScraperExample();
-		web.startFIleInput();
-		
-	}
 	//browser starten
 	public void openWebSiteExample() throws IOException {
 		System.out.println("standard browswer wird aufgerufen");
