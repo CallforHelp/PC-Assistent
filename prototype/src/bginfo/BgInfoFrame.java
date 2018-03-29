@@ -7,8 +7,11 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.JTextPane;
 import javax.swing.UIManager;
+import javax.swing.border.BevelBorder;
 
 import java.awt.Font;
+import java.awt.Toolkit;
+
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
@@ -17,8 +20,8 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import java.awt.Cursor;
+import java.awt.Dialog.ModalExclusionType;
 import java.awt.Dimension;
-
 
 
 
@@ -42,10 +45,12 @@ public class BgInfoFrame extends JFrame {
 	 * @throws IOException 
 	 */
 	public BgInfoFrame() throws IOException {
+		setType(Type.UTILITY);
+		setModalExclusionType(ModalExclusionType.APPLICATION_EXCLUDE);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(BgInfoFrame.class.getResource("/bginfo/images/bulb.gif")));
 		setBackground(Color.WHITE);
 		
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		setResizable(false);
 		setBounds(100, 100, 409, 635);
 		setLocation(430,45);
 		
@@ -56,7 +61,7 @@ public class BgInfoFrame extends JFrame {
 		contentPane.setOpaque(false);
 		contentPane.setCursor(Cursor.getPredefinedCursor(Cursor.N_RESIZE_CURSOR));
 		contentPane.setBackground(Color.WHITE);
-		contentPane.setBorder(UIManager.getBorder("CheckBox.border"));
+		contentPane.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		setContentPane(contentPane);
 		
 		JTextPane textPane_2 = new JTextPane();
@@ -340,7 +345,7 @@ public class BgInfoFrame extends JFrame {
 		txtrDnsServerinhalt.setText(bg.getDNSServer());
 		
 		JButton btnFehlerMelden = new JButton("Fehler Melden ");
-		btnFehlerMelden.setBounds(17, 522, 116, 24);
+		btnFehlerMelden.setBounds(17, 495, 116, 24);
 		btnFehlerMelden.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -365,13 +370,13 @@ public class BgInfoFrame extends JFrame {
 		txtrTimetobiuld.setText(bg.timetoBuild());
 		
 		JButton btnExit = new JButton("Chat");
-		btnExit.setBounds(157, 522, 116, 24);
+		btnExit.setBounds(151, 495, 116, 24);
 		btnExit.setForeground(Color.RED);
 		btnExit.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnExit.setBackground(Color.WHITE);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(27, 557, 342, 38);
+		lblNewLabel.setBounds(17, 530, 356, 65);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setIcon(new ImageIcon(BgInfoFrame.class.getResource("/bginfo/images/3s_logo.png")));
 		
@@ -459,3 +464,4 @@ public class BgInfoFrame extends JFrame {
 		
 	}
 }
+

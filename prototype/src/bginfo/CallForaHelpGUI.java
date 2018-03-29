@@ -1,12 +1,23 @@
 package bginfo;
 
 import java.awt.*;
+
+import java.awt.AWTException;
+import java.awt.Image;
+import java.awt.MenuItem;
+import java.awt.PopupMenu;
+import java.awt.SystemTray;
+import java.awt.TrayIcon;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.URL;
 
 import javax.swing.ImageIcon;
+
+
+
 
 public class CallForaHelpGUI {
 	
@@ -18,7 +29,6 @@ public class CallForaHelpGUI {
 		final BG_Info bg = new BG_Info();
 		final BgInfoFrame jframe = new BgInfoFrame();
 		final WebsiteReader weblogin = new WebsiteReader();
-		
 		if (!SystemTray.isSupported()) {
 			System.out.println("SystemTray is not supported");
 			return;
@@ -49,8 +59,16 @@ public class CallForaHelpGUI {
         
         //MenuListe Einsetzen
         trayIcon.setPopupMenu(popup);
-        //actions
-        
+        //actiion
+        trayIcon.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("action by clik");
+				CallForHelpDialog dialog = new CallForHelpDialog();
+				dialog.setVisible(true);
+			}
+		});
+
         Fehler_Meldung_Menu_Item.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

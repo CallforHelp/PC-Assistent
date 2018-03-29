@@ -24,6 +24,12 @@ public class TestCallforAHelp {
 		//start.testWebsiteReader();
 	}
 
+		//start.testBgInfoFrame();
+		//start.testWebsiteReader();
+	
+
+	@SuppressWarnings("unused")
+
 	private void testWebsiteReader() {
 		WebsiteReader web = new WebsiteReader();
 		//web.openWebSiteExample();
@@ -31,6 +37,7 @@ public class TestCallforAHelp {
 		web.startFIleInput();
 		
 	}
+	@SuppressWarnings("unused")
 
 	private void testBgInfoFrame() {
 		EventQueue.invokeLater(new Runnable() {
@@ -57,6 +64,8 @@ public class TestCallforAHelp {
 		
 	}
 
+	@SuppressWarnings("unused")
+
 	private void testBG_Info() throws SocketException, IOException {
 		BG_Info BG = new BG_Info();
 		System.out.println("3S");
@@ -70,7 +79,10 @@ public class TestCallforAHelp {
 		
 		System.out.println("Host Name     :"+ BG.getLocalHost());
 		System.out.println("User Name     :"+ BG.getUserName());
+
 		System.out.println("SchulNummer    :"+ BG.getSchulNummer());
+
+		System.out.println("SchulNummer   :"+ BG.getSchulNummer());
 		System.out.println("OS Version    :"+ BG.getOSversion());
 		System.out.println("OS Architektur:"+ BG.getOSArchitecture());
 		System.out.println("Muster Images :"+ BG.getMusterImages());

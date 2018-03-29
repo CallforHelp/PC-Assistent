@@ -11,6 +11,8 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import bginfo.BG_Info;
+
 
 public class BG_Info {
 	
@@ -71,14 +73,15 @@ public class BG_Info {
 		String line;
 		String location = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation";
 		String key = "Model";
-			// Run reg query, then read output with StreamReader (internal class)
-		Process process = Runtime.getRuntime().exec("reg query " +location+" /v "+key);
-		
-		Reader input = new InputStreamReader(process.getInputStream());
-		BufferedReader resultOutput = new BufferedReader(input);
-		while((line=resultOutput.readLine()) != null) {
-			if (line.contains("REG")){
-				musterImages=line.split("REG_SZ")[1].trim();
+		Process process = null ;
+		if (getOSversion().contains("win")) {	// Run reg query, then read output with StreamReader (internal class)
+			process = Runtime.getRuntime().exec("reg query " +location+" /v "+key);
+			Reader input = new InputStreamReader(process.getInputStream());
+			BufferedReader resultOutput = new BufferedReader(input);
+			while((line=resultOutput.readLine()) != null) {
+				if (line.contains("REG")){
+					musterImages=line.split("REG_SZ")[1].trim();
+				}
 			}
 		}
 		
@@ -124,17 +127,14 @@ public class BG_Info {
 		String line;
 		Process ipfconfig = null;
 		Reader input = null;
-		
-		if(new Properties(System.getProperties()).getProperty("os.name").contains("Win")) {
+		if(getOSversion().contains("W")||getOSversion().contains("w")) {
 			ipfconfig= Runtime.getRuntime().exec("ipconfig /all");
-		}else
-			 ipfconfig= Runtime.getRuntime().exec("netstat -rn");
-			
-		input = new InputStreamReader(ipfconfig.getInputStream());
-		BufferedReader resultOutput = new BufferedReader(input);
-		while((line=resultOutput.readLine()) != null){
-			if(line.contains("DNS-Suffixsuchliste")){
-				domain=line.split(":\\s")[1];
+			input = new InputStreamReader(ipfconfig.getInputStream());
+			BufferedReader resultOutput = new BufferedReader(input);
+			while((line=resultOutput.readLine()) != null){
+				if(line.contains("DNS-Suffixsuchliste")){
+					domain=line.split(":\\s")[1];
+				}
 			}
 		}
 		return domain;
@@ -160,16 +160,16 @@ public class BG_Info {
 		
 		String defaultgateway="";
 		String line;
-		
-		Process ipfconfig= Runtime.getRuntime().exec("netsh interface ipv4 show config");
-		Reader input = new InputStreamReader(ipfconfig.getInputStream());
-
-		BufferedReader resultOutput = new BufferedReader(input);
-		
-		while( (line=resultOutput.readLine()) != null ) {
-		   if(line.contains("Standardgateway")) {
-			   defaultgateway=line.split(":\\s")[1].trim();
-		   }
+		Process ipfconfig=null;
+		if (getOSversion().contains("W")||getOSversion().contains("w") ) {
+			ipfconfig= Runtime.getRuntime().exec("netsh interface ipv4 show config");
+			Reader input = new InputStreamReader(ipfconfig.getInputStream());
+			BufferedReader resultOutput = new BufferedReader(input);
+			while( (line=resultOutput.readLine()) != null ) {
+				if(line.contains("Standardgateway")) {
+					defaultgateway=line.split(":\\s")[1].trim();
+				}
+			}
 		}
 		
 		return defaultgateway;
@@ -179,13 +179,15 @@ public class BG_Info {
 		
 		String dhcpserver="";
 		String line;
-		Process ipfconfig= Runtime.getRuntime().exec("ipconfig /all");
-		Reader input = new InputStreamReader(ipfconfig.getInputStream());
-		
-		BufferedReader resultOutput = new BufferedReader(input);
-		while((line=resultOutput.readLine()) != null) {
-			if(line.contains("DHCP-")) {
+		Process ipfconfig= null; 
+		if(getOSversion().contains("W")||getOSversion().contains("w")){
+			ipfconfig= Runtime.getRuntime().exec("ipconfig /all");
+			Reader input = new InputStreamReader(ipfconfig.getInputStream());
+			BufferedReader resultOutput = new BufferedReader(input);
+			while((line=resultOutput.readLine()) != null) {
+				if(line.contains("DHCP-")) {
 				dhcpserver=line.split(":\\s")[1];
+				}
 			}
 		}
 		
@@ -196,13 +198,17 @@ public class BG_Info {
 		
 		String dnsserver="";
 		String line;
-		Process ipfconfig= Runtime.getRuntime().exec("ipconfig /all");
-		Reader input = new InputStreamReader(ipfconfig.getInputStream());
-
-		BufferedReader resultOutput = new BufferedReader(input);
-		while((line=resultOutput.readLine())!= null){
-			if(line.contains("DNS-Server")){
-				dnsserver=line.split(":\\s")[1];
+		Process ipfconfig= null;
+		Reader input = null;
+		
+		if(getOSversion().contains("W")||getOSversion().contains("w")){
+			ipfconfig = Runtime.getRuntime().exec("ipconfig /all");
+			input = new InputStreamReader(ipfconfig.getInputStream());
+			BufferedReader resultOutput = new BufferedReader(input);
+			while((line=resultOutput.readLine())!= null){
+				if(line.contains("DNS-Server")){
+					dnsserver=line.split(":\\s")[1];
+				}
 			}
 		}
 		
