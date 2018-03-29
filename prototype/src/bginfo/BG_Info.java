@@ -74,7 +74,7 @@ public class BG_Info {
 		String location = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation";
 		String key = "Model";
 		Process process = null ;
-		if (getOSversion().contains("win")) {	// Run reg query, then read output with StreamReader (internal class)
+		if(getOSversion().contains("W")||getOSversion().contains("w")) {	// Run reg query, then read output with StreamReader (internal class)
 			process = Runtime.getRuntime().exec("reg query " +location+" /v "+key);
 			Reader input = new InputStreamReader(process.getInputStream());
 			BufferedReader resultOutput = new BufferedReader(input);
