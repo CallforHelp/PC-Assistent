@@ -18,10 +18,10 @@ public class TestCallforAHelp {
 
 	public static void main(String[] args) throws SocketException, IOException {
 		TestCallforAHelp start = new TestCallforAHelp();
-		start .testBG_Info();
-		start.testCallForaHelpGui();
-		start.testBgInfoFrame();
-		//start.testWebsiteReader();
+		//start .testBG_Info();
+		//start.testCallForaHelpGui();
+		//start.testBgInfoFrame();
+		start.testWebsiteReader();
 	}
 
 		//start.testBgInfoFrame();
@@ -30,11 +30,11 @@ public class TestCallforAHelp {
 
 	@SuppressWarnings("unused")
 
-	private void testWebsiteReader() {
+	private void testWebsiteReader() throws IOException {
 		WebsiteReader web = new WebsiteReader();
-		//web.openWebSiteExample();
+		web.openWebSiteExample();
 		//web.webScraperExample();
-		web.startFIleInput();
+		//web.startFIleInput();
 		
 	}
 	@SuppressWarnings("unused")
