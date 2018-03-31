@@ -136,6 +136,17 @@ public class BG_Info {
 					domain=line.split(":\\s")[1];
 				}
 			}
+		}else {
+			ipfconfig = Runtime.getRuntime().exec("cat /etc/resolv.conf");
+			input = new InputStreamReader(ipfconfig.getInputStream());
+			BufferedReader resultOutput = new BufferedReader(input);
+			
+			while((line=resultOutput.readLine())!= null){
+				//System.out.println(line);
+				if(line.contains("domain")){
+					domain=line.split("\\s")[1];
+				}
+			}
 		}
 		return domain;
 	}
@@ -161,13 +172,30 @@ public class BG_Info {
 		String defaultgateway="";
 		String line;
 		Process ipfconfig=null;
+		Reader input = null;
 		if (getOSversion().contains("W")||getOSversion().contains("w") ) {
 			ipfconfig= Runtime.getRuntime().exec("netsh interface ipv4 show config");
-			Reader input = new InputStreamReader(ipfconfig.getInputStream());
+			input = new InputStreamReader(ipfconfig.getInputStream());
 			BufferedReader resultOutput = new BufferedReader(input);
 			while( (line=resultOutput.readLine()) != null ) {
 				if(line.contains("Standardgateway")) {
 					defaultgateway=line.split(":\\s")[1].trim();
+				}
+			}
+		}else {
+			ipfconfig = Runtime.getRuntime().exec("netstat -nr");
+			input = new InputStreamReader(ipfconfig.getInputStream());
+			
+			BufferedReader resultOutput = new BufferedReader(input);
+			
+			while((line=resultOutput.readLine())!= null){
+				if(line.contains("default")){
+					//defaultgateway= line;//.replaceAll("\\s+","");
+					//System.out.println(defaultgateway);
+					Pattern p = Pattern.compile("\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b");
+					Matcher m = p.matcher(line);
+					if (m.find())
+						defaultgateway= m.group();
 				}
 			}
 		}
@@ -179,10 +207,12 @@ public class BG_Info {
 		
 		String dhcpserver="";
 		String line;
+		Reader input = null;
 		Process ipfconfig= null; 
+		
 		if(getOSversion().contains("W")||getOSversion().contains("w")){
 			ipfconfig= Runtime.getRuntime().exec("ipconfig /all");
-			Reader input = new InputStreamReader(ipfconfig.getInputStream());
+			input = new InputStreamReader(ipfconfig.getInputStream());
 			BufferedReader resultOutput = new BufferedReader(input);
 			while((line=resultOutput.readLine()) != null) {
 				if(line.contains("DHCP-")) {
@@ -190,7 +220,6 @@ public class BG_Info {
 				}
 			}
 		}
-		
 		return dhcpserver;
 	}
 	
@@ -203,14 +232,29 @@ public class BG_Info {
 		
 		if(getOSversion().contains("W")||getOSversion().contains("w")){
 			ipfconfig = Runtime.getRuntime().exec("ipconfig /all");
+			
 			input = new InputStreamReader(ipfconfig.getInputStream());
 			BufferedReader resultOutput = new BufferedReader(input);
+			
 			while((line=resultOutput.readLine())!= null){
 				if(line.contains("DNS-Server")){
 					dnsserver=line.split(":\\s")[1];
 				}
 			}
+		}else {
+				ipfconfig = Runtime.getRuntime().exec("cat /etc/resolv.conf");
+				input = new InputStreamReader(ipfconfig.getInputStream());
+				BufferedReader resultOutput = new BufferedReader(input);
+				
+				while((line=resultOutput.readLine())!= null){
+					//System.out.println(line);
+					if(line.contains("nameserver")){
+						dnsserver=line.split("\\s")[1];
+					}
+				}
 		}
+		
+		
 		
 		return dnsserver;
 	}
