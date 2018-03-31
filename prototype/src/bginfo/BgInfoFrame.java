@@ -61,7 +61,7 @@ public class BgInfoFrame extends JFrame {
 		contentPane.setOpaque(false);
 		contentPane.setCursor(Cursor.getPredefinedCursor(Cursor.N_RESIZE_CURSOR));
 		contentPane.setBackground(Color.WHITE);
-		contentPane.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		contentPane.setBorder(null);
 		setContentPane(contentPane);
 		
 		JTextPane textPane_2 = new JTextPane();
@@ -73,6 +73,7 @@ public class BgInfoFrame extends JFrame {
 		textPane_2.setFont(new Font("Times New Roman", Font.PLAIN, 10));
 		
 		JTextArea txtrs = new JTextArea();
+		txtrs.setEditable(false);
 		txtrs.setBounds(17, 5, 30, 16);
 		txtrs.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 12));
 		txtrs.setBackground(Color.WHITE);
@@ -363,7 +364,7 @@ public class BgInfoFrame extends JFrame {
 		btnFehlerMelden.setForeground(Color.RED);
 		
 		JTextArea txtrTimetobiuld = new JTextArea();
-		txtrTimetobiuld.setBounds(262, 48, 124, 16);
+		txtrTimetobiuld.setBounds(239, 5, 147, 16);
 		txtrTimetobiuld.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 12));
 		txtrTimetobiuld.setBackground(Color.WHITE);
 		txtrTimetobiuld.setToolTipText("3S");
