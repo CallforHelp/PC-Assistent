@@ -31,19 +31,9 @@ public class CallForHelpDialog extends JDialog {
 		setBounds(100, 100, 494, 247);
 		getContentPane().setLayout(null);
 		
-		JPanel TextInfopanel_1 = new JPanel();
-		TextInfopanel_1.setBackground(Color.WHITE);
-		TextInfopanel_1.setBounds(63, 0, 390, 140);
-		getContentPane().add(TextInfopanel_1);
-		TextInfopanel_1.setLayout(null);
-		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\bani\\Documents\\GitHub\\Call-for-a-Help\\prototype\\src\\bginfo\\images\\#kontaktgif.gif"));
-		lblNewLabel.setBounds(22, 11, 358, 118);
-		TextInfopanel_1.add(lblNewLabel);
-		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setBounds(10, 25, 53, 91);
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setVerticalAlignment(SwingConstants.TOP);
+		lblNewLabel_1.setBounds(73, 24, 330, 91);
 		getContentPane().add(lblNewLabel_1);
 		lblNewLabel_1.setIcon(new ImageIcon(CallForHelpDialog.class.getResource("/bginfo/images/3s_logo.png")));
 		

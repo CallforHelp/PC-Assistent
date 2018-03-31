@@ -51,7 +51,7 @@ public class BgInfoFrame extends JFrame {
 		setBackground(Color.WHITE);
 		
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 409, 635);
+		setBounds(100, 100, 387, 635);
 		setLocation(430,45);
 		
 		contentPane = new JPanel();
@@ -377,7 +377,7 @@ public class BgInfoFrame extends JFrame {
 		btnExit.setBackground(Color.WHITE);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(17, 530, 356, 65);
+		lblNewLabel.setBounds(5, 532, 356, 65);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setIcon(new ImageIcon(BgInfoFrame.class.getResource("/bginfo/images/3s_logo.png")));
 		
