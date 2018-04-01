@@ -16,11 +16,14 @@ import bginfo.BG_Info;
 
 public class BG_Info {
 	
-	
+	/**
+	 * Ueberschrift 
+	 * @return §S
+	 */
 	public String uberSchrift() {
 		
 		String s ="3S";	
-		
+	
 		return s;
 	}
 	
@@ -148,8 +151,10 @@ public class BG_Info {
 				}
 			}
 		}
+		
 		return domain;
 	}
+	
 	public String getSubnetMask() throws SocketException, IOException {
 		
 		NetworkInterface networkInterface = NetworkInterface.getByInetAddress(InetAddress.getLocalHost());
@@ -165,8 +170,9 @@ public class BG_Info {
 		String submask = oct1+"."+oct2+"."+oct3+"."+oct4;
 		
 		return submask;
-
+		
 	}
+	
 	public String getDefaultgateway() throws IOException {
 		
 		String defaultgateway="";
@@ -220,6 +226,7 @@ public class BG_Info {
 				}
 			}
 		}
+		
 		return dhcpserver;
 	}
 	
@@ -254,11 +261,11 @@ public class BG_Info {
 				}
 		}
 		
-		
-		
 		return dnsserver;
 	}
 	
+	/*****************************************************************************************/
+	/************************************** PRINTING ****************************************/
 	public void printBGinfo() throws Exception{
 	
 		BG_Info BG = new BG_Info();
@@ -266,13 +273,12 @@ public class BG_Info {
 		System.out.println("3S");
 		System.out.println("BG_Info");
 		System.out.println("time to build :"+ BG.timetoBuild());
-		
 		System.out.println("*********************************");	
 		System.out.println("Schul-Support-Services HiTEC e.V.");
+		
 		System.out.println("*********************************");
 		System.out.println("            PC Info              ");
 		System.out.println("*********************************");
-	
 		System.out.println("Host Name     :"+ BG.getLocalHost());
 		System.out.println("User Name     :"+ BG.getUserName());
 		System.out.println("SchulNummer   :"+ BG.getSchulNummer());

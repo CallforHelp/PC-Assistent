@@ -3,15 +3,10 @@ package bginfo;
 import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
 import java.awt.Color;
 import javax.swing.JTextPane;
-import javax.swing.UIManager;
-import javax.swing.border.BevelBorder;
-
 import java.awt.Font;
 import java.awt.Toolkit;
-
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
