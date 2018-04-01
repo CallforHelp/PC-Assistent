@@ -1,6 +1,6 @@
 package bginfo;
 /**
-* Netwerk und PC Information 
+* Netwerk und PC Information for 3S 
 * @author  Helmi Bani 
 * @version 1.1
 */
