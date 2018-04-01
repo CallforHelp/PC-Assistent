@@ -1,5 +1,9 @@
 package bginfo;
-
+/**
+* Info über den Rechner 
+* @author  Helmi Bani 
+* @version 1.1
+*/
 
 import java.io.BufferedReader;
 import java.io.IOException;
