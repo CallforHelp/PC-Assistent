@@ -1,6 +1,6 @@
 package bginfo;
 /**
-* Info über den Rechner 
+* Netwerk und PC Information 
 * @author  Helmi Bani 
 * @version 1.1
 */
@@ -227,6 +227,18 @@ public class BG_Info {
 			while((line=resultOutput.readLine()) != null) {
 				if(line.contains("DHCP-")) {
 				dhcpserver=line.split(":\\s")[1];
+				}
+			}
+		}else {
+			//netstat -nr | grep default | awk '{print $2}';
+			ipfconfig = Runtime.getRuntime().exec("cat /etc/resolv.conf");
+			input = new InputStreamReader(ipfconfig.getInputStream());
+			BufferedReader resultOutput = new BufferedReader(input);
+			
+			while((line=resultOutput.readLine())!= null){
+				//System.out.println(line);
+				if(line.contains("nameserver")){
+					dhcpserver=line.split("\\s")[1];
 				}
 			}
 		}
