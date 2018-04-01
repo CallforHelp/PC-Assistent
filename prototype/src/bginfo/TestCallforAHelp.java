@@ -18,10 +18,10 @@ public class TestCallforAHelp {
 
 	public static void main(String[] args) throws SocketException, IOException {
 		TestCallforAHelp start = new TestCallforAHelp();
-		//start .testBG_Info();
+		start .testBG_Info();
 		//start.testCallForaHelpGui();
 		//start.testBgInfoFrame();
-		start.testWebsiteReader();
+		//start.testWebsiteReader();
 	}
 
 		//start.testBgInfoFrame();
@@ -79,9 +79,6 @@ public class TestCallforAHelp {
 		
 		System.out.println("Host Name     :"+ BG.getLocalHost());
 		System.out.println("User Name     :"+ BG.getUserName());
-
-		System.out.println("SchulNummer    :"+ BG.getSchulNummer());
-
 		System.out.println("SchulNummer   :"+ BG.getSchulNummer());
 		System.out.println("OS Version    :"+ BG.getOSversion());
 		System.out.println("OS Architektur:"+ BG.getOSArchitecture());
