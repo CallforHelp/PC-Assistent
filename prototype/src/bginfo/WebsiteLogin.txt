@@ -14,10 +14,10 @@ public class WebsiteLogin {
 	 private static final String LOGIN_USER_NAME_PARAMETER_NAME = "username";
 	 private static final String LOGIN_PASSWORD_PARAMETER_NAME = "password";
  
-	 private static final String LOGIN_USER_NAME = "helmi";
-	 private static final String LOGIN_PASSWORD = "IntiHel27";
+	 private static final String LOGIN_USER_NAME = "";
+	 private static final String LOGIN_PASSWORD = "";
  
-	 private static final String TARGET_URL = "https://hades.3s-desk.de/login.php";
+	 private static final String TARGET_URL = "";
  
 	    
 	public static void main(String[] args) throws MalformedURLException, IOException
