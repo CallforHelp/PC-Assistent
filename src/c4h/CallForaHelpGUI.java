@@ -49,10 +49,19 @@ public class CallForaHelpGUI {
         MenuItem BG_Info_MenuItem = new MenuItem("BGINFO");
         MenuItem Fehler_Meldung_Menu_Item = new MenuItem("Fehler Meldung");
         MenuItem Beenden_Menu_Item = new MenuItem("Beenden");
+        popup.add(Beenden_Menu_Item);
+        Beenden_Menu_Item.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// todo hier
+				System.exit(0);
+				
+			}
+		});
         
         popup.add(Fehler_Meldung_Menu_Item);
         popup.add(BG_Info_MenuItem);
-        popup.add(Beenden_Menu_Item);
+        
         
         //MenuListe Einsetzen
         trayIcon.setPopupMenu(popup);
@@ -94,14 +103,7 @@ public class CallForaHelpGUI {
 				
 			}
 		});
-        Beenden_Menu_Item.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// todo hier
-				System.exit(0);
-				
-			}
-		});
+      
         
 	}
 	
