@@ -62,14 +62,14 @@ public class BgInfoFrame extends JFrame {
 		JTextPane textPane_2 = new JTextPane();
 		textPane_2.setBounds(5, 76, 381, 15);
 		textPane_2.setBackground(Color.WHITE);
-		textPane_2.setToolTipText("Uberschrift");
+//		textPane_2.setToolTipText("Uberschrift");
 		textPane_2.setText("***************************************************************************");
 		textPane_2.setForeground(Color.BLUE);
 		textPane_2.setFont(new Font("Times New Roman", Font.PLAIN, 10));
 		
 		JTextArea txtrs = new JTextArea();
 		txtrs.setEditable(false);
-		txtrs.setBounds(133, 11, 29, 24);
+		txtrs.setBounds(164, 11, 29, 24);
 		txtrs.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 15));
 		txtrs.setBackground(Color.WHITE);
 		txtrs.setText("3S");
@@ -85,7 +85,7 @@ public class BgInfoFrame extends JFrame {
 		JTextPane textPane = new JTextPane();
 		textPane.setBounds(5, 109, 381, 15);
 		textPane.setBackground(Color.WHITE);
-		textPane.setToolTipText("Uberschrift");
+//		textPane.setToolTipText("Uberschrift");
 		textPane.setText("***************************************************************************");
 		textPane.setForeground(Color.BLUE);
 		textPane.setFont(new Font("Times New Roman", Font.PLAIN, 10));
@@ -93,67 +93,66 @@ public class BgInfoFrame extends JFrame {
 		JTextArea txtrHostName = new JTextArea();
 		txtrHostName.setBounds(17, 130, 94, 16);
 		txtrHostName.setBackground(Color.WHITE);
-		txtrHostName.setToolTipText("3S");
+//		txtrHostName.setToolTipText("3S");
 		txtrHostName.setText("Host Name ");
 		
 		JTextArea txtrUserName = new JTextArea();
 		txtrUserName.setBounds(17, 173, 94, 16);
 		txtrUserName.setBackground(Color.WHITE);
-		txtrUserName.setToolTipText("3S");
 		txtrUserName.setText("User Name");
 		
 		JTextArea txtrOsVersion = new JTextArea();
 		txtrOsVersion.setBounds(17, 151, 94, 16);
 		txtrOsVersion.setBackground(Color.WHITE);
-		txtrOsVersion.setToolTipText("3S");
+//		txtrOsVersion.setToolTipText("3S");
 		txtrOsVersion.setText("Os Version ");
 		
 		JTextArea txtrOsArchitektur = new JTextArea();
 		txtrOsArchitektur.setBounds(17, 195, 94, 16);
 		txtrOsArchitektur.setBackground(Color.WHITE);
-		txtrOsArchitektur.setToolTipText("3S");
+//		txtrOsArchitektur.setToolTipText("3S");
 		txtrOsArchitektur.setText("OS Architektur");
 		
 		JTextArea txtrMusterImages = new JTextArea();
 		txtrMusterImages.setBounds(17, 217, 108, 24);
 		txtrMusterImages.setBackground(Color.WHITE);
-		txtrMusterImages.setToolTipText("3S");
+//		txtrMusterImages.setToolTipText("3S");
 		txtrMusterImages.setText("Muster Images");
 		
 		JTextArea textArea_1 = new JTextArea();
 		textArea_1.setBounds(133, 130, 3, 16);
 		textArea_1.setBackground(Color.WHITE);
-		textArea_1.setToolTipText("3S");
+//		textArea_1.setToolTipText("3S");
 		textArea_1.setText(":");
 		
 		JTextArea textArea_2 = new JTextArea();
 		textArea_2.setBounds(133, 173, 12, 16);
 		textArea_2.setBackground(Color.WHITE);
-		textArea_2.setToolTipText("3S");
+//		textArea_2.setToolTipText("3S");
 		textArea_2.setText(":");
 		
 		JTextArea textArea_3 = new JTextArea();
 		textArea_3.setBounds(133, 195, 12, 16);
 		textArea_3.setBackground(Color.WHITE);
-		textArea_3.setToolTipText("3S");
+//		textArea_3.setToolTipText("3S");
 		textArea_3.setText(":");
 		
 		JTextArea textArea_4 = new JTextArea();
 		textArea_4.setBounds(133, 217, 12, 16);
 		textArea_4.setBackground(Color.WHITE);
-		textArea_4.setToolTipText("3S");
+//		textArea_4.setToolTipText("3S");
 		textArea_4.setText(":");
 		
 		JTextArea textArea_5 = new JTextArea();
 		textArea_5.setBounds(133, 151, 12, 16);
 		textArea_5.setBackground(Color.WHITE);
-		textArea_5.setToolTipText("3S");
+//		textArea_5.setToolTipText("3S");
 		textArea_5.setText(":");
 		
 		JTextPane textPane_1 = new JTextPane();
 		textPane_1.setBounds(5, 277, 381, 15);
 		textPane_1.setBackground(Color.WHITE);
-		textPane_1.setToolTipText("Uberschrift");
+//		textPane_1.setToolTipText("Uberschrift");
 		textPane_1.setText("***************************************************************************");
 		textPane_1.setForeground(Color.BLUE);
 		textPane_1.setFont(new Font("Times New Roman", Font.PLAIN, 10));
@@ -165,14 +164,14 @@ public class BgInfoFrame extends JFrame {
 		txtrNetzwerk.setForeground(Color.RED);
 		txtrNetzwerk.setBounds(133, 289, 94, 21);
 		txtrNetzwerk.setBackground(Color.WHITE);
-		txtrNetzwerk.setToolTipText("3S");
+//		txtrNetzwerk.setToolTipText("3S");
 		txtrNetzwerk.setText("Netzwerk");
 		txtrNetzwerk.setFont(new Font("Monospaced", Font.BOLD | Font.ITALIC, 15));
 		
 		JTextPane textPane_3 = new JTextPane();
 		textPane_3.setBounds(5, 315, 381, 15);
 		textPane_3.setBackground(Color.WHITE);
-		textPane_3.setToolTipText("Uberschrift");
+//		textPane_3.setToolTipText("Uberschrift");
 		textPane_3.setText("***************************************************************************");
 		textPane_3.setForeground(Color.BLUE);
 		textPane_3.setFont(new Font("Times New Roman", Font.PLAIN, 10));
@@ -180,157 +179,157 @@ public class BgInfoFrame extends JFrame {
 		JTextArea txtrIpAdresse = new JTextArea();
 		txtrIpAdresse.setBounds(17, 336, 94, 16);
 		txtrIpAdresse.setBackground(Color.WHITE);
-		txtrIpAdresse.setToolTipText("3S");
+//		txtrIpAdresse.setToolTipText("3S");
 		txtrIpAdresse.setText("IP Adresse");
 		
 		JTextArea txtrSubnetMask = new JTextArea();
 		txtrSubnetMask.setBounds(17, 358, 94, 16);
 		txtrSubnetMask.setBackground(Color.WHITE);
-		txtrSubnetMask.setToolTipText("3S");
+//		txtrSubnetMask.setToolTipText("3S");
 		txtrSubnetMask.setText("Subnet Mask");
 		
 		JTextArea txtrMacAdresse = new JTextArea();
 		txtrMacAdresse.setBounds(17, 380, 94, 16);
 		txtrMacAdresse.setBackground(Color.WHITE);
-		txtrMacAdresse.setToolTipText("3S");
+//		txtrMacAdresse.setToolTipText("3S");
 		txtrMacAdresse.setText("Mac Adresse");
 		
 		JTextArea txtrDomain = new JTextArea();
 		txtrDomain.setBounds(17, 402, 94, 16);
 		txtrDomain.setBackground(Color.WHITE);
-		txtrDomain.setToolTipText("3S");
+//		txtrDomain.setToolTipText("3S");
 		txtrDomain.setText("Domain");
 		
 		JTextArea txtrDefaultGateway = new JTextArea();
 		txtrDefaultGateway.setBounds(17, 424, 128, 16);
 		txtrDefaultGateway.setBackground(Color.WHITE);
-		txtrDefaultGateway.setToolTipText("3S");
+//		txtrDefaultGateway.setToolTipText("3S");
 		txtrDefaultGateway.setText("Default Gateway");
 		
 		JTextArea textArea = new JTextArea();
 		textArea.setBounds(156, 336, 12, 16);
 		textArea.setBackground(Color.WHITE);
-		textArea.setToolTipText("3S");
+//		textArea.setToolTipText("3S");
 		textArea.setText(":");
 		
 		JTextArea textArea_6 = new JTextArea();
 		textArea_6.setBounds(156, 358, 12, 16);
 		textArea_6.setBackground(Color.WHITE);
-		textArea_6.setToolTipText("3S");
+//		textArea_6.setToolTipText("3S");
 		textArea_6.setText(":");
 		
 		JTextArea textArea_7 = new JTextArea();
 		textArea_7.setBounds(156, 380, 12, 16);
 		textArea_7.setBackground(Color.WHITE);
-		textArea_7.setToolTipText("3S");
+//		textArea_7.setToolTipText("3S");
 		textArea_7.setText(":");
 		
 		JTextArea textArea_8 = new JTextArea();
 		textArea_8.setBounds(156, 402, 12, 16);
 		textArea_8.setBackground(Color.WHITE);
-		textArea_8.setToolTipText("3S");
+//		textArea_8.setToolTipText("3S");
 		textArea_8.setText(":");
 		
 		JTextArea txtrDhcpServer = new JTextArea();
 		txtrDhcpServer.setBounds(17, 446, 116, 16);
 		txtrDhcpServer.setBackground(Color.WHITE);
-		txtrDhcpServer.setToolTipText("3S");
+//		txtrDhcpServer.setToolTipText("3S");
 		txtrDhcpServer.setText("DHCP Server");
 		
 		JTextArea txtrDnsServer = new JTextArea();
 		txtrDnsServer.setBounds(17, 468, 116, 16);
 		txtrDnsServer.setBackground(Color.WHITE);
-		txtrDnsServer.setToolTipText("3S");
+//		txtrDnsServer.setToolTipText("3S");
 		txtrDnsServer.setText("DNS Server");
 		
 		JTextArea textArea_9 = new JTextArea();
 		textArea_9.setBounds(157, 424, 12, 16);
 		textArea_9.setBackground(Color.WHITE);
-		textArea_9.setToolTipText("3S");
+//		textArea_9.setToolTipText("3S");
 		textArea_9.setText(":");
 		
 		JTextArea textArea_10 = new JTextArea();
 		textArea_10.setBounds(157, 446, 12, 16);
 		textArea_10.setBackground(Color.WHITE);
-		textArea_10.setToolTipText("3S");
+//		textArea_10.setToolTipText("3S");
 		textArea_10.setText(":");
 		
 		JTextArea textArea_11 = new JTextArea();
 		textArea_11.setBounds(157, 468, 12, 16);
 		textArea_11.setBackground(Color.WHITE);
-		textArea_11.setToolTipText("3S");
+//		textArea_11.setToolTipText("3S");
 		textArea_11.setText(":");
 		
 		JTextArea txtrHostNameinhalt = new JTextArea();
 		txtrHostNameinhalt.setBounds(148, 130, 150, 16);
 		txtrHostNameinhalt.setBackground(Color.WHITE);
-		txtrHostNameinhalt.setToolTipText("3S");
+//		txtrHostNameinhalt.setToolTipText("3S");
 		txtrHostNameinhalt.setText(bg.getLocalHost());
 		
 		JTextArea txtrOsVersioninhalt = new JTextArea();
 		txtrOsVersioninhalt.setBounds(151, 151, 134, 16);
 		txtrOsVersioninhalt.setBackground(Color.WHITE);
-		txtrOsVersioninhalt.setToolTipText("3S");
+//		txtrOsVersioninhalt.setToolTipText("3S");
 		txtrOsVersioninhalt.setText(bg.getOSversion());
 		
 		JTextArea txtrUserNameInhalt = new JTextArea();
 		txtrUserNameInhalt.setBounds(151, 173, 134, 16);
 		txtrUserNameInhalt.setBackground(Color.WHITE);
-		txtrUserNameInhalt.setToolTipText("3S");
+//		txtrUserNameInhalt.setToolTipText("3S");
 		txtrUserNameInhalt.setText(bg.getUserName());
 		
 		JTextArea txtrOsArchitektur_1 = new JTextArea();
 		txtrOsArchitektur_1.setBounds(151, 195, 134, 16);
 		txtrOsArchitektur_1.setBackground(Color.WHITE);
-		txtrOsArchitektur_1.setToolTipText("3S");
+//		txtrOsArchitektur_1.setToolTipText("3S");
 		txtrOsArchitektur_1.setText(bg.getOSArchitecture());
 		
 		JTextArea txtrMusterImages_1 = new JTextArea();
 		txtrMusterImages_1.setBounds(151, 217, 186, 16);
 		txtrMusterImages_1.setBackground(Color.WHITE);
-		txtrMusterImages_1.setToolTipText("3S");
+//		txtrMusterImages_1.setToolTipText("3S");
 		txtrMusterImages_1.setText(bg.getMusterImages());
 		
 		JTextArea txtrIpAdresseinahlt = new JTextArea();
 		txtrIpAdresseinahlt.setBounds(174, 336, 135, 16);
 		txtrIpAdresseinahlt.setBackground(Color.WHITE);
-		txtrIpAdresseinahlt.setToolTipText("3S");
+//		txtrIpAdresseinahlt.setToolTipText("3S");
 		txtrIpAdresseinahlt.setText(bg.getLocalAdresse());
 		
 		JTextArea txtrSubnetMaskinhalt = new JTextArea();
 		txtrSubnetMaskinhalt.setBounds(174, 358, 120, 16);
 		txtrSubnetMaskinhalt.setBackground(Color.WHITE);
-		txtrSubnetMaskinhalt.setToolTipText("3S");
+//		txtrSubnetMaskinhalt.setToolTipText("3S");
 		txtrSubnetMaskinhalt.setText(bg.getSubnetMask());
 		
 		JTextArea txtrMacAdresseinhalt = new JTextArea();
 		txtrMacAdresseinhalt.setBounds(174, 380, 149, 16);
 		txtrMacAdresseinhalt.setBackground(Color.WHITE);
-		txtrMacAdresseinhalt.setToolTipText("3S");
+//		txtrMacAdresseinhalt.setToolTipText("3S");
 		txtrMacAdresseinhalt.setText(bg.getMacAddress());
 		
 		JTextArea txtrDomaininhalt = new JTextArea();
 		txtrDomaininhalt.setBounds(174, 402, 149, 16);
 		txtrDomaininhalt.setBackground(Color.WHITE);
-		txtrDomaininhalt.setToolTipText("3S");
+//		txtrDomaininhalt.setToolTipText("3S");
 		txtrDomaininhalt.setText(bg.getMachindomain());
 		
 		JTextArea txtrDefaultGatewayinhalt = new JTextArea();
 		txtrDefaultGatewayinhalt.setBounds(175, 424, 128, 16);
 		txtrDefaultGatewayinhalt.setBackground(Color.WHITE);
-		txtrDefaultGatewayinhalt.setToolTipText("3S");
+//		txtrDefaultGatewayinhalt.setToolTipText("3S");
 		txtrDefaultGatewayinhalt.setText(bg.getDefaultgateway());
 		
 		JTextArea txtrDhcpServerinhalt = new JTextArea();
 		txtrDhcpServerinhalt.setBounds(175, 446, 92, 16);
 		txtrDhcpServerinhalt.setBackground(Color.WHITE);
-		txtrDhcpServerinhalt.setToolTipText("3S");
+//		txtrDhcpServerinhalt.setToolTipText("3S");
 		txtrDhcpServerinhalt.setText(bg.getDHCPServer());
 		
 		JTextArea txtrDnsServerinhalt = new JTextArea();
 		txtrDnsServerinhalt.setBounds(175, 468, 138, 16);
 		txtrDnsServerinhalt.setBackground(Color.WHITE);
-		txtrDnsServerinhalt.setToolTipText("3S");
+//		txtrDnsServerinhalt.setToolTipText("3S");
 		txtrDnsServerinhalt.setText(bg.getDNSServer());
 		
 		JButton btnFehlerMelden = new JButton("Fehler Melden ");
@@ -355,7 +354,7 @@ public class BgInfoFrame extends JFrame {
 		txtrTimetobiuld.setBounds(214, 89, 147, 16);
 		txtrTimetobiuld.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 12));
 		txtrTimetobiuld.setBackground(Color.WHITE);
-		txtrTimetobiuld.setToolTipText("3S");
+//		txtrTimetobiuld.setToolTipText("3S");
 		txtrTimetobiuld.setText(bg.timetoBuild());
 		
 		JButton btnExit = new JButton("Chat");
@@ -371,19 +370,19 @@ public class BgInfoFrame extends JFrame {
 		
 		JTextArea txtrSchulnummer = new JTextArea();
 		txtrSchulnummer.setBounds(17, 244, 82, 16);
-		txtrSchulnummer.setToolTipText("3S");
+//		txtrSchulnummer.setToolTipText("3S");
 		txtrSchulnummer.setText("SchulNummer");
 		txtrSchulnummer.setBackground(Color.WHITE);
 		
 		JTextArea textArea_13 = new JTextArea();
 		textArea_13.setBounds(133, 239, 12, 16);
-		textArea_13.setToolTipText("3S");
+//		textArea_13.setToolTipText("3S");
 		textArea_13.setText(":");
 		textArea_13.setBackground(Color.WHITE);
 		
 		JTextArea textArea_14 = new JTextArea();
 		textArea_14.setBounds(156, 244, 134, 22);
-		textArea_14.setToolTipText("3S");
+//		textArea_14.setToolTipText("3S");
 		textArea_14.setBackground(Color.WHITE);
 		textArea_14.setText(bg.getSchulNummer());
 		contentPane.setLayout(null);
@@ -441,7 +440,7 @@ public class BgInfoFrame extends JFrame {
 		JTextArea txtrPcinfo = new JTextArea();
 		txtrPcinfo.setEditable(false);
 		txtrPcinfo.setWrapStyleWord(true);
-		txtrPcinfo.setToolTipText("3S");
+//		txtrPcinfo.setToolTipText("3S");
 		txtrPcinfo.setText("PC_Info");
 		txtrPcinfo.setForeground(Color.RED);
 		txtrPcinfo.setFont(new Font("Monospaced", Font.BOLD | Font.ITALIC, 15));
