@@ -48,7 +48,7 @@ public class CallForaHelpGUI {
         
         MenuItem BG_Info_MenuItem = new MenuItem("BGINFO");
         MenuItem Fehler_Meldung_Menu_Item = new MenuItem("Fehler Meldung");
-        MenuItem Beenden_Menu_Item = new MenuItem("Beenden");
+      /*  MenuItem Beenden_Menu_Item = new MenuItem("Beenden");
         popup.add(Beenden_Menu_Item);
         Beenden_Menu_Item.addActionListener(new ActionListener() {
 			@Override
@@ -57,7 +57,7 @@ public class CallForaHelpGUI {
 				System.exit(0);
 				
 			}
-		});
+		});*/
         
         popup.add(Fehler_Meldung_Menu_Item);
         popup.add(BG_Info_MenuItem);
