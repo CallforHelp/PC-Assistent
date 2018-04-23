@@ -42,7 +42,7 @@ public class BgInfoFrame extends JFrame {
 	public BgInfoFrame() throws IOException {
 		setType(Type.UTILITY);
 		setModalExclusionType(ModalExclusionType.APPLICATION_EXCLUDE);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(BgInfoFrame.class.getResource("/src/c4h/images/bulb.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(BgInfoFrame.class.getResource("images/bulb.png")));
 		setBackground(Color.WHITE);
 		
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
