@@ -52,7 +52,7 @@ public class TestCallforAHelp {
 		});
 		
 	}
-
+	@SuppressWarnings("unused")
 	private void testCallForaHelpGui() {
 		CallForaHelpGUI start=new CallForaHelpGUI();
 		try {
