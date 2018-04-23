@@ -1,4 +1,4 @@
-package bginfo;
+package src.c4h;
 
 import java.io.IOException;
 import javax.swing.JFrame;
@@ -42,7 +42,7 @@ public class BgInfoFrame extends JFrame {
 	public BgInfoFrame() throws IOException {
 		setType(Type.UTILITY);
 		setModalExclusionType(ModalExclusionType.APPLICATION_EXCLUDE);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(BgInfoFrame.class.getResource("/bginfo/images/bulb.gif")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(BgInfoFrame.class.getResource("/src/c4h/images/bulb.png")));
 		setBackground(Color.WHITE);
 		
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -69,22 +69,15 @@ public class BgInfoFrame extends JFrame {
 		
 		JTextArea txtrs = new JTextArea();
 		txtrs.setEditable(false);
-		txtrs.setBounds(17, 5, 30, 16);
-		txtrs.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 12));
+		txtrs.setBounds(133, 11, 29, 24);
+		txtrs.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 15));
 		txtrs.setBackground(Color.WHITE);
 		txtrs.setText("3S");
 		txtrs.setToolTipText("3S");
 		
-		JTextArea txtrBginfo = new JTextArea();
-		txtrBginfo.setBounds(17, 26, 94, 16);
-		txtrBginfo.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 12));
-		txtrBginfo.setBackground(Color.WHITE);
-		txtrBginfo.setToolTipText("3S");
-		txtrBginfo.setText("BG_Info");
-		
 		JTextArea txtrSchulsupportservicesHitecEv = new JTextArea();
-		txtrSchulsupportservicesHitecEv.setBounds(17, 48, 276, 16);
-		txtrSchulsupportservicesHitecEv.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 12));
+		txtrSchulsupportservicesHitecEv.setBounds(47, 32, 287, 31);
+		txtrSchulsupportservicesHitecEv.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 14));
 		txtrSchulsupportservicesHitecEv.setBackground(Color.WHITE);
 		txtrSchulsupportservicesHitecEv.setToolTipText("3S");
 		txtrSchulsupportservicesHitecEv.setText("Schul-Support-Services HiTEC e.V.");
@@ -170,7 +163,7 @@ public class BgInfoFrame extends JFrame {
 		txtrNetzwerk.setWrapStyleWord(true);
 		//txtrNetzwerk.setDropMode(DropMode.ON);
 		txtrNetzwerk.setForeground(Color.RED);
-		txtrNetzwerk.setBounds(17, 290, 94, 21);
+		txtrNetzwerk.setBounds(133, 289, 94, 21);
 		txtrNetzwerk.setBackground(Color.WHITE);
 		txtrNetzwerk.setToolTipText("3S");
 		txtrNetzwerk.setText("Netzwerk");
@@ -359,22 +352,22 @@ public class BgInfoFrame extends JFrame {
 		btnFehlerMelden.setForeground(Color.RED);
 		
 		JTextArea txtrTimetobiuld = new JTextArea();
-		txtrTimetobiuld.setBounds(239, 5, 147, 16);
+		txtrTimetobiuld.setBounds(214, 89, 147, 16);
 		txtrTimetobiuld.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 12));
 		txtrTimetobiuld.setBackground(Color.WHITE);
 		txtrTimetobiuld.setToolTipText("3S");
 		txtrTimetobiuld.setText(bg.timetoBuild());
 		
 		JButton btnExit = new JButton("Chat");
-		btnExit.setBounds(151, 495, 116, 24);
+		btnExit.setBounds(157, 495, 116, 24);
 		btnExit.setForeground(Color.RED);
 		btnExit.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnExit.setBackground(Color.WHITE);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(5, 532, 356, 65);
+		lblNewLabel.setBounds(5, 520, 356, 65);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setIcon(new ImageIcon(BgInfoFrame.class.getResource("/bginfo/images/3s_logo.png")));
+		lblNewLabel.setIcon(new ImageIcon(BgInfoFrame.class.getResource("/src/c4h/images/3s_logo.png")));
 		
 		JTextArea txtrSchulnummer = new JTextArea();
 		txtrSchulnummer.setBounds(17, 244, 82, 16);
@@ -418,7 +411,6 @@ public class BgInfoFrame extends JFrame {
 		contentPane.add(textArea);
 		contentPane.add(txtrIpAdresseinahlt);
 		contentPane.add(textPane_3);
-		contentPane.add(txtrBginfo);
 		contentPane.add(txtrs);
 		contentPane.add(txtrTimetobiuld);
 		contentPane.add(txtrSchulsupportservicesHitecEv);
@@ -455,7 +447,7 @@ public class BgInfoFrame extends JFrame {
 		txtrPcinfo.setFont(new Font("Monospaced", Font.BOLD | Font.ITALIC, 15));
 		//txtrPcinfo.setDropMode(DropMode.ON);
 		txtrPcinfo.setBackground(Color.WHITE);
-		txtrPcinfo.setBounds(17, 88, 94, 21);
+		txtrPcinfo.setBounds(17, 86, 94, 21);
 		contentPane.add(txtrPcinfo);
 		
 	}

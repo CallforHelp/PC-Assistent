@@ -1,5 +1,5 @@
 
-package bginfo;
+package src.c4h;
 
 import java.io.*;
 import java.util.*;

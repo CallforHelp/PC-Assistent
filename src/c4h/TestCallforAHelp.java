@@ -1,4 +1,4 @@
-package bginfo;
+package src.c4h;
 
 
 import java.awt.EventQueue;

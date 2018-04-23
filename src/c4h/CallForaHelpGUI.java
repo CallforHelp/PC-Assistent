@@ -1,4 +1,4 @@
-package bginfo;
+package src.c4h;
 
 import java.awt.AWTException;
 import java.awt.Image;
@@ -34,7 +34,7 @@ public class CallForaHelpGUI {
 		final PopupMenu popup = new PopupMenu();
 		
 		final TrayIcon trayIcon =
-                new TrayIcon(createImage("images/bulb.gif", "trayIcon"));
+                new TrayIcon(createImage("images/bulb.png", "trayIcon"));
         
         final SystemTray tray = SystemTray.getSystemTray();
         

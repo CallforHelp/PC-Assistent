@@ -1,4 +1,4 @@
-package bginfo;
+package src.c4h;
 import java.awt.Color;
 import java.awt.Toolkit;
 
@@ -23,19 +23,21 @@ public class CallForHelpDialog extends JDialog {
 	 * Create the dialog.
 	 */
 	public CallForHelpDialog() {
+	setIconImage(Toolkit.getDefaultToolkit().getImage(CallForHelpDialog.class.getResource("/src/c4h/images/bulb.png")));
 	
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		
-		setIconImage(Toolkit.getDefaultToolkit().getImage(CallForHelpDialog.class.getResource("/bginfo/images/3s_logo.png")));
+		//setIconImage(Toolkit.getDefaultToolkit().getImage(CallForHelpDialog.class.getResource("/images/3s_logo.png")));
 		getContentPane().setBackground(Color.WHITE);
 		setBounds(100, 100, 494, 247);
 		getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(CallForHelpDialog.class.getResource("/src/c4h/images/3s_logo.png")));
 		lblNewLabel_1.setVerticalAlignment(SwingConstants.TOP);
 		lblNewLabel_1.setBounds(73, 24, 330, 91);
 		getContentPane().add(lblNewLabel_1);
-		lblNewLabel_1.setIcon(new ImageIcon(CallForHelpDialog.class.getResource("/bginfo/images/3s_logo.png")));
+		//lblNewLabel_1.setIcon(new ImageIcon(CallForHelpDialog.class.getResource("/images/3s_logo.png")));
 		
 		JLabel lblCopyright = new JLabel("Copyright \u00A9 2018 Hamburger Informatik Technologie-Center e.V. (HITeC).");
 		lblCopyright.setHorizontalAlignment(SwingConstants.CENTER);

@@ -1,4 +1,4 @@
-package bginfo;
+package src.c4h;
 /**
 * Netwerk und PC Information for 3S 
 * @author  Helmi Bani 
@@ -15,19 +15,18 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import bginfo.BG_Info;
 
 
 public class BG_Info {
 	
 	/**
 	 * Ueberschrift 
-	 * @return §S
+	 * @return 
 	 */
 	public String uberSchrift() {
 		
 		String s ="3S";	
-	
+		
 		return s;
 	}
 	
