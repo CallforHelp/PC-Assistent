@@ -30,6 +30,7 @@ import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 import java.awt.event.KeyEvent;
 import java.awt.event.InputEvent;
+import java.awt.Toolkit;
 
 public class DynamicalGuiForC4H {
 
@@ -79,6 +80,7 @@ public class DynamicalGuiForC4H {
 	private void initialize() {
 		
 		frmCh = new JFrame();
+		frmCh.setIconImage(Toolkit.getDefaultToolkit().getImage(DynamicalGuiForC4H.class.getResource("/src/c4h/images/bulb.png")));
 		frmCh.getContentPane().setBackground(SystemColor.activeCaption);
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		panel = new JPanel();
