@@ -232,24 +232,17 @@ public class DynamicalGuiForC4H {
 		panel.setBackground(SystemColor.activeCaption);
 		panel.setBounds(16, 49, 195, 369);
 		panel.setLayout(null);
-		
-		JLabel lblPcInformation = new JLabel("PC Information");
-		lblPcInformation.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPcInformation.setForeground(Color.WHITE);
-		lblPcInformation.setFont(new Font("Bernard MT Condensed", Font.PLAIN, 17));
-		lblPcInformation.setBorder(null);
-		lblPcInformation.setBounds(29, 52, 132, 25);
-		panel.add(lblPcInformation);
-		pcInfoButton = new JButton("");
-		pcInfoButton.setContentAreaFilled(false);
+		pcInfoButton = new JButton("PC INFORMATION");
+		pcInfoButton.setForeground(SystemColor.text);
+		pcInfoButton.setFont(new Font("Bernard MT Condensed", Font.PLAIN, 17));
 		pcInfoButton.setHorizontalTextPosition(SwingConstants.CENTER);
 		pcInfoButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		pcInfoButton.setBorder(null);
+		pcInfoButton.setBorder(new EtchedBorder(EtchedBorder.RAISED, SystemColor.activeCaption, SystemColor.inactiveCaption));
 		panel.add(pcInfoButton);
-		pcInfoButton.setBackground(SystemColor.desktop);
+		pcInfoButton.setBackground(SystemColor.activeCaption);
 		pcInfoButton.setBounds(16, 34, 162, 64);
 		
 		pcInfoButton.addMouseListener(new MouseAdapter() {
@@ -259,38 +252,20 @@ public class DynamicalGuiForC4H {
 				tabbedPane.setSelectedIndex(tabbedPane.getTabCount()-3);
 			}
 		});
-		
-		JLabel lblFehlerMelden = new JLabel("Fehler melden");
-		lblFehlerMelden.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFehlerMelden.setForeground(Color.WHITE);
-		lblFehlerMelden.setFont(new Font("Bernard MT Condensed", Font.PLAIN, 17));
-		lblFehlerMelden.setBorder(null);
-		lblFehlerMelden.setBounds(29, 141, 132, 25);
-		panel.add(lblFehlerMelden);
-		FehlerButton = new JButton("");
-		FehlerButton.setContentAreaFilled(false);
-		FehlerButton.setEnabled(false);
-		FehlerButton.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		FehlerButton = new JButton("Fehler melden");
+		FehlerButton.setForeground(SystemColor.text);
+		FehlerButton.setFont(new Font("Bernard MT Condensed", Font.PLAIN, 17));
+		FehlerButton.setBorder(new EtchedBorder(EtchedBorder.RAISED, SystemColor.activeCaption, SystemColor.inactiveCaption));
 		panel.add(FehlerButton);
-		FehlerButton.setBackground(SystemColor.desktop);
-		FehlerButton.setBorderPainted(false);
+		FehlerButton.setBackground(SystemColor.activeCaption);
 		FehlerButton.setBounds(16, 123, 162, 64);
-		
-		JLabel lblChat = new JLabel("Chat");
-		lblChat.setHorizontalAlignment(SwingConstants.CENTER);
-		lblChat.setForeground(Color.WHITE);
-		lblChat.setFont(new Font("Bernard MT Condensed", Font.PLAIN, 17));
-		lblChat.setBorder(null);
-		lblChat.setBounds(29, 240, 132, 25);
-		panel.add(lblChat);
-		chatButton = new JButton("");
-		
-		chatButton.setContentAreaFilled(false);
-		chatButton.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		chatButton = new JButton("CHAT");
+		chatButton.setForeground(SystemColor.text);
+		chatButton.setFont(new Font("Bernard MT Condensed", Font.PLAIN, 17));
+		chatButton.setBorder(new EtchedBorder(EtchedBorder.RAISED, SystemColor.activeCaption, SystemColor.inactiveCaption));
 		panel.add(chatButton);
-		chatButton.setBackground(UIManager.getColor("Desktop.background"));
-		chatButton.setBorderPainted(false);
-		chatButton.setBounds(16, 221, 162, 64);
+		chatButton.setBackground(SystemColor.activeCaption);
+		chatButton.setBounds(16, 198, 162, 64);
 		
 		chatButton.addMouseListener(new MouseAdapter() {
 			@Override
@@ -300,15 +275,9 @@ public class DynamicalGuiForC4H {
 			}
 		});
 		
-		JLabel lblBeenden = new JLabel("Beenden");
-		lblBeenden.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBeenden.setForeground(Color.WHITE);
-		lblBeenden.setFont(new Font("Bernard MT Condensed", Font.PLAIN, 17));
-		lblBeenden.setBorder(null);
-		lblBeenden.setBounds(29, 333, 132, 25);
-		panel.add(lblBeenden);
-		
-		Beenden = new JButton("");
+		Beenden = new JButton("Beenden");
+		Beenden.setForeground(SystemColor.text);
+		Beenden.setFont(new Font("Bernard MT Condensed", Font.PLAIN, 17));
 		Beenden.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -318,12 +287,10 @@ public class DynamicalGuiForC4H {
 			
 		});
 		Beenden.setAlignmentY(Component.BOTTOM_ALIGNMENT);
-		Beenden.setBounds(16, 314, 162, 64);
+		Beenden.setBounds(16, 280, 162, 64);
 		panel.add(Beenden);
-		Beenden.setContentAreaFilled(false);
-		Beenden.setBorderPainted(false);
-		Beenden.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		Beenden.setBackground(UIManager.getColor("Desktop.background"));
+		Beenden.setBorder(new EtchedBorder(EtchedBorder.RAISED, SystemColor.activeCaption, SystemColor.inactiveCaption));
+		Beenden.setBackground(SystemColor.activeCaption);
 		
 		FehlerButton.addMouseListener(new MouseAdapter() {
 			@Override
