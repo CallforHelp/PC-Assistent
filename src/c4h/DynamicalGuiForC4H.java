@@ -26,6 +26,10 @@ import javax.swing.UIManager;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
 import java.awt.Window.Type;
+import javax.swing.JMenuItem;
+import javax.swing.KeyStroke;
+import java.awt.event.KeyEvent;
+import java.awt.event.InputEvent;
 
 public class DynamicalGuiForC4H {
 
@@ -79,11 +83,11 @@ public class DynamicalGuiForC4H {
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		panel = new JPanel();
 		pcInfoPanel = new JPanel();
-		pcInfoPanel.setForeground(SystemColor.text);
+		pcInfoPanel.setForeground(SystemColor.activeCaption);
 		fehlerMeldenPanel = new JPanel();
-		fehlerMeldenPanel.setForeground(SystemColor.textHighlight);
+		fehlerMeldenPanel.setForeground(SystemColor.activeCaption);
 		chatModulPanel = new JPanel();
-		chatModulPanel.setForeground(SystemColor.textHighlight);
+		chatModulPanel.setForeground(SystemColor.activeCaption);
 		
 		//BackGroundPane backGroundPane = new BackGroundPane("/testGui/images/pcinfo.png");
 		
@@ -118,6 +122,7 @@ public class DynamicalGuiForC4H {
 		tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
 		tabbedPane.setBounds(221, 49, 746, 552);
 		tabbedPane.addTab("Pc Information", (Icon) null, pcInfoPanel, null);
+		tabbedPane.setEnabledAt(0, true);
 		tabbedPane.setForegroundAt(0, SystemColor.text);
 		tabbedPane.addTab("Fehlermelden", (Icon) null, fehlerMeldenPanel, null);
 		tabbedPane.setForegroundAt(1, SystemColor.text);
@@ -332,13 +337,38 @@ public class DynamicalGuiForC4H {
 		frmCh.getContentPane().add(menuBar);
 		
 		JMenu mnDatei = new JMenu("Datei");
-		mnDatei.setForeground(SystemColor.controlLtHighlight);
+		mnDatei.setBackground(SystemColor.activeCaption);
+		mnDatei.setForeground(SystemColor.text);
 		mnDatei.setBorder(null);
 		menuBar.add(mnDatei);
 		
+		JMenuItem mntmPcInformation = new JMenuItem("Pc Information");
+		mntmPcInformation.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, InputEvent.ALT_MASK));
+		mntmPcInformation.setBackground(SystemColor.activeCaption);
+		mnDatei.add(mntmPcInformation);
+		
+		JMenuItem mntmFehlerMelden = new JMenuItem("Fehler melden ");
+		mntmFehlerMelden.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F, InputEvent.ALT_MASK));
+		mnDatei.add(mntmFehlerMelden);
+		
+		JMenuItem mntmChat = new JMenuItem("Chat");
+		mntmChat.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.ALT_MASK));
+		mnDatei.add(mntmChat);
+		
+		JMenuItem mntmBeenden = new JMenuItem("Beenden");
+		mntmBeenden.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B, InputEvent.ALT_MASK));
+		mnDatei.add(mntmBeenden);
+		
 		JMenu mnInfo = new JMenu("Info");
+		mnInfo.setBackground(SystemColor.activeCaption);
 		mnInfo.setForeground(SystemColor.text);
 		menuBar.add(mnInfo);
+		
+		JMenuItem mntmberUns = new JMenuItem("\u00FCber uns");
+		mnInfo.add(mntmberUns);
+		
+		JMenuItem mntmOnlineHilfe = new JMenuItem("Online Hilfe");
+		mnInfo.add(mntmOnlineHilfe);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
