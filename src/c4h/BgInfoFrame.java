@@ -32,7 +32,6 @@ public class BgInfoFrame extends JFrame {
 	//private static final long serialVersionUID = 376621476984946157L;
 	private JPanel contentPane;
 	private final BG_Info bg = new BG_Info();
-	
 	private WebsiteReader web = new WebsiteReader();
 
 	/**
