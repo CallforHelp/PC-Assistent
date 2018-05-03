@@ -2,9 +2,7 @@ package src.c4h;
 
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,6 +15,7 @@ import java.net.MalformedURLException;
 
 import javax.swing.DefaultListModel;
 import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -32,8 +31,6 @@ import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
-import java.awt.Window.Type;
-import javax.swing.ImageIcon;
 
 public class DynamicalGuiForC4H {
 
@@ -91,8 +88,8 @@ public class DynamicalGuiForC4H {
 	public void initialize() throws IOException  {
 		
 		frmCh = new JFrame();
-		frmCh.setIconImage(Toolkit.getDefaultToolkit().getImage(DynamicalGuiForC4H.class.getResource("/src/c4h/images/bulb.png")));
-		frmCh.getContentPane().setBackground(new Color(169, 169, 169));
+		frmCh.setIconImage(Toolkit.getDefaultToolkit().getImage(DynamicalGuiForC4H.class.getResource("images/bulb.png")));
+		frmCh.getContentPane().setBackground(new Color(0, 0, 0));
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		panel = new JPanel();
 		pcInfoPanel = new JPanel();
@@ -216,7 +213,7 @@ public class DynamicalGuiForC4H {
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setIcon(new ImageIcon(DynamicalGuiForC4H.class.getResource("/src/c4h/images/3s_logo-2.png")));
+		lblNewLabel.setIcon(new ImageIcon(DynamicalGuiForC4H.class.getResource("images/3s_logo-2.png")));
 		lblNewLabel.setBounds(38, 386, 651, 146);
 		pcInfoPanel.add(lblNewLabel);
 		
@@ -261,8 +258,8 @@ public class DynamicalGuiForC4H {
 		panel.setBounds(16, 94, 195, 369);
 		panel.setLayout(null);
 		pcInfoButton = new JButton("PC INFORMATION");
-		pcInfoButton.setBorderPainted(false);
-		pcInfoButton.setForeground(SystemColor.text);
+		pcInfoButton.setEnabled(false);
+		pcInfoButton.setForeground(new Color(0, 0, 0));
 		pcInfoButton.setFont(new Font("Times New Roman", Font.PLAIN, 15));
 		pcInfoButton.setHorizontalTextPosition(SwingConstants.CENTER);
 		pcInfoButton.addActionListener(new ActionListener() {
@@ -281,17 +278,16 @@ public class DynamicalGuiForC4H {
 			}
 		});
 		FehlerButton = new JButton("FEHLER MELDEN");
-		FehlerButton.setBorderPainted(false);
-		FehlerButton.setForeground(SystemColor.text);
+		FehlerButton.setEnabled(false);
+		FehlerButton.setForeground(new Color(0, 0, 0));
 		FehlerButton.setFont(new Font("Times New Roman", Font.PLAIN, 15));
 		panel.add(FehlerButton);
 		FehlerButton.setBackground(new Color(0, 0, 128));
 		FehlerButton.setBounds(6, 123, 183, 64);
 		chatButton = new JButton("CHAT");
-		chatButton.setBorderPainted(false);
-		chatButton.setForeground(SystemColor.text);
+		chatButton.setEnabled(false);
+		chatButton.setForeground(new Color(0, 0, 0));
 		chatButton.setFont(new Font("Times New Roman", Font.PLAIN, 15));
-		chatButton.setBorder(new EtchedBorder(EtchedBorder.RAISED, SystemColor.activeCaption, SystemColor.inactiveCaption));
 		panel.add(chatButton);
 		chatButton.setBackground(new Color(0, 0, 128));
 		chatButton.setBounds(6, 198, 183, 64);
@@ -306,8 +302,8 @@ public class DynamicalGuiForC4H {
 		});
 		
 		Beenden = new JButton("BEENDEN");
-		Beenden.setBorderPainted(false);
-		Beenden.setForeground(SystemColor.text);
+		Beenden.setEnabled(false);
+		Beenden.setForeground(new Color(0, 0, 0));
 		Beenden.setFont(new Font("Times New Roman", Font.PLAIN, 15));
 		Beenden.addMouseListener(new MouseAdapter() {
 			@Override
@@ -320,7 +316,6 @@ public class DynamicalGuiForC4H {
 		Beenden.setAlignmentY(Component.BOTTOM_ALIGNMENT);
 		Beenden.setBounds(6, 280, 183, 64);
 		panel.add(Beenden);
-		Beenden.setBorder(new EtchedBorder(EtchedBorder.RAISED, SystemColor.activeCaption, SystemColor.inactiveCaption));
 		Beenden.setBackground(new Color(0, 0, 128));
 		
 		FehlerButton.addMouseListener(new MouseAdapter() {
@@ -347,7 +342,7 @@ public class DynamicalGuiForC4H {
 		menuBar.setFocusTraversalKeysEnabled(true);
 		menuBar.setDoubleBuffered(true);
 		menuBar.setAutoscrolls(true);
-		menuBar.setBackground(new Color(0, 0, 128));
+		menuBar.setBackground(new Color(153, 153, 153));
 		menuBar.setBounds(0, 0, 977, 22);
 		frmCh.getContentPane().add(menuBar);
 		
@@ -398,8 +393,8 @@ public class DynamicalGuiForC4H {
 		
 		JMenu mnInfo = new JMenu("Info");
 		mnInfo.setFont(new Font("Arial", Font.PLAIN, 13));
-		mnInfo.setBackground(new Color(255, 255, 255));
-		mnInfo.setForeground(new Color(255, 255, 255));
+		mnInfo.setBackground(new Color(153, 153, 153));
+		mnInfo.setForeground(new Color(0, 0, 0));
 		menuBar.add(mnInfo);
 		
 		JMenuItem mntmberUns = new JMenuItem("\u00FCber uns");
