@@ -1,4 +1,4 @@
 
 Einen Eintrag in die Registry:
-- HKEY_LOCAL_MACHINE/Software/Microsoft/Windows/CurrentVersion/Run: Für globalen Autostart
-- HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/Run: Für den Benutzer
+- HKEY_LOCAL_MACHINE/Software/Microsoft/Windows/CurrentVersion/Run: Fuer globalen Autostart
+- HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/Run: Fuer den Benutzer
