@@ -1,11 +1,7 @@
 package src.c4h;
 
 import java.io.*;
-import java.text.SimpleDateFormat;
-import java.util.*;
-import java.util.zip.*;
 import com.jcraft.jsch.*;
-import com.jcraft.jsch.ChannelSftp.LsEntry;
 
 public class SftpConnection {
 	 
@@ -15,8 +11,6 @@ public class SftpConnection {
 	private int _PORT;
 	Session session = null;
 	ChannelSftp channel= null;
-	
-	
 	
 	public static void main(String[] args) {
 		SftpConnection clientSftp = null;
@@ -48,7 +42,7 @@ public class SftpConnection {
 		
 		try {
 			session = (new JSch()).getSession( _USER_NAME,_FTP_HOST , _PORT );
-			session.setPassword( passwort );
+			session.setPassword(_USER_PWD);
 			session.setConfig( "StrictHostKeyChecking", "no" );
 	        session.connect();
 		} catch (JSchException e) {

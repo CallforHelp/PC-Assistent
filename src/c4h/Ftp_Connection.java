@@ -1,11 +1,9 @@
 package src.c4h;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import org.apache.commons.net.ftp.FTPClient;
-import org.apache.commons.net.ftp.FTPReply;
 
 
 public class Ftp_Connection {
@@ -17,6 +15,7 @@ public class Ftp_Connection {
 
 	public static void main(String[] args) {
 		Ftp_Connection ftp = new Ftp_Connection("schulnummer");
+		System.out.println(ftp.FTP_HOST);
 	}
 	public Ftp_Connection(String schulnummer) {
 		this.schulNummer=schulnummer;
