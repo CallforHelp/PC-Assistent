@@ -54,23 +54,6 @@ public class DynamicalGuiForC4H {
 	private final BG_Info bg = new BG_Info();	
 	private WebsiteReader web = new WebsiteReader();
 
-	
-	/**
-	 * Launch the application.
-	 *
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					DynamicalGuiForC4H window = new DynamicalGuiForC4H();
-					window.frmCh.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
-
 	/**
 	 * Create the application.
 	 * @throws IOException 
