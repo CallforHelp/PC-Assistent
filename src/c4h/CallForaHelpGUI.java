@@ -6,6 +6,7 @@ import java.awt.MenuItem;
 import java.awt.PopupMenu;
 import java.awt.SystemTray;
 import java.awt.TrayIcon;
+import java.awt.TrayIcon.MessageType;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -37,12 +38,14 @@ public class CallForaHelpGUI {
 		
 		final TrayIcon trayIcon =
                 new TrayIcon(createImage("images/bulb.png", "trayIcon"));
+		
         
         final SystemTray tray = SystemTray.getSystemTray();
         
         //Hinzufuegen(start) the Icon_tray 
         try {
             tray.add(trayIcon);
+           
         } catch (AWTException e) {
             System.out.println("TrayIcon could not be added.");
             return;
@@ -70,6 +73,15 @@ public class CallForaHelpGUI {
         
         //MenuListe Einsetzen
         trayIcon.setPopupMenu(popup);
+        try {
+     //   	bg.pruefeSchulnr()
+			if(true) {
+				trayIcon.displayMessage("Bitte Korrigiere deine Schulnummer: "+bg.getSchulNummer(), "TEAM C4H", MessageType.WARNING);
+			}
+		} catch (Throwable e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
         //actiion
         trayIcon.addActionListener(new ActionListener() {
 			@Override

@@ -278,6 +278,14 @@ public class BG_Info {
 		
 		return dnsserver;
 	}
+	public boolean pruefeSchulnr() throws Throwable {
+		BG_Info bg = new BG_Info();
+		String stringToCompare = "GOVW";
+		if (bg.getSchulNummer().regionMatches(true, 0, stringToCompare, 0, 4))
+			return true;
+		else 
+			return false;
+	}
 	
 	/*****************************************************************************************/
 	/************************************** PRINTING ****************************************/
