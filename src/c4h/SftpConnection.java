@@ -14,7 +14,7 @@ public class SftpConnection {
 	BG_Info bg =new BG_Info();
 	Session session = null;
 	ChannelSftp channel= null;
-	String remoteDstFilePath= "/standort";
+	String remoteDstFilePath= "/standort/";
 	
 	public static void main(String[] args) throws IOException {
 		SftpConnection clientSftp = null;
@@ -24,8 +24,6 @@ public class SftpConnection {
 		}else {
 			clientSftp = new SftpConnection(args[0],args[1],args[2],args[3]);
 			try {
-				clientSftp.getLocalActualDir();
-				System.out.println(""+clientSftp.getLocalActualDir());
 				clientSftp.uploadFileWithSchoolNumber();
 				
 			} catch (Exception e) {
@@ -67,13 +65,15 @@ public class SftpConnection {
 	}
 	
 	public  void uploadFileWithSchoolNumber() throws Exception {
-		String localSrcFilePath = "standort/"+bg.getSchulNummer();
+		String localSrcFilePath = "/Users/helmibani/Documents/GitHub/PC-Assistent/src/c4h/standort/"+bg.getSchulNummer();
 		
-		if (isFileExistInSFTP(localSrcFilePath))
-			channel.rm("/standort/"+bg.getSchulNummer());
+		
+			//channel.rm("/standort/"+bg.getSchulNummer());
 		try {
-	         channel.put( localSrcFilePath, remoteDstFilePath);
+			if (!isFileExistInSFTP(remoteDstFilePath+bg.getSchulNummer())) 
+				channel.put(localSrcFilePath, remoteDstFilePath);
 	      } catch( SftpException ex ) {
+	    	  ex.printStackTrace();
 	    	  System.out.println(ex.getMessage());
 	      }
 		
