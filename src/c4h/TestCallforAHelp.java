@@ -63,9 +63,6 @@ public class TestCallforAHelp {
 		}
 		
 	}
-
-	@SuppressWarnings("unused")
-
 	private void testBG_Info() throws SocketException, IOException {
 		BG_Info BG = new BG_Info();
 		System.out.println("3S");

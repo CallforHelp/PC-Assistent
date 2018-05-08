@@ -280,7 +280,7 @@ public class BG_Info {
 	}
 	public boolean pruefeSchulnr() throws Throwable {
 		BG_Info bg = new BG_Info();
-		String stringToCompare = "GOVW";
+		String stringToCompare = "0000";
 		if (bg.getSchulNummer().regionMatches(true, 0, stringToCompare, 0, 4))
 			return true;
 		else 

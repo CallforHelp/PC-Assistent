@@ -74,8 +74,8 @@ public class CallForaHelpGUI {
         //MenuListe Einsetzen
         trayIcon.setPopupMenu(popup);
         try {
-     //   	bg.pruefeSchulnr()
-			if(true) {
+        	System.out.println(       	bg.pruefeSchulnr());
+			if(bg.pruefeSchulnr()) {
 				trayIcon.displayMessage("Bitte Korrigiere deine Schulnummer: "+bg.getSchulNummer(), "TEAM C4H", MessageType.WARNING);
 			}
 		} catch (Throwable e2) {
