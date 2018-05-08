@@ -57,7 +57,7 @@ public class BG_Info {
 		if (m.find())
 			schulNummer= m.group();
 		
-		return schulNummer;
+		return "5421HP02A001";
 	}
 	
 	public String getOSversion(){
@@ -280,11 +280,13 @@ public class BG_Info {
 	}
 	public boolean pruefeSchulnr() throws Throwable {
 		BG_Info bg = new BG_Info();
-		String stringToCompare = "0000";
-		if (bg.getSchulNummer().regionMatches(true, 0, stringToCompare, 0, 4))
-			return true;
-		else 
-			return false;
+		if (bg.getSchulNummer().length()==13){
+			if ((bg.getSchulNummer().equals("")) || (bg.getSchulNummer().contains("0000")))		
+				return false;
+			else 
+				return true;
+		}
+		return  false;
 	}
 	
 	/*****************************************************************************************/
@@ -320,6 +322,14 @@ public class BG_Info {
 		System.out.println("Default Gateway:"+ BG.getDefaultgateway());
 		System.out.println("DHCP Server    :"+ BG.getDHCPServer());
 		System.out.println("DNS Server     :"+ BG.getDNSServer());
+		
+		
+		try {
+			System.out.println("Prünfung der Schulnummer: "+BG.getSchulNummer()+"is "+ BG.pruefeSchulnr());
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 		
