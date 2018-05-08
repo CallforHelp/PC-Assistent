@@ -57,7 +57,7 @@ public class BG_Info {
 		if (m.find())
 			schulNummer= m.group();
 		
-		return schulNummer;
+		return "4563";
 	}
 	
 	public String getOSversion(){
