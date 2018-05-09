@@ -6,45 +6,44 @@ import java.util.Vector;
 import com.jcraft.jsch.*;
 
 public class SftpConnection {
-	 
+	//local Field
+	private  int    _PORT;
 	private  String _FTP_HOST ;
 	private  String _USER_NAME ;
 	private  String _USER_PWD ;
-	private  int    _PORT      ;
-	BG_Info bg =new BG_Info();
-	Session session = null;
-	ChannelSftp channel= null;
-	String remoteDstFilePath= "/standort/";
+	private String remoteDstFilePath= "/standort/";
+	
+	//local Object
+	protected BG_Info bg =new BG_Info();
+	protected Session session = null;
+	protected ChannelSftp channel= null;
+	
 	File fileWithSchooNumber=null;
 	File filesDirectory = null;
 	
 	
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
 		SftpConnection clientSftp = null;
+		
 		if( args == null || args.length < 4 ) {
 	         System.out.println( "Fehler: Parameter fehlen." );
 	         System.exit( 1 );
 		}else {
 			clientSftp = new SftpConnection(args[0],args[1],args[2],args[3]);
-			try {
-				clientSftp.createNewFileWithSchoolNumber("1234");
-				
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 		}
+		//for Tests
 		clientSftp.closeSFTPConnection();
 		clientSftp.deleteNewFileWithSchoolNumber();
 	}
 	
-	public SftpConnection( String benutzername, String passwort, String host, String port ) throws IOException{
+	public SftpConnection( String benutzername, String passwort, String host, String port ) throws Exception{
 		this._FTP_HOST=host;
 		this._USER_NAME= benutzername;
 		this._USER_PWD=passwort;
 		this._PORT= Integer.parseInt(port);
 		 /*
 		  *  Die erste Option (StrictHostKeyChecking) schaltet die R�ckfragen aus, 
-		  *  die eine SSH-Installation �blicherweise dann stellt,
+		  *  die eine SSH-Installation ueblicherweise dann stellt,
 		  *   wenn Sie sich das erste Mal mit dem jeweiligen Host verbinden
 		  */
 		
@@ -56,14 +55,17 @@ public class SftpConnection {
 		} catch (JSchException e) {
 			System.out.println(e);
 		}
-		 
-		 try {
+		if (session.isConnected())
+			System.out.println("session is READY: "+session.isConnected());
+		try{
 			channel = (ChannelSftp) session.openChannel( "sftp" );
 			channel.connect();
+			uploadFileWithSchoolNumber();
 		} catch (JSchException e) {
 			System.out.println(e);
-			
 		}
+		if(channel.isConnected())
+			System.out.println("Channel is Ready: "+channel.isConnected());
 
 	}
 	
@@ -123,15 +125,23 @@ public class SftpConnection {
 	    	} catch (IOException e) {
 		      e.printStackTrace();
 		}
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileWithSchooNumber))) {
+			bw.write(schoolNumber);
+			bw.close();
+			System.out.println("Done ist written the schoolNumber");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}		
 		fileWithSchooNumber.getAbsolutePath();
 		return fileWithSchooNumber.getAbsolutePath();
 		
 		
 	}
 	public void deleteNewFileWithSchoolNumber() {
-		System.out.println(filesDirectory.getPath());
-		fileWithSchooNumber.delete();
-		filesDirectory.delete();
+		if(fileWithSchooNumber!=null)
+			fileWithSchooNumber.delete();
+		if (filesDirectory!=null)
+			filesDirectory.delete();
 	}
 	private void closeSFTPConnection() {
 		channel.disconnect();
