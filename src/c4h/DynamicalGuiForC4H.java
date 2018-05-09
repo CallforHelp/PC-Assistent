@@ -68,6 +68,7 @@ public class DynamicalGuiForC4H {
 	 * @throws IOException 
 	 * @throws InterruptedException 
 	 */
+	@SuppressWarnings("deprecation")
 	public void initialize() throws IOException  {
 		
 		frmCh = new JFrame();

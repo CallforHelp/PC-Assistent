@@ -340,7 +340,6 @@ public class BgInfoFrame extends JFrame {
 				try {
 					web.openWebSiteExample();
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
