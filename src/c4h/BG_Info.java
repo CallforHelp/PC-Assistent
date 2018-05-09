@@ -57,7 +57,8 @@ public class BG_Info {
 		if (m.find())
 			schulNummer= m.group();
 		
-		return "5421HP02A001";
+    return "5421HP02A001";
+
 	}
 	
 	public String getOSversion(){
@@ -325,7 +326,7 @@ public class BG_Info {
 		
 		
 		try {
-			System.out.println("Prünfung der Schulnummer: "+BG.getSchulNummer()+"is "+ BG.pruefeSchulnr());
+			System.out.println("PrÃ¼nfung der Schulnummer: "+BG.getSchulNummer()+"is "+ BG.pruefeSchulnr());
 		} catch (Throwable e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
