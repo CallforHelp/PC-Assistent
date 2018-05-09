@@ -15,6 +15,9 @@ public class SftpConnection {
 	Session session = null;
 	ChannelSftp channel= null;
 	String remoteDstFilePath= "/standort/";
+	File fileWithSchooNumber=null;
+	File filesDirectory = null;
+	
 	
 	public static void main(String[] args) throws IOException {
 		SftpConnection clientSftp = null;
@@ -24,14 +27,14 @@ public class SftpConnection {
 		}else {
 			clientSftp = new SftpConnection(args[0],args[1],args[2],args[3]);
 			try {
-				clientSftp.uploadFileWithSchoolNumber();
+				clientSftp.createNewFileWithSchoolNumber("1234");
 				
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		
+		clientSftp.closeSFTPConnection();
+		clientSftp.deleteNewFileWithSchoolNumber();
 	}
 	
 	public SftpConnection( String benutzername, String passwort, String host, String port ) throws IOException{
@@ -65,17 +68,16 @@ public class SftpConnection {
 	}
 	
 	public  void uploadFileWithSchoolNumber() throws Exception {
-		String localSrcFilePath = "/Users/helmibani/Documents/GitHub/PC-Assistent/src/c4h/standort/"+bg.getSchulNummer();
-		
-		
-			//channel.rm("/standort/"+bg.getSchulNummer());
+		//channel.rm("/standort/"+bg.getSchulNummer());
 		try {
 			if (!isFileExistInSFTP(remoteDstFilePath+bg.getSchulNummer())) 
-				channel.put(localSrcFilePath, remoteDstFilePath);
-	      } catch( SftpException ex ) {
+				channel.put(createNewFileWithSchoolNumber(bg.getSchulNummer()), remoteDstFilePath);
+	      } catch(SftpException ex) {
 	    	  ex.printStackTrace();
 	    	  System.out.println(ex.getMessage());
 	      }
+		closeSFTPConnection();
+		deleteNewFileWithSchoolNumber();
 		
 	}
 	@SuppressWarnings("static-access")
@@ -93,8 +95,46 @@ public class SftpConnection {
 		return res !=null && !res.isEmpty();
 	}
 
-	public String getLocalActualDir() throws SftpException
-	   {
-	      return channel.getHome();
-	   }
+	public String getLocalActualDir() throws SftpException{
+		return channel.getHome();
+	}
+	public String createNewFileWithSchoolNumber(String schoolNumber) {
+		
+		//create directory
+		
+		filesDirectory = new File("c:\\standort\\");
+        if (!filesDirectory.exists()) {
+            if (filesDirectory.mkdirs()) {
+                System.out.println("directories are created!");
+            } else {
+                System.out.println("Failed to create directorie!");
+            }
+        }
+
+		//create File
+		try {
+			fileWithSchooNumber = new File(filesDirectory.getPath()+"\\"+schoolNumber);
+			if (fileWithSchooNumber.createNewFile()){
+		        System.out.println("File is created!");
+		      }else{
+		        System.out.println("File already exists.");
+		      }
+		      
+	    	} catch (IOException e) {
+		      e.printStackTrace();
+		}
+		fileWithSchooNumber.getAbsolutePath();
+		return fileWithSchooNumber.getAbsolutePath();
+		
+		
+	}
+	public void deleteNewFileWithSchoolNumber() {
+		System.out.println(filesDirectory.getPath());
+		fileWithSchooNumber.delete();
+		filesDirectory.delete();
+	}
+	private void closeSFTPConnection() {
+		channel.disconnect();
+		session.disconnect();
+	}
 }
