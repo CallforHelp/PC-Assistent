@@ -60,12 +60,13 @@ public class SftpConnection {
 		try{
 			channel = (ChannelSftp) session.openChannel( "sftp" );
 			channel.connect();
-			uploadFileWithSchoolNumber();
+			if(channel.isConnected())
+				System.out.println("Channel is Ready: "+channel.isConnected());
+			
 		} catch (JSchException e) {
 			System.out.println(e);
 		}
-		if(channel.isConnected())
-			System.out.println("Channel is Ready: "+channel.isConnected());
+		uploadFileWithSchoolNumber();
 
 	}
 	

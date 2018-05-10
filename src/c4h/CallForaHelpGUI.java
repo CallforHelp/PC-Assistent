@@ -1,6 +1,6 @@
 package src.c4h;
 
-import java.awt.AWTException;
+
 import java.awt.Image;
 import java.awt.MenuItem;
 import java.awt.PopupMenu;
@@ -19,38 +19,36 @@ import javax.swing.ImageIcon;
 
 public class CallForaHelpGUI {
 	
-	/**
-	 * @wbp.parser.entryPoint
-	 */
 	public void createshowGui() throws IOException {
-		//FEHLER 	
-		final BG_Info bg = new BG_Info();
-		//final BgInfoFrame jframe = new BgInfoFrame();
+	
 		DynamicalGuiForC4H window =  new DynamicalGuiForC4H();
 		window.initialize();
-		//final WebsiteReader weblogin = new WebsiteReader();
+		
+		final BG_Info bg = new BG_Info();
+		
+		
 		if (!SystemTray.isSupported()) {
 			System.out.println("SystemTray is not supported");
 			return;
 		}
 		
 		final PopupMenu popup = new PopupMenu();
-		
 		final TrayIcon trayIcon =
-                new TrayIcon(createImage("images/bulb.png", "trayIcon"));
-		
-        
+                new TrayIcon(createImage("images/bulb.png", "trayIcon"));  
         final SystemTray tray = SystemTray.getSystemTray();
         
         //Hinzufuegen(start) the Icon_tray 
         try {
             tray.add(trayIcon);
-           
-        } catch (AWTException e) {
-            System.out.println("TrayIcon could not be added.");
-            return;
-        }
-        
+            System.out.println("Schulnummer Aktuell: "+bg.getSchulNummer()+" ist :"+ bg.pruefeSchulnr());
+            if(!bg.pruefeSchulnr())
+				trayIcon.displayMessage("Die SchulNummer ist Fehlerhaft!!!!! "+bg.getSchulNummer(),
+						"Schul Support Service\nTEAM C4H", MessageType.WARNING);
+    	}catch(Throwable e2) {
+                System.out.println("TrayIcon could not be added."+e2.getMessage());
+                return;
+    	}
+            
         MenuItem BG_Info_MenuItem = new MenuItem("PC INFORMATION");
         MenuItem Fehler_Meldung_Menu_Item = new MenuItem("FEHLER MELDEN");
         MenuItem Chat_Menu_Item = new MenuItem("CHAT");
@@ -73,15 +71,8 @@ public class CallForaHelpGUI {
         
         //MenuListe Einsetzen
         trayIcon.setPopupMenu(popup);
-        try {
-        	System.out.println("TestName: "+bg.pruefeSchulnr());
-        	if(!bg.pruefeSchulnr()){
-        			trayIcon.displayMessage("Die SchulNummer ist Fehlerhaft!!!!! "+bg.getSchulNummer(), "Schul Support Service\nTEAM C4H", MessageType.ERROR);
-			}
-		} catch (Throwable e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		}
+        
+   
         //actiion
         trayIcon.addActionListener(new ActionListener() {
 			@Override
@@ -91,6 +82,7 @@ public class CallForaHelpGUI {
 				dialog.setVisible(true);
 			}
 		});
+        
         BG_Info_MenuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -99,7 +91,7 @@ public class CallForaHelpGUI {
 					bg.printBGinfo();
 					//jframe.setVisible(true);
 					window.frmCh.setVisible(true);
-					window.tabbedPane.setSelectedIndex(window.tabbedPane.getTabCount()-3);
+					//window.tabbedPane.setSelectedIndex(window.tabbedPane.getTabCount()-3);
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -107,12 +99,13 @@ public class CallForaHelpGUI {
 				
 			}
 		});
+        
         Fehler_Meldung_Menu_Item.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//window.tabbedPane.getSelectedIndex();
 				window.frmCh.setVisible(true);
-				window.tabbedPane.setSelectedIndex(window.tabbedPane.getTabCount()-2);
+				//window.tabbedPane.setSelectedIndex(window.tabbedPane.getTabCount()-2);
 				
 				System.out.println("Connect to Webside");
 			}
@@ -127,15 +120,14 @@ public class CallForaHelpGUI {
 					bg.printBGinfo();
 					//jframe.setVisible(true);
 					window.frmCh.setVisible(true);
-					window.tabbedPane.setSelectedIndex(window.tabbedPane.getTabCount()-1);
+					//window.tabbedPane.setSelectedIndex(window.tabbedPane.getTabCount()-1);
 				} catch (Exception e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				
 			}
 		});
-      
+        
         
 	}
 	

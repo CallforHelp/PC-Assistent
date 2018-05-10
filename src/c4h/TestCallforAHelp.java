@@ -3,7 +3,6 @@ package src.c4h;
 
 import java.awt.EventQueue;
 import java.io.IOException;
-import java.net.SocketException;
 
 /**
  * 
@@ -16,14 +15,12 @@ public class TestCallforAHelp {
 
 	
 
-	public static void main(String[] args) throws SocketException, IOException {
+	@SuppressWarnings("unused")
+	public static void main(String[] args) throws Exception{
+		
 		TestCallforAHelp start = new TestCallforAHelp();
-		try {
-			start .testBG_Info();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		start.startDynamicGUI();
+		//start .testBG_Info();
 		//start.testCallForaHelpGui();
 		//start.testBgInfoFrame();
 		//start.testWebsiteReader();
@@ -63,14 +60,20 @@ public class TestCallforAHelp {
 		try {
 			start.createshowGui();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 	}
+	@SuppressWarnings("unused")
 	private void testBG_Info() throws Exception {
 		BG_Info BG = new BG_Info();
 		BG.printBGinfo();
+	}
+	@SuppressWarnings("unused")
+	private void startDynamicGUI() throws Exception {
+		DynamicalGuiForC4H window =new DynamicalGuiForC4H();
+		window.frmCh.setVisible(true);
+		
 	}
 	
 	
