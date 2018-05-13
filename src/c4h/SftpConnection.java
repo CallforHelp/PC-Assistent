@@ -23,7 +23,7 @@ public class SftpConnection {
 	
 	
 	public static void main(String[] args) throws Exception {
-		SftpConnection clientSftp = null;
+		/*SftpConnection clientSftp = null;
 		
 		if( args == null || args.length < 4 ) {
 	         System.out.println( "Fehler: Parameter fehlen." );
@@ -33,7 +33,7 @@ public class SftpConnection {
 		}
 		//for Tests
 		clientSftp.closeSFTPConnection();
-		clientSftp.deleteNewFileWithSchoolNumber();
+		clientSftp.deleteNewFileWithSchoolNumber();*/
 	}
 	
 	public SftpConnection( String benutzername, String passwort, String host, String port ) throws Exception{
@@ -66,15 +66,16 @@ public class SftpConnection {
 		} catch (JSchException e) {
 			System.out.println(e);
 		}
-		uploadFileWithSchoolNumber();
 
 	}
 	
 	public  void uploadFileWithSchoolNumber() throws Exception {
 		//channel.rm("/standort/"+bg.getSchulNummer());
 		try {
-			if (!isFileExistInSFTP(remoteDstFilePath+bg.getSchulNummer())) 
+			if (!isFileExistInSFTP(remoteDstFilePath+bg.getSchulNummer())) { 
 				channel.put(createNewFileWithSchoolNumber(bg.getSchulNummer()), remoteDstFilePath);
+			}else 
+				System.out.println("Datei Vorhanden");
 	      } catch(SftpException ex) {
 	    	  ex.printStackTrace();
 	    	  System.out.println(ex.getMessage());
@@ -145,7 +146,9 @@ public class SftpConnection {
 			filesDirectory.delete();
 	}
 	private void closeSFTPConnection() {
-		channel.disconnect();
+		if (channel!=null)
+			channel.disconnect();
+		if(session!=null)
 		session.disconnect();
 	}
 }

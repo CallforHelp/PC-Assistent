@@ -89,8 +89,10 @@ public class CallForaHelpGUI {
 				//todo hier
 				try {
 					bg.printBGinfo();
-					//jframe.setVisible(true);
 					window.frmCh.setVisible(true);
+					window.PcInfoPanel.setVisible(true);
+					window.FehlerMeldenPanel.setVisible(false);
+					window.chatPanel.setVisible(false);
 					//window.tabbedPane.setSelectedIndex(window.tabbedPane.getTabCount()-3);
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
@@ -103,9 +105,10 @@ public class CallForaHelpGUI {
         Fehler_Meldung_Menu_Item.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//window.tabbedPane.getSelectedIndex();
 				window.frmCh.setVisible(true);
-				//window.tabbedPane.setSelectedIndex(window.tabbedPane.getTabCount()-2);
+				window.FehlerMeldenPanel.setVisible(true);
+				window.chatPanel.setVisible(false);
+				window.PcInfoPanel.setVisible(false);
 				
 				System.out.println("Connect to Webside");
 			}
@@ -115,15 +118,10 @@ public class CallForaHelpGUI {
         Chat_Menu_Item.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//todo hier
-				try {
-					bg.printBGinfo();
-					//jframe.setVisible(true);
-					window.frmCh.setVisible(true);
-					//window.tabbedPane.setSelectedIndex(window.tabbedPane.getTabCount()-1);
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
+				window.frmCh.setVisible(true);
+				window.chatPanel.setVisible(true);
+				window.PcInfoPanel.setVisible(false);
+				window.FehlerMeldenPanel.setVisible(false);
 				
 			}
 		});

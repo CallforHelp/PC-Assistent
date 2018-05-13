@@ -33,7 +33,7 @@ public class BgInfoFrame extends JFrame {
 	private JPanel contentPane;
 	private final BG_Info bg = new BG_Info();
 	private WebsiteReader web = new WebsiteReader();
-
+	
 	/**
 	 * Create the frame.
 	 * @throws IOException 
