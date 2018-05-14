@@ -3,7 +3,7 @@ package src.c4h;
 
 public class CallForHelp {
 
-	public static void main(String[] args){	
+	public static void main(String[] args) throws Throwable{	
 		
 		CallForaHelpGUI start=new CallForaHelpGUI();
 		

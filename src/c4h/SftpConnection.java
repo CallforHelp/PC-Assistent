@@ -14,7 +14,6 @@ public class SftpConnection {
 	private String remoteDstFilePath= "/standort/";
 	
 	//local Object
-	protected BG_Info bg =new BG_Info();
 	protected Session session = null;
 	protected ChannelSftp channel= null;
 	
@@ -69,7 +68,8 @@ public class SftpConnection {
 
 	}
 	
-	public  void uploadFileWithSchoolNumber() throws Exception {
+	public  void uploadFileWithSchoolNumber() throws Throwable {
+		BG_Info bg = new BG_Info();
 		//channel.rm("/standort/"+bg.getSchulNummer());
 		try {
 			if (!isFileExistInSFTP(remoteDstFilePath+bg.getSchulNummer())) { 

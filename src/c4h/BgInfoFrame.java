@@ -36,9 +36,9 @@ public class BgInfoFrame extends JFrame {
 	
 	/**
 	 * Create the frame.
-	 * @throws IOException 
+	 * @throws Throwable 
 	 */
-	public BgInfoFrame() throws IOException {
+	public BgInfoFrame() throws Throwable {
 		setType(Type.UTILITY);
 		setModalExclusionType(ModalExclusionType.APPLICATION_EXCLUDE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(BgInfoFrame.class.getResource("images/bulb.png")));
@@ -340,6 +340,9 @@ public class BgInfoFrame extends JFrame {
 				try {
 					web.openWebSiteExample();
 				} catch (IOException e1) {
+					e1.printStackTrace();
+				} catch (Throwable e1) {
+					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}

@@ -2,7 +2,6 @@ package src.c4h;
 
 
 import java.awt.EventQueue;
-import java.io.IOException;
 
 /**
  * 
@@ -16,7 +15,7 @@ public class TestCallforAHelp {
 	
 
 	@SuppressWarnings("unused")
-	public static void main(String[] args) throws Exception{
+	public static void main(String[] args) throws Throwable{
 		
 		TestCallforAHelp start = new TestCallforAHelp();
 		start.startDynamicGUI();
@@ -32,7 +31,7 @@ public class TestCallforAHelp {
 
 	@SuppressWarnings("unused")
 
-	private void testWebsiteReader() throws IOException {
+	private void testWebsiteReader() throws Throwable {
 		WebsiteReader web = new WebsiteReader();
 		web.openWebSiteExample();
 		//web.webScraperExample();
@@ -49,6 +48,9 @@ public class TestCallforAHelp {
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
+				} catch (Throwable e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 			}
 		});
@@ -61,16 +63,19 @@ public class TestCallforAHelp {
 			start.createshowGui();
 		} catch (Exception e) {
 			e.printStackTrace();
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 	}
 	@SuppressWarnings("unused")
-	private void testBG_Info() throws Exception {
+	private void testBG_Info() throws Throwable {
 		BG_Info BG = new BG_Info();
 		BG.printBGinfo();
 	}
 	@SuppressWarnings("unused")
-	private void startDynamicGUI() throws Exception {
+	private void startDynamicGUI() throws Throwable {
 		DynamicalGuiForC4H window =new DynamicalGuiForC4H();
 		window.frmCh.setVisible(true);
 		

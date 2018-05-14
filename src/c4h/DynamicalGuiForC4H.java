@@ -19,17 +19,21 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import javax.swing.border.EtchedBorder;
+import javax.swing.JEditorPane;
 
 public class DynamicalGuiForC4H {
 
+	public String URL = "https://fehlermeldung.3s-hamburg.de/";
 	public JFrame frmCh;
 	public JPanel PcInfoPanel;
 	public JPanel FehlerMeldenPanel;
 	public JPanel chatPanel;
-	 public JPanel Buttonpanel;
+	public JPanel Buttonpanel;
+	public JEditorPane editorPane;
 	
 	private DefaultListModel<String> systemInfo;
 	private DefaultListModel<String> netzwerkInfo;
@@ -47,10 +51,10 @@ public class DynamicalGuiForC4H {
 
 	/**
 	 * Create the application.
-	 * @throws IOException 
+	 * @throws Throwable 
 	 * @throws InterruptedException 
 	 */
-	public DynamicalGuiForC4H() throws IOException {
+	public DynamicalGuiForC4H() throws Throwable {
 		initialize();
 		try {
 			this.sftpClient= new SftpConnection("wswham_2", "GXD2iRx$", "3s-hamburg.de", "22");
@@ -63,11 +67,11 @@ public class DynamicalGuiForC4H {
 
 	/**
 	 * Initialize the contents of the frame.
-	 * @throws IOException 
+	 * @throws Throwable 
 	 * @throws InterruptedException 
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public void initialize() throws IOException{
+	public void initialize() throws Throwable{
 		
 		
 		frmCh = new JFrame();
@@ -124,6 +128,30 @@ public class DynamicalGuiForC4H {
 		chatPanel.setLayout(null);
 		chatPanel.setVisible(true);
 		
+		editorPane = new JEditorPane();
+		 try {
+	            editorPane.setPage("http://sharepoint/kndb/Seiten/Home.aspx");
+	        } 
+	        catch (IOException ioe) {
+	            // HTML wird als Texttyp vorgegeben.
+	           // editorPane.setContentType("text/html");
+	 
+	            // Text für Fehlermeldung wird
+	            // im HTML-Format übergeben.
+	            editorPane.setText("<html> <center>"
+	                    + "<h1>Page not found</h1>"
+	                    + "</center> </html>.");
+	        }
+	 
+	        // Inhalt kann so nicht editiert werden.
+	        editorPane.setEditable(false);
+	 
+	        JScrollPane scrollPane = new JScrollPane(editorPane);
+	        
+	        
+	        editorPane.setBounds(0, 0, 733, 630);
+	        editorPane.setBackground(Color.BLACK);
+	        FehlerMeldenPanel.add(scrollPane);
 		//MENU
 		JMenuBar menuBar = new JMenuBar();
 		
@@ -224,15 +252,14 @@ public class DynamicalGuiForC4H {
 				
 			}
 		});
-		
-		
-		
+			
 		fehlermeldenButton.addActionListener(new ActionListener() {
 			
 
 			public void actionPerformed(ActionEvent arg0) {
 				PcInfoPanel.setVisible(false);
 				FehlerMeldenPanel.setVisible(true);
+				editorPane.setVisible(true);
 				chatPanel.setVisible(false);
 			}
 		});
@@ -248,14 +275,17 @@ public class DynamicalGuiForC4H {
 		});
 		
 		
-		JButton btnHierKommtEin = new JButton("Hier Kommt ein Browser");
+		/*JButton btnHierKommtEin = new JButton("Hier Kommt ein Browser");
 		btnHierKommtEin.setBounds(191, 257, 264, 55);
 		FehlerMeldenPanel.add(btnHierKommtEin);
 		
 		JLabel logolabelfehlermelden = new JLabel("");
 		logolabelfehlermelden.setIcon(new ImageIcon(DynamicalGuiForC4H.class.getResource("/src/c4h/images/3s_logo-2.png")));
 		logolabelfehlermelden.setBounds(209, 467, 339, 126);
-		FehlerMeldenPanel.add(logolabelfehlermelden);
+		FehlerMeldenPanel.add(logolabelfehlermelden);*/
+		
+		 
+			
 		
 		JButton btnHierKommtEin2 = new JButton("Hier Kommt ein CHAT Fenster");
 		btnHierKommtEin2.setBounds(191, 257, 264, 55);
@@ -265,8 +295,6 @@ public class DynamicalGuiForC4H {
 		logolabelchat.setIcon(new ImageIcon(DynamicalGuiForC4H.class.getResource("/src/c4h/images/3s_logo-2.png")));
 		logolabelchat.setBounds(209, 467, 339, 126);
 		chatPanel.add(logolabelchat);
-		
-		
 		
 		
 		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();

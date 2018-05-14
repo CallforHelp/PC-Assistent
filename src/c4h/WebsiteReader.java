@@ -5,13 +5,13 @@ import java.io.*;
 import java.util.*;
 import java.net.*;
 
-public class WebsiteReader {
+public class WebsiteReader  {
 	
 	String webSeite ="https://fehlermeldung.3s-hamburg.de"; 
-	BG_Info bginfo= new  BG_Info();
+	
 	//browser starten
-	public void openWebSiteExample() throws IOException {
-		
+	public void openWebSiteExample()throws Throwable  {
+		BG_Info bginfo= new  BG_Info();
 		System.out.println("standard browswer wird aufgerufen");
 		if(bginfo.getOSversion().contains("W")||bginfo.getOSversion().contains("w")) { 
 			new ProcessBuilder(new String[] { "cmd", "/c", "start",webSeite }).start();
