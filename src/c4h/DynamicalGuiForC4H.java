@@ -1,5 +1,6 @@
 package src.c4h;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -7,7 +8,6 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
@@ -19,22 +19,22 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import javax.swing.border.EtchedBorder;
-import javax.swing.JEditorPane;
 
 public class DynamicalGuiForC4H {
 
 	public String URL = "https://fehlermeldung.3s-hamburg.de/";
+	C4HBrowserIntegration browser ;
+	
 	public JFrame frmCh;
 	public JPanel PcInfoPanel;
 	public JPanel FehlerMeldenPanel;
 	public JPanel chatPanel;
 	public JPanel Buttonpanel;
-	public JEditorPane editorPane;
-	
+
+	//Default PC Information List
 	private DefaultListModel<String> systemInfo;
 	private DefaultListModel<String> netzwerkInfo;
 	
@@ -47,7 +47,7 @@ public class DynamicalGuiForC4H {
 	private SftpConnection sftpClient;
 	
 	private final BG_Info bg = new BG_Info();	
-	//private WebsiteReader web = new WebsiteReader();
+	
 
 	/**
 	 * Create the application.
@@ -75,6 +75,7 @@ public class DynamicalGuiForC4H {
 		
 		
 		frmCh = new JFrame();
+		frmCh.setBounds(100, 100, 1014, 725);
 		
 		//PANELS
 		
@@ -88,7 +89,6 @@ public class DynamicalGuiForC4H {
 	
 		JButton pcInfoButton = new JButton("PC INFORMATION");
 		JButton fehlermeldenButton = new JButton("FEHLER MELDEN");
-		JButton btnChat = new JButton("CHAT");
 		
 		//LABELS
 		JLabel logoLabel = new JLabel("");
@@ -96,62 +96,33 @@ public class DynamicalGuiForC4H {
 		JLabel systemInfoLabel = new JLabel("System Information");
 		JLabel lblNetzwerkInformation = new JLabel("Netzwerk Information");
 		
-		
-		
-		
-		
 		//button
-		pcInfoButton.setBounds(10, 82, 207, 81);
-		fehlermeldenButton.setBounds(10, 215, 207, 81);
-		btnChat.setBounds(10, 346, 207, 81);
+		pcInfoButton.setBounds(10, 83, 175, 75);
+		fehlermeldenButton.setBounds(10, 215, 175, 75);
 		
 		//Panel
 		Buttonpanel.setBackground(new Color(240,240,240));
-		Buttonpanel.setBounds(0, 39, 227, 630);
+		Buttonpanel.setBounds(0, 40, 200, 630);
 		Buttonpanel.setLayout(null);
-		Buttonpanel.add(btnChat);
 		Buttonpanel.add(pcInfoButton);
 		Buttonpanel.add(fehlermeldenButton);
 		
 		
-		PcInfoPanel.setBounds(227, 39, 760, 630);
+		PcInfoPanel.setBounds(200, 40, 787, 630);
 		PcInfoPanel.setBackground(new Color(240,240,240,240));
 		PcInfoPanel.setLayout(null);
-		PcInfoPanel.setVisible(true);
 		PcInfoPanel.add(titelLabel);
 		
-		FehlerMeldenPanel.setBounds(227, 39, 760, 630);
-		FehlerMeldenPanel.setLayout(null);
-		FehlerMeldenPanel.setVisible(true);
+		FehlerMeldenPanel.setBounds(200, 40, 787, 630);
+		FehlerMeldenPanel.setBackground(new Color(240,240,240));
+		FehlerMeldenPanel.setLayout(new BorderLayout());
 		
-		chatPanel.setBounds(227, 39, 760, 630);
+		chatPanel.setBounds(200, 40, 787, 630);
+		chatPanel.setBackground(new Color(240,240,240));
 		chatPanel.setLayout(null);
 		chatPanel.setVisible(true);
 		
-		editorPane = new JEditorPane();
-		 try {
-	            editorPane.setPage("http://sharepoint/kndb/Seiten/Home.aspx");
-	        } 
-	        catch (IOException ioe) {
-	            // HTML wird als Texttyp vorgegeben.
-	           // editorPane.setContentType("text/html");
-	 
-	            // Text für Fehlermeldung wird
-	            // im HTML-Format übergeben.
-	            editorPane.setText("<html> <center>"
-	                    + "<h1>Page not found</h1>"
-	                    + "</center> </html>.");
-	        }
-	 
-	        // Inhalt kann so nicht editiert werden.
-	        editorPane.setEditable(false);
-	 
-	        JScrollPane scrollPane = new JScrollPane(editorPane);
-	        
-	        
-	        editorPane.setBounds(0, 0, 733, 630);
-	        editorPane.setBackground(Color.BLACK);
-	        FehlerMeldenPanel.add(scrollPane);
+		
 		//MENU
 		JMenuBar menuBar = new JMenuBar();
 		
@@ -183,29 +154,42 @@ public class DynamicalGuiForC4H {
 		
 		menuBearbeiten.add(mntmNewMenuItem_3);
 		menuBearbeiten.add(mntmNewMenuItem_4);
+		JButton btnChat = new JButton("CHAT");
+		btnChat.setBounds(10, 346, 175, 75);
+		Buttonpanel.add(btnChat);
+		
+		
+		
+		btnChat.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				PcInfoPanel.setVisible(false);
+				FehlerMeldenPanel.setVisible(false);
+				chatPanel.setVisible(true);
+			}
+		});
 		
 		//LABEL Settings
-		logoLabel.setBounds(10, 455, 207, 164);
+		logoLabel.setBounds(10, 455, 175, 164);
 		Buttonpanel.add(logoLabel);
 		
 		
-		titelLabel.setBounds(146, 0, 446, 60);
+		titelLabel.setBounds(183, 11, 377, 60);
 		titelLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		titelLabel.setFont(new Font("Algerian", Font.PLAIN, 29));
 		titelLabel.setText("PC Information");
 		
 		systemInfoLabel.setFont(new Font("Algerian", Font.PLAIN, 18));
 		systemInfoLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		systemInfoLabel.setBounds(86, 107, 217, 32);
+		systemInfoLabel.setBounds(105, 107, 217, 32);
 		PcInfoPanel.add(systemInfoLabel);
 		
 		lblNetzwerkInformation.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNetzwerkInformation.setFont(new Font("Algerian", Font.PLAIN, 18));
-		lblNetzwerkInformation.setBounds(397, 107, 238, 32);
+		lblNetzwerkInformation.setBounds(480, 107, 238, 32);
 		PcInfoPanel.add(lblNetzwerkInformation);
 		
 		JSeparator separator = new JSeparator();
-		separator.setBounds(86, 56, 641, 2);
+		separator.setBounds(55, 56, 700, 2);
 		PcInfoPanel.add(separator);
 		
 		// FRAME SETTINGS
@@ -214,7 +198,7 @@ public class DynamicalGuiForC4H {
 		frmCh.setIconImage(Toolkit.getDefaultToolkit().getImage(DynamicalGuiForC4H.class.getResource("images/bulb.png")));
 		frmCh.setBackground(Color.WHITE);
 		frmCh.setTitle("C4H");
-		frmCh.setBounds(100, 100, 966, 698);
+		
 		frmCh.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		frmCh.getContentPane().setBackground(new Color(240,240,240));
 		frmCh.getContentPane().setIgnoreRepaint(true);
@@ -223,24 +207,20 @@ public class DynamicalGuiForC4H {
 		frmCh.getContentPane().add(menuBar);
 		frmCh.getContentPane().add(Buttonpanel);
 		frmCh.getContentPane().add(PcInfoPanel);
+		frmCh.getContentPane().add(FehlerMeldenPanel);
 		
 		JLabel logo3sLabel = new JLabel("");
 		logo3sLabel.setIcon(new ImageIcon(DynamicalGuiForC4H.class.getResource("/src/c4h/images/3s_logo.png")));
-		logo3sLabel.setBounds(209, 467, 339, 126);
+		logo3sLabel.setBounds(234, 458, 339, 126);
 		PcInfoPanel.add(logo3sLabel);
 		
-		
-		frmCh.getContentPane().add(FehlerMeldenPanel);
+		/**
+		 * ChatKonfiguration
+		 */
 		frmCh.getContentPane().add(chatPanel);
 		
 		
 		//HANDLING FOR MENU ITEMS 
-		exitItem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("beenden");
-				frmCh.setVisible(false);
-			}
-		});
 		
 		//HANDLING FOR BUTTONS
 		
@@ -254,38 +234,15 @@ public class DynamicalGuiForC4H {
 		});
 			
 		fehlermeldenButton.addActionListener(new ActionListener() {
-			
-
 			public void actionPerformed(ActionEvent arg0) {
 				PcInfoPanel.setVisible(false);
 				FehlerMeldenPanel.setVisible(true);
-				editorPane.setVisible(true);
 				chatPanel.setVisible(false);
+				browser = new C4HBrowserIntegration(frmCh,FehlerMeldenPanel);
+                browser.loadURL("3s-hamburg.de");
 			}
 		});
-		
-		
-		
-		btnChat.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				PcInfoPanel.setVisible(false);
-				FehlerMeldenPanel.setVisible(false);
-				chatPanel.setVisible(true);
-			}
-		});
-		
-		
-		/*JButton btnHierKommtEin = new JButton("Hier Kommt ein Browser");
-		btnHierKommtEin.setBounds(191, 257, 264, 55);
-		FehlerMeldenPanel.add(btnHierKommtEin);
-		
-		JLabel logolabelfehlermelden = new JLabel("");
-		logolabelfehlermelden.setIcon(new ImageIcon(DynamicalGuiForC4H.class.getResource("/src/c4h/images/3s_logo-2.png")));
-		logolabelfehlermelden.setBounds(209, 467, 339, 126);
-		FehlerMeldenPanel.add(logolabelfehlermelden);*/
-		
-		 
-			
+
 		
 		JButton btnHierKommtEin2 = new JButton("Hier Kommt ein CHAT Fenster");
 		btnHierKommtEin2.setBounds(191, 257, 264, 55);
@@ -293,8 +250,9 @@ public class DynamicalGuiForC4H {
 		
 		JLabel logolabelchat = new JLabel("");
 		logolabelchat.setIcon(new ImageIcon(DynamicalGuiForC4H.class.getResource("/src/c4h/images/3s_logo-2.png")));
-		logolabelchat.setBounds(209, 467, 339, 126);
+		logolabelchat.setBounds(234, 458, 339, 126);
 		chatPanel.add(logolabelchat);
+		
 		
 		
 		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
@@ -349,8 +307,9 @@ public class DynamicalGuiForC4H {
 		netzwekList.setSelectionBackground(Color.LIGHT_GRAY);
 		netzwekList.setForeground(Color.BLACK);
 		netzwekList.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
+		netzwekList.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 14));
 		netzwekList.setBackground(new Color(240,240,240,240));
-		netzwekList.setBounds(374, 150, 309, 278);
+		netzwekList.setBounds(446, 150, 309, 278);
 		PcInfoPanel.add(netzwekList);
 		
 	}

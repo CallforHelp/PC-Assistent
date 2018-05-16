@@ -21,20 +21,6 @@ public class SftpConnection {
 	File filesDirectory = null;
 	
 	
-	public static void main(String[] args) throws Exception {
-		/*SftpConnection clientSftp = null;
-		
-		if( args == null || args.length < 4 ) {
-	         System.out.println( "Fehler: Parameter fehlen." );
-	         System.exit( 1 );
-		}else {
-			clientSftp = new SftpConnection(args[0],args[1],args[2],args[3]);
-		}
-		//for Tests
-		clientSftp.closeSFTPConnection();
-		clientSftp.deleteNewFileWithSchoolNumber();*/
-	}
-	
 	public SftpConnection( String benutzername, String passwort, String host, String port ) throws Exception{
 		this._FTP_HOST=host;
 		this._USER_NAME= benutzername;
