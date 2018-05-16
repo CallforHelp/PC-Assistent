@@ -73,20 +73,16 @@ public class DynamicalGuiForC4H {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void initialize() throws Throwable{
 		
-		
 		frmCh = new JFrame();
 		frmCh.setBounds(100, 100, 1014, 725);
 		
 		//PANELS
-		
-	
 		Buttonpanel = new JPanel();
 		PcInfoPanel = new JPanel();
 		FehlerMeldenPanel = new JPanel();
 		chatPanel = new JPanel();
 		
 		//BUTTONS
-	
 		JButton pcInfoButton = new JButton("PC INFORMATION");
 		JButton fehlermeldenButton = new JButton("FEHLER MELDEN");
 		
@@ -238,8 +234,7 @@ public class DynamicalGuiForC4H {
 				PcInfoPanel.setVisible(false);
 				FehlerMeldenPanel.setVisible(true);
 				chatPanel.setVisible(false);
-				browser = new C4HBrowserIntegration(frmCh,FehlerMeldenPanel);
-                browser.loadURL("3s-hamburg.de");
+				startBrowser();
 			}
 		});
 
@@ -312,5 +307,11 @@ public class DynamicalGuiForC4H {
 		netzwekList.setBounds(446, 150, 309, 278);
 		PcInfoPanel.add(netzwekList);
 		
+	}
+
+	public void startBrowser() {
+		// TODO Auto-generated method stub
+		browser = new C4HBrowserIntegration(frmCh,FehlerMeldenPanel);
+        browser.loadURL("3s-hamburg.de");
 	}
 }

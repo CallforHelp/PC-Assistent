@@ -108,7 +108,7 @@ public class CallForaHelpGUI {
 				window.FehlerMeldenPanel.setVisible(true);
 				window.chatPanel.setVisible(false);
 				window.PcInfoPanel.setVisible(false);
-				
+				window.startBrowser();
 				System.out.println("Connect to Webside");
 			}
 		});
