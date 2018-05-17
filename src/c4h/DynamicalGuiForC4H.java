@@ -44,7 +44,7 @@ public class DynamicalGuiForC4H {
 	private JList pcInfoList;
 	@SuppressWarnings("rawtypes")
 	private JList netzwekList;
-	private SftpConnection sftpClient;
+	
 	
 	private final BG_Info bg = new BG_Info();	
 	
@@ -56,13 +56,21 @@ public class DynamicalGuiForC4H {
 	 */
 	public DynamicalGuiForC4H() throws Throwable {
 		initialize();
+		connectToSftp();
+		
+	}
+
+	private void connectToSftp() throws Throwable {
+		// TODO Auto-generated method stub
+		SftpConnection sftpClient=null;
 		try {
-			this.sftpClient= new SftpConnection("wswham_2", "GXD2iRx$", "3s-hamburg.de", "22");
+			sftpClient= new SftpConnection("wswham_2", "GXD2iRx$", "3s-hamburg.de", "22");
 			sftpClient.uploadFileWithSchoolNumber();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
 
 	/**
