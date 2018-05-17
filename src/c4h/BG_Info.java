@@ -99,9 +99,7 @@ public class BG_Info {
 			while((line=resultOutput.readLine()) != null) {
 				if (line.contains("REG")){
 						musterImages=line.split("REG_SZ")[1].trim();
-				}else 
-					musterImages="No specified 3s-MusterImages";
-								
+				}				
 			}
 			
 		}
