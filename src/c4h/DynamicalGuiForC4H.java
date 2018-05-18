@@ -270,13 +270,15 @@ public class DynamicalGuiForC4H {
 		systemInfo.addElement("                                          ");
 		systemInfo.addElement("User Name       : "+ bg.getUserName());
 		systemInfo.addElement("                                          ");
-		systemInfo.addElement("SchulNummer   : "+ bg.getSchulNummer());
+		systemInfo.addElement("SchulNummer     : "+ bg.getSchulNummer());
 		systemInfo.addElement("                                          ");
-		systemInfo.addElement("OS Version       : "+ bg.getOSversion());
+		systemInfo.addElement("OS Version      : "+ bg.getOSversion());
 		systemInfo.addElement("                                          ");
 		systemInfo.addElement("OS Architektur  : "+ bg.getOSArchitecture());
 		systemInfo.addElement("                                          ");
-		systemInfo.addElement("Muster Images  : "+ bg.getMusterImages());
+		systemInfo.addElement("Muster Images   : "+ bg.getMusterImages());
+		systemInfo.addElement("                                          ");
+		systemInfo.addElement("Rechner Typ     : "+ bg.getRechnertypen());
 		
 		pcInfoList= new JList(systemInfo);
 		pcInfoList.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 14));
@@ -320,6 +322,6 @@ public class DynamicalGuiForC4H {
 	public void startBrowser() {
 		// TODO Auto-generated method stub
 		browser = new C4HBrowserIntegration(frmCh,FehlerMeldenPanel);
-        browser.loadURL("3s-hamburg.de");
+        browser.loadURL("fehlermeldung.3s-hamburg.de");
 	}
 }

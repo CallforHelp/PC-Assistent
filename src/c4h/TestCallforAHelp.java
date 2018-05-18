@@ -18,8 +18,8 @@ public class TestCallforAHelp {
 	public static void main(String[] args) throws Throwable{
 		
 		TestCallforAHelp start = new TestCallforAHelp();
-		start.startDynamicGUI();
-		//start .testBG_Info();
+		//start.startDynamicGUI();
+		start .testBG_Info();
 		//start.testCallForaHelpGui();
 		//start.testBgInfoFrame();
 		//start.testWebsiteReader();

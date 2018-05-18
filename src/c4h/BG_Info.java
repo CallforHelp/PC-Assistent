@@ -62,7 +62,7 @@ public class BG_Info {
 			schulNummer= m.group();
 		
 		if(!pruefeSchulnr())
-			this.schulNummer="Not a specified 3s School";
+			this.schulNummer="Falsche Schulnummer";
 		
     return schulNummer;
 
@@ -106,6 +106,19 @@ public class BG_Info {
 		
 		return musterImages;
 	}
+	public String getRechnertypen() throws Exception {
+		int i;
+		int rechnerTypLaenge=4;
+		String rechnerTyp="";
+		
+		String hostname = InetAddress.getLocalHost().getHostName();
+		
+		for (i = rechnerTypLaenge; i < (rechnerTypLaenge*2); i++) {
+			rechnerTyp=rechnerTyp+hostname.charAt(i);
+		}
+		
+		return rechnerTyp; 
+	}
 	
 	/*****************************************************************************************/
 	/****************************************** NETZWERK ****************************************/
@@ -113,7 +126,7 @@ public class BG_Info {
 	public String getLocalAdresse() throws UnknownHostException {
 		
 		String result ="";
-		result= result + InetAddress.getLocalHost().getHostAddress();
+		result= InetAddress.getLocalHost().getHostAddress();
 		return result;
 		
 	}
@@ -135,7 +148,7 @@ public class BG_Info {
 	public String getLocalHost() throws UnknownHostException {
 		
 		String result ="";
-		result= result + InetAddress.getLocalHost().getHostName();
+		result= InetAddress.getLocalHost().getHostName();
 		
 		return result;
 		
@@ -324,6 +337,8 @@ public class BG_Info {
 		System.out.println("OS Version    :"+ BG.getOSversion());
 		System.out.println("OS Architektur:"+ BG.getOSArchitecture());
 		System.out.println("Muster Images :"+ BG.getMusterImages());
+		System.out.println("Rechner Typen :"+ BG.getRechnertypen());
+		
 	
 		System.out.println("*********************************");
 		System.out.println("            NETZWERK             ");
