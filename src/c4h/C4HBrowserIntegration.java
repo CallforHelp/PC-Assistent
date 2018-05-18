@@ -89,10 +89,10 @@ public class C4HBrowserIntegration{
         Platform.runLater(new Runnable() {
             @Override 
             public void run() {
- 
+            	//Creates and managing one Web page at a time
                 WebView view = new WebView();
                 engine = view.getEngine();
- 
+                //Title of the current Web page.
                 engine.titleProperty().addListener(new ChangeListener<String>() {
                     @Override
                     public void changed(ObservableValue<? extends String> observable, String oldValue, final String newValue) {
@@ -104,7 +104,7 @@ public class C4HBrowserIntegration{
                         });
                     }
                 });
- 
+                //Sets status handler
                 engine.setOnStatusChanged(new EventHandler<WebEvent<String>>() {
                     @Override 
                     public void handle(final WebEvent<String> event) {
@@ -116,7 +116,7 @@ public class C4HBrowserIntegration{
                         });
                     }
                 });
- 
+                //GET URL of the current Web page. 
                 engine.locationProperty().addListener(new ChangeListener<String>() {
                     @Override
                     public void changed(ObservableValue<? extends String> ov, String oldValue, final String newValue) {
