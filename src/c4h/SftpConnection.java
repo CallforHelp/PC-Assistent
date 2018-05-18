@@ -14,27 +14,12 @@ public class SftpConnection {
 	private String remoteDstFilePath= "/standort/";
 	
 	//local Object
-	protected BG_Info bg =new BG_Info();
 	protected Session session = null;
 	protected ChannelSftp channel= null;
 	
 	File fileWithSchooNumber=null;
 	File filesDirectory = null;
 	
-	
-	public static void main(String[] args) throws Exception {
-		/*SftpConnection clientSftp = null;
-		
-		if( args == null || args.length < 4 ) {
-	         System.out.println( "Fehler: Parameter fehlen." );
-	         System.exit( 1 );
-		}else {
-			clientSftp = new SftpConnection(args[0],args[1],args[2],args[3]);
-		}
-		//for Tests
-		clientSftp.closeSFTPConnection();
-		clientSftp.deleteNewFileWithSchoolNumber();*/
-	}
 	
 	public SftpConnection( String benutzername, String passwort, String host, String port ) throws Exception{
 		this._FTP_HOST=host;
@@ -69,7 +54,8 @@ public class SftpConnection {
 
 	}
 	
-	public  void uploadFileWithSchoolNumber() throws Exception {
+	public  void uploadFileWithSchoolNumber() throws Throwable {
+		BG_Info bg = new BG_Info();
 		//channel.rm("/standort/"+bg.getSchulNummer());
 		try {
 			if (!isFileExistInSFTP(remoteDstFilePath+bg.getSchulNummer())) { 

@@ -9,7 +9,6 @@ import java.awt.TrayIcon;
 import java.awt.TrayIcon.MessageType;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.net.URL;
 
 import javax.swing.ImageIcon;
@@ -19,7 +18,7 @@ import javax.swing.ImageIcon;
 
 public class CallForaHelpGUI {
 	
-	public void createshowGui() throws IOException {
+	public void createshowGui() throws Throwable {
 	
 		DynamicalGuiForC4H window =  new DynamicalGuiForC4H();
 		window.initialize();
@@ -42,7 +41,7 @@ public class CallForaHelpGUI {
             tray.add(trayIcon);
             System.out.println("Schulnummer Aktuell: "+bg.getSchulNummer()+" ist :"+ bg.pruefeSchulnr());
             if(!bg.pruefeSchulnr())
-				trayIcon.displayMessage("Die SchulNummer ist Fehlerhaft!!!!! "+bg.getSchulNummer(),
+				trayIcon.displayMessage("Die SchulNummer ist Fehlerhaft!!!"+bg.getSchulNummer(),
 						"Schul Support Service\nTEAM C4H", MessageType.WARNING);
     	}catch(Throwable e2) {
                 System.out.println("TrayIcon could not be added."+e2.getMessage());
@@ -94,7 +93,7 @@ public class CallForaHelpGUI {
 					window.FehlerMeldenPanel.setVisible(false);
 					window.chatPanel.setVisible(false);
 					//window.tabbedPane.setSelectedIndex(window.tabbedPane.getTabCount()-3);
-				} catch (Exception e1) {
+				} catch (Throwable e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
@@ -109,7 +108,7 @@ public class CallForaHelpGUI {
 				window.FehlerMeldenPanel.setVisible(true);
 				window.chatPanel.setVisible(false);
 				window.PcInfoPanel.setVisible(false);
-				
+				window.startBrowser();
 				System.out.println("Connect to Webside");
 			}
 		});
