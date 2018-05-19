@@ -52,17 +52,22 @@ public class C4HBrowserIntegration{
     
     private void initComponents() {
     	
-         createScene();
- 
+
         ActionListener al = new ActionListener() {
             @Override 
             public void actionPerformed(ActionEvent e) {
                 loadURL(txtURL.getText());
            }
         };
+        
+
+    	jfxPanel.setScene(null);
+    	jfxPanel.setBackground(new Color(240,240,240,240));
+    	
 // 
         btnGo.addActionListener(al);
         txtURL.addActionListener(al);
+    
 //  
         progressBar.setPreferredSize(new Dimension(150, 18));
         progressBar.setStringPainted(true);
@@ -80,12 +85,11 @@ public class C4HBrowserIntegration{
         panel.add(jfxPanel, BorderLayout.CENTER);
         panel.add(statusBar, BorderLayout.SOUTH);
         
-       
-
+                createScene();
     }
  
     private void createScene() {
- 
+      
         Platform.runLater(new Runnable() {
             @Override 
             public void run() {
@@ -161,7 +165,6 @@ public class C4HBrowserIntegration{
                                 }
                             }
                         });
-
                 jfxPanel.setScene(new Scene(view));
             }
         });
@@ -176,7 +179,6 @@ public class C4HBrowserIntegration{
                 if (tmp == null) {
                     tmp = toURL("http://" + url);
                 }
- 
                 engine.load(tmp);
             }
         });
