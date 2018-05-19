@@ -64,7 +64,7 @@ public class DynamicalGuiForC4H {
 		// TODO Auto-generated method stub
 		SftpConnection sftpClient=null;
 		try {
-			sftpClient= new SftpConnection("wswham_2", "GXD2iRx$", "3s-hamburg.de", "22");
+			sftpClient= new SftpConnection("","","","");
 			sftpClient.uploadFileWithSchoolNumber();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
