@@ -3,6 +3,7 @@ package src.c4h;
 import static javafx.concurrent.Worker.State.FAILED;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,7 +12,6 @@ import java.net.URL;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
@@ -22,10 +22,8 @@ import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.embed.swing.JFXPanel;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebEvent;
 import javafx.scene.web.WebView;
   
 public class C4HBrowserIntegration{
@@ -33,19 +31,24 @@ public class C4HBrowserIntegration{
     private final JFXPanel jfxPanel = new JFXPanel();
     private WebEngine engine;
  
-    private final JPanel panel;// = new JPanel(new BorderLayout());
-    private final JLabel lblStatus = new JLabel();
+    // = new JPanel(new BorderLayout());
+    
     @SuppressWarnings("unused")
 	private JFrame frame;
+    private JPanel panel = new JPanel(new BorderLayout());
+    
+    private JPanel statusBar= new JPanel(new BorderLayout(5, 0));
+    private JPanel topBar   =new JPanel(new BorderLayout(5, 0));
+    
     private final JButton btnGo = new JButton("Go");
     private final JTextField txtURL = new JTextField();
     private final JProgressBar progressBar = new JProgressBar();
-    private JPanel statusBar= new JPanel(new BorderLayout(5, 0));
-    private JPanel topBar   =new JPanel(new BorderLayout(5, 0));
+    
+  
  
-    public C4HBrowserIntegration(JFrame Frame, JPanel Panel) {
+    public C4HBrowserIntegration(JFrame Frame, JPanel fehlermeldenpanel) {
     	     this.frame = Frame;
-    	     this.panel = Panel;
+    	     fehlermeldenpanel.add(panel);
         initComponents();
     }
 
@@ -78,10 +81,12 @@ public class C4HBrowserIntegration{
         topBar.add(btnGo, BorderLayout.EAST);
 // 
 //        statusBar.setBorder(BorderFactory.createEmptyBorder(3, 5, 3, 5));
-        statusBar.add(lblStatus, BorderLayout.LINE_START);
-        statusBar.add(progressBar, BorderLayout.LINE_END);
+      
+        statusBar.add(progressBar, BorderLayout.CENTER);
  
         panel.add(topBar, BorderLayout.NORTH);
+        
+      //  topBar.add(scrollBar, BorderLayout.WEST);
         panel.add(jfxPanel, BorderLayout.CENTER);
         panel.add(statusBar, BorderLayout.SOUTH);
         
@@ -104,18 +109,6 @@ public class C4HBrowserIntegration{
                             @Override 
                             public void run() {
                                panel.setToolTipText(newValue);
-                            }
-                        });
-                    }
-                });
- 
-                engine.setOnStatusChanged(new EventHandler<WebEvent<String>>() {
-                    @Override 
-                    public void handle(final WebEvent<String> event) {
-                        SwingUtilities.invokeLater(new Runnable() {
-                            @Override 
-                            public void run() {
-                                lblStatus.setText(event.getData());
                             }
                         });
                     }

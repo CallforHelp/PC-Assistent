@@ -6,6 +6,7 @@ import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -22,10 +23,18 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import javax.swing.border.EtchedBorder;
+import java.awt.Window.Type;
+import java.awt.Dialog.ModalExclusionType;
+import javax.swing.border.LineBorder;
+
+import javafx.application.Platform;
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.Scene;
+import javafx.scene.web.WebView;
 
 public class DynamicalGuiForC4H {
 
-	public String URL = "https://fehlermeldung.3s-hamburg.de/";
+	public String URL = "http://fehlermeldung.3s-hamburg.de/";
 	C4HBrowserIntegration browser ;
 	
 	public JFrame frmCh;
@@ -33,6 +42,8 @@ public class DynamicalGuiForC4H {
 	public JPanel FehlerMeldenPanel;
 	public JPanel chatPanel;
 	public JPanel Buttonpanel;
+	
+	
 
 	//Default PC Information List
 	private DefaultListModel<String> systemInfo;
@@ -82,13 +93,24 @@ public class DynamicalGuiForC4H {
 	public void initialize() throws Throwable{
 		
 		frmCh = new JFrame();
-		frmCh.setBounds(100, 100, 1014, 725);
+		frmCh.setModalExclusionType(ModalExclusionType.APPLICATION_EXCLUDE);
+		frmCh.setType(Type.POPUP);
+		frmCh.setResizable(false);
+		frmCh.setBounds(100, 100, 997, 725);
 		
 		//PANELS
 		Buttonpanel = new JPanel();
+		Buttonpanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
+		Buttonpanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		PcInfoPanel = new JPanel();
+		PcInfoPanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
+		PcInfoPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		FehlerMeldenPanel = new JPanel();
+		FehlerMeldenPanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
+		FehlerMeldenPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		chatPanel = new JPanel();
+		chatPanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
+		chatPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		//BUTTONS
 		JButton pcInfoButton = new JButton("PC INFORMATION");
@@ -106,22 +128,22 @@ public class DynamicalGuiForC4H {
 		
 		//Panel
 		Buttonpanel.setBackground(new Color(240,240,240));
-		Buttonpanel.setBounds(0, 40, 200, 630);
+		Buttonpanel.setBounds(0, 40, 200, 656);
 		Buttonpanel.setLayout(null);
 		Buttonpanel.add(pcInfoButton);
 		Buttonpanel.add(fehlermeldenButton);
 		
 		
-		PcInfoPanel.setBounds(200, 40, 787, 630);
+		PcInfoPanel.setBounds(200, 40, 787, 656);
 		PcInfoPanel.setBackground(new Color(240,240,240,240));
 		PcInfoPanel.setLayout(null);
 		PcInfoPanel.add(titelLabel);
 		
-		FehlerMeldenPanel.setBounds(200, 40, 787, 630);
+		FehlerMeldenPanel.setBounds(200, 40, 787, 656);
 		FehlerMeldenPanel.setBackground(new Color(240,240,240));
 		FehlerMeldenPanel.setLayout(new BorderLayout());
 		
-		chatPanel.setBounds(200, 40, 787, 630);
+		chatPanel.setBounds(200, 40, 787, 656);
 		chatPanel.setBackground(new Color(240,240,240));
 		chatPanel.setLayout(null);
 		chatPanel.setVisible(true);
@@ -129,6 +151,7 @@ public class DynamicalGuiForC4H {
 		
 		//MENU
 		JMenuBar menuBar = new JMenuBar();
+		menuBar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		JMenu menuDatei = new JMenu("Datei");
 		JMenu menuBearbeiten = new JMenu("Bearbeiten");
@@ -142,13 +165,11 @@ public class DynamicalGuiForC4H {
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("New menu item");
 		JMenuItem mntmNewMenuItem_4 = new JMenuItem("New menu item");
 		JMenuItem exitItem = new JMenuItem("Beenden");
-		
-		
-		menuBar.setBorderPainted(false);
-		menuBar.setBounds(0, 0, 987, 40);
+		menuBar.setBounds(0, 0, 991, 40);
 		menuBar.add(menuDatei);
 		menuBar.add(menuBearbeiten);
 		menuBar.add(mnInfo);
+		
 		mnInfo.add(uberUnsItem);
 		
 		menuDatei.add(pcInfoItem);
@@ -195,9 +216,6 @@ public class DynamicalGuiForC4H {
 		JSeparator separator = new JSeparator();
 		separator.setBounds(55, 56, 700, 2);
 		PcInfoPanel.add(separator);
-		
-		// FRAME SETTINGS
-		frmCh.setResizable(false);
 		frmCh.setForeground(Color.BLACK);
 		frmCh.setIconImage(Toolkit.getDefaultToolkit().getImage(DynamicalGuiForC4H.class.getResource("images/bulb.png")));
 		frmCh.setBackground(Color.WHITE);
@@ -205,7 +223,6 @@ public class DynamicalGuiForC4H {
 		
 		frmCh.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		frmCh.getContentPane().setBackground(new Color(240,240,240));
-		frmCh.getContentPane().setIgnoreRepaint(true);
 		frmCh.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.SE_RESIZE_CURSOR));
 		frmCh.getContentPane().setLayout(null);
 		frmCh.getContentPane().add(menuBar);
@@ -214,9 +231,13 @@ public class DynamicalGuiForC4H {
 		frmCh.getContentPane().add(FehlerMeldenPanel);
 		
 		JLabel logo3sLabel = new JLabel("");
+		logo3sLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		logo3sLabel.setIcon(new ImageIcon(DynamicalGuiForC4H.class.getResource("/src/c4h/images/3s_logo.png")));
-		logo3sLabel.setBounds(234, 458, 339, 126);
+		logo3sLabel.setBounds(150, 505, 466, 126);
 		PcInfoPanel.add(logo3sLabel);
+		/**
+		 * BrowserKonfiguration
+		 */
 		
 		/**
 		 * ChatKonfiguration
@@ -242,6 +263,7 @@ public class DynamicalGuiForC4H {
 				PcInfoPanel.setVisible(false);
 				FehlerMeldenPanel.setVisible(true);
 				chatPanel.setVisible(false);
+				
 				startBrowser();
 			}
 		});
@@ -252,8 +274,9 @@ public class DynamicalGuiForC4H {
 		chatPanel.add(btnHierKommtEin2);
 		
 		JLabel logolabelchat = new JLabel("");
+		logolabelchat.setHorizontalAlignment(SwingConstants.CENTER);
 		logolabelchat.setIcon(new ImageIcon(DynamicalGuiForC4H.class.getResource("/src/c4h/images/3s_logo-2.png")));
-		logolabelchat.setBounds(234, 458, 339, 126);
+		logolabelchat.setBounds(150, 505, 466, 126);
 		chatPanel.add(logolabelchat);
 		
 		
@@ -319,9 +342,24 @@ public class DynamicalGuiForC4H {
 		
 	}
 
+
+
 	public void startBrowser() {
 		// TODO Auto-generated method stub
 		browser = new C4HBrowserIntegration(frmCh,FehlerMeldenPanel);
         browser.loadURL("fehlermeldung.3s-hamburg.de");
+		
+        /*JPanel panel =new JPanel();
+		FehlerMeldenPanel.add(panel);
+		JFXPanel jfxPanel = new JFXPanel();
+		panel.add(jfxPanel);
+		// Creation of scene and future interactions with JFXPanel
+		// should take place on the JavaFX Application Thread
+		Platform.runLater(() -> {
+			 WebView webView = new WebView();
+			 jfxPanel.setScene(new Scene(webView));
+			 webView.getEngine().load(URL);
+		   
+		});*/
 	}
 }
