@@ -25,8 +25,8 @@ import javax.swing.border.EtchedBorder;
 
 public class DynamicalGuiForC4H {
 
-	
-	C4HBrowserIntegration browser;
+	public String URL = "https://fehlermeldung.3s-hamburg.de/";
+	C4HBrowserIntegration browser ;
 	
 	public JFrame frmCh;
 	public JPanel PcInfoPanel;
