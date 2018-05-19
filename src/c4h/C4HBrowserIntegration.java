@@ -3,7 +3,6 @@ package src.c4h;
 import static javafx.concurrent.Worker.State.FAILED;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,6 +11,7 @@ import java.net.URL;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
@@ -22,39 +22,37 @@ import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.embed.swing.JFXPanel;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebEvent;
 import javafx.scene.web.WebView;
   
 public class C4HBrowserIntegration{
-	public String URL = "http://fehlermeldung.3s-hamburg.de/";
+ 
     private final JFXPanel jfxPanel = new JFXPanel();
     private WebEngine engine;
  
     private final JPanel panel;// = new JPanel(new BorderLayout());
+    private final JLabel lblStatus = new JLabel();
     @SuppressWarnings("unused")
 	private JFrame frame;
-    
     private final JButton btnGo = new JButton("Go");
     private final JTextField txtURL = new JTextField();
     private final JProgressBar progressBar = new JProgressBar();
-    
     private JPanel statusBar= new JPanel(new BorderLayout(5, 0));
     private JPanel topBar   =new JPanel(new BorderLayout(5, 0));
-    
-    
  
     public C4HBrowserIntegration(JFrame Frame, JPanel Panel) {
     	     this.frame = Frame;
     	     this.panel = Panel;
-    	    
         initComponents();
     }
 
     
     private void initComponents() {
     	
-        
+         createScene();
  
         ActionListener al = new ActionListener() {
             @Override 
@@ -64,7 +62,6 @@ public class C4HBrowserIntegration{
         };
 // 
         btnGo.addActionListener(al);
-        txtURL.setEditable(false);
         txtURL.addActionListener(al);
 //  
         progressBar.setPreferredSize(new Dimension(150, 18));
@@ -74,27 +71,52 @@ public class C4HBrowserIntegration{
     //    topBar.setBorder(BorderFactory.createEmptyBorder(3, 5, 3, 5));
         topBar.add(txtURL, BorderLayout.CENTER);
         topBar.add(btnGo, BorderLayout.EAST);
-        statusBar.add(progressBar, BorderLayout.CENTER);
+// 
+//        statusBar.setBorder(BorderFactory.createEmptyBorder(3, 5, 3, 5));
+        statusBar.add(lblStatus, BorderLayout.LINE_START);
+        statusBar.add(progressBar, BorderLayout.LINE_END);
  
         panel.add(topBar, BorderLayout.NORTH);
         panel.add(jfxPanel, BorderLayout.CENTER);
         panel.add(statusBar, BorderLayout.SOUTH);
         
-        createScene();
+       
 
     }
  
     private void createScene() {
-    	jfxPanel.setBackground(new Color(240,240,240,240));
+ 
         Platform.runLater(new Runnable() {
             @Override 
             public void run() {
-            	//Creates and managing one Web page at a time
+ 
                 WebView view = new WebView();
                 engine = view.getEngine();
-                engine.load(URL);
-                
-                //GET URL of the current Web page. 
+ 
+                engine.titleProperty().addListener(new ChangeListener<String>() {
+                    @Override
+                    public void changed(ObservableValue<? extends String> observable, String oldValue, final String newValue) {
+                        SwingUtilities.invokeLater(new Runnable() {
+                            @Override 
+                            public void run() {
+                               panel.setToolTipText(newValue);
+                            }
+                        });
+                    }
+                });
+ 
+                engine.setOnStatusChanged(new EventHandler<WebEvent<String>>() {
+                    @Override 
+                    public void handle(final WebEvent<String> event) {
+                        SwingUtilities.invokeLater(new Runnable() {
+                            @Override 
+                            public void run() {
+                                lblStatus.setText(event.getData());
+                            }
+                        });
+                    }
+                });
+ 
                 engine.locationProperty().addListener(new ChangeListener<String>() {
                     @Override
                     public void changed(ObservableValue<? extends String> ov, String oldValue, final String newValue) {
@@ -105,7 +127,8 @@ public class C4HBrowserIntegration{
                             }
                         });
                     }
-                }); 
+                });
+ 
                 engine.getLoadWorker().workDoneProperty().addListener(new ChangeListener<Number>() {
                     @Override
                     public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, final Number newValue) {
