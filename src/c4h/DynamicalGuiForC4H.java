@@ -322,6 +322,6 @@ public class DynamicalGuiForC4H {
 	public void startBrowser() {
 		// TODO Auto-generated method stub
 		browser = new C4HBrowserIntegration(frmCh,FehlerMeldenPanel);
-        //browser.loadURL("fehlermeldung.3s-hamburg.de");
+        browser.loadURL("fehlermeldung.3s-hamburg.de");
 	}
 }
