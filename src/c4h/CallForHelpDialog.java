@@ -1,5 +1,6 @@
 package src.c4h;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
@@ -10,17 +11,24 @@ import javax.swing.SwingConstants;
 
 
 public class CallForHelpDialog extends JDialog {
-/**
+    /**
 	 * 
-	 */
-	private static final long serialVersionUID = -6961734509536439873L;
-/**
 	 * 
 	 */
 
-/**
-	 * Create the dialog.
+	private static final long serialVersionUID = -6961734509536439873L;
+    
+	/**
+	 * 
+	 * 
+	 * 
 	 */
+
+    /**
+	 * Create the dialog.
+	 * 
+	 */
+	
 	public CallForHelpDialog() {
 	setIconImage(Toolkit.getDefaultToolkit().getImage(CallForHelpDialog.class.getResource("images/bulb.png")));
 	
@@ -32,9 +40,10 @@ public class CallForHelpDialog extends JDialog {
 		getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setIcon(new ImageIcon(CallForHelpDialog.class.getResource("images/3s_logo.png")));
 		lblNewLabel_1.setVerticalAlignment(SwingConstants.TOP);
-		lblNewLabel_1.setBounds(73, 24, 330, 91);
+		lblNewLabel_1.setBounds(10, 24, 458, 91);
 		getContentPane().add(lblNewLabel_1);
 		lblNewLabel_1.setIcon(new ImageIcon(CallForHelpDialog.class.getResource("images/3s_logo.png")));
 		
@@ -47,5 +56,10 @@ public class CallForHelpDialog extends JDialog {
 		lblAlleRechteVorbehalten.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAlleRechteVorbehalten.setBounds(40, 176, 390, 21);
 		getContentPane().add(lblAlleRechteVorbehalten);
+		
+		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+	    int x = (int) ((dimension.getWidth() - getWidth()) / 2);
+	    int y = (int) ((dimension.getHeight() - getHeight()) / 2);
+	    setLocation(x, y);
 	}
 }
