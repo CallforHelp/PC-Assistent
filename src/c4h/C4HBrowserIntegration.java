@@ -26,8 +26,7 @@ import javafx.scene.Scene;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javax.swing.JScrollBar;
-import java.awt.Component;
-import javax.swing.border.EtchedBorder;
+
   
 public class C4HBrowserIntegration{
  
@@ -71,8 +70,11 @@ public class C4HBrowserIntegration{
 
     	jfxPanel.setScene(null);
     	jfxPanel.setBackground(new Color(240,240,240,240));
+
+      
         btnGo.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
         btnGo.setBounds(405, 0, 45, 23);
+
 // 
         btnGo.addActionListener(al);
         txtURL.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
@@ -90,6 +92,20 @@ public class C4HBrowserIntegration{
         statusBar.setBounds(300, 277, 150, 23);
         statusBar.setLayout(null);
         panel.setLayout(null);
+    
+//  
+        progressBar.setPreferredSize(new Dimension(150, 18));
+        progressBar.setStringPainted(true);
+//  
+
+    //    topBar.setBorder(BorderFactory.createEmptyBorder(3, 5, 3, 5));
+        topBar.add(txtURL, BorderLayout.CENTER);
+        topBar.add(btnGo, BorderLayout.EAST);
+// 
+//        statusBar.setBorder(BorderFactory.createEmptyBorder(3, 5, 3, 5));
+      
+        statusBar.add(progressBar, BorderLayout.EAST);
+
  
         panel.add(topBar);
         
@@ -99,12 +115,14 @@ public class C4HBrowserIntegration{
         
         panel.add(scrollBar);
         panel.add(statusBar);
-            progressBar.setBounds(0, 0, 150, 23);
-            statusBar.add(progressBar);
+        progressBar.setBounds(0, 0, 150, 23);
+        statusBar.add(progressBar);
         
 //  
-            progressBar.setPreferredSize(new Dimension(150, 18));
-            progressBar.setStringPainted(true);
+         progressBar.setPreferredSize(new Dimension(150, 18));
+         progressBar.setStringPainted(true);
+        
+        panel.add(scrollBar, BorderLayout.EAST);
         
                 createScene();
     }

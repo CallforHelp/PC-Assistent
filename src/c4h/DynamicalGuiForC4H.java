@@ -3,12 +3,15 @@ package src.c4h;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
+import java.awt.Dialog.ModalExclusionType;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
-import java.awt.Window;
+import java.awt.Window.Type;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
 
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
@@ -21,18 +24,12 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
+import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 import javax.swing.border.EtchedBorder;
-import java.awt.Window.Type;
-import java.awt.Dialog.ModalExclusionType;
-import javax.swing.border.LineBorder;
-
-import javafx.application.Platform;
-import javafx.embed.swing.JFXPanel;
-import javafx.scene.Scene;
-import javafx.scene.web.WebView;
 
 public class DynamicalGuiForC4H {
+
 
 	public String URL = "http://fehlermeldung.3s-hamburg.de/";
 	C4HBrowserIntegration browser ;
@@ -79,7 +76,7 @@ public class DynamicalGuiForC4H {
 			sftpClient.uploadFileWithSchoolNumber();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println(e);
 		}
 		
 	}
@@ -89,7 +86,6 @@ public class DynamicalGuiForC4H {
 	 * @throws Throwable 
 	 * @throws InterruptedException 
 	 */
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void initialize() throws Throwable{
 		
 		frmCh = new JFrame();
@@ -155,30 +151,63 @@ public class DynamicalGuiForC4H {
 		
 		JMenu menuDatei = new JMenu("Datei");
 		JMenu menuBearbeiten = new JMenu("Bearbeiten");
-		JMenu mnInfo = new JMenu("INFO");
 		
 		
 		//MENU ITEM
 		JMenuItem pcInfoItem = new JMenuItem("PC Information");
+		pcInfoItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				PcInfoPanel.setVisible(true);
+				FehlerMeldenPanel.setVisible(false);
+				chatPanel.setVisible(false);
+			}
+		});
+		
+		pcInfoItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, InputEvent.ALT_MASK));
 		JMenuItem fehlerMeldenItem = new JMenuItem("Fehler Melden");
-		JMenuItem uberUnsItem = new JMenuItem("\u00FCber uns");
-		JMenuItem mntmNewMenuItem_3 = new JMenuItem("New menu item");
-		JMenuItem mntmNewMenuItem_4 = new JMenuItem("New menu item");
+		fehlerMeldenItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				PcInfoPanel.setVisible(false);
+				FehlerMeldenPanel.setVisible(true);
+				chatPanel.setVisible(false);
+				startBrowser();
+			}
+		});
+		fehlerMeldenItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F, InputEvent.ALT_MASK));
+		JMenuItem kopierenItem = new JMenuItem("Kopieren");
+		kopierenItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_COPY, InputEvent.CTRL_MASK));
+		JMenuItem einfuegenItem = new JMenuItem("Einf\u00FCgen");
+		einfuegenItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_PASTE, InputEvent.CTRL_MASK));
 		JMenuItem exitItem = new JMenuItem("Beenden");
+		
+		exitItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frmCh.setVisible(false);
+			}
+		});
+		exitItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B, InputEvent.ALT_MASK));
 		menuBar.setBounds(0, 0, 991, 40);
 		menuBar.add(menuDatei);
 		menuBar.add(menuBearbeiten);
-		menuBar.add(mnInfo);
-		
-		mnInfo.add(uberUnsItem);
 		
 		menuDatei.add(pcInfoItem);
 		menuDatei.add(fehlerMeldenItem);
+		
+		JMenuItem chatItem = new JMenuItem("Chat");
+		chatItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				PcInfoPanel.setVisible(false);
+				FehlerMeldenPanel.setVisible(false);
+				chatPanel.setVisible(true);
+			}
+		});
+		chatItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_K, InputEvent.ALT_MASK));
+		menuDatei.add(chatItem);
 		menuDatei.add(exitItem);
 		
 		
-		menuBearbeiten.add(mntmNewMenuItem_3);
-		menuBearbeiten.add(mntmNewMenuItem_4);
+		menuBearbeiten.add(kopierenItem);
+		menuBearbeiten.add(einfuegenItem);
 		JButton btnChat = new JButton("CHAT");
 		btnChat.setBounds(10, 346, 175, 75);
 		Buttonpanel.add(btnChat);
@@ -215,6 +244,7 @@ public class DynamicalGuiForC4H {
 		
 		JSeparator separator = new JSeparator();
 		separator.setBounds(55, 56, 700, 2);
+		
 		PcInfoPanel.add(separator);
 		frmCh.setForeground(Color.BLACK);
 		frmCh.setIconImage(Toolkit.getDefaultToolkit().getImage(DynamicalGuiForC4H.class.getResource("images/bulb.png")));
@@ -226,6 +256,24 @@ public class DynamicalGuiForC4H {
 		frmCh.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.SE_RESIZE_CURSOR));
 		frmCh.getContentPane().setLayout(null);
 		frmCh.getContentPane().add(menuBar);
+		
+		JMenu mnInfo = new JMenu("INFO");
+		mnInfo.setHorizontalTextPosition(SwingConstants.LEFT);
+		mnInfo.setHorizontalAlignment(SwingConstants.CENTER);
+		menuBar.add(mnInfo);
+		
+		JMenuItem uberUnsItem = new JMenuItem("\u00FCber uns");
+		uberUnsItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				CallForHelpDialog test = new CallForHelpDialog();
+				test.setVisible(true);
+			}
+		});
+		uberUnsItem.setVerticalTextPosition(SwingConstants.TOP);
+		uberUnsItem.setHorizontalTextPosition(SwingConstants.LEFT);
+		uberUnsItem.setHorizontalAlignment(SwingConstants.LEFT);
+		
+		mnInfo.add(uberUnsItem);
 		frmCh.getContentPane().add(Buttonpanel);
 		frmCh.getContentPane().add(PcInfoPanel);
 		frmCh.getContentPane().add(FehlerMeldenPanel);
@@ -233,7 +281,7 @@ public class DynamicalGuiForC4H {
 		JLabel logo3sLabel = new JLabel("");
 		logo3sLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		logo3sLabel.setIcon(new ImageIcon(DynamicalGuiForC4H.class.getResource("/src/c4h/images/3s_logo.png")));
-		logo3sLabel.setBounds(150, 505, 466, 126);
+		logo3sLabel.setBounds(151, 519, 466, 126);
 		PcInfoPanel.add(logo3sLabel);
 		/**
 		 * BrowserKonfiguration
@@ -260,6 +308,7 @@ public class DynamicalGuiForC4H {
 			
 		fehlermeldenButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
 				PcInfoPanel.setVisible(false);
 				FehlerMeldenPanel.setVisible(true);
 				chatPanel.setVisible(false);
@@ -276,7 +325,7 @@ public class DynamicalGuiForC4H {
 		JLabel logolabelchat = new JLabel("");
 		logolabelchat.setHorizontalAlignment(SwingConstants.CENTER);
 		logolabelchat.setIcon(new ImageIcon(DynamicalGuiForC4H.class.getResource("/src/c4h/images/3s_logo-2.png")));
-		logolabelchat.setBounds(150, 505, 466, 126);
+		logolabelchat.setBounds(151, 519, 466, 126);
 		chatPanel.add(logolabelchat);
 		
 		
@@ -303,7 +352,7 @@ public class DynamicalGuiForC4H {
 		systemInfo.addElement("                                          ");
 		systemInfo.addElement("Rechner Typ     : "+ bg.getRechnertypen());
 		
-		pcInfoList= new JList(systemInfo);
+		pcInfoList= new JList<String>(systemInfo);
 		pcInfoList.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 14));
 		pcInfoList.setBackground(new Color(240,240,240,240));
 		pcInfoList.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
@@ -329,7 +378,7 @@ public class DynamicalGuiForC4H {
 		netzwerkInfo.addElement("                                          ");
 		netzwerkInfo.addElement("DNS Server        : "+ bg.getDNSServer());
 		
-		netzwekList = new JList(netzwerkInfo);
+		netzwekList = new JList<String>(netzwerkInfo);
 		netzwekList.setValueIsAdjusting(true);
 		netzwekList.setSelectionForeground(new Color(0, 0, 255));
 		netzwekList.setSelectionBackground(Color.LIGHT_GRAY);
