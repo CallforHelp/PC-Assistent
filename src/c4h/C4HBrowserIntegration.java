@@ -26,6 +26,7 @@ import javafx.scene.Scene;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javax.swing.JScrollBar;
+
   
 public class C4HBrowserIntegration{
  
@@ -36,10 +37,10 @@ public class C4HBrowserIntegration{
     
     @SuppressWarnings("unused")
 	private JFrame frame;
-    private JPanel panel = new JPanel(new BorderLayout());
+    private JPanel panel = new JPanel();
     
-    private JPanel statusBar= new JPanel(new BorderLayout(5, 0));
-    private JPanel topBar   =new JPanel(new BorderLayout(5, 0));
+    private JPanel statusBar= new JPanel();
+    private JPanel topBar   =new JPanel();
     
     private final JButton btnGo = new JButton("Go");
     private final JTextField txtURL = new JTextField();
@@ -64,16 +65,33 @@ public class C4HBrowserIntegration{
                 loadURL(txtURL.getText());
            }
         };
+    	jfxPanel.setBounds(0, 23, 433, 259);
         
 
     	jfxPanel.setScene(null);
     	jfxPanel.setBackground(new Color(240,240,240,240));
-    	jfxPanel.setAutoscrolls(true);
-    	
+
+      
+        btnGo.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
+        btnGo.setBounds(405, 0, 45, 23);
+
 // 
         btnGo.addActionListener(al);
+        txtURL.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
+        txtURL.setBounds(0, 0, 405, 23);
+        txtURL.setPreferredSize(new Dimension(10, 20));
         txtURL.addActionListener(al);
         txtURL.setEditable(false);
+        topBar.setBounds(0, 0, 450, 23);
+        topBar.setLayout(null);
+//  
+
+    //    topBar.setBorder(BorderFactory.createEmptyBorder(3, 5, 3, 5));
+        topBar.add(txtURL);
+        topBar.add(btnGo);
+        statusBar.setBounds(300, 277, 150, 23);
+        statusBar.setLayout(null);
+        panel.setLayout(null);
     
 //  
         progressBar.setPreferredSize(new Dimension(150, 18));
@@ -87,12 +105,22 @@ public class C4HBrowserIntegration{
 //        statusBar.setBorder(BorderFactory.createEmptyBorder(3, 5, 3, 5));
       
         statusBar.add(progressBar, BorderLayout.EAST);
+
  
-        panel.add(topBar, BorderLayout.NORTH);
+        panel.add(topBar);
         
       //  topBar.add(scrollBar, BorderLayout.WEST);
-        panel.add(jfxPanel, BorderLayout.CENTER);
-        panel.add(statusBar, BorderLayout.SOUTH);
+        panel.add(jfxPanel);
+        scrollBar.setBounds(433, 23, 17, 252);
+        
+        panel.add(scrollBar);
+        panel.add(statusBar);
+        progressBar.setBounds(0, 0, 150, 23);
+        statusBar.add(progressBar);
+        
+//  
+         progressBar.setPreferredSize(new Dimension(150, 18));
+         progressBar.setStringPainted(true);
         
         panel.add(scrollBar, BorderLayout.EAST);
         
