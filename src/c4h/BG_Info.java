@@ -19,20 +19,25 @@ import java.util.regex.Pattern;
 
 public class BG_Info {
 	
+	public final int RechnerTypLaenge = 4;
+	
 	/**
 	 * Ueberschrift 
 	 * @return 
 	 */
 	String schulNummer="";
+	
 	public BG_Info() throws Throwable {
+		
 		settSchulNummer();
+	
 	}
 	
 	public String uberSchrift() {
 		
-		String s ="3S";	
+		String ueberschrift ="3S";	
 		
-		return s;
+		return ueberschrift;
 	}
 	
 	public String timetoBuild() {
@@ -107,14 +112,13 @@ public class BG_Info {
 		return musterImages;
 	}
 	public String getRechnertypen() throws Exception {
-		int i;
-		int rechnerTypLaenge=4;
+		
 		String rechnerTyp="";
 		
 		String hostname = InetAddress.getLocalHost().getHostName();
 		
-		for (i = rechnerTypLaenge; i < (rechnerTypLaenge*2); i++) {
-			rechnerTyp=rechnerTyp+hostname.charAt(i);
+		for (int i = RechnerTypLaenge; i < (RechnerTypLaenge*2); i++) {
+			rechnerTyp=rechnerTyp+(hostname.charAt(i));
 		}
 		
 		return rechnerTyp; 
@@ -187,16 +191,13 @@ public class BG_Info {
 	public String getSubnetMask() throws SocketException, IOException {
 		
 		NetworkInterface networkInterface = NetworkInterface.getByInetAddress(InetAddress.getLocalHost());
-		//System.out.println(networkInterface);
 		short prflen= networkInterface.getInterfaceAddresses().get(0).getNetworkPrefixLength();
-		
-		
 		int shft = 0xffffffff<<(32-prflen);
 		int oct1 = ((byte) ((shft&0xff000000)>>24)) & 0xff;
 		int oct2 = ((byte) ((shft&0x00ff0000)>>16)) & 0xff;
 		int oct3 = ((byte) ((shft&0x0000ff00)>>8)) & 0xff;
 		int oct4 = ((byte) (shft&0x000000ff)) & 0xff;
-		String submask = oct1+"."+oct2+"."+oct3+"."+oct4;
+		String submask = oct1+"."+oct2+"."+oct3+"."+oct4+"/"+prflen;
 		
 		return submask;
 		
@@ -209,7 +210,7 @@ public class BG_Info {
 		Process ipfconfig=null;
 		Reader input = null;
 		if (getOSversion().contains("W")||getOSversion().contains("w") ) {
-			ipfconfig= Runtime.getRuntime().exec("netsh interface ipv4 show config");
+			ipfconfig= Runtime.getRuntime().exec("netsh interface ip show config");
 			input = new InputStreamReader(ipfconfig.getInputStream());
 			BufferedReader resultOutput = new BufferedReader(input);
 			while( (line=resultOutput.readLine()) != null ) {
@@ -225,8 +226,6 @@ public class BG_Info {
 			
 			while((line=resultOutput.readLine())!= null){
 				if(line.contains("default")){
-					//defaultgateway= line;//.replaceAll("\\s+","");
-					//System.out.println(defaultgateway);
 					Pattern p = Pattern.compile("\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b");
 					Matcher m = p.matcher(line);
 					if (m.find())
@@ -315,9 +314,8 @@ public class BG_Info {
 		return  false;
 	}
 	
-	/*****************************************************************************************/
-	/************************************** PRINTING 
-	 * @throws Throwable ****************************************/
+	/************************************************************************************************************/
+	/************************************** PRINTING * @throws Throwable ****************************************/
 	public void printBGinfo() throws Throwable{
 	
 		BG_Info BG = new BG_Info();
