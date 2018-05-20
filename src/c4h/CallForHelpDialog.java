@@ -11,18 +11,10 @@ import javax.swing.SwingConstants;
 
 
 public class CallForHelpDialog extends JDialog {
-    /**
-	 * 
-	 * 
-	 */
-
-	private static final long serialVersionUID = -6961734509536439873L;
-    
 	/**
 	 * 
-	 * 
-	 * 
 	 */
+	private static final long serialVersionUID = -6961734509536439873L;
 
     /**
 	 * Create the dialog.

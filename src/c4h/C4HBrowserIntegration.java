@@ -25,6 +25,7 @@ import javafx.embed.swing.JFXPanel;
 import javafx.scene.Scene;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import javax.swing.JScrollBar;
   
 public class C4HBrowserIntegration{
  
@@ -43,6 +44,7 @@ public class C4HBrowserIntegration{
     private final JButton btnGo = new JButton("Go");
     private final JTextField txtURL = new JTextField();
     private final JProgressBar progressBar = new JProgressBar();
+    private final JScrollBar scrollBar = new JScrollBar();
     
   
  
@@ -66,10 +68,12 @@ public class C4HBrowserIntegration{
 
     	jfxPanel.setScene(null);
     	jfxPanel.setBackground(new Color(240,240,240,240));
+    	jfxPanel.setAutoscrolls(true);
     	
 // 
         btnGo.addActionListener(al);
         txtURL.addActionListener(al);
+        txtURL.setEditable(false);
     
 //  
         progressBar.setPreferredSize(new Dimension(150, 18));
@@ -82,13 +86,15 @@ public class C4HBrowserIntegration{
 // 
 //        statusBar.setBorder(BorderFactory.createEmptyBorder(3, 5, 3, 5));
       
-        statusBar.add(progressBar, BorderLayout.CENTER);
+        statusBar.add(progressBar, BorderLayout.EAST);
  
         panel.add(topBar, BorderLayout.NORTH);
         
       //  topBar.add(scrollBar, BorderLayout.WEST);
         panel.add(jfxPanel, BorderLayout.CENTER);
         panel.add(statusBar, BorderLayout.SOUTH);
+        
+        panel.add(scrollBar, BorderLayout.EAST);
         
                 createScene();
     }
