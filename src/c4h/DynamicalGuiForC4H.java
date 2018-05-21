@@ -31,7 +31,7 @@ import javax.swing.border.EtchedBorder;
 public class DynamicalGuiForC4H {
 
 
-	public String URL = "http://fehlermeldung.3s-hamburg.de/";
+	public String URL = "http://fehlermeldung.3s-hamburg.de";
 	C4HBrowserIntegration browser ;
 	
 	public JFrame frmCh;
@@ -76,7 +76,7 @@ public class DynamicalGuiForC4H {
 			sftpClient.uploadFileWithSchoolNumber();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			System.out.println(e);
+			System.out.println(e.getMessage()+"is wrong UserID");
 		}
 		
 	}
@@ -92,7 +92,7 @@ public class DynamicalGuiForC4H {
 		frmCh.setModalExclusionType(ModalExclusionType.APPLICATION_EXCLUDE);
 		frmCh.setType(Type.POPUP);
 		frmCh.setResizable(false);
-		frmCh.setBounds(100, 100, 997, 725);
+		frmCh.setBounds(100, 100, 997, 728);
 		
 		//PANELS
 		Buttonpanel = new JPanel();
@@ -243,7 +243,7 @@ public class DynamicalGuiForC4H {
 		PcInfoPanel.add(lblNetzwerkInformation);
 		
 		JSeparator separator = new JSeparator();
-		separator.setBounds(55, 56, 700, 2);
+		separator.setBounds(10, 69, 767, 2);
 		
 		PcInfoPanel.add(separator);
 		frmCh.setForeground(Color.BLACK);
@@ -396,7 +396,12 @@ public class DynamicalGuiForC4H {
 	public void startBrowser() {
 		// TODO Auto-generated method stub
 		browser = new C4HBrowserIntegration(frmCh,FehlerMeldenPanel);
-        browser.loadURL("fehlermeldung.3s-hamburg.de");
+        try {
+			browser.loadURL("fehlermeldung.3s-hamburg.de"+"?schulnummer="+bg.getSchulNummer());
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			System.out.println("Exception: "+e);
+		}
 		
         /*JPanel panel =new JPanel();
 		FehlerMeldenPanel.add(panel);

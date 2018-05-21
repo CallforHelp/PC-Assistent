@@ -19,10 +19,11 @@ public class TestCallforAHelp {
 		
 		TestCallforAHelp start = new TestCallforAHelp();
 		//start.startDynamicGUI();
-		start .testBG_Info();
+		//start .testBG_Info();
 		//start.testCallForaHelpGui();
 		//start.testBgInfoFrame();
 		//start.testWebsiteReader();
+		start.startBrowser();
 	}
 
 		//start.testBgInfoFrame();
@@ -80,7 +81,33 @@ public class TestCallforAHelp {
 		window.frmCh.setVisible(true);
 		
 	}
-	
+	private void startBrowser() throws Throwable {
+		// TODO Auto-generated method stub
+		BG_Info bg = new BG_Info();
+		DynamicalGuiForC4H gui = new DynamicalGuiForC4H();
+		gui.FehlerMeldenPanel.setVisible(true);
+		C4HBrowserIntegration browser;
+		browser = new C4HBrowserIntegration(gui.frmCh,gui.FehlerMeldenPanel);
+        try {
+			browser.loadURL("fehlermeldung.3s-hamburg.de"+"?schulnummer="+bg.getSchulNummer());
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			System.out.println("Exception: "+e);
+		}
+		
+        /*JPanel panel =new JPanel();
+		FehlerMeldenPanel.add(panel);
+		JFXPanel jfxPanel = new JFXPanel();
+		panel.add(jfxPanel);
+		// Creation of scene and future interactions with JFXPanel
+		// should take place on the JavaFX Application Thread
+		Platform.runLater(() -> {
+			 WebView webView = new WebView();
+			 jfxPanel.setScene(new Scene(webView));
+			 webView.getEngine().load(URL);
+		   
+		});*/
+	}
 	
 
 }
