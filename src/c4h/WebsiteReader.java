@@ -7,16 +7,18 @@ import java.net.*;
 
 public class WebsiteReader  {
 	
-	String webSeite ="https://fehlermeldung.3s-hamburg.de"; 
+	String webSeite ="http://fehlermeldung.3s-hamburg.de"; 
 	
 	//browser starten
 	public void openWebSiteExample()throws Throwable  {
 		BG_Info bginfo= new  BG_Info();
+		String senschoolNumber = "?schulnummer="+bginfo.getSchulNummer();
+		
 		System.out.println("standard browswer wird aufgerufen");
 		if(bginfo.getOSversion().contains("W")||bginfo.getOSversion().contains("w")) { 
-			new ProcessBuilder(new String[] { "cmd", "/c", "start",webSeite }).start();
+			new ProcessBuilder(new String[] { "cmd", "/c","start",(webSeite+senschoolNumber)}).start();
 			}else {
-				new ProcessBuilder(new String[] {"open",webSeite}).start();
+				new ProcessBuilder(new String[] {"open",(webSeite+senschoolNumber)}).start();
 			}
 		}
 	//quelltext ausdrucken

@@ -2,7 +2,6 @@ package src.c4h;
 
 import static javafx.concurrent.Worker.State.FAILED;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -21,11 +20,13 @@ import javax.swing.SwingUtilities;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
 import javafx.embed.swing.JFXPanel;
+import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
-
 
 public class C4HBrowserIntegration{
  
@@ -38,11 +39,7 @@ public class C4HBrowserIntegration{
 	private JFrame frame;
     private JPanel panel = new JPanel();
     
-    
-    private JPanel statusBar= new JPanel();
-    private JPanel topBar   =new JPanel();
-    
-    private final JButton btnGo = new JButton("Go");
+    private final JButton btnGo = new JButton("Aktualisieren");
     private final JTextField txtURL = new JTextField();
     private final JProgressBar progressBar = new JProgressBar();
     
@@ -51,7 +48,9 @@ public class C4HBrowserIntegration{
     public C4HBrowserIntegration(JFrame Frame, JPanel fehlermeldenpanel) {
     	     this.frame = Frame;
     	     fehlermeldenpanel.add(panel);
-        initComponents();
+    	     initComponents();
+    	     createScene();
+        
     }
 
     
@@ -64,90 +63,84 @@ public class C4HBrowserIntegration{
                 loadURL(txtURL.getText());
            }
         };
-    	jfxPanel.setBounds(0, 37, 787, 586);
+    	jfxPanel.setBounds(0, 30, 787, 604);
         
 
-    	jfxPanel.setScene(null);
-    	jfxPanel.setBackground(new Color(240,240,240,240));
-        txtURL.setBounds(0, 0, 714, 35);
-        txtURL.setPreferredSize(new Dimension(10, 20));
-        txtURL.addActionListener(al);
-        txtURL.setEditable(false);
-        topBar.setBounds(0, 0, 787, 35);
-        topBar.setLayout(null);
-//  
-
-    //    topBar.setBorder(BorderFactory.createEmptyBorder(3, 5, 3, 5));
-        topBar.add(txtURL);
-        statusBar.setBounds(627, 622, 160, 34);
-        statusBar.setLayout(null);
+    	jfxPanel.setBackground(new Color(255,255,255,255));
+        panel.setBackground(Color.WHITE);
         panel.setLayout(null);
-//  
-
-    //    topBar.setBorder(BorderFactory.createEmptyBorder(3, 5, 3, 5));
-        topBar.add(txtURL, BorderLayout.CENTER);
 
  
         panel.setBounds(200, 40, 787, 656);
-        panel.add(topBar);
-                btnGo.setBounds(713, 0, 74, 35);
-                topBar.add(btnGo);
+        btnGo.setBounds(0, 0, 787, 30);
+        panel.add(btnGo);
         
         // 
-                btnGo.addActionListener(al);
+        btnGo.addActionListener(al);
+        progressBar.setBounds(0, 637, 787, 18);
+        panel.add(progressBar);
+        
+//  
+        progressBar.setPreferredSize(new Dimension(150, 18));
+        progressBar.setStringPainted(true);
+            
+//  
+        progressBar.setPreferredSize(new Dimension(150, 18));
+        progressBar.setStringPainted(true);
+        txtURL.setBackground(Color.WHITE);
+        txtURL.setBounds(667, 0, 60, 30);
+        panel.add(txtURL);
+        txtURL.setEnabled(false);
+        txtURL.setPreferredSize(new Dimension(10, 20));
+        txtURL.addActionListener(al);
+        txtURL.setEditable(false);
+        txtURL.setVisible(false);
         
       //  topBar.add(scrollBar, BorderLayout.WEST);
         panel.add(jfxPanel);
-        panel.add(statusBar);
-             progressBar.setBounds(0, 0, 160, 34);
-             statusBar.add(progressBar);
-         
-//  
-             progressBar.setPreferredSize(new Dimension(150, 18));
-             progressBar.setStringPainted(true);
-             
-//  
-              progressBar.setPreferredSize(new Dimension(150, 18));
-              progressBar.setStringPainted(true);
         
-                createScene();
+               
     }
  
     private void createScene() {
-      
-        Platform.runLater(new Runnable() {
-            @Override 
-            public void run() {
- 
-                WebView view = new WebView();
-                engine = view.getEngine();
-                view.setFontScale(1);
-                view.setZoom(0.75);
- 
-                engine.titleProperty().addListener(new ChangeListener<String>() {
-                    @Override
-                    public void changed(ObservableValue<? extends String> observable, String oldValue, final String newValue) {
-                        SwingUtilities.invokeLater(new Runnable() {
-                            @Override 
-                            public void run() {
-                               panel.setToolTipText(newValue);
-                            }
-                        });
-                    }
-                });
- 
-                engine.locationProperty().addListener(new ChangeListener<String>() {
-                    @Override
-                    public void changed(ObservableValue<? extends String> ov, String oldValue, final String newValue) {
-                        SwingUtilities.invokeLater(new Runnable() {
-                            @Override 
-                            public void run() {
-                                txtURL.setText(newValue);
-                            }
-                        });
-                    }
-                });
- 
+    	Platform.runLater(new Runnable() {
+        @Override 
+        public void run() {
+        	
+        	WebView view = new WebView();
+        	Group root = new Group();  
+        	Scene scene = new Scene(root,80,20);
+        	//Scene scene = new Scene(view);
+        
+            view.setFontScale(1);
+            view.setZoom(0.75);
+            ObservableList<Node> children = root.getChildren();
+            children.add(view);
+
+            engine = view.getEngine();
+            engine.titleProperty().addListener(new ChangeListener<String>() {        
+            	@Override
+            	public void changed(ObservableValue<? extends String> observable, String oldValue, final String newValue) {
+            		SwingUtilities.invokeLater(new Runnable() {
+            			@Override 
+                        public void run() {
+            				panel.setToolTipText(newValue);
+                        }
+                    });
+                }
+            });
+            engine.locationProperty().addListener(new ChangeListener<String>() {
+            	@Override
+            	public void changed(ObservableValue<? extends String> ov, String oldValue, final String newValue) {
+            		SwingUtilities.invokeLater(new Runnable() {
+            			@Override 
+            			public void run() {
+            				txtURL.setText(newValue);
+                        }
+                    });
+                }
+            });
+                
                 engine.getLoadWorker().workDoneProperty().addListener(new ChangeListener<Number>() {
                     @Override
                     public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, final Number newValue) {
@@ -180,12 +173,14 @@ public class C4HBrowserIntegration{
                                 }
                             }
                         });
-                jfxPanel.setScene(new Scene(view));
+                //jfxPanel.setScene(new Scene(view));
+                jfxPanel.setScene(scene);
             }
         });
     }
  
     public void loadURL(final String url) {
+       
         Platform.runLater(new Runnable() {
             @Override 
             public void run() {
@@ -197,6 +192,7 @@ public class C4HBrowserIntegration{
                 engine.load(tmp);
             }
         });
+
     }
 
     private static String toURL(String str) {
