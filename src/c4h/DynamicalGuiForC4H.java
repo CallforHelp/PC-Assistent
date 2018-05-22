@@ -31,8 +31,10 @@ import javax.swing.border.EtchedBorder;
 public class DynamicalGuiForC4H {
 
 
-	public String URL = "http://fehlermeldung.3s-hamburg.de/";
+	//public String URL = "https://fehlermeldung.3s-hamburg.de";
+	public String URL = "https://www.google.de";
 	C4HBrowserIntegration browser ;
+	
 	
 	public JFrame frmCh;
 	public JPanel PcInfoPanel;
@@ -46,7 +48,6 @@ public class DynamicalGuiForC4H {
 	private DefaultListModel<String> systemInfo;
 	private DefaultListModel<String> netzwerkInfo;
 	
-	
 	JList<String> list=null;
 	@SuppressWarnings("rawtypes")
 	private JList pcInfoList;
@@ -56,16 +57,15 @@ public class DynamicalGuiForC4H {
 	
 	private final BG_Info bg = new BG_Info();	
 	
-
 	/**
 	 * Create the application.
 	 * @throws Throwable 
 	 * @throws InterruptedException 
 	 */
+	
 	public DynamicalGuiForC4H() throws Throwable {
 		initialize();
-		connectToSftp();
-		
+		connectToSftp();	
 	}
 
 	private void connectToSftp() throws Throwable {
@@ -76,7 +76,7 @@ public class DynamicalGuiForC4H {
 			sftpClient.uploadFileWithSchoolNumber();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			System.out.println(e);
+			System.out.println(e.getMessage()+"is wrong UserID");
 		}
 		
 	}
@@ -92,7 +92,7 @@ public class DynamicalGuiForC4H {
 		frmCh.setModalExclusionType(ModalExclusionType.APPLICATION_EXCLUDE);
 		frmCh.setType(Type.POPUP);
 		frmCh.setResizable(false);
-		frmCh.setBounds(100, 100, 997, 725);
+		frmCh.setBounds(100, 100, 997, 728);
 		
 		//PANELS
 		Buttonpanel = new JPanel();
@@ -173,6 +173,7 @@ public class DynamicalGuiForC4H {
 				startBrowser();
 			}
 		});
+		
 		fehlerMeldenItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F, InputEvent.ALT_MASK));
 		JMenuItem kopierenItem = new JMenuItem("Kopieren");
 		kopierenItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_COPY, InputEvent.CTRL_MASK));
@@ -185,6 +186,7 @@ public class DynamicalGuiForC4H {
 				frmCh.setVisible(false);
 			}
 		});
+		
 		exitItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B, InputEvent.ALT_MASK));
 		menuBar.setBounds(0, 0, 991, 40);
 		menuBar.add(menuDatei);
@@ -243,7 +245,7 @@ public class DynamicalGuiForC4H {
 		PcInfoPanel.add(lblNetzwerkInformation);
 		
 		JSeparator separator = new JSeparator();
-		separator.setBounds(55, 56, 700, 2);
+		separator.setBounds(10, 69, 767, 2);
 		
 		PcInfoPanel.add(separator);
 		frmCh.setForeground(Color.BLACK);
@@ -316,10 +318,10 @@ public class DynamicalGuiForC4H {
 				startBrowser();
 			}
 		});
-
 		
+				
 		JButton btnHierKommtEin2 = new JButton("Hier Kommt ein CHAT Fenster");
-		btnHierKommtEin2.setBounds(191, 257, 264, 55);
+		btnHierKommtEin2.setBounds(132, 22, 264, 55);
 		chatPanel.add(btnHierKommtEin2);
 		
 		JLabel logolabelchat = new JLabel("");
@@ -394,9 +396,18 @@ public class DynamicalGuiForC4H {
 
 
 	public void startBrowser() {
-		// TODO Auto-generated method stub
 		browser = new C4HBrowserIntegration(frmCh,FehlerMeldenPanel);
-        browser.loadURL("fehlermeldung.3s-hamburg.de");
+        try {
+			browser.loadURL(URL+"?schulnummer="+bg.getSchulNummer());
+		} catch (Throwable e) {
+			System.out.println("Exception: "+e);
+		}
+		/*WebsiteReader web = new WebsiteReader();
+		try {
+			web.openWebSiteExample();
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}*/
 		
         /*JPanel panel =new JPanel();
 		FehlerMeldenPanel.add(panel);

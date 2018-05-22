@@ -10,11 +10,8 @@ import java.awt.TrayIcon.MessageType;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
-
 import javax.swing.ImageIcon;
-
-
-
+import javax.swing.Timer;
 
 public class CallForaHelpGUI {
 	
@@ -79,7 +76,9 @@ public class CallForaHelpGUI {
 				System.out.println("action by clik");
 				CallForHelpDialog dialog = new CallForHelpDialog();
 				dialog.setVisible(true);
+				
 			}
+			
 		});
         
         BG_Info_MenuItem.addActionListener(new ActionListener() {
