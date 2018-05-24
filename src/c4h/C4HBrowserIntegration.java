@@ -27,6 +27,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import javax.swing.SwingConstants;
 
 public class C4HBrowserIntegration{
  
@@ -72,7 +73,7 @@ public class C4HBrowserIntegration{
 
  
         panel.setBounds(200, 40, 787, 656);
-        btnGo.setBounds(0, 0, 787, 30);
+        btnGo.setBounds(635, 0, 152, 30);
         panel.add(btnGo);
         
         // 
