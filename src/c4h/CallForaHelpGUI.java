@@ -76,7 +76,7 @@ public class CallForaHelpGUI {
 				System.out.println("action by click");
 				CallForHelpDialog dialog = new CallForHelpDialog();
 				dialog.setVisible(true);
-				Timer timer = new Timer(2000, new ActionListener() {
+				Timer timer = new Timer(3000, new ActionListener() {
 		            public void actionPerformed(ActionEvent e) {
 		                dialog.setVisible(false);
 		                dialog.dispose();
