@@ -10,6 +10,7 @@ import java.awt.TrayIcon.MessageType;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
+
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
 
@@ -59,7 +60,6 @@ public class CallForaHelpGUI {
 				
 			}
 		});*/
-        
         popup.add(BG_Info_MenuItem);
         popup.add(Fehler_Meldung_Menu_Item);
         popup.add(Chat_Menu_Item);
@@ -69,13 +69,21 @@ public class CallForaHelpGUI {
         trayIcon.setPopupMenu(popup);
         
    
-        //actiion
+        //action
         trayIcon.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("action by clik");
+				System.out.println("action by click");
 				CallForHelpDialog dialog = new CallForHelpDialog();
 				dialog.setVisible(true);
+				Timer timer = new Timer(2000, new ActionListener() {
+		            public void actionPerformed(ActionEvent e) {
+		                dialog.setVisible(false);
+		                dialog.dispose();
+		            }
+		        });
+		        timer.setRepeats(false);
+		        timer.start();
 				
 			}
 			

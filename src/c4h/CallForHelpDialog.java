@@ -21,6 +21,7 @@ public class CallForHelpDialog extends JDialog {
 	 * 
 	 */
 	
+	@SuppressWarnings("unused")
 	public CallForHelpDialog() {
 	setIconImage(Toolkit.getDefaultToolkit().getImage(CallForHelpDialog.class.getResource("images/bulb.png")));
 	
