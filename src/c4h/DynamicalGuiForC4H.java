@@ -31,7 +31,7 @@ import javax.swing.border.EtchedBorder;
 public class DynamicalGuiForC4H {
 
 
-	public String URL = "https://fehlermeldung.3s-hamburg.de";
+	public String URL = "http://fehlermeldung.3s-hamburg.de";
 	//public String URL = "https://www.google.de";
 	C4HBrowserIntegration browser ;
 	
