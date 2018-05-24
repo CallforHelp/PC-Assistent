@@ -28,6 +28,7 @@ import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.BevelBorder;
+import javax.swing.border.SoftBevelBorder;
 
 public class DynamicalGuiForC4H {
 
@@ -42,6 +43,10 @@ public class DynamicalGuiForC4H {
 	public JPanel FehlerMeldenPanel;
 	public JPanel chatPanel;
 	public JPanel Buttonpanel;
+	JButton pcInfoButton = new JButton("PC INFORMATION");
+	JButton fehlermeldenButton = new JButton("FEHLER MELDEN");
+	JButton chatButton = new JButton("CHAT");
+	
 	
 	
 
@@ -110,13 +115,11 @@ public class DynamicalGuiForC4H {
 		chatPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		//BUTTONS
-		JButton pcInfoButton = new JButton("PC INFORMATION");
-		JButton fehlermeldenButton = new JButton("FEHLER MELDEN");
-		
+	
 		//LABELS
 		JLabel logoLabel = new JLabel("");
 		logoLabel.setIcon(new ImageIcon(DynamicalGuiForC4H.class.getResource("/src/c4h/images/Oemlogo.png")));
-		logoLabel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		logoLabel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		JLabel titelLabel = new JLabel("");
 		JLabel systemInfoLabel = new JLabel("System Information");
 		JLabel lblNetzwerkInformation = new JLabel("Netzwerk Information");
@@ -163,6 +166,7 @@ public class DynamicalGuiForC4H {
 				PcInfoPanel.setVisible(true);
 				FehlerMeldenPanel.setVisible(false);
 				chatPanel.setVisible(false);
+				pcInfoButton.setEnabled(true);
 			}
 		});
 		
@@ -173,6 +177,7 @@ public class DynamicalGuiForC4H {
 				PcInfoPanel.setVisible(false);
 				FehlerMeldenPanel.setVisible(true);
 				chatPanel.setVisible(false);
+				fehlermeldenButton.setEnabled(true);
 				startBrowser();
 			}
 		});
@@ -204,6 +209,8 @@ public class DynamicalGuiForC4H {
 				PcInfoPanel.setVisible(false);
 				FehlerMeldenPanel.setVisible(false);
 				chatPanel.setVisible(true);
+				chatButton.setEnabled(true);
+				
 			}
 		});
 		chatItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_K, InputEvent.ALT_MASK));
@@ -213,17 +220,19 @@ public class DynamicalGuiForC4H {
 		
 		menuBearbeiten.add(kopierenItem);
 		menuBearbeiten.add(einfuegenItem);
-		JButton btnChat = new JButton("CHAT");
-		btnChat.setBounds(10, 346, 175, 75);
-		Buttonpanel.add(btnChat);
 		
 		
 		
-		btnChat.addActionListener(new ActionListener() {
+		chatButton.setBounds(10, 346, 175, 75);
+		Buttonpanel.add(chatButton);
+		
+		chatButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				PcInfoPanel.setVisible(false);
 				FehlerMeldenPanel.setVisible(false);
 				chatPanel.setVisible(true);
+				
+				
 			}
 		});
 		

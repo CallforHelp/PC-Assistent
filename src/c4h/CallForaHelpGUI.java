@@ -116,19 +116,16 @@ public class CallForaHelpGUI {
 				window.chatPanel.setVisible(false);
 				window.PcInfoPanel.setVisible(false);
 				window.startBrowser();
-				System.out.println("Connect to Webside");
 			}
 		});
         
-       
-        Chat_Menu_Item.addActionListener(new ActionListener() {
+        		Chat_Menu_Item.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				window.frmCh.setVisible(true);
 				window.chatPanel.setVisible(true);
 				window.PcInfoPanel.setVisible(false);
 				window.FehlerMeldenPanel.setVisible(false);
-				
 			}
 		});
         
