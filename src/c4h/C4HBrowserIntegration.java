@@ -27,12 +27,10 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
-import javax.swing.SwingConstants;
 
 public class C4HBrowserIntegration{
- 
-    private final JFXPanel jfxPanel = new JFXPanel();
-    private WebEngine engine;
+	private final JFXPanel jfxPanel = new JFXPanel();
+	private WebEngine engine;
  
     // = new JPanel(new BorderLayout());
     
@@ -114,7 +112,7 @@ public class C4HBrowserIntegration{
         	//Scene scene = new Scene(view);
         
             view.setFontScale(1);
-            view.setZoom(0.75);
+//            view.setZoom(0.75);
             ObservableList<Node> children = root.getChildren();
             children.add(view);
 
