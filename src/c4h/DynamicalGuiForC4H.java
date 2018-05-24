@@ -27,6 +27,7 @@ import javax.swing.JSeparator;
 import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 import javax.swing.border.EtchedBorder;
+import javax.swing.border.BevelBorder;
 
 public class DynamicalGuiForC4H {
 
@@ -114,6 +115,8 @@ public class DynamicalGuiForC4H {
 		
 		//LABELS
 		JLabel logoLabel = new JLabel("");
+		logoLabel.setIcon(new ImageIcon(DynamicalGuiForC4H.class.getResource("/src/c4h/images/Oemlogo.png")));
+		logoLabel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		JLabel titelLabel = new JLabel("");
 		JLabel systemInfoLabel = new JLabel("System Information");
 		JLabel lblNetzwerkInformation = new JLabel("Netzwerk Information");
@@ -225,7 +228,7 @@ public class DynamicalGuiForC4H {
 		});
 		
 		//LABEL Settings
-		logoLabel.setBounds(10, 455, 175, 164);
+		logoLabel.setBounds(35, 487, 125, 125);
 		Buttonpanel.add(logoLabel);
 		
 		
