@@ -15,11 +15,9 @@ import javax.swing.ImageIcon;
 import javax.swing.Timer;
 
 public class CallForaHelpGUI {
-	
-	public void createshowGui() throws Throwable {
-	
-		DynamicalGuiForC4H window =  new DynamicalGuiForC4H();
-		window.initialize();
+public void createshowGui() throws Throwable {
+    DynamicalGuiForC4H window =  new DynamicalGuiForC4H();
+    window.initialize();
 		
 		final BG_Info bg = new BG_Info();
 		
@@ -76,15 +74,14 @@ public class CallForaHelpGUI {
 				System.out.println("action by click");
 				CallForHelpDialog dialog = new CallForHelpDialog();
 				dialog.setVisible(true);
-				Timer timer = new Timer(2000, new ActionListener() {
-		            public void actionPerformed(ActionEvent e) {
-		                dialog.setVisible(false);
-		                dialog.dispose();
-		            }
-		        });
-		        timer.setRepeats(false);
-		        timer.start();
-				
+				Timer timer = new Timer(3000, new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						dialog.setVisible(false);
+						dialog.dispose();
+					}
+				});
+			timer.setRepeats(false);
+			timer.start();
 			}
 			
 		});
