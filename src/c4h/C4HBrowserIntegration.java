@@ -26,16 +26,13 @@ public class C4HBrowserIntegration{
 	private JFXPanel jfxPanel;
 	private WebEngine engine;
     
-    @SuppressWarnings("unused")
-	private JFrame frame;
-    private JPanel panel = new JPanel();
+	private JPanel panel = new JPanel();
     
     private JButton buttonReload = new JButton("Aktualisieren");
     private JProgressBar progressBar = new JProgressBar();
 
  
-    public C4HBrowserIntegration(JFrame Frame, JPanel fehlermeldenpanel) {
-    	this.frame = Frame;
+    public C4HBrowserIntegration(JPanel fehlermeldenpanel) {
     	fehlermeldenpanel.add(panel);
     	initComponents();
     }

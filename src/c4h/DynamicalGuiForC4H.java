@@ -319,7 +319,7 @@ public class DynamicalGuiForC4H {
 				
 			}
 		});
-		browser = new C4HBrowserIntegration(frmCh,FehlerMeldenPanel);
+		browser = new C4HBrowserIntegration(FehlerMeldenPanel);
 		fehlermeldenButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
