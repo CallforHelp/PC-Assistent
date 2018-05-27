@@ -319,7 +319,7 @@ public class DynamicalGuiForC4H {
 				
 			}
 		});
-			
+		browser = new C4HBrowserIntegration(frmCh,FehlerMeldenPanel);
 		fehlermeldenButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -408,9 +408,9 @@ public class DynamicalGuiForC4H {
 
 
 	public void startBrowser() {
-		browser = new C4HBrowserIntegration(frmCh,FehlerMeldenPanel);
+		
         try {
-			browser.loadURL(URL+"?schulnummer="+bg.getSchulNummer());
+			browser.createScene(URL+"?schulnummer="+bg.getSchulNummer());
 		} catch (Throwable e) {
 			System.out.println("Exception: "+e);
 		}
@@ -420,18 +420,5 @@ public class DynamicalGuiForC4H {
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}*/
-		
-        /*JPanel panel =new JPanel();
-		FehlerMeldenPanel.add(panel);
-		JFXPanel jfxPanel = new JFXPanel();
-		panel.add(jfxPanel);
-		// Creation of scene and future interactions with JFXPanel
-		// should take place on the JavaFX Application Thread
-		Platform.runLater(() -> {
-			 WebView webView = new WebView();
-			 jfxPanel.setScene(new Scene(webView));
-			 webView.getEngine().load(URL);
-		   
-		});*/
 	}
 }

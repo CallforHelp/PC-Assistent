@@ -4,17 +4,16 @@ package src.c4h;
 import java.awt.EventQueue;
 
 /**
- * 
  * Eine Testklasse zur Verwendung eines Tests 
  * Jede Funktion wird erweitert 
- * Es ist ein Einfacher Test  
+ * Es ist ein Einfacher Test
+ *   
 */
 
 public class TestCallforAHelp {
 
 	
 
-	@SuppressWarnings("unused")
 	public static void main(String[] args) throws Throwable{
 		
 		TestCallforAHelp start = new TestCallforAHelp();
@@ -35,12 +34,9 @@ public class TestCallforAHelp {
 	private void testWebsiteReader() throws Throwable {
 		WebsiteReader web = new WebsiteReader();
 		web.openWebSiteExample();
-		//web.webScraperExample();
-		//web.startFIleInput();
-		
 	}
-	@SuppressWarnings("unused")
 
+	@SuppressWarnings("unused")
 	private void testBgInfoFrame() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -50,7 +46,6 @@ public class TestCallforAHelp {
 				} catch (Exception e) {
 					e.printStackTrace();
 				} catch (Throwable e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -65,7 +60,6 @@ public class TestCallforAHelp {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} catch (Throwable e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -82,31 +76,6 @@ public class TestCallforAHelp {
 		
 	}
 	private void startBrowser() throws Throwable {
-		// TODO Auto-generated method stub
-		BG_Info bg = new BG_Info();
-		DynamicalGuiForC4H gui = new DynamicalGuiForC4H();
-		gui.FehlerMeldenPanel.setVisible(true);
-		C4HBrowserIntegration browser;
-		browser = new C4HBrowserIntegration(gui.frmCh,gui.FehlerMeldenPanel);
-        try {
-			browser.loadURL("fehlermeldung.3s-hamburg.de"+"?schulnummer="+bg.getSchulNummer());
-		} catch (Throwable e) {
-			// TODO Auto-generated catch block
-			System.out.println("Exception: "+e);
-		}
-		
-        /*JPanel panel =new JPanel();
-		FehlerMeldenPanel.add(panel);
-		JFXPanel jfxPanel = new JFXPanel();
-		panel.add(jfxPanel);
-		// Creation of scene and future interactions with JFXPanel
-		// should take place on the JavaFX Application Thread
-		Platform.runLater(() -> {
-			 WebView webView = new WebView();
-			 jfxPanel.setScene(new Scene(webView));
-			 webView.getEngine().load(URL);
-		   
-		});*/
 	}
 	
 
