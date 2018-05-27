@@ -71,6 +71,20 @@ public class C4HBrowserIntegration{
     	progressBar.setStringPainted(true);
 
     	panel.add(jfxPanel);
+    	
+    	JButton buttonBrowser = new JButton("Browse");
+    	buttonBrowser.addActionListener(new ActionListener() {
+    		public void actionPerformed(ActionEvent arg0) {
+    			WebsiteReader web = new WebsiteReader();
+    			try {
+    				web.openWebSiteExample();
+    			} catch (Throwable e) {
+    				System.out.println(e.getMessage());
+    			}
+    		}
+    	});
+    	buttonBrowser.setBounds(317, 613, 180, 30);
+    	panel.add(buttonBrowser);
         
                
     }
@@ -111,5 +125,4 @@ public class C4HBrowserIntegration{
             }
         });
     }
-
 }

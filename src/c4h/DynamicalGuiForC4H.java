@@ -415,11 +415,5 @@ public class DynamicalGuiForC4H {
 		} catch (Throwable e) {
 			System.out.println("Exception: "+e);
 		}
-		/*WebsiteReader web = new WebsiteReader();
-		try {
-			web.openWebSiteExample();
-		} catch (Throwable e) {
-			e.printStackTrace();
-		}*/
 	}
 }
