@@ -89,7 +89,7 @@ public class TestCallforAHelp {
 		DynamicalGuiForC4H gui = new DynamicalGuiForC4H();
 		gui.FehlerMeldenPanel.setVisible(true);
 		C4HBrowserIntegration browser;
-		browser = new C4HBrowserIntegration(gui.frmCh,gui.FehlerMeldenPanel,"");
+		browser = new C4HBrowserIntegration(gui.frmCh,gui.FehlerMeldenPanel);
         try {
 //			browser.loadURL("fehlermeldung.3s-hamburg.de"+"?schulnummer="+bg.getSchulNummer());
 		} catch (Throwable e) {

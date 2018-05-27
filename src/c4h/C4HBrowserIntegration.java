@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.SwingUtilities;
+import javax.swing.border.EtchedBorder;
 
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
@@ -28,7 +29,6 @@ public class C4HBrowserIntegration{
 	private WebEngine engine;
 	private Stage stage;
 	private WebView browser;
-	private String URL="";
     
     @SuppressWarnings("unused")
 	private JFrame frame;
@@ -37,25 +37,24 @@ public class C4HBrowserIntegration{
     private JButton btnGo;
     private JProgressBar progressBar;
     
-  
  
-    public C4HBrowserIntegration(JFrame Frame, JPanel fehlermeldenpanel,String URL) {
+    public C4HBrowserIntegration(JFrame Frame, JPanel fehlermeldenpanel) {
     	     frame = Frame;
-    	     this.URL=URL;
     	     fehlermeldenpanel.add(panel);
     	     initComponents();
+    	     
     }
 
     
     private void initComponents() {
     	jfxPanel = new JFXPanel();
-    	createScene();
-    	
     	btnGo = new JButton("Aktualisieren");
     	progressBar = new JProgressBar();
+    	progressBar.setBorder(null);
 
        
-    	jfxPanel.setBounds(0, 30, 787, 604);
+    	jfxPanel.setBounds(0, 0, 787, 626);
+    	jfxPanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
         
 
     	jfxPanel.setBackground(new Color(255,255,255,255));
@@ -64,12 +63,12 @@ public class C4HBrowserIntegration{
 
  
         panel.setBounds(200, 40, 787, 656);
-        btnGo.setBounds(635, 0, 152, 30);
+        btnGo.setBounds(0, 626, 93, 30);
         panel.add(btnGo);
         
         // 
         
-        progressBar.setBounds(0, 637, 787, 18);
+        progressBar.setBounds(587, 626, 199, 30);
         panel.add(progressBar);
         
 //  
@@ -98,14 +97,15 @@ public class C4HBrowserIntegration{
         };
         btnGo.addActionListener(al);
         
-               
     }
  
-    private void createScene() {
+    public void createScene(String URL) {
     	Platform.runLater(new Runnable() {
     		@Override 
     		public void run() {
     			stage = new Stage();  
+    			browser = new WebView();
+    			
     			stage.setResizable(false);  
     			
     			Group root = new Group();  
@@ -113,7 +113,7 @@ public class C4HBrowserIntegration{
     			stage.setScene(scene);  
              
     			// Set up the embedded browser:
-    			browser = new WebView();
+    			
     			engine = browser.getEngine();
     			engine.load(URL);
             

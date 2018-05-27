@@ -34,7 +34,6 @@ public class DynamicalGuiForC4H {
 
 
 	public String URL = "http://fehlermeldung.3s-hamburg.de";
-	//public String URL = "https://www.google.de";
 	C4HBrowserIntegration browser ;
 	
 	
@@ -319,15 +318,15 @@ public class DynamicalGuiForC4H {
 				
 			}
 		});
-			
+		browser = new C4HBrowserIntegration(frmCh,FehlerMeldenPanel);
 		fehlermeldenButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				PcInfoPanel.setVisible(false);
 				FehlerMeldenPanel.setVisible(true);
 				chatPanel.setVisible(false);
-				
 				startBrowser();
+				
 			}
 		});
 		
@@ -403,40 +402,19 @@ public class DynamicalGuiForC4H {
 		netzwekList.setBounds(446, 150, 309, 278);
 		PcInfoPanel.add(netzwekList);
 		
+		
+		
 	}
 
 
 
-	public void startBrowser() {
+	public void startBrowser(){
+		String URL = null;
 		try {
-			browser = new C4HBrowserIntegration(frmCh,FehlerMeldenPanel, URL+"?schulnummer="+bg.getSchulNummer());
+			URL = this.URL+"?schulnummer="+bg.getSchulNummer();
 		} catch (Throwable e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-       /* try {
-			browser.loadURL(URL+"?schulnummer="+bg.getSchulNummer());
-		} catch (Throwable e) {
-			System.out.println("Exception: "+e);
-		}*/
-		/*WebsiteReader web = new WebsiteReader();
-		try {
-			web.openWebSiteExample();
-		} catch (Throwable e) {
-			e.printStackTrace();
-		}*/
-		
-        /*JPanel panel =new JPanel();
-		FehlerMeldenPanel.add(panel);
-		JFXPanel jfxPanel = new JFXPanel();
-		panel.add(jfxPanel);
-		// Creation of scene and future interactions with JFXPanel
-		// should take place on the JavaFX Application Thread
-		Platform.runLater(() -> {
-			 WebView webView = new WebView();
-			 jfxPanel.setScene(new Scene(webView));
-			 webView.getEngine().load(URL);
-		   
-		});*/
+		browser.createScene(URL);
 	}
 }
