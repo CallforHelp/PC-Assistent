@@ -104,12 +104,15 @@ public class DynamicalGuiForC4H {
 		Buttonpanel = new JPanel();
 		Buttonpanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		Buttonpanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		
 		PcInfoPanel = new JPanel();
 		PcInfoPanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		PcInfoPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		
 		FehlerMeldenPanel = new JPanel();
 		FehlerMeldenPanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		FehlerMeldenPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		
 		chatPanel = new JPanel();
 		chatPanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		chatPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -118,8 +121,11 @@ public class DynamicalGuiForC4H {
 	
 		//LABELS
 		JLabel logoLabel = new JLabel("");
+		logoLabel.setBackground(Color.WHITE);
+		logoLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		logoLabel.setIcon(new ImageIcon(DynamicalGuiForC4H.class.getResource("/src/c4h/images/Oemlogo.png")));
 		logoLabel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
+		
 		JLabel titelLabel = new JLabel("");
 		JLabel systemInfoLabel = new JLabel("System Information");
 		JLabel lblNetzwerkInformation = new JLabel("Netzwerk Information");
@@ -237,7 +243,7 @@ public class DynamicalGuiForC4H {
 		});
 		
 		//LABEL Settings
-		logoLabel.setBounds(35, 487, 125, 125);
+		logoLabel.setBounds(10, 461, 175, 184);
 		Buttonpanel.add(logoLabel);
 		
 		
@@ -297,13 +303,8 @@ public class DynamicalGuiForC4H {
 		logo3sLabel.setIcon(new ImageIcon(DynamicalGuiForC4H.class.getResource("/src/c4h/images/3s_logo.png")));
 		logo3sLabel.setBounds(151, 519, 466, 126);
 		PcInfoPanel.add(logo3sLabel);
-		/**
-		 * BrowserKonfiguration
-		 */
+
 		
-		/**
-		 * ChatKonfiguration
-		 */
 		frmCh.getContentPane().add(chatPanel);
 		
 		
@@ -380,17 +381,17 @@ public class DynamicalGuiForC4H {
 		netzwerkInfo.addElement("                                          ");
 		netzwerkInfo.addElement("Locale IP Adresse     : "+ bg.getLocalAdresse());
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("SUBNETZMASKE      : "+ bg.getSubnetMask());
+		netzwerkInfo.addElement("SUBNETZMASKE          : "+ bg.getSubnetMask());
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("MAC Adresse     : "+ bg.getMacAddress());
+		netzwerkInfo.addElement("MAC Adresse           : "+ bg.getMacAddress());
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("Machine Domain : "+ bg.getMachindomain());
+		netzwerkInfo.addElement("Machine Domain        : "+ bg.getMachindomain());
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("Default Gateway : "+ bg.getDefaultgateway());
+		netzwerkInfo.addElement("Default Gateway       : "+ bg.getDefaultgateway());
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("DHCP Server      : "+ bg.getDHCPServer());
+		netzwerkInfo.addElement("DHCP Server           : "+ bg.getDHCPServer());
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("DNS Server        : "+ bg.getDNSServer());
+		netzwerkInfo.addElement("DNS Server            : "+ bg.getDNSServer());
 		
 		netzwekList = new JList<String>(netzwerkInfo);
 		netzwekList.setValueIsAdjusting(true);

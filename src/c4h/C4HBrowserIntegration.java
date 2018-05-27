@@ -38,8 +38,18 @@ public class C4HBrowserIntegration{
     }
 
     private void initComponents() {
+    	
     	jfxPanel = new JFXPanel();
-    
+    	jfxPanel.setBounds(0, 0, 787, 604);
+    	jfxPanel.setBackground(new Color(255,255,255,255));
+    	
+    	panel.setBackground(Color.WHITE);
+    	panel.setLayout(null);
+    	panel.setBounds(200, 40, 787, 656);
+    	
+    	buttonReload.setBounds(10, 613, 180, 30);
+    	panel.add(buttonReload);
+    	
     	ActionListener al = new ActionListener() {
     		@Override 
     		public void actionPerformed(ActionEvent e) {
@@ -51,24 +61,12 @@ public class C4HBrowserIntegration{
     			});
     		}
     	};
-        
-    	jfxPanel.setBounds(0, 0, 787, 604);
-    	jfxPanel.setBackground(new Color(255,255,255,255));
-    	panel.setBackground(Color.WHITE);
-    	panel.setLayout(null);
-
- 
-    	panel.setBounds(200, 40, 787, 656);
-    	buttonReload.setBounds(10, 613, 180, 30);
-    	panel.add(buttonReload);
-
     	buttonReload.addActionListener(al);
     	progressBar.setBounds(597, 615, 180, 30);
     	panel.add(progressBar);
 
     	progressBar.setPreferredSize(new Dimension(150, 18));
     	progressBar.setStringPainted(true);
-
     	progressBar.setPreferredSize(new Dimension(150, 18));
     	progressBar.setStringPainted(true);
 
@@ -113,4 +111,5 @@ public class C4HBrowserIntegration{
             }
         });
     }
+
 }
