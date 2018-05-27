@@ -14,7 +14,7 @@ public class TestCallforAHelp {
 
 	
 
-	@SuppressWarnings("unused")
+
 	public static void main(String[] args) throws Throwable{
 		
 		TestCallforAHelp start = new TestCallforAHelp();
@@ -81,15 +81,17 @@ public class TestCallforAHelp {
 		window.frmCh.setVisible(true);
 		
 	}
+	@SuppressWarnings("unused")
 	private void startBrowser() throws Throwable {
 		// TODO Auto-generated method stub
+
 		BG_Info bg = new BG_Info();
 		DynamicalGuiForC4H gui = new DynamicalGuiForC4H();
 		gui.FehlerMeldenPanel.setVisible(true);
 		C4HBrowserIntegration browser;
-		browser = new C4HBrowserIntegration(gui.frmCh,gui.FehlerMeldenPanel);
+		browser = new C4HBrowserIntegration(gui.frmCh,gui.FehlerMeldenPanel,"");
         try {
-			browser.loadURL("fehlermeldung.3s-hamburg.de"+"?schulnummer="+bg.getSchulNummer());
+//			browser.loadURL("fehlermeldung.3s-hamburg.de"+"?schulnummer="+bg.getSchulNummer());
 		} catch (Throwable e) {
 			// TODO Auto-generated catch block
 			System.out.println("Exception: "+e);

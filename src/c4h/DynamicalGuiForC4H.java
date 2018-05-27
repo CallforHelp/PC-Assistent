@@ -408,12 +408,17 @@ public class DynamicalGuiForC4H {
 
 
 	public void startBrowser() {
-		browser = new C4HBrowserIntegration(frmCh,FehlerMeldenPanel);
-        try {
+		try {
+			browser = new C4HBrowserIntegration(frmCh,FehlerMeldenPanel, URL+"?schulnummer="+bg.getSchulNummer());
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+       /* try {
 			browser.loadURL(URL+"?schulnummer="+bg.getSchulNummer());
 		} catch (Throwable e) {
 			System.out.println("Exception: "+e);
-		}
+		}*/
 		/*WebsiteReader web = new WebsiteReader();
 		try {
 			web.openWebSiteExample();
