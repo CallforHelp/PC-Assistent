@@ -124,7 +124,7 @@ public class DynamicalGuiForC4H {
 		logoLabel.setBackground(Color.WHITE);
 		logoLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		logoLabel.setIcon(new ImageIcon(DynamicalGuiForC4H.class.getResource("/src/c4h/images/Oemlogo.png")));
-		logoLabel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
+		logoLabel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		
 		JLabel titelLabel = new JLabel("");
 		JLabel systemInfoLabel = new JLabel("System Information");
@@ -135,7 +135,7 @@ public class DynamicalGuiForC4H {
 		fehlermeldenButton.setBounds(10, 215, 175, 75);
 		
 		//Panel
-		Buttonpanel.setBackground(new Color(240,240,240));
+		Buttonpanel.setBackground(Color.WHITE);
 		Buttonpanel.setBounds(0, 40, 200, 656);
 		Buttonpanel.setLayout(null);
 		Buttonpanel.add(pcInfoButton);
@@ -143,7 +143,7 @@ public class DynamicalGuiForC4H {
 		
 		
 		PcInfoPanel.setBounds(200, 40, 787, 656);
-		PcInfoPanel.setBackground(new Color(240,240,240,240));
+		PcInfoPanel.setBackground(Color.WHITE);
 		PcInfoPanel.setLayout(null);
 		PcInfoPanel.add(titelLabel);
 		
@@ -152,7 +152,7 @@ public class DynamicalGuiForC4H {
 		FehlerMeldenPanel.setLayout(new BorderLayout());
 		
 		chatPanel.setBounds(200, 40, 787, 656);
-		chatPanel.setBackground(new Color(240,240,240));
+		chatPanel.setBackground(Color.BLACK);
 		chatPanel.setLayout(null);
 		chatPanel.setVisible(true);
 		
@@ -334,7 +334,7 @@ public class DynamicalGuiForC4H {
 		
 				
 		JButton btnHierKommtEin2 = new JButton("Hier Kommt ein CHAT Fenster");
-		btnHierKommtEin2.setBounds(132, 22, 264, 55);
+		btnHierKommtEin2.setBounds(393, 353, 264, 55);
 		chatPanel.add(btnHierKommtEin2);
 		
 		JLabel logolabelchat = new JLabel("");
@@ -369,7 +369,7 @@ public class DynamicalGuiForC4H {
 		
 		pcInfoList= new JList<String>(systemInfo);
 		pcInfoList.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 14));
-		pcInfoList.setBackground(new Color(240,240,240,240));
+		pcInfoList.setBackground(Color.WHITE);
 		pcInfoList.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		pcInfoList.setForeground(Color.BLACK);
 		pcInfoList.setSelectionForeground(new Color(0, 0, 255));
@@ -400,7 +400,7 @@ public class DynamicalGuiForC4H {
 		netzwekList.setForeground(Color.BLACK);
 		netzwekList.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		netzwekList.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 14));
-		netzwekList.setBackground(new Color(240,240,240,240));
+		netzwekList.setBackground(Color.WHITE);
 		netzwekList.setBounds(446, 150, 309, 278);
 		PcInfoPanel.add(netzwekList);
 		
