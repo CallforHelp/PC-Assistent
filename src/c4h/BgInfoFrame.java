@@ -20,6 +20,10 @@ import java.awt.Dimension;
 
 
 
+/**
+ * @author bani
+ *
+ */
 public class BgInfoFrame extends JFrame {
 
 	/**

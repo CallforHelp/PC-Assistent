@@ -5,22 +5,60 @@ import java.util.Vector;
 
 import com.jcraft.jsch.*;
 
+/**
+ * @author bani
+ *
+ */
 public class SftpConnection {
 	//local Field
+	/**
+	 * 
+	 */
 	private  int    _PORT;
+	/**
+	 * 
+	 */
 	private  String _FTP_HOST ;
+	/**
+	 * 
+	 */
 	private  String _USER_NAME ;
+	/**
+	 * 
+	 */
 	private  String _USER_PWD ;
+	/**
+	 * 
+	 */
 	private String remoteDstFilePath= "/standort/";
 	
 	//local Object
+	/**
+	 * 
+	 */
 	protected Session session = null;
+	/**
+	 * 
+	 */
 	protected ChannelSftp channel= null;
 	
+	/**
+	 * 
+	 */
 	File fileWithSchooNumber=null;
+	/**
+	 * 
+	 */
 	File filesDirectory = null;
 	
 	
+	/**
+	 * @param benutzername
+	 * @param passwort
+	 * @param host
+	 * @param port
+	 * @throws Exception
+	 */
 	public SftpConnection( String benutzername, String passwort, String host, String port ) throws Exception{
 		this._FTP_HOST=host;
 		this._USER_NAME= benutzername;
@@ -54,6 +92,9 @@ public class SftpConnection {
 
 	}
 	
+	/**
+	 * @throws Throwable
+	 */
 	public  void uploadFileWithSchoolNumber() throws Throwable {
 		BG_Info bg = new BG_Info();
 		//channel.rm("/standort/"+bg.getSchulNummer());
@@ -70,6 +111,10 @@ public class SftpConnection {
 		deleteNewFileWithSchoolNumber();
 		
 	}
+	/**
+	 * @param schoolNamePath
+	 * @return
+	 */
 	@SuppressWarnings("static-access")
 	public boolean isFileExistInSFTP(String schoolNamePath) {
 		@SuppressWarnings("rawtypes")
@@ -85,9 +130,17 @@ public class SftpConnection {
 		return res !=null && !res.isEmpty();
 	}
 
+	/**
+	 * @return
+	 * @throws SftpException
+	 */
 	public String getLocalActualDir() throws SftpException{
 		return channel.getHome();
 	}
+	/**
+	 * @param schoolNumber
+	 * @return
+	 */
 	public String createNewFileWithSchoolNumber(String schoolNumber) {
 		
 		//create directory
@@ -125,12 +178,18 @@ public class SftpConnection {
 		
 		
 	}
+	/**
+	 * 
+	 */
 	public void deleteNewFileWithSchoolNumber() {
 		if(fileWithSchooNumber!=null)
 			fileWithSchooNumber.delete();
 		if (filesDirectory!=null)
 			filesDirectory.delete();
 	}
+	/**
+	 * 
+	 */
 	private void closeSFTPConnection() {
 		if (channel!=null)
 			channel.disconnect();

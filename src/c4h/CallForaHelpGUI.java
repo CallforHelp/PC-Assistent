@@ -14,7 +14,14 @@ import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
 
+/**
+ * @author bani
+ *
+ */
 public class CallForaHelpGUI {
+/**
+ * @throws Throwable
+ */
 public void createshowGui() throws Throwable {
     DynamicalGuiForC4H window =  new DynamicalGuiForC4H();
     window.initialize();
@@ -130,6 +137,11 @@ public void createshowGui() throws Throwable {
 	}
 	
 	 //Obtain the image URL
+	/**
+	 * @param path
+	 * @param description
+	 * @return
+	 */
 	protected static Image createImage(String path, String description) {
     	URL imageURL = CallForaHelpGUI.class.getResource(path);
     	if (imageURL == null) {

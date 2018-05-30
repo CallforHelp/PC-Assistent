@@ -10,10 +10,18 @@ import java.awt.EventQueue;
  *   
 */
 
+/**
+ * @author bani
+ *
+ */
 public class TestCallforAHelp {
 
 	
 
+	/**
+	 * @param args
+	 * @throws Throwable
+	 */
 	public static void main(String[] args) throws Throwable{
 		
 		TestCallforAHelp start = new TestCallforAHelp();
@@ -29,6 +37,9 @@ public class TestCallforAHelp {
 		//start.testWebsiteReader();
 	
 
+	/**
+	 * @throws Throwable
+	 */
 	@SuppressWarnings("unused")
 
 	private void testWebsiteReader() throws Throwable {
@@ -36,6 +47,9 @@ public class TestCallforAHelp {
 		web.openWebSiteExample();
 	}
 
+	/**
+	 * 
+	 */
 	@SuppressWarnings("unused")
 	private void testBgInfoFrame() {
 		EventQueue.invokeLater(new Runnable() {
@@ -52,6 +66,9 @@ public class TestCallforAHelp {
 		});
 		
 	}
+	/**
+	 * 
+	 */
 	@SuppressWarnings("unused")
 	private void testCallForaHelpGui() {
 		CallForaHelpGUI start=new CallForaHelpGUI();
@@ -64,17 +81,26 @@ public class TestCallforAHelp {
 		}
 		
 	}
+	/**
+	 * @throws Throwable
+	 */
 	@SuppressWarnings("unused")
 	private void testBG_Info() throws Throwable {
 		BG_Info BG = new BG_Info();
 		BG.printBGinfo();
 	}
+	/**
+	 * @throws Throwable
+	 */
 	@SuppressWarnings("unused")
 	private void startDynamicGUI() throws Throwable {
 		DynamicalGuiForC4H window =new DynamicalGuiForC4H();
 		window.frmCh.setVisible(true);
 		
 	}
+	/**
+	 * @throws Throwable
+	 */
 	private void startBrowser() throws Throwable {
 	}
 	
