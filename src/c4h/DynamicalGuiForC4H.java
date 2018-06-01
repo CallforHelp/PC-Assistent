@@ -392,7 +392,10 @@ public class DynamicalGuiForC4H {
 			}
 		});
 		JButton btnHierKommtEin2 = new JButton("Hier Kommt ein CHAT Fenster");
-		btnHierKommtEin2.setBounds(271, 290, 225, 75);
+		btnHierKommtEin2.setSize(225,75);
+		int xPosbreite= (chatPanel.getWidth()-btnHierKommtEin2.getWidth())/2;
+		int yPoshoehe= (chatPanel.getHeight()-btnHierKommtEin2.getHeight())/2;
+		btnHierKommtEin2.setBounds(xPosbreite, yPoshoehe, 225, 75);
 		chatPanel.add(btnHierKommtEin2);
 		
 		JLabel logolabelchat = new JLabel("");
