@@ -26,9 +26,8 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
-import javax.swing.border.EtchedBorder;
 import javax.swing.border.BevelBorder;
-import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.EtchedBorder;
 
 /**
  * @author bani
@@ -392,10 +391,8 @@ public class DynamicalGuiForC4H {
 				startBrowser();
 			}
 		});
-		
-				
 		JButton btnHierKommtEin2 = new JButton("Hier Kommt ein CHAT Fenster");
-		btnHierKommtEin2.setBounds(393, 353, 264, 55);
+		btnHierKommtEin2.setBounds(271, 290, 225, 75);
 		chatPanel.add(btnHierKommtEin2);
 		
 		JLabel logolabelchat = new JLabel("");
