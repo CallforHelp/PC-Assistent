@@ -1,9 +1,4 @@
 package src.c4h;
-/**
-* Netwerk und PC Information for 3S 
-* @author  Helmi Bani 
-* @version 1.1
-*/
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,19 +12,20 @@ import java.util.regex.Pattern;
 
 
 
+/**
+ * 
+ *  Netwerk und PC Information for 3S 
+ * @author  Helmi Bani 
+ * @version 1.1
+ * 
+ * */
 public class BG_Info {
 	
-	/**
-	 * 
-	 */
 	public final int RechnerTypLaenge = 4;
 	
 	/**
 	 * Ueberschrift 
 	 * @return 
-	 */
-	/**
-	 * 
 	 */
 	String schulNummer="";
 	
