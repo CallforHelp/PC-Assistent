@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 
 /**
  * 
- *  Netwerk und PC Information for 3S 
+ * Netwerk und PC Information for 3S 
  * @author  Helmi Bani 
  * @version 1.1
  * 
