@@ -28,7 +28,6 @@ import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.BevelBorder;
-import javax.swing.border.SoftBevelBorder;
 
 /**
  * @author bani
@@ -40,8 +39,9 @@ public class DynamicalGuiForC4H {
 	/**
 	 * 
 	 */
-	public String URL = "http://fehlermeldung.3s-hamburg.de";
+	//public String URL = "http://fehlermeldung.3s-hamburg.de";
 	//public String URL = "https://www.google.de";
+	public String URL = "http://helmibani.synology.me/index.php";
 	/**
 	 * 
 	 */
