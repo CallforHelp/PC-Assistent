@@ -1,6 +1,7 @@
 package src.c4h;
 /**
 * Netwerk und PC Information for 3S 
+* Hier ist meine Anederung
 * @author  Helmi Bani 
 * @version 1.1
 */
