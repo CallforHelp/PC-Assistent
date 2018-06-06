@@ -18,7 +18,6 @@ public class CallForaHelpGUI {
 public void createshowGui() throws Throwable {
     DynamicalGuiForC4H window =  new DynamicalGuiForC4H();
     window.initialize();
-		
 		final BG_Info bg = new BG_Info();
 		
 		
