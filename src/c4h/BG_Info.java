@@ -68,7 +68,7 @@ public class BG_Info {
 			schulNummer= m.group();
 		
 		if(!pruefeSchulnr())
-			this.schulNummer="Falsche Schulnummer";
+			this.schulNummer="FalscheSchulNummer";
 		
     return schulNummer;
 
