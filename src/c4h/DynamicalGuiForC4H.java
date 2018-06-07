@@ -26,40 +26,87 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
-import javax.swing.border.EtchedBorder;
 import javax.swing.border.BevelBorder;
 
 public class DynamicalGuiForC4H {
 
 
+	/**
+	 * 
+	 */
 	public String URL = "http://fehlermeldung.3s-hamburg.de";
-	//public String URL = "https://www.google.de";
+	//public String URL = "https://www.google.deaa";
+	/**
+	 * 
+	 */
 	C4HBrowserIntegration browser ;
 	
 	
+	/**
+	 * 
+	 */
 	public JFrame frmCh;
+	/**
+	 * 
+	 */
 	public JPanel PcInfoPanel;
+	/**
+	 * 
+	 */
 	public JPanel FehlerMeldenPanel;
+	/**
+	 * 
+	 */
 	public JPanel chatPanel;
+	/**
+	 * 
+	 */
 	public JPanel Buttonpanel;
+	/**
+	 * 
+	 */
 	JButton pcInfoButton = new JButton("PC INFORMATION");
+	/**
+	 * 
+	 */
 	JButton fehlermeldenButton = new JButton("FEHLER MELDEN");
+	/**
+	 * 
+	 */
 	JButton chatButton = new JButton("CHAT");
 	
 	
 	
 
 	//Default PC Information List
+	/**
+	 * 
+	 */
 	private DefaultListModel<String> systemInfo;
+	/**
+	 * 
+	 */
 	private DefaultListModel<String> netzwerkInfo;
 	
+	/**
+	 * 
+	 */
 	JList<String> list=null;
+	/**
+	 * 
+	 */
 	@SuppressWarnings("rawtypes")
 	private JList pcInfoList;
+	/**
+	 * 
+	 */
 	@SuppressWarnings("rawtypes")
 	private JList netzwekList;
 	
 	
+	/**
+	 * 
+	 */
 	private final BG_Info bg = new BG_Info();	
 	
 	/**
@@ -68,11 +115,17 @@ public class DynamicalGuiForC4H {
 	 * @throws InterruptedException 
 	 */
 	
+	/**
+	 * @throws Throwable
+	 */
 	public DynamicalGuiForC4H() throws Throwable {
 		initialize();
 		connectToSftp();	
 	}
 
+	/**
+	 * @throws Throwable
+	 */
 	private void connectToSftp() throws Throwable {
 		// TODO Auto-generated method stub
 		SftpConnection sftpClient=null;
@@ -91,7 +144,7 @@ public class DynamicalGuiForC4H {
 	 * @throws Throwable 
 	 * @throws InterruptedException 
 	 */
-	@SuppressWarnings("deprecation")
+
 	public void initialize() throws Throwable{
 		
 		frmCh = new JFrame();
@@ -408,6 +461,9 @@ public class DynamicalGuiForC4H {
 
 
 
+	/**
+	 * 
+	 */
 	public void startBrowser() {
 		
         try {
