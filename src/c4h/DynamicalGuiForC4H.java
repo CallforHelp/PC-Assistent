@@ -40,7 +40,7 @@ public class DynamicalGuiForC4H {
 	 * 
 	 */
 	public String URL = "http://fehlermeldung.3s-hamburg.de";
-	//public String URL = "https://www.google.de";
+	//public String URL = "https://www.google.deaa";
 	/**
 	 * 
 	 */
