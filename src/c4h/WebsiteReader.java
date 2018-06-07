@@ -5,11 +5,21 @@ import java.io.*;
 import java.util.*;
 import java.net.*;
 
+/**
+ * @author bani
+ *
+ */
 public class WebsiteReader  {
 	
+	/**
+	 * 
+	 */
 	String webSeite ="http://fehlermeldung.3s-hamburg.de"; 
 	
 	//browser starten
+	/**
+	 * @throws Throwable
+	 */
 	public void openWebSiteExample()throws Throwable  {
 		BG_Info bginfo= new  BG_Info();
 		String senschoolNumber = "?schulnummer="+bginfo.getSchulNummer();
@@ -22,6 +32,10 @@ public class WebsiteReader  {
 			}
 		}
 	//quelltext ausdrucken
+	/**
+	 * @throws MalformedURLException
+	 * @throws IOException
+	 */
 	public void webScraperExample () throws MalformedURLException, IOException{
 	    Scanner scanner = new Scanner(new URL(webSeite).openStream());
 	        while(scanner.hasNextLine()){
@@ -30,6 +44,9 @@ public class WebsiteReader  {
 	        scanner.close();
 	    }
 	//quelltext in Dateispeichern
+	/**
+	 * 
+	 */
 	public void startFIleInput() {
         File file = new File("temp.txt");
         FileOutputStream ausgabe = null;
@@ -51,7 +68,11 @@ public class WebsiteReader  {
    }
   
 	//quellext ausdrucken
-   private String getStrFromUrl(String surl){
+   /**
+ * @param surl
+ * @return
+ */
+private String getStrFromUrl(String surl){
        
 	   String str=null;
        String str1=null;

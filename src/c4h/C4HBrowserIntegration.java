@@ -23,20 +23,41 @@ import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
 public class C4HBrowserIntegration{
+	/**
+	 * 
+	 */
 	private JFXPanel jfxPanel;
+	/**
+	 * 
+	 */
 	private WebEngine engine;
     
+	/**
+	 * 
+	 */
 	private JPanel panel = new JPanel();
     
+    /**
+     * 
+     */
     private JButton buttonReload = new JButton("Aktualisieren");
+    /**
+     * 
+     */
     private JProgressBar progressBar = new JProgressBar();
 
  
+    /**
+     * @param fehlermeldenpanel
+     */
     public C4HBrowserIntegration(JPanel fehlermeldenpanel) {
     	fehlermeldenpanel.add(panel);
     	initComponents();
     }
 
+    /**
+     * 
+     */
     private void initComponents() {
     	
     	jfxPanel = new JFXPanel();
@@ -89,6 +110,9 @@ public class C4HBrowserIntegration{
                
     }
  
+    /**
+     * @param url
+     */
     public void createScene(String url) {
     	Platform.runLater(new Runnable() {
         private Stage stage;
