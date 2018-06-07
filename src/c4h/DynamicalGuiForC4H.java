@@ -39,7 +39,6 @@ public class DynamicalGuiForC4H {
 	 * 
 	 */
 	public String URL = "http://fehlermeldung.3s-hamburg.de";
-
 	C4HBrowserIntegration browser ;
 	
 	
@@ -145,6 +144,7 @@ public class DynamicalGuiForC4H {
 	 * @throws Throwable 
 	 * @throws InterruptedException 
 	 */
+
 	public void initialize() throws Throwable{
 		
 		frmCh = new JFrame();
