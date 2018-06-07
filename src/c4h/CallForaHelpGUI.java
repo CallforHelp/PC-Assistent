@@ -14,7 +14,14 @@ import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
 
+/**
+ * @author bani
+ *
+ */
 public class CallForaHelpGUI {
+/**
+ * @throws Throwable
+ */
 public void createshowGui() throws Throwable {
     DynamicalGuiForC4H window =  new DynamicalGuiForC4H();
     window.initialize();
@@ -47,6 +54,9 @@ public void createshowGui() throws Throwable {
         MenuItem Fehler_Meldung_Menu_Item = new MenuItem("FEHLER MELDEN");
         MenuItem Chat_Menu_Item = new MenuItem("CHAT");
         
+
+       
+
       MenuItem Beenden_Menu_Item = new MenuItem("Beenden");
         popup.add(Beenden_Menu_Item);
         Beenden_Menu_Item.addActionListener(new ActionListener() {
@@ -124,11 +134,25 @@ public void createshowGui() throws Throwable {
 				window.FehlerMeldenPanel.setVisible(false);
 			}
 		});
-        
+        		MenuItem Beenden_Menu_Item = new MenuItem("Beenden");
+                popup.add(Beenden_Menu_Item);
+                Beenden_Menu_Item.addActionListener(new ActionListener() {
+        			@Override
+        			public void actionPerformed(ActionEvent e) {
+        				// todo hier
+        				System.exit(0);
+        				
+        			}
+        		});
         
 	}
 	
 	 //Obtain the image URL
+	/**
+	 * @param path
+	 * @param description
+	 * @return
+	 */
 	protected static Image createImage(String path, String description) {
     	URL imageURL = CallForaHelpGUI.class.getResource(path);
     	if (imageURL == null) {

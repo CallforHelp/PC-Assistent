@@ -10,7 +10,14 @@ import javax.swing.SwingConstants;
 
 
 
+/**
+ * @author bani
+ *
+ */
 public class CallForHelpDialog extends JDialog {
+	/**
+	 * 
+	 */
 	/**
 	 * 
 	 */
@@ -21,6 +28,9 @@ public class CallForHelpDialog extends JDialog {
 	 * 
 	 */
 	
+	/**
+	 * 
+	 */
 	public CallForHelpDialog() {
 	setIconImage(Toolkit.getDefaultToolkit().getImage(CallForHelpDialog.class.getResource("images/bulb.png")));
 	

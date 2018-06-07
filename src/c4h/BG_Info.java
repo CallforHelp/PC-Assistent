@@ -20,20 +20,32 @@ import java.util.regex.Pattern;
 
 public class BG_Info {
 	
+	/**
+	 * 
+	 */
 	public final int RechnerTypLaenge = 4;
 	
 	/**
 	 * Ueberschrift 
 	 * @return 
 	 */
+	/**
+	 * 
+	 */
 	String schulNummer="";
 	
+	/**
+	 * @throws Throwable
+	 */
 	public BG_Info() throws Throwable {
 		
 		settSchulNummer();
 	
 	}
 	
+	/**
+	 * @return
+	 */
 	public String uberSchrift() {
 		
 		String ueberschrift ="3S";	
@@ -41,6 +53,9 @@ public class BG_Info {
 		return ueberschrift;
 	}
 	
+	/**
+	 * @return
+	 */
 	public String timetoBuild() {
 		
 		String time = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(new Date());
@@ -51,6 +66,9 @@ public class BG_Info {
 	/*****************************************************************************************/
 	/******************************************PC_INFO****************************************/
 	
+	/**
+	 * @return
+	 */
 	public String getUserName() {
 		
 		String userName = new Properties(System.getProperties()).getProperty("user.name");
@@ -58,6 +76,10 @@ public class BG_Info {
 		return userName;
 	}
 	
+	/**
+	 * @return
+	 * @throws Throwable
+	 */
 	public String settSchulNummer() throws Throwable {
 		
 		Pattern p = Pattern.compile("[0-9]{4}");
@@ -73,11 +95,18 @@ public class BG_Info {
     return schulNummer;
 
 	}
+	/**
+	 * @return
+	 * @throws Throwable
+	 */
 	public String getSchulNummer() throws Throwable {
 		
 		return schulNummer;
 	}
 	
+	/**
+	 * @return
+	 */
 	public String getOSversion(){
 		
 		String OsVersion= new Properties(System.getProperties()).getProperty("os.name");
@@ -85,12 +114,19 @@ public class BG_Info {
 		return OsVersion;
 	}
 	
+	/**
+	 * @return
+	 */
 	public String getOSArchitecture(){
 		
 		String OsArch= new Properties(System.getProperties()).getProperty("os.arch");
 		
 		return OsArch;
 	}
+	/**
+	 * @return
+	 * @throws IOException
+	 */
 	public String getMusterImages() throws IOException {
 		
 		String musterImages = "";
@@ -112,6 +148,10 @@ public class BG_Info {
 		
 		return musterImages;
 	}
+	/**
+	 * @return
+	 * @throws Exception
+	 */
 	public String getRechnertypen() throws Exception {
 		
 		String rechnerTyp="";
@@ -128,6 +168,10 @@ public class BG_Info {
 	/*****************************************************************************************/
 	/****************************************** NETZWERK ****************************************/
 	
+	/**
+	 * @return
+	 * @throws UnknownHostException
+	 */
 	public String getLocalAdresse() throws UnknownHostException {
 		
 		String result ="";
@@ -135,6 +179,10 @@ public class BG_Info {
 		return result;
 		
 	}
+	/**
+	 * @return
+	 * @throws SocketException
+	 */
 	public String getMacAddress() throws SocketException{
 		
 		String result = "";
@@ -150,6 +198,10 @@ public class BG_Info {
 		return result;
 	}
 	
+	/**
+	 * @return
+	 * @throws UnknownHostException
+	 */
 	public String getLocalHost() throws UnknownHostException {
 		
 		String result ="";
@@ -158,6 +210,10 @@ public class BG_Info {
 		return result;
 		
 	}
+	/**
+	 * @return
+	 * @throws IOException
+	 */
 	public String getMachindomain() throws IOException {
 		
 		String domain="";
@@ -189,6 +245,11 @@ public class BG_Info {
 		return domain;
 	}
 	
+	/**
+	 * @return
+	 * @throws SocketException
+	 * @throws IOException
+	 */
 	public String getSubnetMask() throws SocketException, IOException {
 		
 		NetworkInterface networkInterface = NetworkInterface.getByInetAddress(InetAddress.getLocalHost());
@@ -204,6 +265,10 @@ public class BG_Info {
 		
 	}
 	
+	/**
+	 * @return
+	 * @throws IOException
+	 */
 	public String getDefaultgateway() throws IOException {
 		
 		String defaultgateway="";
@@ -238,6 +303,10 @@ public class BG_Info {
 		return defaultgateway;
 	}
 	
+	/**
+	 * @return
+	 * @throws IOException
+	 */
 	public String getDHCPServer() throws IOException {
 		
 		String dhcpserver="";
@@ -271,6 +340,10 @@ public class BG_Info {
 		return dhcpserver;
 	}
 	
+	/**
+	 * @return
+	 * @throws IOException
+	 */
 	public String getDNSServer() throws IOException{
 		
 		String dnsserver="";
@@ -304,6 +377,10 @@ public class BG_Info {
 		
 		return dnsserver;
 	}
+	/**
+	 * @return
+	 * @throws Throwable
+	 */
 	public boolean pruefeSchulnr() throws Throwable {
 		
 		if (getSchulNummer().length()==4){
@@ -317,6 +394,9 @@ public class BG_Info {
 	
 	/************************************************************************************************************/
 	/************************************** PRINTING * @throws Throwable ****************************************/
+	/**
+	 * @throws Throwable
+	 */
 	public void printBGinfo() throws Throwable{
 	
 		BG_Info BG = new BG_Info();

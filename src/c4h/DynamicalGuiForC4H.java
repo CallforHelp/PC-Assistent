@@ -28,6 +28,10 @@ import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 
+/**
+ * @author bani
+ *
+ */
 public class DynamicalGuiForC4H {
 
 
@@ -35,10 +39,6 @@ public class DynamicalGuiForC4H {
 	 * 
 	 */
 	public String URL = "http://fehlermeldung.3s-hamburg.de";
-	//public String URL = "https://www.google.deaa";
-	/**
-	 * 
-	 */
 	C4HBrowserIntegration browser ;
 	
 	
@@ -384,10 +384,11 @@ public class DynamicalGuiForC4H {
 				startBrowser();
 			}
 		});
-		
-				
 		JButton btnHierKommtEin2 = new JButton("Hier Kommt ein CHAT Fenster");
-		btnHierKommtEin2.setBounds(393, 353, 264, 55);
+		btnHierKommtEin2.setSize(225,75);
+		int xPosbreite= (chatPanel.getWidth()-btnHierKommtEin2.getWidth())/2;
+		int yPoshoehe= (chatPanel.getHeight()-btnHierKommtEin2.getHeight())/2;
+		btnHierKommtEin2.setBounds(xPosbreite, yPoshoehe, 225, 75);
 		chatPanel.add(btnHierKommtEin2);
 		
 		JLabel logolabelchat = new JLabel("");
