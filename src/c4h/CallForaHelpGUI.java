@@ -134,17 +134,6 @@ public void createshowGui() throws Throwable {
 				window.FehlerMeldenPanel.setVisible(false);
 			}
 		});
-        		MenuItem Beenden_Menu_Item = new MenuItem("Beenden");
-                popup.add(Beenden_Menu_Item);
-                Beenden_Menu_Item.addActionListener(new ActionListener() {
-        			@Override
-        			public void actionPerformed(ActionEvent e) {
-        				// todo hier
-        				System.exit(0);
-        				
-        			}
-        		});
-        
 	}
 	
 	 //Obtain the image URL
