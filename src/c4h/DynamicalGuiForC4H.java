@@ -27,12 +27,7 @@ import javax.swing.JSeparator;
 import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
-import javax.swing.border.EtchedBorder;
-//TestComment
-/**
- * @author bani
- *
- */
+
 public class DynamicalGuiForC4H {
 
 
@@ -149,9 +144,7 @@ public class DynamicalGuiForC4H {
 	 * @throws Throwable 
 	 * @throws InterruptedException 
 	 */
-	/**
-	 * @throws Throwable
-	 */
+
 	public void initialize() throws Throwable{
 		
 		frmCh = new JFrame();
@@ -417,9 +410,9 @@ public class DynamicalGuiForC4H {
 		systemInfo.addElement("                                          ");
 		systemInfo.addElement("User Name       : "+ bg.getUserName());
 		systemInfo.addElement("                                          ");
-		systemInfo.addElement("SchulNummer     : "+ bg.getSchulNummer());
+		systemInfo.addElement("SchulNummer  : "+ bg.getSchulNummer());
 		systemInfo.addElement("                                          ");
-		systemInfo.addElement("OS Version      : "+ bg.getOSversion());
+		systemInfo.addElement("OS Version       : "+ bg.getOSversion());
 		systemInfo.addElement("                                          ");
 		systemInfo.addElement("OS Architektur  : "+ bg.getOSArchitecture());
 		systemInfo.addElement("                                          ");
@@ -439,19 +432,19 @@ public class DynamicalGuiForC4H {
 		
 		netzwerkInfo = new DefaultListModel<>();
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("Locale IP Adresse     : "+ bg.getLocalAdresse());
+		netzwerkInfo.addElement("Locale IP Adresse       : "+ bg.getLocalAdresse());
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("SUBNETZMASKE          : "+ bg.getSubnetMask());
+		netzwerkInfo.addElement("SUBNETZMASKE     : "+ bg.getSubnetMask());
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("MAC Adresse           : "+ bg.getMacAddress());
+		netzwerkInfo.addElement("MAC Adresse             : "+ bg.getMacAddress());
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("Machine Domain        : "+ bg.getMachindomain());
+		netzwerkInfo.addElement("Machine Domain      : "+ bg.getMachindomain());
 		netzwerkInfo.addElement("                                          ");
 		netzwerkInfo.addElement("Default Gateway       : "+ bg.getDefaultgateway());
 		netzwerkInfo.addElement("                                          ");
 		netzwerkInfo.addElement("DHCP Server           : "+ bg.getDHCPServer());
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("DNS Server            : "+ bg.getDNSServer());
+		netzwerkInfo.addElement("DNS Server             : "+ bg.getDNSServer());
 		
 		netzwekList = new JList<String>(netzwerkInfo);
 		netzwekList.setValueIsAdjusting(true);
