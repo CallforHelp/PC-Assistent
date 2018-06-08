@@ -25,7 +25,6 @@ public class CallForaHelpGUI {
 public void createshowGui() throws Throwable {
     DynamicalGuiForC4H window =  new DynamicalGuiForC4H();
     window.initialize();
-		
 		final BG_Info bg = new BG_Info();
 		
 		
@@ -55,7 +54,10 @@ public void createshowGui() throws Throwable {
         MenuItem Fehler_Meldung_Menu_Item = new MenuItem("FEHLER MELDEN");
         MenuItem Chat_Menu_Item = new MenuItem("CHAT");
         
-      /*  MenuItem Beenden_Menu_Item = new MenuItem("Beenden");
+
+       
+
+      MenuItem Beenden_Menu_Item = new MenuItem("Beenden");
         popup.add(Beenden_Menu_Item);
         Beenden_Menu_Item.addActionListener(new ActionListener() {
 			@Override
@@ -64,7 +66,7 @@ public void createshowGui() throws Throwable {
 				System.exit(0);
 				
 			}
-		});*/
+		});
         popup.add(BG_Info_MenuItem);
         popup.add(Fehler_Meldung_Menu_Item);
         popup.add(Chat_Menu_Item);
@@ -132,8 +134,6 @@ public void createshowGui() throws Throwable {
 				window.FehlerMeldenPanel.setVisible(false);
 			}
 		});
-        
-        
 	}
 	
 	 //Obtain the image URL

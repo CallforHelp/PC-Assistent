@@ -89,7 +89,9 @@ public class BG_Info {
 			schulNummer= m.group();
 		
 		if(!pruefeSchulnr())
+
 			this.schulNummer="FalscheSchulnummer";
+
 		
     return schulNummer;
 
@@ -180,20 +182,28 @@ public class BG_Info {
 	}
 	/**
 	 * @return
-	 * @throws SocketException
+	 * @throws IOException 
 	 */
-	public String getMacAddress() throws SocketException{
-		
+	public String getMacAddress() throws IOException{
 		String result = "";
-		for( NetworkInterface ni : Collections.list( NetworkInterface.getNetworkInterfaces() ) ){
-			byte[] hardwareAddress = ni.getHardwareAddress();
-			if( hardwareAddress != null ){
-				for ( int i = 0; i < hardwareAddress.length; i++ )
-					result += String.format( (i==0?"":"-")+"%02X", hardwareAddress[i] );
-				return result;
-			}
-		}
+		Process p = Runtime.getRuntime().exec("getmac /fo csv /nh");
 		
+		if(getOSversion().contains("W")||getOSversion().contains("w")) {
+			BufferedReader in = new java.io.BufferedReader(new InputStreamReader(p.getInputStream()));
+			String line;
+			line = in.readLine();        
+			String[] macAdre = line.split(",");
+			result=macAdre[0].replace('"','\0').trim();
+			//for mac 
+			}else {
+				for( NetworkInterface ni : Collections.list( NetworkInterface.getNetworkInterfaces() ) ){
+					byte[] hardwareAddress = ni.getHardwareAddress();
+					if( hardwareAddress != null ){
+						for ( int i = 0; i < hardwareAddress.length; i++ )
+							result += String.format( (i==0?"":"-")+"%02X", hardwareAddress[i] );
+					}
+				}
+			}
 		return result;
 	}
 	
