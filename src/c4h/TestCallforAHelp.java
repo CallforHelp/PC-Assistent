@@ -26,11 +26,11 @@ public class TestCallforAHelp {
 
 		TestCallforAHelp start = new TestCallforAHelp();
 		//start.startDynamicGUI();
-		//start .testBG_Info();
+		start .testBG_Info();
 		//start.testCallForaHelpGui();
 		//start.testBgInfoFrame();
 		//start.testWebsiteReader();
-		start.startBrowser();
+		//start.startBrowser();
 	}
 
 		//start.testBgInfoFrame();
