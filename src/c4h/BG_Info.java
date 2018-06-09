@@ -23,14 +23,11 @@ public class BG_Info {
 	
 	public final int RechnerTypLaenge = 4;
 	
-	/**
-	 * Ueberschrift 
-	 * @return 
-	 */
 	String schulNummer="";
 	
 	/**
-	 * @throws Throwable
+	 * SchulNummer erstellen 
+	 * @throws Throwable Hostname
 	 */
 	public BG_Info() throws Throwable {
 		
@@ -39,17 +36,19 @@ public class BG_Info {
 	}
 	
 	/**
-	 * @return
+	 * Ueberschrift Name Des Tool 
+	 * @return uebrschrift
 	 */
 	public String uberSchrift() {
 		
-		String ueberschrift ="3S";	
+		String ueberschrift ="C4H";	
 		
 		return ueberschrift;
 	}
 	
 	/**
-	 * @return
+	 * Die Zeit wird vom Systemausgelesen
+	 * @return Zeit(time)
 	 */
 	public String timetoBuild() {
 		
@@ -62,7 +61,9 @@ public class BG_Info {
 	/******************************************PC_INFO****************************************/
 	
 	/**
-	 * @return
+	 * System Property ist die Klasse zum Auslesen 
+	 * von eingenschaften 
+	 * @return userName
 	 */
 	public String getUserName() {
 		
@@ -72,8 +73,10 @@ public class BG_Info {
 	}
 	
 	/**
-	 * @return
-	 * @throws Throwable
+	 * Hier wird anhand der HostName die SchuleNummer 
+	 * ausgelesen. 
+	 * @return Schulnummer
+	 * @throws Throwable Hostname
 	 */
 	public String settSchulNummer() throws Throwable {
 		
@@ -91,8 +94,9 @@ public class BG_Info {
 
 	}
 	/**
-	 * @return
-	 * @throws Throwable
+	 * Gibt Einfach die Schulnummer zurueck
+	 * @return schulNummer
+	 * @throws Throwable Hostname
 	 */
 	public String getSchulNummer() throws Throwable {
 		
@@ -100,7 +104,9 @@ public class BG_Info {
 	}
 	
 	/**
-	 * @return
+	 * System Properties 
+	 * Auslesen von OSName
+	 * @return OsVersion
 	 */
 	public String getOSversion(){
 		
