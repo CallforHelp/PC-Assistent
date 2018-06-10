@@ -101,6 +101,7 @@ public class TestCallforAHelp {
 	/**
 	 * @throws Throwable
 	 */
+	@SuppressWarnings("unused")
 	private void startBrowser() throws Throwable {
 	}
 	
