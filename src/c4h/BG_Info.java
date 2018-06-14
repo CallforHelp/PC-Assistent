@@ -186,9 +186,10 @@ public class BG_Info {
 	 */
 	public String getMacAddress() throws IOException{
 		String result = "";
-		Process p = Runtime.getRuntime().exec("getmac /fo csv /nh");
+		
 		
 		if(getOSversion().contains("W")||getOSversion().contains("w")) {
+			Process p = Runtime.getRuntime().exec("getmac /fo csv /nh");
 			BufferedReader in = new java.io.BufferedReader(new InputStreamReader(p.getInputStream()));
 			String line;
 			line = in.readLine();        

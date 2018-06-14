@@ -14,7 +14,8 @@ public class WebsiteReader  {
 	/**
 	 * 
 	 */
-	String webSeite ="http://fehlermeldung.3s-hamburg.de"; 
+	String webSeite ="http://fehlermeldung.3s-hamburg.de";
+	private BG_Info bginfo; 
 	
 	//browser starten
 	/**
@@ -23,14 +24,26 @@ public class WebsiteReader  {
 	public void openWebSiteExample()throws Throwable  {
 		BG_Info bginfo= new  BG_Info();
 		String senschoolNumber = "?schulnummer="+bginfo.getSchulNummer();
+		String pcName = "^&pcname="+bginfo.getLocalHost();
+		
+		System.out.println(webSeite+senschoolNumber+pcName);
 		
 		System.out.println("standard browswer wird aufgerufen");
 		if(bginfo.getOSversion().contains("W")||bginfo.getOSversion().contains("w")) { 
-			new ProcessBuilder(new String[] { "cmd", "/c","start",(webSeite+senschoolNumber)}).start();
-			}else {
-				new ProcessBuilder(new String[] {"open",(webSeite+senschoolNumber)}).start();
-			}
+			new ProcessBuilder(new String[] { "cmd", "/c","start",(webSeite+senschoolNumber+pcName)}).start();
+		}else {
+			new ProcessBuilder(new String[] {"open",(webSeite+senschoolNumber+pcName)}).start();
 		}
+	}
+	public void openWebSiteExample(String URL)throws Throwable  {
+		
+		System.out.println("standard browswer wird aufgerufen");
+		if(bginfo.getOSversion().contains("W")||bginfo.getOSversion().contains("w")) { 
+			new ProcessBuilder(new String[] { "cmd", "/c","start",(URL)}).start();
+		}else {
+			new ProcessBuilder(new String[] {"open",(URL)}).start();
+		}
+	}
 	//quelltext ausdrucken
 	/**
 	 * @throws MalformedURLException
