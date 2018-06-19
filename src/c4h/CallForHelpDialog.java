@@ -7,28 +7,20 @@ import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-
-
-
 /**
- * @author bani
- *
- */
+ * Eine Dialogue was auch nur ein Paar sek. erscheint 
+ * firmeninfo 
+ * @author  Helmi Bani 
+ * @version 1.0
+ * 
+ * */
 public class CallForHelpDialog extends JDialog {
 	/**
-	 * 
-	 */
-	/**
-	 * 
+	 * Serialisierung der Klasse
 	 */
 	private static final long serialVersionUID = -6961734509536439873L;
-
     /**
-	 * Create the dialog.
-	 * 
-	 */
-	
-	/**
+	 * Jdialog erstellen.
 	 * 
 	 */
 	public CallForHelpDialog() {
