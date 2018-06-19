@@ -23,6 +23,7 @@ public class C4H_WEBSITE_START  {
 	 */
 	public void openWebSiteExample()throws Throwable  {
 		C4H_PC_INFO_KLASSE bginfo= new  C4H_PC_INFO_KLASSE();
+		
 		String senschoolNumber = "?schulnummer="+bginfo.getSchulNummer();
 		String pcName = "^&pcname="+bginfo.getLocalHost();
 		
