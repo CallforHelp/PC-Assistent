@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"src.c4h","l":"BG_Info"}]
