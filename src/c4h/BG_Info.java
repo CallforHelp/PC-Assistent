@@ -86,7 +86,9 @@ public class BG_Info {
 			schulNummer= m.group();
 		
 		if(!pruefeSchulnr())
-			this.schulNummer="FalscheSchulNummer";
+
+			this.schulNummer="FalscheSchulnummer";
+
 		
     return schulNummer;
 
@@ -190,7 +192,6 @@ public class BG_Info {
 	 */
 	public String getMacAddress() throws IOException{
 		String result = "";
-		
 		if(getOSversion().contains("W")||getOSversion().contains("w")) {
 			Process p = Runtime.getRuntime().exec("getmac /fo csv /nh");
 			BufferedReader in = new java.io.BufferedReader(new InputStreamReader(p.getInputStream()));
@@ -397,7 +398,7 @@ public class BG_Info {
 		return dnsserver;
 	}
 	/**
-	 * Schulnummer Prüfen ob es korrekt eingetragen ist
+	 * Schulnummer Prï¿½fen ob es korrekt eingetragen ist
 	 * Ein Hinweis als info wird dargestellt
 	 * @return true/false
 	 * @throws Throwable HostName

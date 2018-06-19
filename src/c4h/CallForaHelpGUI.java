@@ -21,6 +21,7 @@ import javax.swing.Timer;
 public class CallForaHelpGUI {
 /**
  * @throws Throwable
+ * @wbp.parser.entryPoint
  */
 public void createshowGui() throws Throwable {
     DynamicalGuiForC4H window =  new DynamicalGuiForC4H();
@@ -50,9 +51,9 @@ public void createshowGui() throws Throwable {
                 return;
     	}
             
-        MenuItem BG_Info_MenuItem = new MenuItem("PC INFORMATION");
-        MenuItem Fehler_Meldung_Menu_Item = new MenuItem("FEHLER MELDEN");
-        MenuItem Chat_Menu_Item = new MenuItem("CHAT");
+        MenuItem BG_Info_MenuItem = new MenuItem("PC Information");
+        MenuItem Fehler_Meldung_Menu_Item = new MenuItem("Support");
+        MenuItem Chat_Menu_Item = new MenuItem("Chat");
         
 
        
@@ -141,6 +142,7 @@ public void createshowGui() throws Throwable {
 	 * @param path
 	 * @param description
 	 * @return
+	 * @wbp.parser.entryPoint
 	 */
 	protected static Image createImage(String path, String description) {
     	URL imageURL = CallForaHelpGUI.class.getResource(path);

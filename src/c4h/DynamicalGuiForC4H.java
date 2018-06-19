@@ -12,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
+import java.net.UnknownHostException;
 
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
@@ -79,7 +80,7 @@ public class DynamicalGuiForC4H {
 	/**
 	 * 
 	 */
-	JButton fehlermeldenButton = new JButton("FEHLER MELDEN");
+	JButton fehlermeldenButton = new JButton("SUPPORT");
 	/**
 	 * 
 	 */
@@ -224,7 +225,7 @@ public class DynamicalGuiForC4H {
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
-		JMenu menuDatei = new JMenu("Datei");
+		JMenu menuDatei = new JMenu("Allgemein");
 		JMenu menuBearbeiten = new JMenu("Bearbeiten");
 		
 		
@@ -240,7 +241,7 @@ public class DynamicalGuiForC4H {
 		});
 		
 		pcInfoItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, InputEvent.ALT_MASK));
-		JMenuItem fehlerMeldenItem = new JMenuItem("Fehler Melden");
+		JMenuItem fehlerMeldenItem = new JMenuItem("Support");
 		fehlerMeldenItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				PcInfoPanel.setVisible(false);
@@ -251,7 +252,7 @@ public class DynamicalGuiForC4H {
 			}
 		});
 		
-		fehlerMeldenItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F, InputEvent.ALT_MASK));
+		fehlerMeldenItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.ALT_MASK));
 		JMenuItem kopierenItem = new JMenuItem("Kopieren");
 		kopierenItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_COPY, InputEvent.CTRL_MASK));
 		JMenuItem einfuegenItem = new JMenuItem("Einf\u00FCgen");
@@ -284,6 +285,11 @@ public class DynamicalGuiForC4H {
 		});
 		chatItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_K, InputEvent.ALT_MASK));
 		menuDatei.add(chatItem);
+		
+		JMenuItem FernwartungMenuItem = new JMenuItem("Fernwartung");
+		FernwartungMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F, InputEvent.ALT_MASK));
+		
+		menuDatei.add(FernwartungMenuItem);
 		menuDatei.add(exitItem);
 		
 		
@@ -473,12 +479,21 @@ public class DynamicalGuiForC4H {
 
 
 	/**
+	 * @throws UnknownHostException 
 	 * 
 	 */
-	public void startBrowser() {
+	public void startBrowser(){
+		String pcName = null;
+		try {
+			pcName = "&pcname="+bg.getLocalHost();
+		} catch (UnknownHostException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
         try {
-			browser.createScene(URL+"?schulnummer="+bg.getSchulNummer());
+			//browser.createScene(URL+"?schulnummer="+bg.getSchulNummer()+pcName);
+			browser.createScene("http://fehlermeldung.3s-hamburg.de?schulnummer=9999&pcname=9999FUJIA0001");
 		} catch (Throwable e) {
 			System.out.println("Exception: "+e);
 		}
