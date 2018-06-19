@@ -1,1 +1,1 @@
-typeSearchIndex = [{"p":"src.c4h","l":"BG_Info"},{"p":"src.c4h","l":"C4HBrowserIntegration"},{"p":"src.c4h","l":"CallForaHelpGUI"},{"p":"src.c4h","l":"CallForHelp"},{"p":"src.c4h","l":"CallForHelpDialog"}]
+typeSearchIndex = [{"p":"src.c4h","l":"C4H"},{"p":"src.c4h","l":"C4H_BROWSER_INTEGRATION"},{"p":"src.c4h","l":"C4H_DIALOG"},{"p":"src.c4h","l":"C4H_GUI_TRAY_ICON"},{"p":"src.c4h","l":"C4H_PC_INFO_KLASSE"}]
