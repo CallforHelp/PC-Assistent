@@ -399,7 +399,7 @@ public class BG_Info {
 		return dnsserver;
 	}
 	/**
-	 * Schulnummer Pr�fen ob es korrekt eingetragen ist
+	 * Schulnummer Pr&uuml;fen ob es korrekt eingetragen ist
 	 * Ein Hinweis als info wird dargestellt
 	 * @return true/false
 	 * @throws Throwable HostName
