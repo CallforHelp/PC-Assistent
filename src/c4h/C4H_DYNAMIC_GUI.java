@@ -11,7 +11,6 @@ import java.awt.Window.Type;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.UnknownHostException;
-
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -26,103 +25,84 @@ import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
-
-
 /**
- * @author bani
- *
- */
+ * Ein Dynmaischen Gui der Verschiedene m&ouml;glichkeiten besitz f&uuml;r den User 
+ * Einfach design inklusive Nutzung
+ * @author  Helmi Bani 
+ * @version 1.0
+ * 
+ * */
 public class C4H_DYNAMIC_GUI {
-
-
 	/**
-	 * 
-	 */
-
-	//public String URL = "http://fehlermeldung.3s-hamburg.de";
-	//public String URL = "https://www.google.de";
-	//public String URL = "http://helmibani.synology.me/index.php";
-	/**
-	 * 
+	 * URL fuer und FehlermeldenscriptScript
 	 */
 	public String URL = "http://fehlermeldung.3s-hamburg.de";
+	
 	C4H_BROWSER_INTEGRATION browser ;
 	
-	
 	/**
-	 * 
+	 * FrameC4H
 	 */
 	public JFrame frmCh;
 	/**
-	 * 
+	 * PcInfo_Panel
 	 */
 	public JPanel PcInfoPanel;
 	/**
-	 * 
+	 * FehlermeldenPanel
 	 */
 	public JPanel FehlerMeldenPanel;
 	/**
-	 * 
+	 * chatPanel
 	 */
 	public JPanel chatPanel;
 	/**
-	 * 
+	 * panel fuer bedienungsbutton
 	 */
 	public JPanel Buttonpanel;
 	/**
-	 * 
+	 * PcInformationbutton
 	 */
 	JButton pcInfoButton = new JButton("PC INFORMATION");
 	/**
-	 * 
+	 * Supportbutton
 	 */
 	JButton fehlermeldenButton = new JButton("SUPPORT");
 	/**
-	 * 
+	 * Chatbutton
 	 */
 	JButton chatButton = new JButton("CHAT");
-	
-	
-	
 
-	//Default PC Information List
 	/**
-	 * 
+	 * Allgemeine Model fue eine Liste PcInfo
 	 */
 	private DefaultListModel<String> systemInfo;
 	/**
-	 * 
+	 * Allgemeine Model fue eine Liste Netzwerk
 	 */
 	private DefaultListModel<String> netzwerkInfo;
 	
 	/**
-	 * 
+	 * ALggemeine Liste
 	 */
 	JList<String> list=null;
 	/**
-	 * 
+	 * NetzwerkListe
 	 */
 	@SuppressWarnings("rawtypes")
 	private JList pcInfoList;
 	/**
-	 * 
+	 * Liste Oc Info
 	 */
 	@SuppressWarnings("rawtypes")
 	private JList netzwekList;
-	
-	
 	/**
-	 * 
+	 * Objekt zur erstellung und anzeigen von Pc_information 
 	 */
 	private final C4H_PC_INFO_KLASSE bg = new C4H_PC_INFO_KLASSE();	
-	
+
 	/**
-	 * Create the application.
-	 * @throws Throwable 
-	 * @throws InterruptedException 
-	 */
-	
-	/**
+	 * Konstruktor zur Laufzeit Start vom GUI UND SFTP Verbindung falls es nötig ist 
 	 * @throws Throwable
 	 */
 	public C4H_DYNAMIC_GUI() throws Throwable {
@@ -131,7 +111,8 @@ public class C4H_DYNAMIC_GUI {
 	}
 
 	/**
-	 * @throws Throwable
+	 * SFTP Verbindung zur Speicherung der Information zur zwecke der Fehlermeldung
+	 * @throws Throwable Connection Verbindung
 	 */
 	private void connectToSftp() throws Throwable {
 		// TODO Auto-generated method stub
@@ -148,17 +129,16 @@ public class C4H_DYNAMIC_GUI {
 
 	/**
 	 * Initialize the contents of the frame.
-	 * @throws Throwable 
-	 * @throws InterruptedException 
+	 * @throws Throwable ation
+	 * @throws InterruptedException time  
 	 */
-
 	public void initialize() throws Throwable{
 		
 		frmCh = new JFrame();
 		frmCh.setModalExclusionType(ModalExclusionType.APPLICATION_EXCLUDE);
 		frmCh.setType(Type.POPUP);
 		frmCh.setResizable(false);
-		frmCh.setBounds(100, 100, 997, 728);
+		frmCh.setBounds(100, 100, 997, 750);
 		
 		//PANELS
 		Buttonpanel = new JPanel();
@@ -196,22 +176,22 @@ public class C4H_DYNAMIC_GUI {
 		
 		//Panel
 		Buttonpanel.setBackground(Color.WHITE);
-		Buttonpanel.setBounds(0, 40, 200, 656);
+		Buttonpanel.setBounds(0, 40, 200, 670);
 		Buttonpanel.setLayout(null);
 		Buttonpanel.add(pcInfoButton);
 		Buttonpanel.add(fehlermeldenButton);
 		
 		
-		PcInfoPanel.setBounds(200, 40, 787, 656);
+		PcInfoPanel.setBounds(200, 40, 787, 670);
 		PcInfoPanel.setBackground(Color.WHITE);
 		PcInfoPanel.setLayout(null);
 		PcInfoPanel.add(titelLabel);
 		
-		FehlerMeldenPanel.setBounds(200, 40, 787, 656);
+		FehlerMeldenPanel.setBounds(200, 40, 787, 670);
 		FehlerMeldenPanel.setBackground(new Color(240,240,240));
 		FehlerMeldenPanel.setLayout(new BorderLayout());
 		
-		chatPanel.setBounds(200, 40, 787, 656);
+		chatPanel.setBounds(200, 40, 787, 670);
 		chatPanel.setBackground(Color.BLACK);
 		chatPanel.setLayout(null);
 		chatPanel.setVisible(true);
@@ -471,10 +451,9 @@ public class C4H_DYNAMIC_GUI {
 		
 	}
 
-
-
 	/**
-	 * @throws UnknownHostException 
+	 * Starten und öffnen des Scripts mit dne richtigen Parameter
+	 * @throws UnknownHostException HOST NAME LOCALHOST
 	 * 
 	 */
 	public void startBrowser(){

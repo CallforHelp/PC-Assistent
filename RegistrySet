@@ -28,3 +28,30 @@ bevor ich mir die HTML Umlaute immer suchen muss:
 
 Mehr Sonderzeichen / Quelle: SELFHTML
 
+JButton buttonBrowser = new JButton("Browse");
+    	buttonBrowser.addActionListener(new ActionListener() {
+    		public void actionPerformed(ActionEvent arg0) {
+    			C4H_WEBSITE_START web = new C4H_WEBSITE_START();
+    			try {
+    				web.openWebSiteExample();
+    			} catch (Throwable e) {
+    				System.out.println(e.getMessage());
+    			}
+    		}
+    	});
+    	buttonBrowser.setBounds(317, 613, 180, 30);
+    	panel.add(buttonBrowser);
+    	
+	ActionListener al = new ActionListener() {
+    		@Override 
+    		public void actionPerformed(ActionEvent e) {
+    			Platform.runLater(new Runnable() {
+    				@Override
+    				public void run() {
+    				engine.reload();
+    				}
+    			});
+    		}
+    	};
+        
+
