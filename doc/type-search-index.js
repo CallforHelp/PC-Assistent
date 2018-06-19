@@ -1,1 +1,1 @@
-typeSearchIndex = [{"p":"src.c4h","l":"BG_Info"},{"p":"src.c4h","l":"CallForaHelpGUI"},{"p":"src.c4h","l":"CallForHelp"},{"p":"src.c4h","l":"CallForHelpDialog"}]
+typeSearchIndex = [{"p":"src.c4h","l":"BG_Info"},{"p":"src.c4h","l":"C4HBrowserIntegration"},{"p":"src.c4h","l":"CallForaHelpGUI"},{"p":"src.c4h","l":"CallForHelp"},{"p":"src.c4h","l":"CallForHelpDialog"}]

@@ -1,6 +1,7 @@
 package src.c4h;
 
 import java.awt.Color;
+
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,34 +22,43 @@ import javafx.scene.Scene;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+/**
+ * Eine Klasse Webbrowser in einer JAVA GUI 
+ * @author  Helmi Bani 
+ * @version 1.0
+ * 
+ * */
 
 public class C4HBrowserIntegration{
 	/**
-	 * 
+	 * JFX PANEL Fuer HTML Seitem
 	 */
 	private JFXPanel jfxPanel;
 	/**
-	 * 
+	 * Darstellung einer Webseite
 	 */
 	private WebEngine engine;
     
 	/**
-	 * 
+	 * JPanel zur darstellung auf der APP
 	 */
 	private JPanel panel = new JPanel();
     
     /**
-     * 
+     * Aktualisierungsbutton
      */
     private JButton buttonReload = new JButton("Aktualisieren");
     /**
-     * 
+     * Progressbar
      */
     private JProgressBar progressBar = new JProgressBar();
 
  
     /**
-     * @param fehlermeldenpanel
+     * Ein Konstruktor zum start undinitialisieren dieser Klasse
+     * Es muss zur laufzeit den Panel aus der C4H app zur Verfügungstehen
+     * damit die darstellung in der App ensteht
+     * @param fehlermeldenpanel Panel from c4H Gui
      */
     public C4HBrowserIntegration(JPanel fehlermeldenpanel) {
     	fehlermeldenpanel.add(panel);
@@ -56,7 +66,9 @@ public class C4HBrowserIntegration{
     }
 
     /**
-     * 
+     * Hier werden alle Kompnoennten realisiert
+     * der Browser ist sehr einfach gestrickt 
+     * Es dient nur zur script benutzung
      */
     private void initComponents() {
     	
@@ -111,7 +123,8 @@ public class C4HBrowserIntegration{
     }
  
     /**
-     * @param url
+     * Create Scene ist ein Aufruf zur unser Fehlermeldung 
+     *  @param url LoginPage
      */
     public void createScene(String url) {
     	Platform.runLater(new Runnable() {
