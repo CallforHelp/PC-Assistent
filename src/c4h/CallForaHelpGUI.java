@@ -15,13 +15,18 @@ import javax.swing.ImageIcon;
 import javax.swing.Timer;
 
 /**
- * @author bani
- *
- */
+ * Ene GUI Klasse Dient zur Bedienung der App und ein Aktive IconTray ist Sichbar f&uuml;r den USER
+ * 
+ * @author  Helmi Bani 
+ * @version 1.0
+ * 
+ * */
 public class CallForaHelpGUI {
 /**
- * @throws Throwable
- * @wbp.parser.entryPoint
+ * Aktive Icon im SystemTry mit einen sichbaren Icon
+ * das tool h&auml;ngt sich im SystemProzess l&auml;sst sich nicht beenden  
+ * Ein Menu F&uuml;hrung zur bedienung ist auch vorhanden(pc-information, support,chat)
+ * @throws Throwable IconTray
  */
 public void createshowGui() throws Throwable {
     DynamicalGuiForC4H window =  new DynamicalGuiForC4H();
@@ -136,12 +141,11 @@ public void createshowGui() throws Throwable {
 			}
 		});
 	}
-	
-	 //Obtain the image URL
 	/**
+	 * F&uuml;r die realisierung einens Icon f&uuml;r C4H
 	 * @param path
 	 * @param description
-	 * @return
+	 * @return pic
 	 * @wbp.parser.entryPoint
 	 */
 	protected static Image createImage(String path, String description) {
@@ -153,5 +157,4 @@ public void createshowGui() throws Throwable {
             return (new ImageIcon(imageURL, description)).getImage();
         }
     }
-
 }

@@ -24,6 +24,7 @@ public class BG_Info {
 	String schulNummer="";
 	
 	/**
+	 * Die Schulnummer muss erstellt werden damit f&uuml;r die Fehleranmeldung sofort mitgenommen wird
 	 * SchulNummer erstellen 
 	 * @throws Throwable Hostname
 	 */
