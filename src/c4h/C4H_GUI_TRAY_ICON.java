@@ -21,7 +21,7 @@ import javax.swing.Timer;
  * @version 1.0
  * 
  * */
-public class CallForaHelpGUI {
+public class C4H_GUI_TRAY_ICON {
 /**
  * Aktive Icon im SystemTry mit einen sichbaren Icon
  * das tool h&auml;ngt sich im SystemProzess l&auml;sst sich nicht beenden  
@@ -29,9 +29,9 @@ public class CallForaHelpGUI {
  * @throws Throwable IconTray
  */
 public void createshowGui() throws Throwable {
-    DynamicalGuiForC4H window =  new DynamicalGuiForC4H();
+    C4H_DYNAMIC_GUI window =  new C4H_DYNAMIC_GUI();
     window.initialize();
-		final BG_Info bg = new BG_Info();
+		final C4H_PC_INFO_KLASSE bg = new C4H_PC_INFO_KLASSE();
 		
 		
 		if (!SystemTray.isSupported()) {
@@ -87,7 +87,7 @@ public void createshowGui() throws Throwable {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("action by click");
-				CallForHelpDialog dialog = new CallForHelpDialog();
+				C4H_DIALOG dialog = new C4H_DIALOG();
 				dialog.setVisible(true);
 				Timer timer = new Timer(3000, new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
@@ -149,7 +149,7 @@ public void createshowGui() throws Throwable {
 	 * @wbp.parser.entryPoint
 	 */
 	protected static Image createImage(String path, String description) {
-    	URL imageURL = CallForaHelpGUI.class.getResource(path);
+    	URL imageURL = C4H_GUI_TRAY_ICON.class.getResource(path);
     	if (imageURL == null) {
             System.err.println("Resource not found: " + path);
             return null;

@@ -14,7 +14,7 @@ import javax.swing.SwingConstants;
  * @version 1.0
  * 
  * */
-public class CallForHelpDialog extends JDialog {
+public class C4H_DIALOG extends JDialog {
 	/**
 	 * Serialisierung der Klasse
 	 */
@@ -23,23 +23,23 @@ public class CallForHelpDialog extends JDialog {
 	 * Jdialog erstellen.
 	 * 
 	 */
-	public CallForHelpDialog() {
-	setIconImage(Toolkit.getDefaultToolkit().getImage(CallForHelpDialog.class.getResource("images/bulb.png")));
+	public C4H_DIALOG() {
+	setIconImage(Toolkit.getDefaultToolkit().getImage(C4H_DIALOG.class.getResource("images/bulb.png")));
 	
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		
-		setIconImage(Toolkit.getDefaultToolkit().getImage(CallForHelpDialog.class.getResource("images/3s_logo.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(C4H_DIALOG.class.getResource("images/3s_logo.png")));
 		getContentPane().setBackground(Color.WHITE);
 		setBounds(100, 100, 494, 247);
 		getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setIcon(new ImageIcon(CallForHelpDialog.class.getResource("images/3s_logo.png")));
+		lblNewLabel_1.setIcon(new ImageIcon(C4H_DIALOG.class.getResource("images/3s_logo.png")));
 		lblNewLabel_1.setVerticalAlignment(SwingConstants.TOP);
 		lblNewLabel_1.setBounds(10, 24, 458, 91);
 		getContentPane().add(lblNewLabel_1);
-		lblNewLabel_1.setIcon(new ImageIcon(CallForHelpDialog.class.getResource("images/3s_logo.png")));
+		lblNewLabel_1.setIcon(new ImageIcon(C4H_DIALOG.class.getResource("images/3s_logo.png")));
 		
 		JLabel lblCopyright = new JLabel("Copyright \u00A9 2018 Hamburger Informatik Technologie-Center e.V. (HITeC).");
 		lblCopyright.setHorizontalAlignment(SwingConstants.CENTER);

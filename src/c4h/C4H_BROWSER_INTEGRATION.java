@@ -29,7 +29,7 @@ import javafx.stage.Stage;
  * 
  * */
 
-public class C4HBrowserIntegration{
+public class C4H_BROWSER_INTEGRATION{
 	/**
 	 * JFX PANEL Fuer HTML Seitem
 	 */
@@ -60,7 +60,7 @@ public class C4HBrowserIntegration{
      * damit die darstellung in der App ensteht
      * @param fehlermeldenpanel Panel from c4H Gui
      */
-    public C4HBrowserIntegration(JPanel fehlermeldenpanel) {
+    public C4H_BROWSER_INTEGRATION(JPanel fehlermeldenpanel) {
     	fehlermeldenpanel.add(panel);
     	initComponents();
     }
@@ -108,7 +108,7 @@ public class C4HBrowserIntegration{
     	JButton buttonBrowser = new JButton("Browse");
     	buttonBrowser.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent arg0) {
-    			WebsiteReader web = new WebsiteReader();
+    			C4H_WEBSITE_START web = new C4H_WEBSITE_START();
     			try {
     				web.openWebSiteExample();
     			} catch (Throwable e) {

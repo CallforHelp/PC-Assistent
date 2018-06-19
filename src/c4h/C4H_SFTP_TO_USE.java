@@ -9,7 +9,7 @@ import com.jcraft.jsch.*;
  * @author bani
  *
  */
-public class SftpConnection {
+public class C4H_SFTP_TO_USE {
 	//local Field
 	/**
 	 * 
@@ -59,7 +59,7 @@ public class SftpConnection {
 	 * @param port
 	 * @throws Exception
 	 */
-	public SftpConnection( String benutzername, String passwort, String host, String port ) throws Exception{
+	public C4H_SFTP_TO_USE( String benutzername, String passwort, String host, String port ) throws Exception{
 		this._FTP_HOST=host;
 		this._USER_NAME= benutzername;
 		this._USER_PWD=passwort;
@@ -96,7 +96,7 @@ public class SftpConnection {
 	 * @throws Throwable
 	 */
 	public  void uploadFileWithSchoolNumber() throws Throwable {
-		BG_Info bg = new BG_Info();
+		C4H_PC_INFO_KLASSE bg = new C4H_PC_INFO_KLASSE();
 		//channel.rm("/standort/"+bg.getSchulNummer());
 		try {
 			if (!isFileExistInSFTP(remoteDstFilePath+bg.getSchulNummer())) { 

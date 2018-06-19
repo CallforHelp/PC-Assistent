@@ -9,20 +9,20 @@ import java.net.*;
  * @author bani
  *
  */
-public class WebsiteReader  {
+public class C4H_WEBSITE_START  {
 	
 	/**
 	 * 
 	 */
 	String webSeite ="http://fehlermeldung.3s-hamburg.de";
-	private BG_Info bginfo; 
+	private C4H_PC_INFO_KLASSE bginfo; 
 	
 	//browser starten
 	/**
 	 * @throws Throwable
 	 */
 	public void openWebSiteExample()throws Throwable  {
-		BG_Info bginfo= new  BG_Info();
+		C4H_PC_INFO_KLASSE bginfo= new  C4H_PC_INFO_KLASSE();
 		String senschoolNumber = "?schulnummer="+bginfo.getSchulNummer();
 		String pcName = "^&pcname="+bginfo.getLocalHost();
 		
@@ -69,7 +69,7 @@ public class WebsiteReader  {
                e1.printStackTrace();
            }
            DataOutputStream raus = new DataOutputStream(ausgabe);
-           String test=new WebsiteReader().
+           String test=new C4H_WEBSITE_START().
         		   getStrFromUrl(webSeite);
            try {
                raus.writeBytes(test);

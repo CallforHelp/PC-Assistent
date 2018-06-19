@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
  * @version 1.0
  * 
  * */
-public class BG_Info {
+public class C4H_PC_INFO_KLASSE {
 	
 	public final int RechnerTypLaenge = 4;
 	
@@ -28,7 +28,7 @@ public class BG_Info {
 	 * SchulNummer erstellen 
 	 * @throws Throwable Hostname
 	 */
-	public BG_Info() throws Throwable {
+	public C4H_PC_INFO_KLASSE() throws Throwable {
 		
 		settSchulNummer();
 	
@@ -423,7 +423,7 @@ public class BG_Info {
 	 */
 	public void printBGinfo() throws Throwable{
 	
-		BG_Info BG = new BG_Info();
+		C4H_PC_INFO_KLASSE BG = new C4H_PC_INFO_KLASSE();
 	
 		System.out.println("3S");
 		System.out.println("BG_Info");

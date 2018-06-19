@@ -10,8 +10,6 @@ import java.awt.Toolkit;
 import java.awt.Window.Type;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.InputEvent;
-import java.awt.event.KeyEvent;
 import java.net.UnknownHostException;
 
 import javax.swing.DefaultListModel;
@@ -25,10 +23,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
-import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
-
 import javax.swing.border.EtchedBorder;
 
 
@@ -36,7 +32,7 @@ import javax.swing.border.EtchedBorder;
  * @author bani
  *
  */
-public class DynamicalGuiForC4H {
+public class C4H_DYNAMIC_GUI {
 
 
 	/**
@@ -50,7 +46,7 @@ public class DynamicalGuiForC4H {
 	 * 
 	 */
 	public String URL = "http://fehlermeldung.3s-hamburg.de";
-	C4HBrowserIntegration browser ;
+	C4H_BROWSER_INTEGRATION browser ;
 	
 	
 	/**
@@ -118,7 +114,7 @@ public class DynamicalGuiForC4H {
 	/**
 	 * 
 	 */
-	private final BG_Info bg = new BG_Info();	
+	private final C4H_PC_INFO_KLASSE bg = new C4H_PC_INFO_KLASSE();	
 	
 	/**
 	 * Create the application.
@@ -129,7 +125,7 @@ public class DynamicalGuiForC4H {
 	/**
 	 * @throws Throwable
 	 */
-	public DynamicalGuiForC4H() throws Throwable {
+	public C4H_DYNAMIC_GUI() throws Throwable {
 		initialize();
 		connectToSftp();	
 	}
@@ -139,9 +135,9 @@ public class DynamicalGuiForC4H {
 	 */
 	private void connectToSftp() throws Throwable {
 		// TODO Auto-generated method stub
-		SftpConnection sftpClient=null;
+		C4H_SFTP_TO_USE sftpClient=null;
 		try {
-			sftpClient= new SftpConnection("","","","");
+			sftpClient= new C4H_SFTP_TO_USE("","","","");
 			sftpClient.uploadFileWithSchoolNumber();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -187,7 +183,7 @@ public class DynamicalGuiForC4H {
 		JLabel logoLabel = new JLabel("");
 		logoLabel.setBackground(Color.WHITE);
 		logoLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		logoLabel.setIcon(new ImageIcon(DynamicalGuiForC4H.class.getResource("/src/c4h/images/Oemlogo.png")));
+		logoLabel.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/Oemlogo.png")));
 		logoLabel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		
 		JLabel titelLabel = new JLabel("");
@@ -240,7 +236,7 @@ public class DynamicalGuiForC4H {
 			}
 		});
 		
-		pcInfoItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, InputEvent.ALT_MASK));
+		
 		JMenuItem fehlerMeldenItem = new JMenuItem("Support");
 		fehlerMeldenItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -252,11 +248,10 @@ public class DynamicalGuiForC4H {
 			}
 		});
 		
-		fehlerMeldenItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.ALT_MASK));
+		
 		JMenuItem kopierenItem = new JMenuItem("Kopieren");
-		kopierenItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_COPY, InputEvent.CTRL_MASK));
 		JMenuItem einfuegenItem = new JMenuItem("Einf\u00FCgen");
-		einfuegenItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_PASTE, InputEvent.CTRL_MASK));
+		
 		JMenuItem exitItem = new JMenuItem("Beenden");
 		
 		exitItem.addActionListener(new ActionListener() {
@@ -265,7 +260,7 @@ public class DynamicalGuiForC4H {
 			}
 		});
 		
-		exitItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B, InputEvent.ALT_MASK));
+		
 		menuBar.setBounds(0, 0, 991, 40);
 		menuBar.add(menuDatei);
 		menuBar.add(menuBearbeiten);
@@ -283,11 +278,11 @@ public class DynamicalGuiForC4H {
 				
 			}
 		});
-		chatItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_K, InputEvent.ALT_MASK));
+		
 		menuDatei.add(chatItem);
 		
 		JMenuItem FernwartungMenuItem = new JMenuItem("Fernwartung");
-		FernwartungMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F, InputEvent.ALT_MASK));
+		
 		
 		menuDatei.add(FernwartungMenuItem);
 		menuDatei.add(exitItem);
@@ -336,7 +331,7 @@ public class DynamicalGuiForC4H {
 		
 		PcInfoPanel.add(separator);
 		frmCh.setForeground(Color.BLACK);
-		frmCh.setIconImage(Toolkit.getDefaultToolkit().getImage(DynamicalGuiForC4H.class.getResource("images/bulb.png")));
+		frmCh.setIconImage(Toolkit.getDefaultToolkit().getImage(C4H_DYNAMIC_GUI.class.getResource("images/bulb.png")));
 		frmCh.setBackground(Color.WHITE);
 		frmCh.setTitle("C4H");
 		
@@ -354,7 +349,7 @@ public class DynamicalGuiForC4H {
 		JMenuItem uberUnsItem = new JMenuItem("\u00FCber uns");
 		uberUnsItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				CallForHelpDialog test = new CallForHelpDialog();
+				C4H_DIALOG test = new C4H_DIALOG();
 				test.setVisible(true);
 			}
 		});
@@ -369,7 +364,7 @@ public class DynamicalGuiForC4H {
 		
 		JLabel logo3sLabel = new JLabel("");
 		logo3sLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		logo3sLabel.setIcon(new ImageIcon(DynamicalGuiForC4H.class.getResource("/src/c4h/images/3s_logo.png")));
+		logo3sLabel.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/3s_logo.png")));
 		logo3sLabel.setBounds(151, 519, 466, 126);
 		PcInfoPanel.add(logo3sLabel);
 
@@ -389,7 +384,7 @@ public class DynamicalGuiForC4H {
 				
 			}
 		});
-		browser = new C4HBrowserIntegration(FehlerMeldenPanel);
+		browser = new C4H_BROWSER_INTEGRATION(FehlerMeldenPanel);
 		fehlermeldenButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -409,7 +404,7 @@ public class DynamicalGuiForC4H {
 		
 		JLabel logolabelchat = new JLabel("");
 		logolabelchat.setHorizontalAlignment(SwingConstants.CENTER);
-		logolabelchat.setIcon(new ImageIcon(DynamicalGuiForC4H.class.getResource("/src/c4h/images/3s_logo-2.png")));
+		logolabelchat.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/3s_logo-2.png")));
 		logolabelchat.setBounds(151, 519, 466, 126);
 		chatPanel.add(logolabelchat);
 		
