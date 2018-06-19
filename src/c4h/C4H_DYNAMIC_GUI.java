@@ -478,17 +478,9 @@ public class C4H_DYNAMIC_GUI {
 	 * 
 	 */
 	public void startBrowser(){
-		String pcName = null;
 		try {
-			pcName = "&pcname="+bg.getLocalHost();
-		} catch (UnknownHostException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+			browser.createScene(URL+"?schulnummer="+bg.getSchulNummer()+"&pcname="+bg.getLocalHost());
 		
-        try {
-			//browser.createScene(URL+"?schulnummer="+bg.getSchulNummer()+pcName);
-			browser.createScene("http://fehlermeldung.3s-hamburg.de?schulnummer=9999&pcname=9999FUJIA0001");
 		} catch (Throwable e) {
 			System.out.println("Exception: "+e);
 		}
