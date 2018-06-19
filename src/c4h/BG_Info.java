@@ -10,13 +10,11 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
-
 /**
- * 
- * Netwerk und PC Information for 3S 
+ * Eine Klasse zum Zeigen der wichtigsten informationen &uuml;ber den Client: 
+ * Netwerk und PC Information
  * @author  Helmi Bani 
- * @version 1.1
+ * @version 1.0
  * 
  * */
 public class BG_Info {
@@ -116,7 +114,8 @@ public class BG_Info {
 	}
 	
 	/**
-	 * @return
+	 * Betriebsystemarchitektur
+	 * @return OSArchitektur
 	 */
 	public String getOSArchitecture(){
 		
@@ -125,8 +124,10 @@ public class BG_Info {
 		return OsArch;
 	}
 	/**
-	 * @return
-	 * @throws IOException
+	 * Muster Image von 3s
+	 * die info bekommen wir aus dem Infobereich des Betriebsystems
+	 * @return musterImages
+	 * @throws IOException RegEintrag
 	 */
 	public String getMusterImages() throws IOException {
 		
@@ -150,8 +151,9 @@ public class BG_Info {
 		return musterImages;
 	}
 	/**
-	 * @return
-	 * @throws Exception
+	 * RechnerTyp aus dem Hostname auslesen 
+	 * @return RechnerTyp
+	 * @throws Exception Hostname
 	 */
 	public String getRechnertypen() throws Exception {
 		
@@ -170,8 +172,9 @@ public class BG_Info {
 	/****************************************** NETZWERK ****************************************/
 	
 	/**
-	 * @return
-	 * @throws UnknownHostException
+	 * IpAdresse Auslesen
+	 * @return result(IPAdress)
+	 * @throws UnknownHostException Hostadresse
 	 */
 	public String getLocalAdresse() throws UnknownHostException {
 		
@@ -181,14 +184,15 @@ public class BG_Info {
 		
 	}
 	/**
-	 * @return
-	 * @throws IOException 
+	 * MacAdresse auslesen 
+	 * @return MacAdresse
+	 * @throws IOException Commandbefehl 
 	 */
 	public String getMacAddress() throws IOException{
 		String result = "";
-		Process p = Runtime.getRuntime().exec("getmac /fo csv /nh");
 		
 		if(getOSversion().contains("W")||getOSversion().contains("w")) {
+			Process p = Runtime.getRuntime().exec("getmac /fo csv /nh");
 			BufferedReader in = new java.io.BufferedReader(new InputStreamReader(p.getInputStream()));
 			String line;
 			line = in.readLine();        
@@ -208,8 +212,9 @@ public class BG_Info {
 	}
 	
 	/**
-	 * @return
-	 * @throws UnknownHostException
+	 * Localhost auslesen
+	 * @return Localhost
+	 * @throws UnknownHostException Hostname
 	 */
 	public String getLocalHost() throws UnknownHostException {
 		
@@ -220,8 +225,9 @@ public class BG_Info {
 		
 	}
 	/**
-	 * @return
-	 * @throws IOException
+	 * angemeldete Domaine auslesen
+	 * @return domain
+	 * @throws IOException commandbefehl
 	 */
 	public String getMachindomain() throws IOException {
 		
@@ -255,9 +261,10 @@ public class BG_Info {
 	}
 	
 	/**
-	 * @return
-	 * @throws SocketException
-	 * @throws IOException
+	 * Subnetzmask berechnnen und darstellen
+	 * @return submasl
+	 * @throws SocketException IpAdress
+	 * @throws IOException Localhost
 	 */
 	public String getSubnetMask() throws SocketException, IOException {
 		
@@ -275,8 +282,9 @@ public class BG_Info {
 	}
 	
 	/**
-	 * @return
-	 * @throws IOException
+	 * Gateway auslesen
+	 * @return defaultgateway
+	 * @throws IOException commandbefehl
 	 */
 	public String getDefaultgateway() throws IOException {
 		
@@ -313,8 +321,9 @@ public class BG_Info {
 	}
 	
 	/**
-	 * @return
-	 * @throws IOException
+	 * DHCP serveradresse auslesen
+	 * @return dhcpserver
+	 * @throws IOException commandbefehl
 	 */
 	public String getDHCPServer() throws IOException {
 		
@@ -350,8 +359,9 @@ public class BG_Info {
 	}
 	
 	/**
-	 * @return
-	 * @throws IOException
+	 * DNS serveradresse auslesen
+	 * @return dnsserver
+	 * @throws IOException commandbefehl
 	 */
 	public String getDNSServer() throws IOException{
 		
@@ -387,8 +397,10 @@ public class BG_Info {
 		return dnsserver;
 	}
 	/**
-	 * @return
-	 * @throws Throwable
+	 * Schulnummer Prüfen ob es korrekt eingetragen ist
+	 * Ein Hinweis als info wird dargestellt
+	 * @return true/false
+	 * @throws Throwable HostName
 	 */
 	public boolean pruefeSchulnr() throws Throwable {
 		
@@ -404,7 +416,8 @@ public class BG_Info {
 	/************************************************************************************************************/
 	/************************************** PRINTING * @throws Throwable ****************************************/
 	/**
-	 * @throws Throwable
+	 * Print Information in der Console 
+	 * @throws Throwable Hostname Localhost
 	 */
 	public void printBGinfo() throws Throwable{
 	
