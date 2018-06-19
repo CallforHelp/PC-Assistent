@@ -1,12 +1,8 @@
 package src.c4h;
 
 import java.awt.Color;
-
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.SwingUtilities;
@@ -43,11 +39,6 @@ public class C4H_BROWSER_INTEGRATION{
 	 * JPanel zur darstellung auf der APP
 	 */
 	private JPanel panel = new JPanel();
-    
-    /**
-     * Aktualisierungsbutton
-     */
-    private JButton buttonReload = new JButton("Aktualisieren");
     /**
      * Progressbar
      */
@@ -73,29 +64,13 @@ public class C4H_BROWSER_INTEGRATION{
     private void initComponents() {
     	
     	jfxPanel = new JFXPanel();
-    	jfxPanel.setBounds(0, 0, 787, 604);
+    	jfxPanel.setBounds(0, 0, 787, 637);
     	jfxPanel.setBackground(new Color(255,255,255,255));
     	
     	panel.setBackground(Color.WHITE);
     	panel.setLayout(null);
-    	panel.setBounds(200, 40, 787, 656);
-    	
-    	buttonReload.setBounds(10, 613, 180, 30);
-    	panel.add(buttonReload);
-    	
-    	ActionListener al = new ActionListener() {
-    		@Override 
-    		public void actionPerformed(ActionEvent e) {
-    			Platform.runLater(new Runnable() {
-    				@Override
-    				public void run() {
-    				engine.reload();
-    				}
-    			});
-    		}
-    	};
-    	buttonReload.addActionListener(al);
-    	progressBar.setBounds(597, 615, 180, 30);
+    	panel.setBounds(200, 40, 787, 670);
+    	progressBar.setBounds(0, 652, 787, 18);
     	panel.add(progressBar);
 
     	progressBar.setPreferredSize(new Dimension(150, 18));
@@ -105,20 +80,7 @@ public class C4H_BROWSER_INTEGRATION{
 
     	panel.add(jfxPanel);
     	
-    	JButton buttonBrowser = new JButton("Browse");
-    	buttonBrowser.addActionListener(new ActionListener() {
-    		public void actionPerformed(ActionEvent arg0) {
-    			C4H_WEBSITE_START web = new C4H_WEBSITE_START();
-    			try {
-    				web.openWebSiteExample();
-    			} catch (Throwable e) {
-    				System.out.println(e.getMessage());
-    			}
-    		}
-    	});
-    	buttonBrowser.setBounds(317, 613, 180, 30);
-    	panel.add(buttonBrowser);
-        
+    	
                
     }
  
