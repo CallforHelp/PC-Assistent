@@ -6,22 +6,25 @@ import java.util.*;
 import java.net.*;
 
 /**
- * @author bani
- *
- */
+ * Website Reader &ouml;ffnen Details und Connect
+ * @author  Helmi Bani 
+ * @version 1.0
+ * 
+ * */
 public class C4H_WEBSITE_START  {
 	
 	/**
-	 * 
+	 * Standart Website zum Fehlermelden
 	 */
 	String webSeite ="http://fehlermeldung.3s-hamburg.de";
 	private C4H_PC_INFO_KLASSE bginfo; 
 	
 	//browser starten
 	/**
-	 * @throws Throwable
+	 * Browser start egal mit welchen OS
+	 * @throws Throwable Hostname
 	 */
-	public void openWebSiteExample()throws Throwable  {
+	public void openWebSite()throws Throwable  {
 		C4H_PC_INFO_KLASSE bginfo= new  C4H_PC_INFO_KLASSE();
 		
 		String senschoolNumber = "?schulnummer="+bginfo.getSchulNummer();
@@ -47,10 +50,11 @@ public class C4H_WEBSITE_START  {
 	}
 	//quelltext ausdrucken
 	/**
-	 * @throws MalformedURLException
-	 * @throws IOException
+	 * Liest einzelne Quelltext Schreibt es in der konsole aus
+	 * @throws MalformedURLException Format
+	 * @throws IOException EinAusgabe
 	 */
-	public void webScraperExample () throws MalformedURLException, IOException{
+	public void webScraper () throws MalformedURLException, IOException{
 	    Scanner scanner = new Scanner(new URL(webSeite).openStream());
 	        while(scanner.hasNextLine()){
 	            System.out.println(scanner.nextLine());
@@ -59,7 +63,7 @@ public class C4H_WEBSITE_START  {
 	    }
 	//quelltext in Dateispeichern
 	/**
-	 * 
+	 * Schreibe webseiten Inhalt in einer Datei
 	 */
 	public void startFIleInput() {
         File file = new File("temp.txt");
@@ -82,10 +86,11 @@ public class C4H_WEBSITE_START  {
    }
   
 	//quellext ausdrucken
-   /**
- * @param surl
- * @return
- */
+ /**
+  * Quelltext der Seite auslesen und ausdrucken
+  *  @param surl SeitenURL
+  *  @return Text mit seitenquelltext 
+  */
 private String getStrFromUrl(String surl){
        
 	   String str=null;

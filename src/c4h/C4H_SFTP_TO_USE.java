@@ -6,7 +6,7 @@ import java.util.Vector;
 import com.jcraft.jsch.*;
 /**
  * SFTP Client zum Schreiben der Rechner information auf den server
- * wird momentan nicht benötigt 
+ * wird momentan nicht ben&ouml;tigt 
  * @author  Helmi Bani 
  * @version 1.0
  * 
@@ -98,7 +98,7 @@ public class C4H_SFTP_TO_USE {
 	
 	/**
 	 * Schreiben in einer Datei die Schulnummer als Inhalt
-	 * @throws Throwable
+	 * @throws Throwable Hostname
 	 */
 	public  void uploadFileWithSchoolNumber() throws Throwable {
 		C4H_PC_INFO_KLASSE bg = new C4H_PC_INFO_KLASSE();
