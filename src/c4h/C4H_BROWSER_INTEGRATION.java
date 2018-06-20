@@ -70,7 +70,7 @@ public class C4H_BROWSER_INTEGRATION{
     	panel.setBackground(Color.WHITE);
     	panel.setLayout(null);
     	panel.setBounds(200, 40, 787, 670);
-    	progressBar.setBounds(0, 652, 787, 18);
+    	progressBar.setBounds(0, 650, 787, 18);
     	panel.add(progressBar);
 
     	progressBar.setPreferredSize(new Dimension(150, 18));
