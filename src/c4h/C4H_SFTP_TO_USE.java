@@ -4,60 +4,64 @@ import java.io.*;
 import java.util.Vector;
 
 import com.jcraft.jsch.*;
-
 /**
- * @author bani
- *
- */
+ * SFTP Client zum Schreiben der Rechner information auf den server
+ * wird momentan nicht benötigt 
+ * @author  Helmi Bani 
+ * @version 1.0
+ * 
+ * */
 public class C4H_SFTP_TO_USE {
 	//local Field
 	/**
-	 * 
+	 * PORT
 	 */
 	private  int    _PORT;
 	/**
-	 * 
+	 * HOST
 	 */
 	private  String _FTP_HOST ;
 	/**
-	 * 
+	 * USER_NAME
 	 */
 	private  String _USER_NAME ;
 	/**
-	 * 
+	 * USER_PWD
 	 */
 	private  String _USER_PWD ;
 	/**
-	 * 
+	 * PFAD ORDNER
 	 */
 	private String remoteDstFilePath= "/standort/";
 	
 	//local Object
 	/**
-	 * 
+	 * Session
 	 */
 	protected Session session = null;
 	/**
-	 * 
+	 * chanel
 	 */
 	protected ChannelSftp channel= null;
 	
 	/**
-	 * 
+	 * Ordnername
 	 */
 	File fileWithSchooNumber=null;
 	/**
-	 * 
+	 * Dateiname
 	 */
 	File filesDirectory = null;
 	
 	
 	/**
-	 * @param benutzername
-	 * @param passwort
-	 * @param host
-	 * @param port
-	 * @throws Exception
+	 * Ein construktor mit den eingaben der Argumente zur Verbindung in das SFTP server
+	 * der ClientID ist immer gleich
+	 * @param benutzername user
+	 * @param passwort pass
+	 * @param host hostname
+	 * @param port port nummer SFTP
+	 * @throws Exception Hostname LocalHost PortNumber
 	 */
 	public C4H_SFTP_TO_USE( String benutzername, String passwort, String host, String port ) throws Exception{
 		this._FTP_HOST=host;
@@ -93,6 +97,7 @@ public class C4H_SFTP_TO_USE {
 	}
 	
 	/**
+	 * Schreiben in einer Datei die Schulnummer als Inhalt
 	 * @throws Throwable
 	 */
 	public  void uploadFileWithSchoolNumber() throws Throwable {
@@ -112,8 +117,9 @@ public class C4H_SFTP_TO_USE {
 		
 	}
 	/**
-	 * @param schoolNamePath
-	 * @return
+	 * Pr&uuml; ob die Schulnummer schon im SFTP vorhanden ist
+	 * @param schoolNamePath DateiName
+	 * @return Richtig/Faslch
 	 */
 	@SuppressWarnings("static-access")
 	public boolean isFileExistInSFTP(String schoolNamePath) {
@@ -131,15 +137,17 @@ public class C4H_SFTP_TO_USE {
 	}
 
 	/**
-	 * @return
-	 * @throws SftpException
+	 * gibt den Pfad im SFTP zurück
+	 * @return Pfad 
+	 * @throws SftpException Verbindungsuafbau
 	 */
 	public String getLocalActualDir() throws SftpException{
 		return channel.getHome();
 	}
 	/**
-	 * @param schoolNumber
-	 * @return
+	 * Erstelle ein Dokument mit dem Schulnummer als inhalt
+	 * @param schoolNumber Schulnummer
+	 * @return DokumentName 
 	 */
 	public String createNewFileWithSchoolNumber(String schoolNumber) {
 		
@@ -179,7 +187,9 @@ public class C4H_SFTP_TO_USE {
 		
 	}
 	/**
-	 * 
+	 * Reset alles 
+	 * Delete Objekte
+	 * no Returns
 	 */
 	public void deleteNewFileWithSchoolNumber() {
 		if(fileWithSchooNumber!=null)
@@ -188,7 +198,7 @@ public class C4H_SFTP_TO_USE {
 			filesDirectory.delete();
 	}
 	/**
-	 * 
+	 * Schliesse die Verbindung
 	 */
 	private void closeSFTPConnection() {
 		if (channel!=null)
