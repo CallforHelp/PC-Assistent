@@ -1,1 +1,1 @@
-typeSearchIndex = [{"p":"src.c4h","l":"C4H"},{"p":"src.c4h","l":"C4H_BROWSER_INTEGRATION"},{"p":"src.c4h","l":"C4H_DIALOG"},{"p":"src.c4h","l":"C4H_GUI_TRAY_ICON"},{"p":"src.c4h","l":"C4H_PC_INFO_KLASSE"}]
+typeSearchIndex = [{"p":"src.c4h","l":"C4H"},{"p":"src.c4h","l":"C4H_BROWSER_INTEGRATION"},{"p":"src.c4h","l":"C4H_DIALOG"},{"p":"src.c4h","l":"C4H_DYNAMIC_GUI"},{"p":"src.c4h","l":"C4H_GUI_TRAY_ICON"},{"p":"src.c4h","l":"C4H_PC_INFO_KLASSE"},{"p":"src.c4h","l":"C4H_SFTP_TO_USE"},{"p":"src.c4h","l":"C4H_WEBSITE_START"}]

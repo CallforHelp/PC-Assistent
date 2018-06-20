@@ -103,7 +103,7 @@ public class C4H_DYNAMIC_GUI {
 
 	/**
 	 * Konstruktor zur Laufzeit Start vom GUI UND SFTP Verbindung falls es nötig ist 
-	 * @throws Throwable
+	 * @throws Throwable Hostname
 	 */
 	public C4H_DYNAMIC_GUI() throws Throwable {
 		initialize();
@@ -453,7 +453,6 @@ public class C4H_DYNAMIC_GUI {
 
 	/**
 	 * Starten und öffnen des Scripts mit dne richtigen Parameter
-	 * @throws UnknownHostException HOST NAME LOCALHOST
 	 * 
 	 */
 	public void startBrowser(){
