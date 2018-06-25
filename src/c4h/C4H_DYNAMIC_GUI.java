@@ -169,9 +169,11 @@ public class C4H_DYNAMIC_GUI {
 		JLabel titelLabel = new JLabel("");
 		JLabel systemInfoLabel = new JLabel("System Information");
 		JLabel lblNetzwerkInformation = new JLabel("Netzwerk Information");
+		pcInfoButton.setFont(new Font("Arial", Font.BOLD, 11));
 		
 		//button
 		pcInfoButton.setBounds(10, 83, 175, 75);
+		fehlermeldenButton.setFont(new Font("Arial", Font.BOLD, 11));
 		fehlermeldenButton.setBounds(10, 215, 175, 75);
 		
 		//Panel
@@ -202,11 +204,12 @@ public class C4H_DYNAMIC_GUI {
 		menuBar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		JMenu menuDatei = new JMenu("Allgemein");
-		JMenu menuBearbeiten = new JMenu("Bearbeiten");
+		menuDatei.setFont(new Font("Arial", Font.BOLD, 12));
 		
 		
 		//MENU ITEM
 		JMenuItem pcInfoItem = new JMenuItem("PC Information");
+		pcInfoItem.setFont(new Font("Arial", Font.BOLD, 12));
 		pcInfoItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				PcInfoPanel.setVisible(true);
@@ -218,6 +221,7 @@ public class C4H_DYNAMIC_GUI {
 		
 		
 		JMenuItem fehlerMeldenItem = new JMenuItem("Support");
+		fehlerMeldenItem.setFont(new Font("Arial", Font.BOLD, 12));
 		fehlerMeldenItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				PcInfoPanel.setVisible(false);
@@ -228,11 +232,8 @@ public class C4H_DYNAMIC_GUI {
 			}
 		});
 		
-		
-		JMenuItem kopierenItem = new JMenuItem("Kopieren");
-		JMenuItem einfuegenItem = new JMenuItem("Einf\u00FCgen");
-		
 		JMenuItem exitItem = new JMenuItem("Beenden");
+		exitItem.setFont(new Font("Arial", Font.BOLD, 12));
 		
 		exitItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -243,12 +244,12 @@ public class C4H_DYNAMIC_GUI {
 		
 		menuBar.setBounds(0, 0, 991, 40);
 		menuBar.add(menuDatei);
-		menuBar.add(menuBearbeiten);
 		
 		menuDatei.add(pcInfoItem);
 		menuDatei.add(fehlerMeldenItem);
 		
 		JMenuItem chatItem = new JMenuItem("Chat");
+		chatItem.setFont(new Font("Arial", Font.BOLD, 12));
 		chatItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				PcInfoPanel.setVisible(false);
@@ -262,6 +263,7 @@ public class C4H_DYNAMIC_GUI {
 		menuDatei.add(chatItem);
 		
 		JMenuItem FernwartungMenuItem = new JMenuItem("Fernwartung");
+		FernwartungMenuItem.setFont(new Font("Arial", Font.BOLD, 12));
 		FernwartungMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("fernwartung Starten");
@@ -277,10 +279,7 @@ public class C4H_DYNAMIC_GUI {
 		
 		menuDatei.add(FernwartungMenuItem);
 		menuDatei.add(exitItem);
-		
-		
-		menuBearbeiten.add(kopierenItem);
-		menuBearbeiten.add(einfuegenItem);
+		chatButton.setFont(new Font("Arial", Font.BOLD, 11));
 		
 		
 		
@@ -304,16 +303,16 @@ public class C4H_DYNAMIC_GUI {
 		
 		titelLabel.setBounds(183, 11, 377, 60);
 		titelLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		titelLabel.setFont(new Font("Algerian", Font.PLAIN, 29));
+		titelLabel.setFont(new Font("Arial", Font.BOLD, 29));
 		titelLabel.setText("PC Information");
 		
-		systemInfoLabel.setFont(new Font("Algerian", Font.PLAIN, 18));
+		systemInfoLabel.setFont(new Font("Arial", Font.BOLD, 18));
 		systemInfoLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		systemInfoLabel.setBounds(105, 107, 217, 32);
 		PcInfoPanel.add(systemInfoLabel);
 		
 		lblNetzwerkInformation.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNetzwerkInformation.setFont(new Font("Algerian", Font.PLAIN, 18));
+		lblNetzwerkInformation.setFont(new Font("Arial", Font.BOLD, 18));
 		lblNetzwerkInformation.setBounds(480, 107, 238, 32);
 		PcInfoPanel.add(lblNetzwerkInformation);
 		
@@ -333,11 +332,13 @@ public class C4H_DYNAMIC_GUI {
 		frmCh.getContentPane().add(menuBar);
 		
 		JMenu mnInfo = new JMenu("INFO");
+		mnInfo.setFont(new Font("Arial", Font.BOLD, 12));
 		mnInfo.setHorizontalTextPosition(SwingConstants.LEFT);
 		mnInfo.setHorizontalAlignment(SwingConstants.CENTER);
 		menuBar.add(mnInfo);
 		
 		JMenuItem uberUnsItem = new JMenuItem("\u00FCber uns");
+		uberUnsItem.setFont(new Font("Arial", Font.BOLD, 12));
 		uberUnsItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				C4H_DIALOG test = new C4H_DIALOG();
@@ -409,22 +410,22 @@ public class C4H_DYNAMIC_GUI {
 		systemInfo = new DefaultListModel<>();
 		
 		systemInfo.addElement("                                          ");
-		systemInfo.addElement("HostName        : "+ bg.getLocalHost());
+		systemInfo.addElement("HostName         : "+ bg.getLocalHost());
 		systemInfo.addElement("                                          ");
-		systemInfo.addElement("User Name       : "+ bg.getUserName());
+		systemInfo.addElement("User Name        : "+ bg.getUserName());
 		systemInfo.addElement("                                          ");
-		systemInfo.addElement("SchulNummer  : "+ bg.getSchulNummer());
+		systemInfo.addElement("SchulNummer   : "+ bg.getSchulNummer());
 		systemInfo.addElement("                                          ");
 		systemInfo.addElement("OS Version       : "+ bg.getOSversion());
 		systemInfo.addElement("                                          ");
-		systemInfo.addElement("OS Architektur  : "+ bg.getOSArchitecture());
+		systemInfo.addElement("OS Architektur : "+ bg.getOSArchitecture());
 		systemInfo.addElement("                                          ");
-		systemInfo.addElement("Muster Images   : "+ bg.getMusterImages());
+		systemInfo.addElement("Muster Images  : "+ bg.getMusterImages());
 		systemInfo.addElement("                                          ");
-		systemInfo.addElement("Rechner Typ     : "+ bg.getRechnertypen());
+		systemInfo.addElement("Rechner Typ      : "+ bg.getRechnertypen());
 		
 		pcInfoList= new JList<String>(systemInfo);
-		pcInfoList.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 14));
+		pcInfoList.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		pcInfoList.setBackground(Color.WHITE);
 		pcInfoList.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		pcInfoList.setForeground(Color.BLACK);
@@ -435,19 +436,19 @@ public class C4H_DYNAMIC_GUI {
 		
 		netzwerkInfo = new DefaultListModel<>();
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("Locale IP Adresse       : "+ bg.getLocalAdresse());
+		netzwerkInfo.addElement("Locale IP Adresse     : "+ bg.getLocalAdresse());
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("SUBNETZMASKE     : "+ bg.getSubnetMask());
+		netzwerkInfo.addElement("SUBNETZMASKE      : "+ bg.getSubnetMask());
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("MAC Adresse             : "+ bg.getMacAddress());
+		netzwerkInfo.addElement("MAC Adresse            : "+ bg.getMacAddress());
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("Machine Domain      : "+ bg.getMachindomain());
+		netzwerkInfo.addElement("Machine Domain       : "+ bg.getMachindomain());
 		netzwerkInfo.addElement("                                          ");
 		netzwerkInfo.addElement("Default Gateway       : "+ bg.getDefaultgateway());
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("DHCP Server           : "+ bg.getDHCPServer());
+		netzwerkInfo.addElement("DHCP Server            : "+ bg.getDHCPServer());
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("DNS Server             : "+ bg.getDNSServer());
+		netzwerkInfo.addElement("DNS Server               : "+ bg.getDNSServer());
 		
 		netzwekList = new JList<String>(netzwerkInfo);
 		netzwekList.setValueIsAdjusting(true);
@@ -455,7 +456,7 @@ public class C4H_DYNAMIC_GUI {
 		netzwekList.setSelectionBackground(Color.LIGHT_GRAY);
 		netzwekList.setForeground(Color.BLACK);
 		netzwekList.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
-		netzwekList.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 14));
+		netzwekList.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		netzwekList.setBackground(Color.WHITE);
 		netzwekList.setBounds(446, 150, 309, 278);
 		PcInfoPanel.add(netzwekList);
