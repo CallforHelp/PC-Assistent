@@ -37,7 +37,8 @@ public class C4H_DYNAMIC_GUI {
 	 */
 	public String URL = "http://fehlermeldung.3s-hamburg.de";
 	
-	C4H_BROWSER_INTEGRATION browser ;
+	private C4H_BROWSER_INTEGRATION browser ;
+	private C4H_WEBSITE_START web = new C4H_WEBSITE_START();
 	
 	/**
 	 * FrameC4H
@@ -261,6 +262,17 @@ public class C4H_DYNAMIC_GUI {
 		menuDatei.add(chatItem);
 		
 		JMenuItem FernwartungMenuItem = new JMenuItem("Fernwartung");
+		FernwartungMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("fernwartung Starten");
+				try {
+					web.openWebSite("www.ntrglobal.com/code");
+				} catch (Throwable e1) {
+					System.out.println(e1);
+				}
+				
+			}
+		});
 		
 		
 		menuDatei.add(FernwartungMenuItem);

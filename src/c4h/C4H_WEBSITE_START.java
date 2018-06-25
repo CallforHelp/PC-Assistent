@@ -18,6 +18,15 @@ public class C4H_WEBSITE_START  {
 	 */
 	String webSeite ="http://fehlermeldung.3s-hamburg.de";
 	private C4H_PC_INFO_KLASSE bginfo; 
+	/**
+	 * Kontruktor to add PC Information
+	 * @throws Throwable Hostname
+	 */
+	public C4H_WEBSITE_START() throws Throwable {
+		bginfo= new  C4H_PC_INFO_KLASSE();
+		
+	}
+
 	
 	//browser starten
 	/**
@@ -25,23 +34,21 @@ public class C4H_WEBSITE_START  {
 	 * @throws Throwable Hostname
 	 */
 	public void openWebSite()throws Throwable  {
-		C4H_PC_INFO_KLASSE bginfo= new  C4H_PC_INFO_KLASSE();
 		
 		String senschoolNumber = "?schulnummer="+bginfo.getSchulNummer();
 		String pcName = "^&pcname="+bginfo.getLocalHost();
-		
-		System.out.println(webSeite+senschoolNumber+pcName);
-		
-		System.out.println("standard browswer wird aufgerufen");
 		if(bginfo.getOSversion().contains("W")||bginfo.getOSversion().contains("w")) { 
 			new ProcessBuilder(new String[] { "cmd", "/c","start",(webSeite+senschoolNumber+pcName)}).start();
 		}else {
 			new ProcessBuilder(new String[] {"open",(webSeite+senschoolNumber+pcName)}).start();
 		}
 	}
-	public void openWebSiteExample(String URL)throws Throwable  {
+	/**
+	 * Browser start egal mit welchen OS
+	 * @throws Throwable Hostname
+	 */
+	public void openWebSite(String URL)throws Throwable{
 		
-		System.out.println("standard browswer wird aufgerufen");
 		if(bginfo.getOSversion().contains("W")||bginfo.getOSversion().contains("w")) { 
 			new ProcessBuilder(new String[] { "cmd", "/c","start",(URL)}).start();
 		}else {
@@ -64,8 +71,9 @@ public class C4H_WEBSITE_START  {
 	//quelltext in Dateispeichern
 	/**
 	 * Schreibe webseiten Inhalt in einer Datei
+	 * @throws Throwable 
 	 */
-	public void startFIleInput() {
+	public void startFIleInput() throws Throwable {
         File file = new File("temp.txt");
         FileOutputStream ausgabe = null;
            try {
