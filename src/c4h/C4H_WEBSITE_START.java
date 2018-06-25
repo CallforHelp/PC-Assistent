@@ -45,6 +45,7 @@ public class C4H_WEBSITE_START  {
 	}
 	/**
 	 * Browser start egal mit welchen OS
+	 * @param URL zum starten einer Webseite
 	 * @throws Throwable Hostname
 	 */
 	public void openWebSite(String URL)throws Throwable{
@@ -71,7 +72,7 @@ public class C4H_WEBSITE_START  {
 	//quelltext in Dateispeichern
 	/**
 	 * Schreibe webseiten Inhalt in einer Datei
-	 * @throws Throwable 
+	 * @throws Throwable die Datei Existiert
 	 */
 	public void startFIleInput() throws Throwable {
         File file = new File("temp.txt");
