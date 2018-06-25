@@ -440,15 +440,15 @@ public class C4H_DYNAMIC_GUI {
 		netzwerkInfo.addElement("                                          ");
 		netzwerkInfo.addElement("SUBNETZMASKE      : "+ bg.getSubnetMask());
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("MAC Adresse            : "+ bg.getMacAddress());
+		netzwerkInfo.addElement("MAC Adresse           : "+ bg.getMacAddress());
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("Machine Domain       : "+ bg.getMachindomain());
+		netzwerkInfo.addElement("Machine Domain      : "+ bg.getMachindomain());
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("Default Gateway       : "+ bg.getDefaultgateway());
+		netzwerkInfo.addElement("Default Gateway      : "+ bg.getDefaultgateway());
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("DHCP Server            : "+ bg.getDHCPServer());
+		netzwerkInfo.addElement("DHCP Server           : "+ bg.getDHCPServer());
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("DNS Server               : "+ bg.getDNSServer());
+		netzwerkInfo.addElement("DNS Server              : "+ bg.getDNSServer());
 		
 		netzwekList = new JList<String>(netzwerkInfo);
 		netzwekList.setValueIsAdjusting(true);
