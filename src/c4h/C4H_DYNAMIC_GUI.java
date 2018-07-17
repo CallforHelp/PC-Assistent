@@ -164,7 +164,7 @@ public class C4H_DYNAMIC_GUI {
 		logoLabel.setBackground(Color.WHITE);
 		logoLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		logoLabel.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/Oemlogo.png")));
-		logoLabel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		logoLabel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		
 		JLabel titelLabel = new JLabel("");
 		JLabel systemInfoLabel = new JLabel("System Information");
@@ -331,7 +331,7 @@ public class C4H_DYNAMIC_GUI {
 		frmCh.getContentPane().setLayout(null);
 		frmCh.getContentPane().add(menuBar);
 		
-		JMenu mnInfo = new JMenu("INFO");
+		JMenu mnInfo = new JMenu("Info");
 		mnInfo.setFont(new Font("Arial", Font.BOLD, 12));
 		mnInfo.setHorizontalTextPosition(SwingConstants.LEFT);
 		mnInfo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -355,9 +355,10 @@ public class C4H_DYNAMIC_GUI {
 		frmCh.getContentPane().add(FehlerMeldenPanel);
 		
 		JLabel logo3sLabel = new JLabel("");
+		logo3sLabel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		logo3sLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		logo3sLabel.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/3s_logo.png")));
-		logo3sLabel.setBounds(151, 519, 466, 126);
+		logo3sLabel.setBounds(55, 461, 700, 184);
 		PcInfoPanel.add(logo3sLabel);
 
 		

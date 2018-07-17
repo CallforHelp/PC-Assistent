@@ -63,14 +63,16 @@ public class C4H_GUI_TRAY_ICON {
 
        
 
-    	MenuItem Beenden_Menu_Item = new MenuItem("Beenden");
-    	popup.add(Beenden_Menu_Item);
-    	Beenden_Menu_Item.addActionListener(new ActionListener() {
+    	//MenuItem Beenden_Menu_Item = new MenuItem("Beenden");
+    	//popup.add(Beenden_Menu_Item);
+    	/**
+    	 * Beenden_Menu_Item.addActionListener(new ActionListener() {
     		@Override
     		public void actionPerformed(ActionEvent e) {
     			System.exit(0);
     		}
 		});
+		*/
     	popup.add(BG_Info_MenuItem);
     	popup.add(Fehler_Meldung_Menu_Item);
     	popup.add(Chat_Menu_Item);
