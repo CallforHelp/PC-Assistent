@@ -167,8 +167,11 @@ public class C4H_DYNAMIC_GUI {
 		logoLabel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		
 		JLabel titelLabel = new JLabel("");
+		titelLabel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		JLabel systemInfoLabel = new JLabel("System Information");
+		systemInfoLabel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		JLabel lblNetzwerkInformation = new JLabel("Netzwerk Information");
+		lblNetzwerkInformation.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		pcInfoButton.setFont(new Font("Arial", Font.BOLD, 11));
 		
 		//button
@@ -301,7 +304,7 @@ public class C4H_DYNAMIC_GUI {
 		Buttonpanel.add(logoLabel);
 		
 		
-		titelLabel.setBounds(183, 11, 377, 60);
+		titelLabel.setBounds(183, 11, 377, 50);
 		titelLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		titelLabel.setFont(new Font("Arial", Font.BOLD, 29));
 		titelLabel.setText("PC Information");
