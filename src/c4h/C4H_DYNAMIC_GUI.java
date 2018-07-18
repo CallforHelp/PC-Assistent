@@ -172,10 +172,12 @@ public class C4H_DYNAMIC_GUI {
 		systemInfoLabel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		JLabel lblNetzwerkInformation = new JLabel("Netzwerk Information");
 		lblNetzwerkInformation.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		pcInfoButton.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		pcInfoButton.setFont(new Font("Arial", Font.BOLD, 11));
 		
 		//button
 		pcInfoButton.setBounds(10, 83, 175, 75);
+		fehlermeldenButton.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		fehlermeldenButton.setFont(new Font("Arial", Font.BOLD, 11));
 		fehlermeldenButton.setBounds(10, 215, 175, 75);
 		
@@ -207,6 +209,7 @@ public class C4H_DYNAMIC_GUI {
 		menuBar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		JMenu menuDatei = new JMenu("Allgemein");
+		menuDatei.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		menuDatei.setFont(new Font("Arial", Font.BOLD, 12));
 		
 		
@@ -282,6 +285,7 @@ public class C4H_DYNAMIC_GUI {
 		
 		menuDatei.add(FernwartungMenuItem);
 		menuDatei.add(exitItem);
+		chatButton.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		chatButton.setFont(new Font("Arial", Font.BOLD, 11));
 		
 		
@@ -335,6 +339,7 @@ public class C4H_DYNAMIC_GUI {
 		frmCh.getContentPane().add(menuBar);
 		
 		JMenu mnInfo = new JMenu("Info");
+		mnInfo.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		mnInfo.setFont(new Font("Arial", Font.BOLD, 12));
 		mnInfo.setHorizontalTextPosition(SwingConstants.LEFT);
 		mnInfo.setHorizontalAlignment(SwingConstants.CENTER);
