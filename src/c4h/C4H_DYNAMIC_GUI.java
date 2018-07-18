@@ -209,7 +209,7 @@ public class C4H_DYNAMIC_GUI {
 		menuBar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		JMenu menuDatei = new JMenu("Allgemein");
-		menuDatei.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
+		menuDatei.setBorder(null);
 		menuDatei.setFont(new Font("Arial", Font.BOLD, 12));
 		
 		
@@ -339,7 +339,7 @@ public class C4H_DYNAMIC_GUI {
 		frmCh.getContentPane().add(menuBar);
 		
 		JMenu mnInfo = new JMenu("Info");
-		mnInfo.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		mnInfo.setBorder(null);
 		mnInfo.setFont(new Font("Arial", Font.BOLD, 12));
 		mnInfo.setHorizontalTextPosition(SwingConstants.LEFT);
 		mnInfo.setHorizontalAlignment(SwingConstants.CENTER);
