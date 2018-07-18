@@ -327,7 +327,7 @@ public class C4H_DYNAMIC_GUI {
 		
 		PcInfoPanel.add(separator);
 		frmCh.setForeground(Color.BLACK);
-		frmCh.setIconImage(Toolkit.getDefaultToolkit().getImage(C4H_DYNAMIC_GUI.class.getResource("images/bulb.png")));
+		frmCh.setIconImage(Toolkit.getDefaultToolkit().getImage(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/Oemlogo.png")));
 		frmCh.setBackground(Color.WHITE);
 		frmCh.setTitle("C4H");
 		
