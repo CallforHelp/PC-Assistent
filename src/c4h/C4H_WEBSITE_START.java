@@ -6,39 +6,50 @@ import java.util.*;
 import java.net.*;
 
 /**
- * @author bani
- *
- */
+ * Website Reader &ouml;ffnen Details und Connect
+ * @author  Helmi Bani 
+ * @version 1.0
+ * 
+ * */
 public class C4H_WEBSITE_START  {
 	
 	/**
-	 * 
+	 * Standart Website zum Fehlermelden
 	 */
 	String webSeite ="http://fehlermeldung.3s-hamburg.de";
 	private C4H_PC_INFO_KLASSE bginfo; 
+	/**
+	 * Kontruktor to add PC Information
+	 * @throws Throwable Hostname
+	 */
+	public C4H_WEBSITE_START() throws Throwable {
+		bginfo= new  C4H_PC_INFO_KLASSE();
+		
+	}
+
 	
 	//browser starten
 	/**
-	 * @throws Throwable
+	 * Browser start egal mit welchen OS
+	 * @throws Throwable Hostname
 	 */
-	public void openWebSiteExample()throws Throwable  {
-		C4H_PC_INFO_KLASSE bginfo= new  C4H_PC_INFO_KLASSE();
+	public void openWebSite()throws Throwable  {
 		
 		String senschoolNumber = "?schulnummer="+bginfo.getSchulNummer();
 		String pcName = "^&pcname="+bginfo.getLocalHost();
-		
-		System.out.println(webSeite+senschoolNumber+pcName);
-		
-		System.out.println("standard browswer wird aufgerufen");
 		if(bginfo.getOSversion().contains("W")||bginfo.getOSversion().contains("w")) { 
 			new ProcessBuilder(new String[] { "cmd", "/c","start",(webSeite+senschoolNumber+pcName)}).start();
 		}else {
 			new ProcessBuilder(new String[] {"open",(webSeite+senschoolNumber+pcName)}).start();
 		}
 	}
-	public void openWebSiteExample(String URL)throws Throwable  {
+	/**
+	 * Browser start egal mit welchen OS
+	 * @param URL zum starten einer Webseite
+	 * @throws Throwable Hostname
+	 */
+	public void openWebSite(String URL)throws Throwable{
 		
-		System.out.println("standard browswer wird aufgerufen");
 		if(bginfo.getOSversion().contains("W")||bginfo.getOSversion().contains("w")) { 
 			new ProcessBuilder(new String[] { "cmd", "/c","start",(URL)}).start();
 		}else {
@@ -47,10 +58,11 @@ public class C4H_WEBSITE_START  {
 	}
 	//quelltext ausdrucken
 	/**
-	 * @throws MalformedURLException
-	 * @throws IOException
+	 * Liest einzelne Quelltext Schreibt es in der konsole aus
+	 * @throws MalformedURLException Format
+	 * @throws IOException EinAusgabe
 	 */
-	public void webScraperExample () throws MalformedURLException, IOException{
+	public void webScraper () throws MalformedURLException, IOException{
 	    Scanner scanner = new Scanner(new URL(webSeite).openStream());
 	        while(scanner.hasNextLine()){
 	            System.out.println(scanner.nextLine());
@@ -59,9 +71,10 @@ public class C4H_WEBSITE_START  {
 	    }
 	//quelltext in Dateispeichern
 	/**
-	 * 
+	 * Schreibe webseiten Inhalt in einer Datei
+	 * @throws Throwable die Datei Existiert
 	 */
-	public void startFIleInput() {
+	public void startFIleInput() throws Throwable {
         File file = new File("temp.txt");
         FileOutputStream ausgabe = null;
            try {
@@ -82,10 +95,11 @@ public class C4H_WEBSITE_START  {
    }
   
 	//quellext ausdrucken
-   /**
- * @param surl
- * @return
- */
+ /**
+  * Quelltext der Seite auslesen und ausdrucken
+  *  @param surl SeitenURL
+  *  @return Text mit seitenquelltext 
+  */
 private String getStrFromUrl(String surl){
        
 	   String str=null;

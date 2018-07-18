@@ -11,7 +11,7 @@ public class C4H {
 
 	/**A Main To Start C4H
 	 * @param args Keine Argumente Nötig 
-	 * @throws Throwable GuiStart
+	 * @throws Throwable Gui-Start
 	 */
 	public static void main(String[] args) throws Throwable{	
 		
