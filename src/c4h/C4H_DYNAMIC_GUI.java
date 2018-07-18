@@ -24,8 +24,8 @@ import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import javax.swing.border.EtchedBorder;
 /**
- * Ein Dynmaischen Gui der Verschiedene m&ouml;glichkeiten besitz f&uuml;r den User 
- * Einfach design inklusive Nutzung
+ * Ein Dynmaisches Gui der verschiedene m&ouml;glichkeiten besitz f&uuml;r den User 
+ * Einfach designet inklusive Nutzung
  * @author  Helmi Bani 
  * @version 1.0
  * 
