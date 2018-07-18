@@ -22,11 +22,10 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
-import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
 /**
- * Ein Dynmaischen Gui der Verschiedene m&ouml;glichkeiten besitz f&uuml;r den User 
- * Einfach design inklusive Nutzung
+ * Ein Dynmaisches Gui der verschiedene m&ouml;glichkeiten besitz f&uuml;r den User 
+ * Einfach designet inklusive Nutzung
  * @author  Helmi Bani 
  * @version 1.0
  * 
@@ -164,15 +163,20 @@ public class C4H_DYNAMIC_GUI {
 		logoLabel.setBackground(Color.WHITE);
 		logoLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		logoLabel.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/Oemlogo.png")));
-		logoLabel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		logoLabel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		
 		JLabel titelLabel = new JLabel("");
+		titelLabel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		JLabel systemInfoLabel = new JLabel("System Information");
+		systemInfoLabel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		JLabel lblNetzwerkInformation = new JLabel("Netzwerk Information");
+		lblNetzwerkInformation.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		pcInfoButton.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		pcInfoButton.setFont(new Font("Arial", Font.BOLD, 11));
 		
 		//button
 		pcInfoButton.setBounds(10, 83, 175, 75);
+		fehlermeldenButton.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		fehlermeldenButton.setFont(new Font("Arial", Font.BOLD, 11));
 		fehlermeldenButton.setBounds(10, 215, 175, 75);
 		
@@ -204,6 +208,7 @@ public class C4H_DYNAMIC_GUI {
 		menuBar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		JMenu menuDatei = new JMenu("Allgemein");
+		menuDatei.setBorder(null);
 		menuDatei.setFont(new Font("Arial", Font.BOLD, 12));
 		
 		
@@ -279,6 +284,7 @@ public class C4H_DYNAMIC_GUI {
 		
 		menuDatei.add(FernwartungMenuItem);
 		menuDatei.add(exitItem);
+		chatButton.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		chatButton.setFont(new Font("Arial", Font.BOLD, 11));
 		
 		
@@ -301,19 +307,19 @@ public class C4H_DYNAMIC_GUI {
 		Buttonpanel.add(logoLabel);
 		
 		
-		titelLabel.setBounds(183, 11, 377, 60);
+		titelLabel.setBounds(183, 11, 377, 50);
 		titelLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		titelLabel.setFont(new Font("Arial", Font.BOLD, 29));
 		titelLabel.setText("PC Information");
 		
 		systemInfoLabel.setFont(new Font("Arial", Font.BOLD, 18));
 		systemInfoLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		systemInfoLabel.setBounds(105, 107, 217, 32);
+		systemInfoLabel.setBounds(90, 89, 238, 50);
 		PcInfoPanel.add(systemInfoLabel);
 		
 		lblNetzwerkInformation.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNetzwerkInformation.setFont(new Font("Arial", Font.BOLD, 18));
-		lblNetzwerkInformation.setBounds(480, 107, 238, 32);
+		lblNetzwerkInformation.setBounds(480, 89, 238, 50);
 		PcInfoPanel.add(lblNetzwerkInformation);
 		
 		JSeparator separator = new JSeparator();
@@ -321,7 +327,7 @@ public class C4H_DYNAMIC_GUI {
 		
 		PcInfoPanel.add(separator);
 		frmCh.setForeground(Color.BLACK);
-		frmCh.setIconImage(Toolkit.getDefaultToolkit().getImage(C4H_DYNAMIC_GUI.class.getResource("images/bulb.png")));
+		frmCh.setIconImage(Toolkit.getDefaultToolkit().getImage(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/Oemlogo.png")));
 		frmCh.setBackground(Color.WHITE);
 		frmCh.setTitle("C4H");
 		
@@ -331,7 +337,8 @@ public class C4H_DYNAMIC_GUI {
 		frmCh.getContentPane().setLayout(null);
 		frmCh.getContentPane().add(menuBar);
 		
-		JMenu mnInfo = new JMenu("INFO");
+		JMenu mnInfo = new JMenu("Info");
+		mnInfo.setBorder(null);
 		mnInfo.setFont(new Font("Arial", Font.BOLD, 12));
 		mnInfo.setHorizontalTextPosition(SwingConstants.LEFT);
 		mnInfo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -355,9 +362,10 @@ public class C4H_DYNAMIC_GUI {
 		frmCh.getContentPane().add(FehlerMeldenPanel);
 		
 		JLabel logo3sLabel = new JLabel("");
+		logo3sLabel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		logo3sLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		logo3sLabel.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/3s_logo.png")));
-		logo3sLabel.setBounds(151, 519, 466, 126);
+		logo3sLabel.setBounds(55, 461, 700, 184);
 		PcInfoPanel.add(logo3sLabel);
 
 		
@@ -397,7 +405,7 @@ public class C4H_DYNAMIC_GUI {
 		JLabel logolabelchat = new JLabel("");
 		logolabelchat.setHorizontalAlignment(SwingConstants.CENTER);
 		logolabelchat.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/3s_logo-2.png")));
-		logolabelchat.setBounds(151, 519, 466, 126);
+		logolabelchat.setBounds(55, 461, 700, 184);
 		chatPanel.add(logolabelchat);
 		
 		

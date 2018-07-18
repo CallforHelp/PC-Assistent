@@ -30,20 +30,21 @@ public class C4H_GUI_TRAY_ICON {
  * Ein Menu F&uuml;hrung zur bedienung ist auch vorhanden(pc-information, support,chat)
  * @throws Throwable IconTray
  */
-		public void createshowGui() throws Throwable {
+	public void createshowGui() throws Throwable {
+		final C4H_DYNAMIC_GUI    window      = new C4H_DYNAMIC_GUI();
+		final PopupMenu          popup       = new PopupMenu();
+		final TrayIcon           trayIcon    = new TrayIcon(createImage("images/bulb.png", "trayIcon"));  
+		final SystemTray         tray        = SystemTray.getSystemTray();
+		final C4H_PC_INFO_KLASSE bg          = new C4H_PC_INFO_KLASSE();
+		
+		window.initialize();
 	
-			C4H_DYNAMIC_GUI window =  new C4H_DYNAMIC_GUI();
-			window.initialize();
-			final C4H_PC_INFO_KLASSE bg = new C4H_PC_INFO_KLASSE();
-	
-			if (!SystemTray.isSupported()) {
-				System.out.println("SystemTray is not supported");
-				return;
-			}
-		final PopupMenu popup = new PopupMenu();
-		final TrayIcon trayIcon =
-			new TrayIcon(createImage("images/bulb.png", "trayIcon"));  
-		final SystemTray tray = SystemTray.getSystemTray();
+		if (!SystemTray.isSupported()) {
+			System.out.println("SystemTray is not supported");
+			return;
+		}
+		
+		
 		//Hinzufuegen(start) the Icon_tray 
 		try {
 			tray.add(trayIcon);
@@ -62,7 +63,7 @@ public class C4H_GUI_TRAY_ICON {
         
 
        
-
+/*
     	MenuItem Beenden_Menu_Item = new MenuItem("Beenden");
     	popup.add(Beenden_Menu_Item);
     	Beenden_Menu_Item.addActionListener(new ActionListener() {
@@ -71,6 +72,8 @@ public class C4H_GUI_TRAY_ICON {
     			System.exit(0);
     		}
 		});
+*/
+    	
     	popup.add(BG_Info_MenuItem);
     	popup.add(Fehler_Meldung_Menu_Item);
     	popup.add(Chat_Menu_Item);
