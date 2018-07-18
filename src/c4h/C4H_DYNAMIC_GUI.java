@@ -172,12 +172,12 @@ public class C4H_DYNAMIC_GUI {
 		systemInfoLabel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		JLabel lblNetzwerkInformation = new JLabel("Netzwerk Information");
 		lblNetzwerkInformation.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		pcInfoButton.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
+		pcInfoButton.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		pcInfoButton.setFont(new Font("Arial", Font.BOLD, 11));
 		
 		//button
 		pcInfoButton.setBounds(10, 83, 175, 75);
-		fehlermeldenButton.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
+		fehlermeldenButton.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		fehlermeldenButton.setFont(new Font("Arial", Font.BOLD, 11));
 		fehlermeldenButton.setBounds(10, 215, 175, 75);
 		
@@ -285,7 +285,7 @@ public class C4H_DYNAMIC_GUI {
 		
 		menuDatei.add(FernwartungMenuItem);
 		menuDatei.add(exitItem);
-		chatButton.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
+		chatButton.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		chatButton.setFont(new Font("Arial", Font.BOLD, 11));
 		
 		
@@ -315,12 +315,12 @@ public class C4H_DYNAMIC_GUI {
 		
 		systemInfoLabel.setFont(new Font("Arial", Font.BOLD, 18));
 		systemInfoLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		systemInfoLabel.setBounds(105, 107, 217, 32);
+		systemInfoLabel.setBounds(90, 89, 238, 50);
 		PcInfoPanel.add(systemInfoLabel);
 		
 		lblNetzwerkInformation.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNetzwerkInformation.setFont(new Font("Arial", Font.BOLD, 18));
-		lblNetzwerkInformation.setBounds(480, 107, 238, 32);
+		lblNetzwerkInformation.setBounds(480, 89, 238, 50);
 		PcInfoPanel.add(lblNetzwerkInformation);
 		
 		JSeparator separator = new JSeparator();
@@ -406,7 +406,7 @@ public class C4H_DYNAMIC_GUI {
 		JLabel logolabelchat = new JLabel("");
 		logolabelchat.setHorizontalAlignment(SwingConstants.CENTER);
 		logolabelchat.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/3s_logo-2.png")));
-		logolabelchat.setBounds(151, 519, 466, 126);
+		logolabelchat.setBounds(55, 461, 700, 184);
 		chatPanel.add(logolabelchat);
 		
 		
