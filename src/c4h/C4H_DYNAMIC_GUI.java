@@ -22,7 +22,6 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
-import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
 /**
  * Ein Dynmaischen Gui der Verschiedene m&ouml;glichkeiten besitz f&uuml;r den User 
