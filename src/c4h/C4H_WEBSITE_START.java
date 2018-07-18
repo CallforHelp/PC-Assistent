@@ -35,12 +35,12 @@ public class C4H_WEBSITE_START  {
 	 */
 	public void openWebSite()throws Throwable  {
 		
-		String senschoolNumber = "?schulnummer="+bginfo.getSchulNummer();
+		String sendschoolNumber = "?schulnummer="+bginfo.getSchulNummer();
 		String pcName = "^&pcname="+bginfo.getLocalHost();
 		if(bginfo.getOSversion().contains("W")||bginfo.getOSversion().contains("w")) { 
-			new ProcessBuilder(new String[] { "cmd", "/c","start",(webSeite+senschoolNumber+pcName)}).start();
+			new ProcessBuilder(new String[] { "cmd", "/c","start",(webSeite+sendschoolNumber+pcName)}).start();
 		}else {
-			new ProcessBuilder(new String[] {"open",(webSeite+senschoolNumber+pcName)}).start();
+			new ProcessBuilder(new String[] {"open",(webSeite+sendschoolNumber+pcName)}).start();
 		}
 	}
 	/**
