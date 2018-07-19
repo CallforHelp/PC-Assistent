@@ -44,7 +44,7 @@ public class C4H_GUI_TRAY_ICON {
 			System.out.println("SystemTray is not supported");
 			return;
 		}
-		trayIcon.setToolTip("Schul Support Service- Call for Help");
+		trayIcon.setToolTip("Schul Support Service - Call for Help");
 		
 		//Hinzufuegen(start) the Icon_tray 
 		try {
