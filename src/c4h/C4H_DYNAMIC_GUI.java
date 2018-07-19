@@ -344,18 +344,14 @@ public class C4H_DYNAMIC_GUI {
 		mnInfo.setHorizontalAlignment(SwingConstants.CENTER);
 		menuBar.add(mnInfo);
 		
-		JMenuItem uberUnsItem = new JMenuItem("\u00FCber uns");
-		uberUnsItem.setFont(new Font("Arial", Font.BOLD, 12));
-		uberUnsItem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				C4H_DIALOG test = new C4H_DIALOG();
-				test.setVisible(true);
-			}
-		});
 		
-		JMenuItem hileItem = new JMenuItem("C4H-Hilfe");
-		mnInfo.add(hileItem);
-		hileItem.addActionListener(new ActionListener() {
+		JMenuItem hilfeItem = new JMenuItem("C4H-Hilfe");
+		hilfeItem.setVerticalTextPosition(SwingConstants.TOP);
+		hilfeItem.setHorizontalTextPosition(SwingConstants.LEFT);
+		hilfeItem.setHorizontalAlignment(SwingConstants.LEFT);
+		hilfeItem.setFont(new Font("Arial", Font.BOLD, 12));
+		mnInfo.add(hilfeItem);
+		hilfeItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("fernwartung Starten");
 				try {
@@ -366,15 +362,39 @@ public class C4H_DYNAMIC_GUI {
 				
 			}
 		});
-		hileItem.setVerticalTextPosition(SwingConstants.TOP);
-		hileItem.setHorizontalTextPosition(SwingConstants.LEFT);
-		hileItem.setHorizontalAlignment(SwingConstants.LEFT);
-		hileItem.setFont(new Font("Arial", Font.BOLD, 12));
+		
+		
+		JMenuItem faqItem = new JMenuItem("FAQ");
+		faqItem.setVerticalTextPosition(SwingConstants.TOP);
+		faqItem.setHorizontalTextPosition(SwingConstants.LEFT);
+		faqItem.setHorizontalAlignment(SwingConstants.LEFT);
+		faqItem.setFont(new Font("Arial", Font.BOLD, 12));
+		mnInfo.add(faqItem);
+		faqItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("fernwartung Starten");
+				try {
+					web.openWebSite(URL+"/faq/");
+				} catch (Throwable e1) {
+					System.out.println(e1);
+				}
+				
+			}
+		});
+		
+		JMenuItem uberUnsItem = new JMenuItem("\u00DCber-C4H");
+		uberUnsItem.setFont(new Font("Arial", Font.BOLD, 12));
+		uberUnsItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				C4H_DIALOG test = new C4H_DIALOG();
+				test.setVisible(true);
+			}
+		});
 		uberUnsItem.setVerticalTextPosition(SwingConstants.TOP);
 		uberUnsItem.setHorizontalTextPosition(SwingConstants.LEFT);
 		uberUnsItem.setHorizontalAlignment(SwingConstants.LEFT);
-		
 		mnInfo.add(uberUnsItem);
+		
 		frmCh.getContentPane().add(Buttonpanel);
 		frmCh.getContentPane().add(PcInfoPanel);
 		frmCh.getContentPane().add(FehlerMeldenPanel);

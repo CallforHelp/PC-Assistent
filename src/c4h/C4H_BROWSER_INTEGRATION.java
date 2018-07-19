@@ -89,6 +89,7 @@ public class C4H_BROWSER_INTEGRATION{
      *  @param url LoginPage
      */
     public void createScene(String url) {
+    	
     	Platform.runLater(new Runnable() {
         private Stage stage;
 		private WebView browser;
@@ -99,7 +100,7 @@ public class C4H_BROWSER_INTEGRATION{
             Group root = new Group();  
             Scene scene = new Scene(root,80,20);  
             stage.setScene(scene);  
-             
+            System.out.println(url);
             // Set up the embedded browser:
             browser = new WebView();
             engine = browser.getEngine();
