@@ -516,7 +516,7 @@ public class C4H_DYNAMIC_GUI {
 	public void startBrowser(){
 		try {
 			browser.createScene(URL+"?schulnummer="+bg.getSchulNummer()+"&pcname="+bg.getLocalHost());
-		
+			
 		} catch (Throwable e) {
 			System.out.println("Exception: "+e);
 		}

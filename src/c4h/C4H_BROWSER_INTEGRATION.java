@@ -100,7 +100,7 @@ public class C4H_BROWSER_INTEGRATION{
             Group root = new Group();  
             Scene scene = new Scene(root,80,20);  
             stage.setScene(scene);  
-            System.out.println(url);
+            
             // Set up the embedded browser:
             browser = new WebView();
             engine = browser.getEngine();
