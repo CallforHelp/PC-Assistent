@@ -352,6 +352,24 @@ public class C4H_DYNAMIC_GUI {
 				test.setVisible(true);
 			}
 		});
+		
+		JMenuItem hileItem = new JMenuItem("C4H-Hilfe");
+		mnInfo.add(hileItem);
+		hileItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("fernwartung Starten");
+				try {
+					web.openWebSite(URL+"/hilfe/");
+				} catch (Throwable e1) {
+					System.out.println(e1);
+				}
+				
+			}
+		});
+		hileItem.setVerticalTextPosition(SwingConstants.TOP);
+		hileItem.setHorizontalTextPosition(SwingConstants.LEFT);
+		hileItem.setHorizontalAlignment(SwingConstants.LEFT);
+		hileItem.setFont(new Font("Arial", Font.BOLD, 12));
 		uberUnsItem.setVerticalTextPosition(SwingConstants.TOP);
 		uberUnsItem.setHorizontalTextPosition(SwingConstants.LEFT);
 		uberUnsItem.setHorizontalAlignment(SwingConstants.LEFT);

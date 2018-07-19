@@ -39,8 +39,10 @@ public class C4H_WEBSITE_START  {
 		String pcName = "^&pcname="+bginfo.getLocalHost();
 		if(bginfo.getOSversion().contains("W")||bginfo.getOSversion().contains("w")) { 
 			new ProcessBuilder(new String[] { "cmd", "/c","start",(webSeite+sendSchoolNumber+pcName)}).start();
+			System.out.println("Aufgerufen wird: "+webSeite+sendSchoolNumber+pcName);
 		}else {
 			new ProcessBuilder(new String[] {"open",(webSeite+sendSchoolNumber+pcName)}).start();
+			System.out.println("Aufgerufen wird: "+webSeite+sendSchoolNumber+pcName);
 		}
 	}
 	/**

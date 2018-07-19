@@ -36,6 +36,7 @@ public class C4H_GUI_TRAY_ICON {
 		final TrayIcon           trayIcon    = new TrayIcon(createImage("images/bulb.png", "trayIcon"));  
 		final SystemTray         tray        = SystemTray.getSystemTray();
 		final C4H_PC_INFO_KLASSE bg          = new C4H_PC_INFO_KLASSE();
+		      C4H_WEBSITE_START  web         = new C4H_WEBSITE_START();
 		
 		window.initialize();
 	
@@ -43,7 +44,7 @@ public class C4H_GUI_TRAY_ICON {
 			System.out.println("SystemTray is not supported");
 			return;
 		}
-		
+		trayIcon.setToolTip("Schul Support Service- Call for Help");
 		
 		//Hinzufuegen(start) the Icon_tray 
 		try {
@@ -60,8 +61,19 @@ public class C4H_GUI_TRAY_ICON {
     	MenuItem BG_Info_MenuItem = new MenuItem("PC Information");
     	MenuItem Fehler_Meldung_Menu_Item = new MenuItem("Support");
     	MenuItem Chat_Menu_Item = new MenuItem("Chat");
-        
-
+    	
+    	MenuItem fwt_Menu_Item = new MenuItem("Fernwartung");
+    	
+    	fwt_Menu_Item.addActionListener(new ActionListener() {
+    		@Override
+    		public void actionPerformed(ActionEvent e) {
+    			try {
+					web.openWebSite("www.ntrglobal.com/code");
+				} catch (Throwable e1) {
+					System.out.println(e1);
+				}
+    		}
+		});
        
 /*
     	MenuItem Beenden_Menu_Item = new MenuItem("Beenden");
@@ -74,9 +86,11 @@ public class C4H_GUI_TRAY_ICON {
 		});
 */
     	
+    	
     	popup.add(BG_Info_MenuItem);
     	popup.add(Fehler_Meldung_Menu_Item);
     	popup.add(Chat_Menu_Item);
+    	popup.add(fwt_Menu_Item);
         
         
         //MenuListe Einsetzen
