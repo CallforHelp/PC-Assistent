@@ -473,7 +473,7 @@ public class C4H_DYNAMIC_GUI {
 				startBrowser();
 			}
 		});
-		BLINKLABEL blink = new BLINKLABEL("Hier Kommt ein CHAT Fenster");
+		C4H_Blink_Label blink = new C4H_Blink_Label("Hier Kommt ein CHAT Fenster");
 		blink.setBlinking(true);
 		blink.setBackground(new Color(240, 240, 240));
 		blink.setHorizontalAlignment(SwingConstants.CENTER);
