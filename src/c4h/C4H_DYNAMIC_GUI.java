@@ -474,6 +474,7 @@ public class C4H_DYNAMIC_GUI {
 			}
 		});
 		BLINKLABEL blink = new BLINKLABEL("Hier Kommt ein CHAT Fenster");
+		blink.setBlinking(true);
 		int xPosbreite= (chatPanel.getWidth()-blink.getWidth())/2;
 		int yPoshoehe= (chatPanel.getHeight()-blink.getHeight())/2;
 		blink.setBackground(new Color(240, 240, 240));
