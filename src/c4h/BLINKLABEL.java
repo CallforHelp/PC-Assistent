@@ -7,7 +7,7 @@ import javax.swing.Timer;
 public class BLINKLABEL extends JLabel {
   private static final long serialVersionUID = 1L;
   
-  private static final int BLINKING_RATE = 1000; // in ms
+  private static final int BLINKING_RATE = 500; // in ms
 
   private boolean blinkingOn = true;
   

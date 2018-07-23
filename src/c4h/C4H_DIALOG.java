@@ -58,7 +58,9 @@ public class C4H_DIALOG extends JDialog {
 		lblAlleRechteVorbehalten.setBounds(99, 176, 296, 21);
 		getContentPane().add(lblAlleRechteVorbehalten);
 		
-		JLabel lblNewLabel = new JLabel("C4H - Call For Help ");
+		BLINKLABEL lblNewLabel = new BLINKLABEL("C4H - Call For Help ");
+		lblNewLabel.setForeground(Color.RED);
+		lblNewLabel.setBlinking(true);
 		lblNewLabel.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(99, 11, 279, 27);

@@ -419,7 +419,7 @@ public class C4H_DYNAMIC_GUI {
 			public void actionPerformed(ActionEvent e) {
 				C4H_DIALOG dialog = new C4H_DIALOG();
 				dialog.setVisible(true);
-				Timer timer = new Timer(3000, new ActionListener() {
+				Timer timer = new Timer(4000, new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						dialog.setVisible(false);
 						dialog.dispose();
@@ -475,12 +475,10 @@ public class C4H_DYNAMIC_GUI {
 		});
 		BLINKLABEL blink = new BLINKLABEL("Hier Kommt ein CHAT Fenster");
 		blink.setBlinking(true);
-		int xPosbreite= (chatPanel.getWidth()-blink.getWidth())/2;
-		int yPoshoehe= (chatPanel.getHeight()-blink.getHeight())/2;
 		blink.setBackground(new Color(240, 240, 240));
 		blink.setHorizontalAlignment(SwingConstants.CENTER);
 		blink.setHorizontalTextPosition(SwingConstants.CENTER);
-		blink.setBounds(xPosbreite, yPoshoehe, 225, 75);
+		blink.setBounds(281, 297, 225, 75);
 		
 		chatPanel.add(blink);
 		
