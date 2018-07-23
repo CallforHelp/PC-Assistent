@@ -22,6 +22,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
+import javax.swing.Timer;
 import javax.swing.border.EtchedBorder;
 /**
  * Ein Dynmaisches Gui der verschiedene m&ouml;glichkeiten besitz f&uuml;r den User 
@@ -198,7 +199,7 @@ public class C4H_DYNAMIC_GUI {
 		FehlerMeldenPanel.setLayout(new BorderLayout());
 		
 		chatPanel.setBounds(200, 40, 787, 670);
-		chatPanel.setBackground(Color.BLACK);
+		chatPanel.setBackground(Color.WHITE);
 		chatPanel.setLayout(null);
 		chatPanel.setVisible(true);
 		
@@ -208,12 +209,14 @@ public class C4H_DYNAMIC_GUI {
 		menuBar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		JMenu menuDatei = new JMenu("Allgemein");
+		menuDatei.setSize(new Dimension(10, 0));
 		menuDatei.setBorder(null);
 		menuDatei.setFont(new Font("Arial", Font.BOLD, 12));
 		
 		
 		//MENU ITEM
 		JMenuItem pcInfoItem = new JMenuItem("PC Information");
+		pcInfoItem.setSize(new Dimension(10, 5));
 		pcInfoItem.setFont(new Font("Arial", Font.BOLD, 12));
 		pcInfoItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -226,6 +229,7 @@ public class C4H_DYNAMIC_GUI {
 		
 		
 		JMenuItem fehlerMeldenItem = new JMenuItem("Support");
+		fehlerMeldenItem.setSize(new Dimension(10, 5));
 		fehlerMeldenItem.setFont(new Font("Arial", Font.BOLD, 12));
 		fehlerMeldenItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -254,6 +258,7 @@ public class C4H_DYNAMIC_GUI {
 		menuDatei.add(fehlerMeldenItem);
 		
 		JMenuItem chatItem = new JMenuItem("Chat");
+		chatItem.setSize(new Dimension(0, 5));
 		chatItem.setFont(new Font("Arial", Font.BOLD, 12));
 		chatItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -267,22 +272,9 @@ public class C4H_DYNAMIC_GUI {
 		
 		menuDatei.add(chatItem);
 		
-		JMenuItem FernwartungMenuItem = new JMenuItem("Fernwartung");
-		FernwartungMenuItem.setFont(new Font("Arial", Font.BOLD, 12));
-		FernwartungMenuItem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("fernwartung Starten");
-				try {
-					web.openWebSite("www.ntrglobal.com/code");
-				} catch (Throwable e1) {
-					System.out.println(e1);
-				}
-				
-			}
-		});
-		
-		
-		menuDatei.add(FernwartungMenuItem);
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setPreferredSize(new Dimension(0, 5));
+		menuDatei.add(separator_1);
 		menuDatei.add(exitItem);
 		chatButton.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		chatButton.setFont(new Font("Arial", Font.BOLD, 11));
@@ -337,25 +329,40 @@ public class C4H_DYNAMIC_GUI {
 		frmCh.getContentPane().setLayout(null);
 		frmCh.getContentPane().add(menuBar);
 		
-		JMenu mnInfo = new JMenu("Info");
+		JMenu mnInfo = new JMenu("Extras");
+		mnInfo.setSize(new Dimension(20, 10));
 		mnInfo.setBorder(null);
 		mnInfo.setFont(new Font("Arial", Font.BOLD, 12));
 		mnInfo.setHorizontalTextPosition(SwingConstants.LEFT);
 		mnInfo.setHorizontalAlignment(SwingConstants.CENTER);
 		menuBar.add(mnInfo);
 		
+		JMenuItem browserStartItem = new JMenuItem("Browser Starten");
+		browserStartItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("BrowserStarten");
+				try {
+					web.openWebSite();
+				} catch (Throwable e1) {
+					System.out.println(e1);
+				}
+				
+			}
+		});
+		browserStartItem.setSize(new Dimension(10, 5));
+		browserStartItem.setFont(new Font("Arial", Font.BOLD, 12));
+		mnInfo.add(browserStartItem);
 		
-		JMenuItem hilfeItem = new JMenuItem("C4H-Hilfe");
-		hilfeItem.setVerticalTextPosition(SwingConstants.TOP);
-		hilfeItem.setHorizontalTextPosition(SwingConstants.LEFT);
-		hilfeItem.setHorizontalAlignment(SwingConstants.LEFT);
-		hilfeItem.setFont(new Font("Arial", Font.BOLD, 12));
-		mnInfo.add(hilfeItem);
-		hilfeItem.addActionListener(new ActionListener() {
+		JMenuItem FernwartungMenuItem = new JMenuItem("Fernwartung");
+		FernwartungMenuItem.setSize(new Dimension(10, 5));
+		mnInfo.add(FernwartungMenuItem);
+		FernwartungMenuItem.setFont(new Font("Arial", Font.BOLD, 12));
+		
+		FernwartungMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("fernwartung Starten");
 				try {
-					web.openWebSite(URL+"/hilfe/");
+					web.openWebSite("www.ntrglobal.com/code");
 				} catch (Throwable e1) {
 					System.out.println(e1);
 				}
@@ -363,37 +370,70 @@ public class C4H_DYNAMIC_GUI {
 			}
 		});
 		
+		JMenu menu = new JMenu("Info");
+		menu.setSize(new Dimension(20, 10));
+		menuBar.add(menu);
+		menu.setHorizontalTextPosition(SwingConstants.LEFT);
+		menu.setHorizontalAlignment(SwingConstants.CENTER);
+		menu.setFont(new Font("Arial", Font.BOLD, 12));
+		menu.setBorder(null);
+		
+		JMenuItem c4hHilfeItem = new JMenuItem("C4H-Hilfe");
+		c4hHilfeItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("C4H Hilfe Browse");
+				try {
+					web.openWebSite("fehlermeldung.3s-hamburg.de/hilfe");
+				} catch (Throwable e1) {
+					System.out.println(e1);
+				}
+				
+			}
+		});
+		c4hHilfeItem.setVerticalTextPosition(SwingConstants.TOP);
+		c4hHilfeItem.setHorizontalTextPosition(SwingConstants.LEFT);
+		c4hHilfeItem.setHorizontalAlignment(SwingConstants.LEFT);
+		c4hHilfeItem.setFont(new Font("Arial", Font.BOLD, 12));
+		menu.add(c4hHilfeItem);
 		
 		JMenuItem faqItem = new JMenuItem("FAQ");
+		faqItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("FAQ Browse");
+				try {
+					web.openWebSite("fehlermeldung.3s-hamburg.de/faq");
+				} catch (Throwable e1) {
+					System.out.println(e1);
+				}
+				
+			}
+		});
 		faqItem.setVerticalTextPosition(SwingConstants.TOP);
 		faqItem.setHorizontalTextPosition(SwingConstants.LEFT);
 		faqItem.setHorizontalAlignment(SwingConstants.LEFT);
 		faqItem.setFont(new Font("Arial", Font.BOLD, 12));
-		mnInfo.add(faqItem);
-		faqItem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("fernwartung Starten");
-				try {
-					web.openWebSite(URL+"/faq/");
-				} catch (Throwable e1) {
-					System.out.println(e1);
-				}
-				
-			}
-		});
+		menu.add(faqItem);
 		
-		JMenuItem uberUnsItem = new JMenuItem("\u00DCber-C4H");
-		uberUnsItem.setFont(new Font("Arial", Font.BOLD, 12));
-		uberUnsItem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				C4H_DIALOG test = new C4H_DIALOG();
-				test.setVisible(true);
+		JMenuItem ueberC4HItem = new JMenuItem("\u00DCber-C4H");
+		ueberC4HItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				C4H_DIALOG dialog = new C4H_DIALOG();
+				dialog.setVisible(true);
+				Timer timer = new Timer(3000, new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						dialog.setVisible(false);
+						dialog.dispose();
+					}
+				});
+				timer.setRepeats(false);
+				timer.start();
 			}
 		});
-		uberUnsItem.setVerticalTextPosition(SwingConstants.TOP);
-		uberUnsItem.setHorizontalTextPosition(SwingConstants.LEFT);
-		uberUnsItem.setHorizontalAlignment(SwingConstants.LEFT);
-		mnInfo.add(uberUnsItem);
+		ueberC4HItem.setVerticalTextPosition(SwingConstants.TOP);
+		ueberC4HItem.setHorizontalTextPosition(SwingConstants.LEFT);
+		ueberC4HItem.setHorizontalAlignment(SwingConstants.LEFT);
+		ueberC4HItem.setFont(new Font("Arial", Font.BOLD, 12));
+		menu.add(ueberC4HItem);
 		
 		frmCh.getContentPane().add(Buttonpanel);
 		frmCh.getContentPane().add(PcInfoPanel);
@@ -433,12 +473,15 @@ public class C4H_DYNAMIC_GUI {
 				startBrowser();
 			}
 		});
-		JButton btnHierKommtEin2 = new JButton("Hier Kommt ein CHAT Fenster");
-		btnHierKommtEin2.setSize(225,75);
-		int xPosbreite= (chatPanel.getWidth()-btnHierKommtEin2.getWidth())/2;
-		int yPoshoehe= (chatPanel.getHeight()-btnHierKommtEin2.getHeight())/2;
-		btnHierKommtEin2.setBounds(xPosbreite, yPoshoehe, 225, 75);
-		chatPanel.add(btnHierKommtEin2);
+		BLINKLABEL blink = new BLINKLABEL("Hier Kommt ein CHAT Fenster");
+		int xPosbreite= (chatPanel.getWidth()-blink.getWidth())/2;
+		int yPoshoehe= (chatPanel.getHeight()-blink.getHeight())/2;
+		blink.setBackground(new Color(240, 240, 240));
+		blink.setHorizontalAlignment(SwingConstants.CENTER);
+		blink.setHorizontalTextPosition(SwingConstants.CENTER);
+		blink.setBounds(xPosbreite, yPoshoehe, 225, 75);
+		
+		chatPanel.add(blink);
 		
 		JLabel logolabelchat = new JLabel("");
 		logolabelchat.setHorizontalAlignment(SwingConstants.CENTER);
@@ -515,7 +558,7 @@ public class C4H_DYNAMIC_GUI {
 	 */
 	public void startBrowser(){
 		try {
-			browser.createScene(URL+"?schulnummer="+bg.getSchulNummer()+"&pcname="+bg.getLocalHost());
+			browser.createScene(URL+"?schulnummer="+bg.getSchulNummer()+"&pcname="+bg.getLocalHost()+"&ipadress="+bg.getLocalAdresse());
 			
 		} catch (Throwable e) {
 			System.out.println("Exception: "+e);
