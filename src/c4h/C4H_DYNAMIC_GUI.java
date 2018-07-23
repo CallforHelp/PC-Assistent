@@ -526,7 +526,7 @@ public class C4H_DYNAMIC_GUI {
 		netzwerkInfo.addElement("                                          ");
 		netzwerkInfo.addElement("Locale IP Adresse     : "+ bg.getLocalAdresse());
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("SUBNETZMASKE      : "+ bg.getSubnetMask());
+		netzwerkInfo.addElement("SUBNETZMASKE       : "+ bg.getSubnetMask());
 		netzwerkInfo.addElement("                                          ");
 		netzwerkInfo.addElement("MAC Adresse           : "+ bg.getMacAddress());
 		netzwerkInfo.addElement("                                          ");
