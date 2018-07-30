@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dialog.ModalExclusionType;
+import java.awt.TrayIcon.MessageType;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
@@ -342,7 +343,12 @@ public class C4H_DYNAMIC_GUI {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("BrowserStarten");
 				try {
-					web.openWebSite();
+					if(!bg.pruefeSchulnr())
+						//displayMessage("Die SchulNummer ist Fehlerhaft!!!"+bg.getSchulNummer(),"Schul Support Service\nTEAM C4H", MessageType.WARNING);
+						web.openWebSite(URL);
+					else
+						web.openWebSite();
+					
 				} catch (Throwable e1) {
 					System.out.println(e1);
 				}
