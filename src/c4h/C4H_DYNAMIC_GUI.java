@@ -524,13 +524,13 @@ public class C4H_DYNAMIC_GUI {
 		
 		netzwerkInfo = new DefaultListModel<>();
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("Locale IP Adresse     : "+ bg.getLocalAdresse());
+		netzwerkInfo.addElement("Locale IP Adresse    : "+ bg.getLocalAdresse());
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("SUBNETZMASKE       : "+ bg.getSubnetMask());
+		netzwerkInfo.addElement("SUBNETZMASKE     : "+ bg.getSubnetMask());
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("MAC Adresse           : "+ bg.getMacAddress());
+		netzwerkInfo.addElement("MAC Adresse          : "+ bg.getMacAddress());
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("Machine Domain      : "+ bg.getMachindomain());
+		netzwerkInfo.addElement("Machine Domain     : "+ bg.getMachindomain());
 		netzwerkInfo.addElement("                                          ");
 		netzwerkInfo.addElement("Default Gateway      : "+ bg.getDefaultgateway());
 		netzwerkInfo.addElement("                                          ");
