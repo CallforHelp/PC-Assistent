@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dialog.ModalExclusionType;
+import java.awt.TrayIcon.MessageType;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
@@ -22,11 +23,11 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
-import javax.swing.border.BevelBorder;
+import javax.swing.Timer;
 import javax.swing.border.EtchedBorder;
 /**
- * Ein Dynmaischen Gui der Verschiedene m&ouml;glichkeiten besitz f&uuml;r den User 
- * Einfach design inklusive Nutzung
+ * Ein Dynmaisches Gui der verschiedene m&ouml;glichkeiten besitz f&uuml;r den User 
+ * Einfach designet inklusive Nutzung
  * @author  Helmi Bani 
  * @version 1.0
  * 
@@ -164,14 +165,21 @@ public class C4H_DYNAMIC_GUI {
 		logoLabel.setBackground(Color.WHITE);
 		logoLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		logoLabel.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/Oemlogo.png")));
-		logoLabel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		logoLabel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		
 		JLabel titelLabel = new JLabel("");
+		titelLabel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		JLabel systemInfoLabel = new JLabel("System Information");
+		systemInfoLabel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		JLabel lblNetzwerkInformation = new JLabel("Netzwerk Information");
+		lblNetzwerkInformation.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		pcInfoButton.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		pcInfoButton.setFont(new Font("Arial", Font.BOLD, 11));
 		
 		//button
 		pcInfoButton.setBounds(10, 83, 175, 75);
+		fehlermeldenButton.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		fehlermeldenButton.setFont(new Font("Arial", Font.BOLD, 11));
 		fehlermeldenButton.setBounds(10, 215, 175, 75);
 		
 		//Panel
@@ -192,7 +200,7 @@ public class C4H_DYNAMIC_GUI {
 		FehlerMeldenPanel.setLayout(new BorderLayout());
 		
 		chatPanel.setBounds(200, 40, 787, 670);
-		chatPanel.setBackground(Color.BLACK);
+		chatPanel.setBackground(Color.WHITE);
 		chatPanel.setLayout(null);
 		chatPanel.setVisible(true);
 		
@@ -202,11 +210,15 @@ public class C4H_DYNAMIC_GUI {
 		menuBar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		JMenu menuDatei = new JMenu("Allgemein");
-		JMenu menuBearbeiten = new JMenu("Bearbeiten");
+		menuDatei.setSize(new Dimension(10, 0));
+		menuDatei.setBorder(null);
+		menuDatei.setFont(new Font("Arial", Font.BOLD, 12));
 		
 		
 		//MENU ITEM
 		JMenuItem pcInfoItem = new JMenuItem("PC Information");
+		pcInfoItem.setSize(new Dimension(10, 5));
+		pcInfoItem.setFont(new Font("Arial", Font.BOLD, 12));
 		pcInfoItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				PcInfoPanel.setVisible(true);
@@ -218,6 +230,8 @@ public class C4H_DYNAMIC_GUI {
 		
 		
 		JMenuItem fehlerMeldenItem = new JMenuItem("Support");
+		fehlerMeldenItem.setSize(new Dimension(10, 5));
+		fehlerMeldenItem.setFont(new Font("Arial", Font.BOLD, 12));
 		fehlerMeldenItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				PcInfoPanel.setVisible(false);
@@ -228,11 +242,8 @@ public class C4H_DYNAMIC_GUI {
 			}
 		});
 		
-		
-		JMenuItem kopierenItem = new JMenuItem("Kopieren");
-		JMenuItem einfuegenItem = new JMenuItem("Einf\u00FCgen");
-		
 		JMenuItem exitItem = new JMenuItem("Beenden");
+		exitItem.setFont(new Font("Arial", Font.BOLD, 12));
 		
 		exitItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -243,12 +254,13 @@ public class C4H_DYNAMIC_GUI {
 		
 		menuBar.setBounds(0, 0, 991, 40);
 		menuBar.add(menuDatei);
-		menuBar.add(menuBearbeiten);
 		
 		menuDatei.add(pcInfoItem);
 		menuDatei.add(fehlerMeldenItem);
 		
 		JMenuItem chatItem = new JMenuItem("Chat");
+		chatItem.setSize(new Dimension(0, 5));
+		chatItem.setFont(new Font("Arial", Font.BOLD, 12));
 		chatItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				PcInfoPanel.setVisible(false);
@@ -261,26 +273,12 @@ public class C4H_DYNAMIC_GUI {
 		
 		menuDatei.add(chatItem);
 		
-		JMenuItem FernwartungMenuItem = new JMenuItem("Fernwartung");
-		FernwartungMenuItem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("fernwartung Starten");
-				try {
-					web.openWebSite("www.ntrglobal.com/code");
-				} catch (Throwable e1) {
-					System.out.println(e1);
-				}
-				
-			}
-		});
-		
-		
-		menuDatei.add(FernwartungMenuItem);
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setPreferredSize(new Dimension(0, 5));
+		menuDatei.add(separator_1);
 		menuDatei.add(exitItem);
-		
-		
-		menuBearbeiten.add(kopierenItem);
-		menuBearbeiten.add(einfuegenItem);
+		chatButton.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		chatButton.setFont(new Font("Arial", Font.BOLD, 11));
 		
 		
 		
@@ -302,19 +300,19 @@ public class C4H_DYNAMIC_GUI {
 		Buttonpanel.add(logoLabel);
 		
 		
-		titelLabel.setBounds(183, 11, 377, 60);
+		titelLabel.setBounds(183, 11, 377, 50);
 		titelLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		titelLabel.setFont(new Font("Algerian", Font.PLAIN, 29));
+		titelLabel.setFont(new Font("Arial", Font.BOLD, 29));
 		titelLabel.setText("PC Information");
 		
-		systemInfoLabel.setFont(new Font("Algerian", Font.PLAIN, 18));
+		systemInfoLabel.setFont(new Font("Arial", Font.BOLD, 18));
 		systemInfoLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		systemInfoLabel.setBounds(105, 107, 217, 32);
+		systemInfoLabel.setBounds(90, 89, 238, 50);
 		PcInfoPanel.add(systemInfoLabel);
 		
 		lblNetzwerkInformation.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNetzwerkInformation.setFont(new Font("Algerian", Font.PLAIN, 18));
-		lblNetzwerkInformation.setBounds(480, 107, 238, 32);
+		lblNetzwerkInformation.setFont(new Font("Arial", Font.BOLD, 18));
+		lblNetzwerkInformation.setBounds(480, 89, 238, 50);
 		PcInfoPanel.add(lblNetzwerkInformation);
 		
 		JSeparator separator = new JSeparator();
@@ -322,7 +320,7 @@ public class C4H_DYNAMIC_GUI {
 		
 		PcInfoPanel.add(separator);
 		frmCh.setForeground(Color.BLACK);
-		frmCh.setIconImage(Toolkit.getDefaultToolkit().getImage(C4H_DYNAMIC_GUI.class.getResource("images/bulb.png")));
+		frmCh.setIconImage(Toolkit.getDefaultToolkit().getImage(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/Oemlogo.png")));
 		frmCh.setBackground(Color.WHITE);
 		frmCh.setTitle("C4H");
 		
@@ -332,31 +330,126 @@ public class C4H_DYNAMIC_GUI {
 		frmCh.getContentPane().setLayout(null);
 		frmCh.getContentPane().add(menuBar);
 		
-		JMenu mnInfo = new JMenu("INFO");
+		JMenu mnInfo = new JMenu("Extras");
+		mnInfo.setSize(new Dimension(20, 10));
+		mnInfo.setBorder(null);
+		mnInfo.setFont(new Font("Arial", Font.BOLD, 12));
 		mnInfo.setHorizontalTextPosition(SwingConstants.LEFT);
 		mnInfo.setHorizontalAlignment(SwingConstants.CENTER);
 		menuBar.add(mnInfo);
 		
-		JMenuItem uberUnsItem = new JMenuItem("\u00FCber uns");
-		uberUnsItem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				C4H_DIALOG test = new C4H_DIALOG();
-				test.setVisible(true);
+		JMenuItem browserStartItem = new JMenuItem("Browser Starten");
+		browserStartItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("BrowserStarten");
+				try {
+					if(!bg.pruefeSchulnr())
+						//displayMessage("Die SchulNummer ist Fehlerhaft!!!"+bg.getSchulNummer(),"Schul Support Service\nTEAM C4H", MessageType.WARNING);
+						web.openWebSite(URL);
+					else
+						web.openWebSite();
+					
+				} catch (Throwable e1) {
+					System.out.println(e1);
+				}
+				
 			}
 		});
-		uberUnsItem.setVerticalTextPosition(SwingConstants.TOP);
-		uberUnsItem.setHorizontalTextPosition(SwingConstants.LEFT);
-		uberUnsItem.setHorizontalAlignment(SwingConstants.LEFT);
+		browserStartItem.setSize(new Dimension(10, 5));
+		browserStartItem.setFont(new Font("Arial", Font.BOLD, 12));
+		mnInfo.add(browserStartItem);
 		
-		mnInfo.add(uberUnsItem);
+		JMenuItem FernwartungMenuItem = new JMenuItem("Fernwartung");
+		FernwartungMenuItem.setSize(new Dimension(10, 5));
+		mnInfo.add(FernwartungMenuItem);
+		FernwartungMenuItem.setFont(new Font("Arial", Font.BOLD, 12));
+		
+		FernwartungMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("fernwartung Starten");
+				try {
+					web.openWebSite("www.ntrglobal.com/code");
+				} catch (Throwable e1) {
+					System.out.println(e1);
+				}
+				
+			}
+		});
+		
+		JMenu menu = new JMenu("Info");
+		menu.setSize(new Dimension(20, 10));
+		menuBar.add(menu);
+		menu.setHorizontalTextPosition(SwingConstants.LEFT);
+		menu.setHorizontalAlignment(SwingConstants.CENTER);
+		menu.setFont(new Font("Arial", Font.BOLD, 12));
+		menu.setBorder(null);
+		
+		JMenuItem c4hHilfeItem = new JMenuItem("C4H-Hilfe");
+		c4hHilfeItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("C4H Hilfe Browse");
+				try {
+					web.openWebSite("fehlermeldung.3s-hamburg.de/hilfe");
+				} catch (Throwable e1) {
+					System.out.println(e1);
+				}
+				
+			}
+		});
+		c4hHilfeItem.setVerticalTextPosition(SwingConstants.TOP);
+		c4hHilfeItem.setHorizontalTextPosition(SwingConstants.LEFT);
+		c4hHilfeItem.setHorizontalAlignment(SwingConstants.LEFT);
+		c4hHilfeItem.setFont(new Font("Arial", Font.BOLD, 12));
+		menu.add(c4hHilfeItem);
+		
+		JMenuItem faqItem = new JMenuItem("FAQ");
+		faqItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("FAQ Browse");
+				try {
+					web.openWebSite("fehlermeldung.3s-hamburg.de/faq");
+				} catch (Throwable e1) {
+					System.out.println(e1);
+				}
+				
+			}
+		});
+		faqItem.setVerticalTextPosition(SwingConstants.TOP);
+		faqItem.setHorizontalTextPosition(SwingConstants.LEFT);
+		faqItem.setHorizontalAlignment(SwingConstants.LEFT);
+		faqItem.setFont(new Font("Arial", Font.BOLD, 12));
+		menu.add(faqItem);
+		
+		JMenuItem ueberC4HItem = new JMenuItem("\u00DCber-C4H");
+		ueberC4HItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				C4H_DIALOG dialog = new C4H_DIALOG();
+				dialog.setVisible(true);
+				Timer timer = new Timer(4000, new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						dialog.setVisible(false);
+						dialog.dispose();
+					}
+				});
+				timer.setRepeats(false);
+				timer.start();
+			}
+		});
+		ueberC4HItem.setVerticalTextPosition(SwingConstants.TOP);
+		ueberC4HItem.setHorizontalTextPosition(SwingConstants.LEFT);
+		ueberC4HItem.setHorizontalAlignment(SwingConstants.LEFT);
+		ueberC4HItem.setFont(new Font("Arial", Font.BOLD, 12));
+		menu.add(ueberC4HItem);
+		
 		frmCh.getContentPane().add(Buttonpanel);
 		frmCh.getContentPane().add(PcInfoPanel);
 		frmCh.getContentPane().add(FehlerMeldenPanel);
 		
 		JLabel logo3sLabel = new JLabel("");
+		logo3sLabel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		logo3sLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		logo3sLabel.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/3s_logo.png")));
-		logo3sLabel.setBounds(151, 519, 466, 126);
+		logo3sLabel.setBounds(55, 461, 700, 184);
 		PcInfoPanel.add(logo3sLabel);
 
 		
@@ -386,17 +479,19 @@ public class C4H_DYNAMIC_GUI {
 				startBrowser();
 			}
 		});
-		JButton btnHierKommtEin2 = new JButton("Hier Kommt ein CHAT Fenster");
-		btnHierKommtEin2.setSize(225,75);
-		int xPosbreite= (chatPanel.getWidth()-btnHierKommtEin2.getWidth())/2;
-		int yPoshoehe= (chatPanel.getHeight()-btnHierKommtEin2.getHeight())/2;
-		btnHierKommtEin2.setBounds(xPosbreite, yPoshoehe, 225, 75);
-		chatPanel.add(btnHierKommtEin2);
+		C4H_Blink_Label blink = new C4H_Blink_Label("Hier Kommt ein CHAT Fenster");
+		blink.setBlinking(true);
+		blink.setBackground(new Color(240, 240, 240));
+		blink.setHorizontalAlignment(SwingConstants.CENTER);
+		blink.setHorizontalTextPosition(SwingConstants.CENTER);
+		blink.setBounds(281, 297, 225, 75);
+		
+		chatPanel.add(blink);
 		
 		JLabel logolabelchat = new JLabel("");
 		logolabelchat.setHorizontalAlignment(SwingConstants.CENTER);
 		logolabelchat.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/3s_logo-2.png")));
-		logolabelchat.setBounds(151, 519, 466, 126);
+		logolabelchat.setBounds(55, 461, 700, 184);
 		chatPanel.add(logolabelchat);
 		
 		
@@ -409,22 +504,22 @@ public class C4H_DYNAMIC_GUI {
 		systemInfo = new DefaultListModel<>();
 		
 		systemInfo.addElement("                                          ");
-		systemInfo.addElement("HostName        : "+ bg.getLocalHost());
+		systemInfo.addElement("HostName         : "+ bg.getLocalHost());
 		systemInfo.addElement("                                          ");
-		systemInfo.addElement("User Name       : "+ bg.getUserName());
+		systemInfo.addElement("User Name        : "+ bg.getUserName());
 		systemInfo.addElement("                                          ");
-		systemInfo.addElement("SchulNummer  : "+ bg.getSchulNummer());
+		systemInfo.addElement("SchulNummer   : "+ bg.getSchulNummer());
 		systemInfo.addElement("                                          ");
 		systemInfo.addElement("OS Version       : "+ bg.getOSversion());
 		systemInfo.addElement("                                          ");
-		systemInfo.addElement("OS Architektur  : "+ bg.getOSArchitecture());
+		systemInfo.addElement("OS Architektur : "+ bg.getOSArchitecture());
 		systemInfo.addElement("                                          ");
-		systemInfo.addElement("Muster Images   : "+ bg.getMusterImages());
+		systemInfo.addElement("Muster Images  : "+ bg.getMusterImages());
 		systemInfo.addElement("                                          ");
-		systemInfo.addElement("Rechner Typ     : "+ bg.getRechnertypen());
+		systemInfo.addElement("Rechner Typ      : "+ bg.getRechnertypen());
 		
 		pcInfoList= new JList<String>(systemInfo);
-		pcInfoList.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 14));
+		pcInfoList.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		pcInfoList.setBackground(Color.WHITE);
 		pcInfoList.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		pcInfoList.setForeground(Color.BLACK);
@@ -435,19 +530,19 @@ public class C4H_DYNAMIC_GUI {
 		
 		netzwerkInfo = new DefaultListModel<>();
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("Locale IP Adresse       : "+ bg.getLocalAdresse());
+		netzwerkInfo.addElement("Locale IP Adresse    : "+ bg.getLocalAdresse());
 		netzwerkInfo.addElement("                                          ");
 		netzwerkInfo.addElement("SUBNETZMASKE     : "+ bg.getSubnetMask());
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("MAC Adresse             : "+ bg.getMacAddress());
+		netzwerkInfo.addElement("MAC Adresse          : "+ bg.getMacAddress());
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("Machine Domain      : "+ bg.getMachindomain());
+		netzwerkInfo.addElement("Machine Domain     : "+ bg.getMachindomain());
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("Default Gateway       : "+ bg.getDefaultgateway());
+		netzwerkInfo.addElement("Default Gateway      : "+ bg.getDefaultgateway());
 		netzwerkInfo.addElement("                                          ");
 		netzwerkInfo.addElement("DHCP Server           : "+ bg.getDHCPServer());
 		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("DNS Server             : "+ bg.getDNSServer());
+		netzwerkInfo.addElement("DNS Server              : "+ bg.getDNSServer());
 		
 		netzwekList = new JList<String>(netzwerkInfo);
 		netzwekList.setValueIsAdjusting(true);
@@ -455,7 +550,7 @@ public class C4H_DYNAMIC_GUI {
 		netzwekList.setSelectionBackground(Color.LIGHT_GRAY);
 		netzwekList.setForeground(Color.BLACK);
 		netzwekList.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
-		netzwekList.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 14));
+		netzwekList.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		netzwekList.setBackground(Color.WHITE);
 		netzwekList.setBounds(446, 150, 309, 278);
 		PcInfoPanel.add(netzwekList);
@@ -468,8 +563,8 @@ public class C4H_DYNAMIC_GUI {
 	 */
 	public void startBrowser(){
 		try {
-			browser.createScene(URL+"?schulnummer="+bg.getSchulNummer()+"&pcname="+bg.getLocalHost());
-		
+			browser.createScene(URL+"?schulnummer="+bg.getSchulNummer()+"&pcname="+bg.getLocalHost()+"&ipadress="+bg.getLocalAdresse());
+			
 		} catch (Throwable e) {
 			System.out.println("Exception: "+e);
 		}

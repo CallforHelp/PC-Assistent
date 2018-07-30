@@ -30,20 +30,22 @@ public class C4H_GUI_TRAY_ICON {
  * Ein Menu F&uuml;hrung zur bedienung ist auch vorhanden(pc-information, support,chat)
  * @throws Throwable IconTray
  */
-		public void createshowGui() throws Throwable {
+	public void createshowGui() throws Throwable {
+		final C4H_DYNAMIC_GUI    window      = new C4H_DYNAMIC_GUI();
+		final PopupMenu          popup       = new PopupMenu();
+		final TrayIcon           trayIcon    = new TrayIcon(createImage("images/bulb.png", "trayIcon"));  
+		final SystemTray         tray        = SystemTray.getSystemTray();
+		final C4H_PC_INFO_KLASSE bg          = new C4H_PC_INFO_KLASSE();
+		      C4H_WEBSITE_START  web         = new C4H_WEBSITE_START();
+		
+		window.initialize();
 	
-			C4H_DYNAMIC_GUI window =  new C4H_DYNAMIC_GUI();
-			window.initialize();
-			final C4H_PC_INFO_KLASSE bg = new C4H_PC_INFO_KLASSE();
-	
-			if (!SystemTray.isSupported()) {
-				System.out.println("SystemTray is not supported");
-				return;
-			}
-		final PopupMenu popup = new PopupMenu();
-		final TrayIcon trayIcon =
-			new TrayIcon(createImage("images/bulb.png", "trayIcon"));  
-		final SystemTray tray = SystemTray.getSystemTray();
+		if (!SystemTray.isSupported()) {
+			System.out.println("SystemTray is not supported");
+			return;
+		}
+		trayIcon.setToolTip("Schul-Support-Service - Call for Help");
+		
 		//Hinzufuegen(start) the Icon_tray 
 		try {
 			tray.add(trayIcon);
@@ -59,10 +61,21 @@ public class C4H_GUI_TRAY_ICON {
     	MenuItem BG_Info_MenuItem = new MenuItem("PC Information");
     	MenuItem Fehler_Meldung_Menu_Item = new MenuItem("Support");
     	MenuItem Chat_Menu_Item = new MenuItem("Chat");
-        
-
+    	
+    	MenuItem fwt_Menu_Item = new MenuItem("Fernwartung");
+    	
+    	fwt_Menu_Item.addActionListener(new ActionListener() {
+    		@Override
+    		public void actionPerformed(ActionEvent e) {
+    			try {
+					web.openWebSite("www.ntrglobal.com/code");
+				} catch (Throwable e1) {
+					System.out.println(e1);
+				}
+    		}
+		});
        
-
+/*
     	MenuItem Beenden_Menu_Item = new MenuItem("Beenden");
     	popup.add(Beenden_Menu_Item);
     	Beenden_Menu_Item.addActionListener(new ActionListener() {
@@ -71,9 +84,13 @@ public class C4H_GUI_TRAY_ICON {
     			System.exit(0);
     		}
 		});
+*/
+    	
+    	
     	popup.add(BG_Info_MenuItem);
     	popup.add(Fehler_Meldung_Menu_Item);
     	popup.add(Chat_Menu_Item);
+    	popup.add(fwt_Menu_Item);
         
         
         //MenuListe Einsetzen
@@ -95,7 +112,6 @@ public class C4H_GUI_TRAY_ICON {
     	trayIcon.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("action by click");
 				C4H_DIALOG dialog = new C4H_DIALOG();
 				dialog.setVisible(true);
 				Timer timer = new Timer(3000, new ActionListener() {
