@@ -7,7 +7,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-import java.awt.Window.Type;
 import java.awt.Font;
 import javax.swing.border.EtchedBorder;
 /**
