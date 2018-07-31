@@ -11,7 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Eine Klasse zum Zeigen der wichtigsten informationen &uuml;ber den Client: 
+ * Eine Klasse zum Zeigen der wichtigsten informationen &uuml;ber den Client. 
  * Netwerk und PC Information
  * @author  Helmi Bani 
  * @version 1.0
@@ -24,7 +24,7 @@ public class C4H_PC_INFO_KLASSE {
 	String schulNummer="";
 	
 	/**
-	 * Die Schulnummer muss erstellt werden damit f&uuml;r die Fehleranmeldung sofort mitgenommen wird
+	 * Die Schulnummer muss erstellt werden damit f&uuml;r die Fehleranmeldung sofort mitgenommen wird.
 	 * SchulNummer erstellen 
 	 * @throws Throwable Hostname
 	 */
@@ -35,7 +35,7 @@ public class C4H_PC_INFO_KLASSE {
 	}
 	
 	/**
-	 * Ueberschrift Name Des Tool 
+	 * Ueberschrift Name Des Tool. 
 	 * @return uebrschrift
 	 */
 	public String uberSchrift() {
@@ -46,7 +46,7 @@ public class C4H_PC_INFO_KLASSE {
 	}
 	
 	/**
-	 * Die Zeit wird vom Systemausgelesen
+	 * Die Zeit wird vom Systemausgelesen.
 	 * @return Zeit(time)
 	 */
 	public String timetoBuild() {
@@ -60,7 +60,7 @@ public class C4H_PC_INFO_KLASSE {
 	/******************************************PC_INFO****************************************/
 	
 	/**
-	 * System Property ist die Klasse zum Auslesen 
+	 * System Property ist die Klasse zum Auslesen. 
 	 * von eingenschaften 
 	 * @return userName
 	 */
@@ -72,8 +72,7 @@ public class C4H_PC_INFO_KLASSE {
 	}
 	
 	/**
-	 * Hier wird anhand der HostName die SchuleNummer 
-	 * ausgelesen. 
+	 * Hier wird anhand der HostName die SchuleNummer ausgelesen. 
 	 * @return Schulnummer
 	 * @throws Throwable Hostname
 	 */
@@ -95,7 +94,7 @@ public class C4H_PC_INFO_KLASSE {
 
 	}
 	/**
-	 * Gibt Einfach die Schulnummer zurueck
+	 * Gibt Einfach die Schulnummer zurueck.
 	 * @return schulNummer
 	 * @throws Throwable Hostname
 	 */
@@ -154,7 +153,7 @@ public class C4H_PC_INFO_KLASSE {
 		return musterImages;
 	}
 	/**
-	 * RechnerTyp aus dem Hostname auslesen 
+	 * RechnerTyp aus dem Hostname auslesen. 
 	 * @return RechnerTyp
 	 * @throws Exception Hostname
 	 */
@@ -175,7 +174,7 @@ public class C4H_PC_INFO_KLASSE {
 	/****************************************** NETZWERK ****************************************/
 	
 	/**
-	 * IpAdresse Auslesen
+	 * IpAdresse Auslesen.
 	 * @return result(IPAdress)
 	 * @throws UnknownHostException Hostadresse
 	 */
@@ -187,7 +186,7 @@ public class C4H_PC_INFO_KLASSE {
 		
 	}
 	/**
-	 * MacAdresse auslesen 
+	 * MacAdresse auslesen. 
 	 * @return MacAdresse
 	 * @throws IOException Commandbefehl 
 	 */
@@ -214,7 +213,7 @@ public class C4H_PC_INFO_KLASSE {
 	}
 	
 	/**
-	 * Localhost auslesen
+	 * Localhost auslesen.
 	 * @return Localhost
 	 * @throws UnknownHostException Hostname
 	 */
@@ -227,7 +226,7 @@ public class C4H_PC_INFO_KLASSE {
 		
 	}
 	/**
-	 * angemeldete Domaine auslesen
+	 * angemeldete Domaine auslesen.
 	 * @return domain
 	 * @throws IOException commandbefehl
 	 */
@@ -263,7 +262,7 @@ public class C4H_PC_INFO_KLASSE {
 	}
 	
 	/**
-	 * Subnetzmask berechnnen und darstellen
+	 * Subnetzmask berechnnen und darstellen.
 	 * @return submasl
 	 * @throws SocketException IpAdress
 	 * @throws IOException Localhost
@@ -284,7 +283,7 @@ public class C4H_PC_INFO_KLASSE {
 	}
 	
 	/**
-	 * Gateway auslesen
+	 * Gateway auslesen.
 	 * @return defaultgateway
 	 * @throws IOException commandbefehl
 	 */
@@ -323,7 +322,7 @@ public class C4H_PC_INFO_KLASSE {
 	}
 	
 	/**
-	 * DHCP serveradresse auslesen
+	 * DHCP serveradresse auslesen.
 	 * @return dhcpserver
 	 * @throws IOException commandbefehl
 	 */
@@ -361,7 +360,7 @@ public class C4H_PC_INFO_KLASSE {
 	}
 	
 	/**
-	 * DNS serveradresse auslesen
+	 * DNS serveradresse auslesen.
 	 * @return dnsserver
 	 * @throws IOException commandbefehl
 	 */
@@ -399,7 +398,7 @@ public class C4H_PC_INFO_KLASSE {
 		return dnsserver;
 	}
 	/**
-	 * Schulnummer Pr&uuml;fen ob es korrekt eingetragen ist
+	 * Schulnummer Pr&uuml;fen ob es korrekt eingetragen ist.
 	 * Ein Hinweis als info wird dargestellt
 	 * @return true/false
 	 * @throws Throwable HostName

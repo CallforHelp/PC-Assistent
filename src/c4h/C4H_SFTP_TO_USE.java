@@ -5,8 +5,7 @@ import java.util.Vector;
 
 import com.jcraft.jsch.*;
 /**
- * SFTP Client zum Schreiben der Rechner information auf den server
- * wird momentan nicht ben&ouml;tigt 
+ * SFTP Client zum speichern von Rechner-information auf den c4H-Server. 
  * @author  Helmi Bani 
  * @version 1.0
  * 
@@ -55,7 +54,7 @@ public class C4H_SFTP_TO_USE {
 	
 	
 	/**
-	 * Ein construktor mit den eingaben der Argumente zur Verbindung in das SFTP server
+	 * Ein construktor +Argumente zur Verbindung in c4H-Server.
 	 * der ClientID ist immer gleich
 	 * @param benutzername user
 	 * @param passwort pass
@@ -97,7 +96,7 @@ public class C4H_SFTP_TO_USE {
 	}
 	
 	/**
-	 * Schreiben in einer Datei die Schulnummer als Inhalt
+	 * Schreibe in einer Datei die Schulnummer.
 	 * @throws Throwable Hostname
 	 */
 	public  void uploadFileWithSchoolNumber() throws Throwable {
@@ -117,7 +116,7 @@ public class C4H_SFTP_TO_USE {
 		
 	}
 	/**
-	 * Pr&uuml; ob die Schulnummer schon im SFTP vorhanden ist
+	 * Pr&uuml; ob die Schulnummer schon im SFTP vorhanden ist.
 	 * @param schoolNamePath DateiName
 	 * @return Richtig/Faslch
 	 */
@@ -137,7 +136,7 @@ public class C4H_SFTP_TO_USE {
 	}
 
 	/**
-	 * gibt den Pfad im SFTP zurück
+	 * gibt den Pfad im SFTP zurück.
 	 * @return Pfad 
 	 * @throws SftpException Verbindungsuafbau
 	 */
@@ -145,7 +144,7 @@ public class C4H_SFTP_TO_USE {
 		return channel.getHome();
 	}
 	/**
-	 * Erstelle ein Dokument mit dem Schulnummer als inhalt
+	 * Erstelle ein Dokument mit dem Schulnummer als Inhalt.
 	 * @param schoolNumber Schulnummer
 	 * @return DokumentName 
 	 */

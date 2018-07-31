@@ -6,7 +6,7 @@ import java.util.*;
 import java.net.*;
 
 /**
- * Website Reader &ouml;ffnen Details und Connect
+ * Website Reader &ouml;ffnen von Quelltext und eine Verbindung mit einer URL aufbaut.
  * @author  Helmi Bani 
  * @version 1.0
  * 
@@ -14,12 +14,12 @@ import java.net.*;
 public class C4H_WEBSITE_START  {
 	
 	/**
-	 * Standart Website zum Fehlermelden
+	 * Standart Website zur C4H
 	 */
 	String webSeite ="http://fehlermeldung.3s-hamburg.de";
 	private C4H_PC_INFO_KLASSE bginfo; 
 	/**
-	 * Kontruktor to add PC Information
+	 * Konstruktor zum hinzuf&uuml;gen von  PC Information
 	 * @throws Throwable Hostname
 	 */
 	public C4H_WEBSITE_START() throws Throwable {
@@ -30,7 +30,7 @@ public class C4H_WEBSITE_START  {
 	
 	//browser starten
 	/**
-	 * Browser start egal mit welchen OS
+	 * Ein lokal installierter Browser startet.
 	 * @throws Throwable Hostname
 	 */
 	public void openWebSite()throws Throwable  {
@@ -47,8 +47,8 @@ public class C4H_WEBSITE_START  {
 		}
 	}
 	/**
-	 * Browser start egal mit welchen OS
-	 * @param URL zum starten einer Webseite
+	 * Ein lokal installierter Browser startet.
+	 * @param URL zum starten einer Webseite.
 	 * @throws Throwable Hostname
 	 */
 	public void openWebSite(String URL)throws Throwable{
