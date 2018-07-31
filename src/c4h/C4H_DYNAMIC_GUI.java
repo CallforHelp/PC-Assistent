@@ -387,7 +387,7 @@ public class C4H_DYNAMIC_GUI {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("C4H Hilfe Browse");
 				try {
-					web.openWebSite("fehlermeldung.3s-hamburg.de/hilfe");
+					web.openWebSite(URL+"/hilfe");
 				} catch (Throwable e1) {
 					System.out.println(e1);
 				}
@@ -405,7 +405,7 @@ public class C4H_DYNAMIC_GUI {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("FAQ Browse");
 				try {
-					web.openWebSite("fehlermeldung.3s-hamburg.de/faq");
+					web.openWebSite(URL+"/faq");
 				} catch (Throwable e1) {
 					System.out.println(e1);
 				}
