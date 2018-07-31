@@ -26,7 +26,7 @@ public class C4H_DIALOG extends JDialog {
 	 */
 	public C4H_DIALOG() {
     	setType(Type.UTILITY);
-	setIconImage(Toolkit.getDefaultToolkit().getImage(C4H_DIALOG.class.getResource("images/bulb.png")));
+    	setIconImage(Toolkit.getDefaultToolkit().getImage(C4H_DIALOG.class.getResource("images/bulb.png")));
 	
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		

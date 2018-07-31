@@ -527,20 +527,20 @@ public class C4H_DYNAMIC_GUI {
 		PcInfoPanel.add(pcInfoList);
 		
 		netzwerkInfo = new DefaultListModel<>();
-		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("Locale IP Adresse    : "+ bg.getLocalAdresse());
-		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("SUBNETZMASKE     : "+ bg.getSubnetMask());
-		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("MAC Adresse          : "+ bg.getMacAddress());
-		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("Machine Domain     : "+ bg.getMachindomain());
-		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("Default Gateway      : "+ bg.getDefaultgateway());
-		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("DHCP Server           : "+ bg.getDHCPServer());
-		netzwerkInfo.addElement("                                          ");
-		netzwerkInfo.addElement("DNS Server              : "+ bg.getDNSServer());
+		netzwerkInfo.addElement("\n");
+		netzwerkInfo.addElement("Locale IP Adresse     : "+ bg.getLocalAdresse());
+		netzwerkInfo.addElement("\n");
+		netzwerkInfo.addElement("Subnetzmaske          : "+ bg.getSubnetMask());
+		netzwerkInfo.addElement("\n");
+		netzwerkInfo.addElement("MAC Adresse           : "+ bg.getMacAddress());
+		netzwerkInfo.addElement("\n");
+		netzwerkInfo.addElement("Domain                    : "+ bg.getMachindomain());
+		netzwerkInfo.addElement("\n");
+		netzwerkInfo.addElement("Default Gateway       : "+ bg.getDefaultgateway());
+		netzwerkInfo.addElement("\n");
+		netzwerkInfo.addElement("DHCP Server            : "+ bg.getDHCPServer());
+		netzwerkInfo.addElement("\n");
+		netzwerkInfo.addElement("DNS Server               : "+ bg.getDNSServer());
 		
 		netzwekList = new JList<String>(netzwerkInfo);
 		netzwekList.setValueIsAdjusting(true);
