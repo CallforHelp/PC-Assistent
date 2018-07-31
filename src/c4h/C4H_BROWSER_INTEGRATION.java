@@ -19,7 +19,7 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 /**
- * Eine Klasse Webbrowser in einer JAVA GUI 
+ * Ein Webbrowser einfach in unse gui eingebunden.
  * @author  Helmi Bani 
  * @version 1.0
  * 

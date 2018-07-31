@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dialog.ModalExclusionType;
-import java.awt.TrayIcon.MessageType;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
@@ -26,8 +25,7 @@ import javax.swing.SwingConstants;
 import javax.swing.Timer;
 import javax.swing.border.EtchedBorder;
 /**
- * Ein Dynmaisches Gui der verschiedene m&ouml;glichkeiten besitz f&uuml;r den User 
- * Einfach designet inklusive Nutzung
+ * Ein Dynmaisches Gui der verschiedene m&ouml;glichkeiten besitz f&uuml;r den User. 
  * @author  Helmi Bani 
  * @version 1.0
  * 
@@ -98,12 +96,12 @@ public class C4H_DYNAMIC_GUI {
 	@SuppressWarnings("rawtypes")
 	private JList netzwekList;
 	/**
-	 * Objekt zur erstellung und anzeigen von Pc_information 
+	 * Objekt zur erstellung und anzeigen von Pc_information. 
 	 */
 	private final C4H_PC_INFO_KLASSE bg = new C4H_PC_INFO_KLASSE();	
 
 	/**
-	 * Konstruktor zur Laufzeit Start vom GUI UND SFTP Verbindung falls es nötig ist 
+	 * Konstruktor zur Laufzeit Start vom GUI UND SFTP Verbindung falls es nötig ist. 
 	 * @throws Throwable Hostname
 	 */
 	public C4H_DYNAMIC_GUI() throws Throwable {
@@ -112,8 +110,8 @@ public class C4H_DYNAMIC_GUI {
 	}
 
 	/**
-	 * SFTP Verbindung zur Speicherung der Information zur zwecke der Fehlermeldung
-	 * @throws Throwable Connection Verbindung
+	 * SFTP Verbindung zur Speicherung der Information zur zwecke der Fehlermeldung.
+	 * @throws Throwable Connection Verbindung.
 	 */
 	private void connectToSftp() throws Throwable {
 		// TODO Auto-generated method stub
@@ -130,7 +128,7 @@ public class C4H_DYNAMIC_GUI {
 
 	/**
 	 * Initialize the contents of the frame.
-	 * @throws Throwable ation
+	 * @throws Throwable ation.
 	 * @throws InterruptedException time  
 	 */
 	public void initialize() throws Throwable{
@@ -558,7 +556,7 @@ public class C4H_DYNAMIC_GUI {
 	}
 
 	/**
-	 * Starten und öffnen des Scripts mit dne richtigen Parameter
+	 * Starten und &ouml;ffnen des Scripts mit den richtigen Parameter.
 	 * 
 	 */
 	public void startBrowser(){

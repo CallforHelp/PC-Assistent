@@ -17,7 +17,7 @@ import javax.swing.ImageIcon;
 import javax.swing.Timer;
 
 /**
- * Ene GUI Klasse Dient zur Bedienung der App und ein Aktive IconTray ist Sichbar f&uuml;r den USER
+ * Eine GUI dient zur Nutzung der App und ein Aktive IconTray ist Sichbar f&uuml;r den USER.
  * 
  * @author  Helmi Bani 
  * @version 1.0
@@ -25,8 +25,8 @@ import javax.swing.Timer;
  * */
 public class C4H_GUI_TRAY_ICON {
 /**
- * Aktive Icon im SystemTry mit einen sichbaren Icon
- * das tool h&auml;ngt sich im SystemProzess l&auml;sst sich nicht beenden  
+ * Aktive Icon im SystemTry mit einen sichbaren Icon.
+ * das tool h&auml;ngt sich im SystemProzess l&auml;sst sich nicht beenden.  
  * Ein Menu F&uuml;hrung zur bedienung ist auch vorhanden(pc-information, support,chat)
  * @throws Throwable IconTray
  */

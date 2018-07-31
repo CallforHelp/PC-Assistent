@@ -10,8 +10,7 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.border.EtchedBorder;
 /**
- * Eine Dialogue was auch nur ein Paar sek. erscheint 
- * firmeninfo 
+ * Ein Dialogue fur Firmeninfo.
  * @author  Helmi Bani 
  * @version 1.0
  * 

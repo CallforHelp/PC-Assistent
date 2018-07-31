@@ -2,15 +2,15 @@ package src.c4h;
 
 
 /**
- * Main Methode zum Starten der APP C4H
- * @author  Helmi Bani 
+ * Main Methode zum Starten von C4H.
+ * @author  Helmi Bani, Arafet Benn Amor
  * @version 1.0
  * 
  * */
 public class C4H {
 
-	/**A Main To Start C4H
-	 * @param args Keine Argumente Nötig 
+	/** Startfunktion
+	 * @param args Keine Argumente n&ouml;tig 
 	 * @throws Throwable Gui-Start
 	 */
 	public static void main(String[] args) throws Throwable{	
