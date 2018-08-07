@@ -409,7 +409,7 @@ public class C4H_PC_INFO_KLASSE {
 			if ((getSchulNummer().equals("")) || (getSchulNummer().contains("0000"))) {
 				return false;
 			}else 
-				return true;
+				return false;
 		}
 		return  false;
 	}
