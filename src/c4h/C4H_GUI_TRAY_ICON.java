@@ -6,7 +6,6 @@ import java.awt.MenuItem;
 import java.awt.PopupMenu;
 import java.awt.SystemTray;
 import java.awt.TrayIcon;
-import java.awt.TrayIcon.MessageType;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -50,9 +49,10 @@ public class C4H_GUI_TRAY_ICON {
 		try {
 			tray.add(trayIcon);
 			System.out.println("Schulnummer Aktuell: "+bg.getSchulNummer()+" ist :"+ bg.pruefeSchulnr());
-			if(!bg.pruefeSchulnr())
-				trayIcon.displayMessage("Die SchulNummer ist Fehlerhaft!!!"+bg.getSchulNummer(),
-						"Schul Support Service\nTEAM C4H", MessageType.WARNING);
+			if(!bg.pruefeSchulnr()) {
+				trayIcon.setImage(createImage("images/bulbred.png", "trayIcon"));
+				trayIcon.setToolTip("Schul-Support-Service - Call for Help: Bitte die Schulnummer Korrigieren");
+			}
     			}catch(Throwable e2) {
     				System.out.println("TrayIcon could not be added."+e2.getMessage());
     			return;
