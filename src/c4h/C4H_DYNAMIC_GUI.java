@@ -24,6 +24,8 @@ import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
 import javax.swing.border.EtchedBorder;
+import javax.swing.UIManager;
+import java.awt.SystemColor;
 /**
  * Ein Dynmaisches Gui der verschiedene m&ouml;glichkeiten besitz f&uuml;r den User. 
  * @author  Helmi Bani 
@@ -166,11 +168,15 @@ public class C4H_DYNAMIC_GUI {
 		logoLabel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		
 		JLabel titelLabel = new JLabel("");
+		titelLabel.setBackground(UIManager.getColor("Button.light"));
 		titelLabel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		JLabel systemInfoLabel = new JLabel("System Information");
+		systemInfoLabel.setBackground(UIManager.getColor("Button.light"));
 		systemInfoLabel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		JLabel lblNetzwerkInformation = new JLabel("Netzwerk Information");
+		lblNetzwerkInformation.setBackground(UIManager.getColor("Button.light"));
 		lblNetzwerkInformation.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		pcInfoButton.setBackground(UIManager.getColor("Button.light"));
 		pcInfoButton.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		pcInfoButton.setFont(new Font("Arial", Font.BOLD, 11));
 		
@@ -373,6 +379,22 @@ public class C4H_DYNAMIC_GUI {
 				
 			}
 		});
+		JMenuItem downloadMenuItem = new JMenuItem("downloads");
+		downloadMenuItem.setSize(new Dimension(10, 5));
+		mnInfo.add(downloadMenuItem);
+		downloadMenuItem.setFont(new Font("Arial", Font.BOLD, 12));
+		
+		downloadMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("download Starten");
+				try {
+					web.openWebSite(URL+"/downloads");
+				} catch (Throwable e1) {
+					System.out.println(e1);
+				}
+				
+			}
+		});
 		
 		JMenu menu = new JMenu("Info");
 		menu.setSize(new Dimension(20, 10));
@@ -487,6 +509,7 @@ public class C4H_DYNAMIC_GUI {
 		chatPanel.add(blink);
 		
 		JLabel logolabelchat = new JLabel("");
+		logolabelchat.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		logolabelchat.setHorizontalAlignment(SwingConstants.CENTER);
 		logolabelchat.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/3s_logo-2.png")));
 		logolabelchat.setBounds(55, 461, 700, 184);
@@ -502,22 +525,22 @@ public class C4H_DYNAMIC_GUI {
 		systemInfo = new DefaultListModel<>();
 		
 		systemInfo.addElement("                                          ");
-		systemInfo.addElement("HostName         : "+ bg.getLocalHost());
+		systemInfo.addElement("HostName          : "+ bg.getLocalHost());
 		systemInfo.addElement("                                          ");
-		systemInfo.addElement("User Name        : "+ bg.getUserName());
+		systemInfo.addElement("User Name         : "+ bg.getUserName());
 		systemInfo.addElement("                                          ");
 		systemInfo.addElement("SchulNummer   : "+ bg.getSchulNummer());
 		systemInfo.addElement("                                          ");
-		systemInfo.addElement("OS Version       : "+ bg.getOSversion());
+		systemInfo.addElement("OS Version         : "+ bg.getOSversion());
 		systemInfo.addElement("                                          ");
-		systemInfo.addElement("OS Architektur : "+ bg.getOSArchitecture());
+		systemInfo.addElement("OS Architektur   : "+ bg.getOSArchitecture());
 		systemInfo.addElement("                                          ");
-		systemInfo.addElement("Muster Images  : "+ bg.getMusterImages());
+		systemInfo.addElement("Muster Images   : "+ bg.getMusterImages());
 		systemInfo.addElement("                                          ");
-		systemInfo.addElement("Rechner Typ      : "+ bg.getRechnertypen());
+		systemInfo.addElement("Rechner Typ        : "+ bg.getRechnertypen());
 		
 		pcInfoList= new JList<String>(systemInfo);
-		pcInfoList.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		pcInfoList.setFont(new Font("Arial", Font.BOLD, 12));
 		pcInfoList.setBackground(Color.WHITE);
 		pcInfoList.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		pcInfoList.setForeground(Color.BLACK);
@@ -528,19 +551,19 @@ public class C4H_DYNAMIC_GUI {
 		
 		netzwerkInfo = new DefaultListModel<>();
 		netzwerkInfo.addElement("\n");
-		netzwerkInfo.addElement("Locale IP Adresse     : "+ bg.getLocalAdresse());
+		netzwerkInfo.addElement("Locale IP Adresse      : "+ bg.getLocalAdresse());
 		netzwerkInfo.addElement("\n");
-		netzwerkInfo.addElement("Subnetzmaske          : "+ bg.getSubnetMask());
+		netzwerkInfo.addElement("Subnetzmaske            : "+ bg.getSubnetMask());
 		netzwerkInfo.addElement("\n");
-		netzwerkInfo.addElement("MAC Adresse           : "+ bg.getMacAddress());
+		netzwerkInfo.addElement("MAC Adresse              : "+ bg.getMacAddress());
 		netzwerkInfo.addElement("\n");
-		netzwerkInfo.addElement("Domain                    : "+ bg.getMachindomain());
+		netzwerkInfo.addElement("Domain                         : "+ bg.getMachindomain());
 		netzwerkInfo.addElement("\n");
-		netzwerkInfo.addElement("Default Gateway       : "+ bg.getDefaultgateway());
+		netzwerkInfo.addElement("Default Gateway         : "+ bg.getDefaultgateway());
 		netzwerkInfo.addElement("\n");
-		netzwerkInfo.addElement("DHCP Server            : "+ bg.getDHCPServer());
+		netzwerkInfo.addElement("DHCP Server               : "+ bg.getDHCPServer());
 		netzwerkInfo.addElement("\n");
-		netzwerkInfo.addElement("DNS Server               : "+ bg.getDNSServer());
+		netzwerkInfo.addElement("DNS Server                  : "+ bg.getDNSServer());
 		
 		netzwekList = new JList<String>(netzwerkInfo);
 		netzwekList.setValueIsAdjusting(true);
@@ -548,7 +571,7 @@ public class C4H_DYNAMIC_GUI {
 		netzwekList.setSelectionBackground(Color.LIGHT_GRAY);
 		netzwekList.setForeground(Color.BLACK);
 		netzwekList.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
-		netzwekList.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		netzwekList.setFont(new Font("Arial", Font.BOLD, 12));
 		netzwekList.setBackground(Color.WHITE);
 		netzwekList.setBounds(446, 150, 309, 278);
 		PcInfoPanel.add(netzwekList);
