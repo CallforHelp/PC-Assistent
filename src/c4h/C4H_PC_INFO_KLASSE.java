@@ -130,16 +130,21 @@ public class C4H_PC_INFO_KLASSE {
 	 * die info bekommen wir aus dem Infobereich des Betriebsystems
 	 * @return musterImages
 	 * @throws IOException RegEintrag
+	 * @throws RegistryErrorException 
 	 */
-	public String getMusterImages() throws IOException {
+	public String getMusterImages() throws Throwable{
 		
 		String musterImages = "";
 		String line;
-		String location = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation";
-		String key = "Model";
+		String location = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation\\";
 		Process process = null ;
+		
+		
 		if(getOSversion().contains("W")||getOSversion().contains("w")) {	// Run reg query, then read output with StreamReader (internal class)
-			process = Runtime.getRuntime().exec("reg query " +location+" /v "+key);
+			process = Runtime.getRuntime().exec("reg query " +location);
+			System.out.println(process.toString());
+			System.out.println("ist reingegangen");
+			
 			Reader input = new InputStreamReader(process.getInputStream());
 			BufferedReader resultOutput = new BufferedReader(input);
 			while((line=resultOutput.readLine()) != null) {

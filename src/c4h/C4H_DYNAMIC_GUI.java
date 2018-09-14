@@ -25,7 +25,7 @@ import javax.swing.SwingConstants;
 import javax.swing.Timer;
 import javax.swing.border.EtchedBorder;
 import javax.swing.UIManager;
-import java.awt.SystemColor;
+
 /**
  * Ein Dynmaisches Gui der verschiedene m&ouml;glichkeiten besitz f&uuml;r den User. 
  * @author  Helmi Bani 
@@ -100,15 +100,18 @@ public class C4H_DYNAMIC_GUI {
 	/**
 	 * Objekt zur erstellung und anzeigen von Pc_information. 
 	 */
-	private final C4H_PC_INFO_KLASSE bg = new C4H_PC_INFO_KLASSE();	
+	private C4H_PC_INFO_KLASSE bg = new C4H_PC_INFO_KLASSE();	
 
 	/**
 	 * Konstruktor zur Laufzeit Start vom GUI UND SFTP Verbindung falls es nötig ist. 
 	 * @throws Throwable Hostname
 	 */
 	public C4H_DYNAMIC_GUI() throws Throwable {
+		systemInfo = new DefaultListModel<>();
+		netzwerkInfo = new DefaultListModel<>();
 		initialize();
 		connectToSftp();	
+		
 	}
 
 	/**
@@ -281,6 +284,11 @@ public class C4H_DYNAMIC_GUI {
 		separator_1.setPreferredSize(new Dimension(0, 5));
 		menuDatei.add(separator_1);
 		menuDatei.add(exitItem);
+		
+		JMenuItem AktualisierItem = new JMenuItem("Aktualisieren");
+		AktualisierItem.setFont(new Font("Arial", Font.BOLD, 12));
+		
+		menuDatei.add(AktualisierItem);
 		chatButton.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		chatButton.setFont(new Font("Arial", Font.BOLD, 11));
 		
@@ -521,8 +529,24 @@ public class C4H_DYNAMIC_GUI {
 	    int x = (int) ((dimension.getWidth() - frmCh.getWidth()) / 2);
 	    int y = (int) ((dimension.getHeight() - frmCh.getHeight()) / 2);
 	    frmCh.setLocation(x, y);
+		setlist();
+		AktualisierItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					setlist();
+					 System.out.println(bg.getMusterImages());
+				} catch (Throwable e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+
+	}
+	public void setlist() throws Throwable {
 		
-		systemInfo = new DefaultListModel<>();
+		systemInfo.removeAllElements();
+		netzwerkInfo.removeAllElements();
 		
 		systemInfo.addElement("                                          ");
 		systemInfo.addElement("HostName          : "+ bg.getLocalHost());
@@ -546,10 +570,10 @@ public class C4H_DYNAMIC_GUI {
 		pcInfoList.setForeground(Color.BLACK);
 		pcInfoList.setSelectionForeground(new Color(0, 0, 255));
 		pcInfoList.setSelectionBackground(Color.LIGHT_GRAY);
-		pcInfoList.setBounds(55, 150, 309, 278);
+		pcInfoList.setBounds(55, 150, 309, 281);
 		PcInfoPanel.add(pcInfoList);
 		
-		netzwerkInfo = new DefaultListModel<>();
+		
 		netzwerkInfo.addElement("\n");
 		netzwerkInfo.addElement("Locale IP Adresse      : "+ bg.getLocalAdresse());
 		netzwerkInfo.addElement("\n");
@@ -573,7 +597,7 @@ public class C4H_DYNAMIC_GUI {
 		netzwekList.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		netzwekList.setFont(new Font("Arial", Font.BOLD, 12));
 		netzwekList.setBackground(Color.WHITE);
-		netzwekList.setBounds(446, 150, 309, 278);
+		netzwekList.setBounds(446, 150, 309, 281);
 		PcInfoPanel.add(netzwekList);
 		
 	}

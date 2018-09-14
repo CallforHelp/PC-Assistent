@@ -37,7 +37,7 @@ public class C4H_GUI_TRAY_ICON {
 		final C4H_PC_INFO_KLASSE bg          = new C4H_PC_INFO_KLASSE();
 		      C4H_WEBSITE_START  web         = new C4H_WEBSITE_START();
 		
-		window.initialize();
+		//window.initialize();
 	
 		if (!SystemTray.isSupported()) {
 			System.out.println("SystemTray is not supported");
