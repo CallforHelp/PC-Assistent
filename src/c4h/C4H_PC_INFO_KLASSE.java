@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
  * */
 public class C4H_PC_INFO_KLASSE {
 	
-	public final int RechnerTypLaenge = 4;
+	private final int RechnerTypLaenge = 4;
 	
 	String schulNummer="";
 	
@@ -134,17 +134,18 @@ public class C4H_PC_INFO_KLASSE {
 	 */
 	public String getMusterImages() throws Throwable{
 		
-		String musterImages = "";
+		String musterImages="";
 		String line;
-		String location = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation\\";
+		 
+		
+		String location = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation";
 		Process process = null ;
 		
 		
 		if(getOSversion().contains("W")||getOSversion().contains("w")) {	// Run reg query, then read output with StreamReader (internal class)
-			process = Runtime.getRuntime().exec("reg query " +location);
-			System.out.println(process.toString());
-			System.out.println("ist reingegangen");
-			
+			//process = Runtime.getRuntime().exec("reg query " +location.toString());
+			process = Runtime.getRuntime().exec("reg query " + location);
+			System.out.println("ist reingegangen mit "+ "reg query " +location );
 			Reader input = new InputStreamReader(process.getInputStream());
 			BufferedReader resultOutput = new BufferedReader(input);
 			while((line=resultOutput.readLine()) != null) {
@@ -463,10 +464,15 @@ public class C4H_PC_INFO_KLASSE {
 		try {
 			System.out.println("Pruenfung der Schulnummer: "+BG.getSchulNummer()+" is "+ BG.pruefeSchulnr());
 		} catch (Throwable e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
+	}
+
+	public String getMusterImageAusDatei() {
+		String musterImage="";
+		
+		return musterImage;
 	}
 		
 }

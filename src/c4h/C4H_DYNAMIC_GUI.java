@@ -10,6 +10,7 @@ import java.awt.Toolkit;
 import java.awt.Window.Type;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -24,6 +25,8 @@ import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
 import javax.swing.border.EtchedBorder;
+
+
 import javax.swing.UIManager;
 
 /**
@@ -529,7 +532,7 @@ public class C4H_DYNAMIC_GUI {
 	    int x = (int) ((dimension.getWidth() - frmCh.getWidth()) / 2);
 	    int y = (int) ((dimension.getHeight() - frmCh.getHeight()) / 2);
 	    frmCh.setLocation(x, y);
-		setlist();
+	    setlist();
 		AktualisierItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
@@ -559,7 +562,9 @@ public class C4H_DYNAMIC_GUI {
 		systemInfo.addElement("                                          ");
 		systemInfo.addElement("OS Architektur   : "+ bg.getOSArchitecture());
 		systemInfo.addElement("                                          ");
-		systemInfo.addElement("Muster Images   : "+ bg.getMusterImages());
+		//systemInfo.addElement("Muster Images   : "+ bg.getMusterImages());
+		 String value = WindowsReqistry.readRegistry("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation", "Modell");
+		 systemInfo.addElement("Muster Images   : "+ value);
 		systemInfo.addElement("                                          ");
 		systemInfo.addElement("Rechner Typ        : "+ bg.getRechnertypen());
 		
