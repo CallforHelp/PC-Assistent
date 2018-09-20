@@ -134,18 +134,13 @@ public class C4H_PC_INFO_KLASSE {
 	 */
 	public String getMusterImages() throws Throwable{
 		
-		String musterImages="";
+		String musterImages = "";
 		String line;
-		 
-		
 		String location = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation";
+		String key = "Model";
 		Process process = null ;
-		
-		
 		if(getOSversion().contains("W")||getOSversion().contains("w")) {	// Run reg query, then read output with StreamReader (internal class)
-			//process = Runtime.getRuntime().exec("reg query " +location.toString());
-			process = Runtime.getRuntime().exec("reg query " + location);
-			System.out.println("ist reingegangen mit "+ "reg query " +location );
+			process = Runtime.getRuntime().exec("reg query " +location+" /v "+key);
 			Reader input = new InputStreamReader(process.getInputStream());
 			BufferedReader resultOutput = new BufferedReader(input);
 			while((line=resultOutput.readLine()) != null) {

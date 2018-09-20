@@ -562,9 +562,15 @@ public class C4H_DYNAMIC_GUI {
 		systemInfo.addElement("                                          ");
 		systemInfo.addElement("OS Architektur   : "+ bg.getOSArchitecture());
 		systemInfo.addElement("                                          ");
-		//systemInfo.addElement("Muster Images   : "+ bg.getMusterImages());
-		 String value = WindowsReqistry.readRegistry("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation", "Modell");
-		 systemInfo.addElement("Muster Images   : "+ value);
+		systemInfo.addElement("Muster Images   : "+ bg.getMusterImages());
+		
+		
+		String value = WindowsReqistry.readRegistry("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\"
+				+ "CurrentVersion\\OEMInformation", "Model");
+		systemInfo.addElement("Muster Images   : "+ value);
+		
+		
+		
 		systemInfo.addElement("                                          ");
 		systemInfo.addElement("Rechner Typ        : "+ bg.getRechnertypen());
 		

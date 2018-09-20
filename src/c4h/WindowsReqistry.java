@@ -15,19 +15,25 @@ public class WindowsReqistry {
     public static final String readRegistry(String location, String key){
         try {
             // Run reg query, then read output with StreamReader (internal class)
-          //  Process process = Runtime.getRuntime().exec("reg query "+'"'+ location + "\" /v " + key);
-            Process process = Runtime.getRuntime().exec("reg query "+location);
+        	
+        	Process process = Runtime.getRuntime().exec("reg query "+'"'+ location + "\" /v " + key);
             System.out.println("reg query "+ location + " /v " + key);
             StreamReader reader = new StreamReader(process.getInputStream());
+            
             reader.start();
             process.waitFor();
             reader.join();
- 
+            
+            String musterImages ="";
             // Parse out the value
-            String[] parsed = reader.getResult().split("\\s+");
-            if (parsed.length > 1) {
-                return parsed[parsed.length-1];
-            }
+            System.out.println(reader.getResult());
+            if (reader.getResult().contains("REG")){
+				musterImages=reader.getResult().split("REG_SZ")[1].trim();
+			}	
+//            String[] parsed = reader.getResult().split("\\s+");
+            
+            return musterImages;
+            
         } catch (Exception e) {}
  
         return null;
@@ -57,7 +63,7 @@ public class WindowsReqistry {
     public static void main(String[] args) {
  
         // Sample usage
-        String value = WindowsReqistry.readRegistry("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation", "Modell");
+        String value = WindowsReqistry.readRegistry("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation", "Model");
         System.out.println(value);
     }
 }
