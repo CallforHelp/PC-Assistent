@@ -168,10 +168,11 @@ public class C4H_DYNAMIC_GUI {
 	
 		//LABELS
 		JLabel logoLabel = new JLabel("");
+		logoLabel.setForeground(Color.BLACK);
 		logoLabel.setBackground(Color.WHITE);
 		logoLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		logoLabel.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/Oemlogo.png")));
-		logoLabel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
+		logoLabel.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/rect2.png")));
+		logoLabel.setBorder(UIManager.getBorder("Button.border"));
 		
 		JLabel titelLabel = new JLabel("");
 		titelLabel.setBackground(UIManager.getColor("Button.light"));
