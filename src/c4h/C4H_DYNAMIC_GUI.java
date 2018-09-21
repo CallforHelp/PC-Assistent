@@ -172,7 +172,6 @@ public class C4H_DYNAMIC_GUI {
 		logoLabel.setBackground(Color.WHITE);
 		logoLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		logoLabel.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/rect2.png")));
-		logoLabel.setBorder(UIManager.getBorder("Button.border"));
 		
 		JLabel titelLabel = new JLabel("");
 		titelLabel.setBackground(UIManager.getColor("Button.light"));
@@ -194,7 +193,7 @@ public class C4H_DYNAMIC_GUI {
 		fehlermeldenButton.setBounds(10, 215, 175, 75);
 		
 		//Panel
-		Buttonpanel.setBackground(Color.WHITE);
+		Buttonpanel.setBackground(new Color(192, 192, 192));
 		Buttonpanel.setBounds(0, 40, 200, 670);
 		Buttonpanel.setLayout(null);
 		Buttonpanel.add(pcInfoButton);
@@ -566,9 +565,8 @@ public class C4H_DYNAMIC_GUI {
 		systemInfo.addElement("Muster Images   : "+ bg.getMusterImages());
 		
 		
-		String value = WindowsReqistry.readRegistry("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\"
-				+ "CurrentVersion\\OEMInformation", "Model");
-		systemInfo.addElement("Muster Images   : "+ value);
+		//String value = WindowsReqistry.readRegistry("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\"+"CurrentVersion\\OEMInformation", "Model");
+		//systemInfo.addElement("Muster Images   : "+ value);
 		
 		
 		
