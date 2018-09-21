@@ -28,6 +28,8 @@ import javax.swing.border.EtchedBorder;
 
 
 import javax.swing.UIManager;
+import java.awt.SystemColor;
+
 
 /**
  * Ein Dynmaisches Gui der verschiedene m&ouml;glichkeiten besitz f&uuml;r den User. 
@@ -67,15 +69,19 @@ public class C4H_DYNAMIC_GUI {
 	/**
 	 * PcInformationbutton
 	 */
-	JButton pcInfoButton = new JButton("PC INFORMATION");
+	//JButton pcInfoButton = new JButton("");
+	 MyButton pcInfoButton = new MyButton("");
 	/**
 	 * Supportbutton
 	 */
-	JButton fehlermeldenButton = new JButton("SUPPORT");
+	//JButton fehlermeldenButton = new JButton("");
+	 MyButton fehlermeldenButton = new MyButton("");
 	/**
 	 * Chatbutton
 	 */
-	JButton chatButton = new JButton("CHAT");
+	//JButton chatButton = new JButton("CHAT");
+	 MyButton chatButton = new MyButton("");
+	
 
 	/**
 	 * Allgemeine Model fue eine Liste PcInfo
@@ -171,7 +177,7 @@ public class C4H_DYNAMIC_GUI {
 		logoLabel.setForeground(Color.BLACK);
 		logoLabel.setBackground(Color.WHITE);
 		logoLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		logoLabel.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/rect2.png")));
+		logoLabel.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/3s_logo_c4h.png")));
 		
 		JLabel titelLabel = new JLabel("");
 		titelLabel.setBackground(UIManager.getColor("Button.light"));
@@ -182,18 +188,31 @@ public class C4H_DYNAMIC_GUI {
 		JLabel lblNetzwerkInformation = new JLabel("Netzwerk Information");
 		lblNetzwerkInformation.setBackground(UIManager.getColor("Button.light"));
 		lblNetzwerkInformation.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		pcInfoButton.setBackground(UIManager.getColor("Button.light"));
-		pcInfoButton.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		pcInfoButton.setForeground(new Color(204, 204, 204));
+		
+		pcInfoButton.setFocusPainted(false);
+		pcInfoButton.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/pcInfoButton.png")));
+		pcInfoButton.setBorderPainted(false);
+		pcInfoButton.setBackground(SystemColor.menu);
 		pcInfoButton.setFont(new Font("Arial", Font.BOLD, 11));
+		pcInfoButton.setPressedIcon((new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/pcInfoButton.png"))));
 		
 		//button
-		pcInfoButton.setBounds(10, 83, 175, 75);
-		fehlermeldenButton.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		pcInfoButton.setBounds(16, 208, 169, 39);
+		fehlermeldenButton.setFocusPainted(false);
+		fehlermeldenButton.setBackground(SystemColor.menu);
+		fehlermeldenButton.setForeground(new Color(204, 204, 204));
+		
+		
+		
+		
+		
+		fehlermeldenButton.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/supportbutton.png")));
 		fehlermeldenButton.setFont(new Font("Arial", Font.BOLD, 11));
-		fehlermeldenButton.setBounds(10, 215, 175, 75);
+		fehlermeldenButton.setBounds(16, 258, 169, 39);
 		
 		//Panel
-		Buttonpanel.setBackground(new Color(192, 192, 192));
+		Buttonpanel.setBackground(SystemColor.menu);
 		Buttonpanel.setBounds(0, 40, 200, 670);
 		Buttonpanel.setLayout(null);
 		Buttonpanel.add(pcInfoButton);
@@ -201,7 +220,7 @@ public class C4H_DYNAMIC_GUI {
 		
 		
 		PcInfoPanel.setBounds(200, 40, 787, 670);
-		PcInfoPanel.setBackground(Color.WHITE);
+		PcInfoPanel.setBackground(SystemColor.menu);
 		PcInfoPanel.setLayout(null);
 		PcInfoPanel.add(titelLabel);
 		
@@ -217,6 +236,7 @@ public class C4H_DYNAMIC_GUI {
 		
 		//MENU
 		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBackground(SystemColor.menu);
 		menuBar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		JMenu menuDatei = new JMenu("Allgemein");
@@ -287,17 +307,12 @@ public class C4H_DYNAMIC_GUI {
 		separator_1.setPreferredSize(new Dimension(0, 5));
 		menuDatei.add(separator_1);
 		menuDatei.add(exitItem);
-		
-		JMenuItem AktualisierItem = new JMenuItem("Aktualisieren");
-		AktualisierItem.setFont(new Font("Arial", Font.BOLD, 12));
-		
-		menuDatei.add(AktualisierItem);
-		chatButton.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		chatButton.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/chatButton.png")));
 		chatButton.setFont(new Font("Arial", Font.BOLD, 11));
 		
 		
 		
-		chatButton.setBounds(10, 346, 175, 75);
+		chatButton.setBounds(16, 308, 169, 39);
 		Buttonpanel.add(chatButton);
 		
 		chatButton.addActionListener(new ActionListener() {
@@ -395,6 +410,25 @@ public class C4H_DYNAMIC_GUI {
 		mnInfo.add(downloadMenuItem);
 		downloadMenuItem.setFont(new Font("Arial", Font.BOLD, 12));
 		
+		JSeparator separator_2 = new JSeparator();
+		separator_2.setPreferredSize(new Dimension(0, 5));
+		mnInfo.add(separator_2);
+		
+		JMenuItem AktualisierItem = new JMenuItem("Aktualisieren");
+		mnInfo.add(AktualisierItem);
+		AktualisierItem.setFont(new Font("Arial", Font.BOLD, 12));
+		AktualisierItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					setlist();
+					 System.out.println(bg.getMusterImages());
+				} catch (Throwable e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+		
 		downloadMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("download Starten");
@@ -479,8 +513,8 @@ public class C4H_DYNAMIC_GUI {
 		JLabel logo3sLabel = new JLabel("");
 		logo3sLabel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		logo3sLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		logo3sLabel.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/3s_logo.png")));
-		logo3sLabel.setBounds(55, 461, 700, 184);
+		logo3sLabel.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/3s_logo_text4.png")));
+		logo3sLabel.setBounds(56, 461, 699, 184);
 		PcInfoPanel.add(logo3sLabel);
 
 		
@@ -499,6 +533,8 @@ public class C4H_DYNAMIC_GUI {
 				
 			}
 		});
+
+		
 		browser = new C4H_BROWSER_INTEGRATION(FehlerMeldenPanel);
 		fehlermeldenButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -533,17 +569,6 @@ public class C4H_DYNAMIC_GUI {
 	    int y = (int) ((dimension.getHeight() - frmCh.getHeight()) / 2);
 	    frmCh.setLocation(x, y);
 	    setlist();
-		AktualisierItem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				try {
-					setlist();
-					 System.out.println(bg.getMusterImages());
-				} catch (Throwable e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		});
 
 	}
 	public void setlist() throws Throwable {
@@ -575,7 +600,7 @@ public class C4H_DYNAMIC_GUI {
 		
 		pcInfoList= new JList<String>(systemInfo);
 		pcInfoList.setFont(new Font("Arial", Font.BOLD, 12));
-		pcInfoList.setBackground(Color.WHITE);
+		pcInfoList.setBackground(new Color(204, 204, 204));
 		pcInfoList.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		pcInfoList.setForeground(Color.BLACK);
 		pcInfoList.setSelectionForeground(new Color(0, 0, 255));
@@ -606,7 +631,7 @@ public class C4H_DYNAMIC_GUI {
 		netzwekList.setForeground(Color.BLACK);
 		netzwekList.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		netzwekList.setFont(new Font("Arial", Font.BOLD, 12));
-		netzwekList.setBackground(Color.WHITE);
+		netzwekList.setBackground(new Color(204, 204, 204));
 		netzwekList.setBounds(446, 150, 309, 281);
 		PcInfoPanel.add(netzwekList);
 		
