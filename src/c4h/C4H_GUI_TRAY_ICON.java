@@ -98,10 +98,17 @@ public class C4H_GUI_TRAY_ICON {
     	trayIcon.addMouseListener(new MouseAdapter() {
     		public void mouseClicked(MouseEvent e ) {
     			if(e.getButton()==MouseEvent.BUTTON1) {
+    				try {
+						window.setlist();
+					} catch (Throwable e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
     				window.frmCh.setVisible(true);
     				window.PcInfoPanel.setVisible(true);
     				window.FehlerMeldenPanel.setVisible(false);
     				window.chatPanel.setVisible(false);
+    				
     			}
 			
     		}

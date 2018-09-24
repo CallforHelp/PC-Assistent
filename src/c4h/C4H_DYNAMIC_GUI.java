@@ -44,6 +44,7 @@ public class C4H_DYNAMIC_GUI {
 	
 	private C4H_BROWSER_INTEGRATION browser ;
 	private C4H_WEBSITE_START web = new C4H_WEBSITE_START();
+
 	
 	/**
 	 * FrameC4H
@@ -187,12 +188,12 @@ public class C4H_DYNAMIC_GUI {
 		JLabel lblNetzwerkInformation = new JLabel("Netzwerk Information");
 		lblNetzwerkInformation.setBackground(UIManager.getColor("Button.light"));
 		lblNetzwerkInformation.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		pcInfoButton.setForeground(new Color(204, 204, 204));
+		pcInfoButton.setForeground(new Color(192, 192, 192));
 		
 		pcInfoButton.setFocusPainted(false);
 		pcInfoButton.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/pcInfoButton.png")));
 		pcInfoButton.setBorderPainted(false);
-		pcInfoButton.setBackground(SystemColor.menu);
+		pcInfoButton.setBackground(new Color(245, 245, 245));
 		pcInfoButton.setFont(new Font("Arial", Font.BOLD, 11));
 		pcInfoButton.setPressedIcon((new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/pcInfoButton.png"))));
 		
@@ -200,7 +201,7 @@ public class C4H_DYNAMIC_GUI {
 		pcInfoButton.setBounds(16, 208, 169, 39);
 		fehlermeldenButton.setBorderPainted(false);
 		fehlermeldenButton.setFocusPainted(false);
-		fehlermeldenButton.setBackground(SystemColor.menu);
+		fehlermeldenButton.setBackground(new Color(245, 245, 245));
 		fehlermeldenButton.setForeground(new Color(204, 204, 204));
 		
 		
@@ -212,7 +213,7 @@ public class C4H_DYNAMIC_GUI {
 		fehlermeldenButton.setBounds(16, 258, 169, 39);
 		
 		//Panel
-		Buttonpanel.setBackground(SystemColor.menu);
+		Buttonpanel.setBackground(new Color(245, 245, 245));
 		Buttonpanel.setBounds(0, 40, 200, 670);
 		Buttonpanel.setLayout(null);
 		Buttonpanel.add(pcInfoButton);
@@ -220,16 +221,16 @@ public class C4H_DYNAMIC_GUI {
 		
 		
 		PcInfoPanel.setBounds(200, 40, 787, 670);
-		PcInfoPanel.setBackground(SystemColor.menu);
+		PcInfoPanel.setBackground(new Color(245, 245, 245));
 		PcInfoPanel.setLayout(null);
 		PcInfoPanel.add(titelLabel);
 		
 		FehlerMeldenPanel.setBounds(200, 40, 787, 670);
-		FehlerMeldenPanel.setBackground(new Color(240,240,240));
+		FehlerMeldenPanel.setBackground(new Color(245, 245, 245));
 		FehlerMeldenPanel.setLayout(new BorderLayout());
 		
 		chatPanel.setBounds(200, 40, 787, 670);
-		chatPanel.setBackground(Color.WHITE);
+		chatPanel.setBackground(new Color(245, 245, 245));
 		chatPanel.setLayout(null);
 		chatPanel.setVisible(true);
 		
@@ -307,6 +308,7 @@ public class C4H_DYNAMIC_GUI {
 		separator_1.setPreferredSize(new Dimension(0, 5));
 		menuDatei.add(separator_1);
 		menuDatei.add(exitItem);
+		chatButton.setBackground(new Color(245, 245, 245));
 		chatButton.setForeground(new Color(204,204, 204, 204));
 		chatButton.setBorderPainted(false);
 		chatButton.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/chatButton.png")));
@@ -344,7 +346,7 @@ public class C4H_DYNAMIC_GUI {
 		
 		lblNetzwerkInformation.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNetzwerkInformation.setFont(new Font("Arial", Font.BOLD, 18));
-		lblNetzwerkInformation.setBounds(480, 89, 238, 50);
+		lblNetzwerkInformation.setBounds(455, 89, 238, 50);
 		PcInfoPanel.add(lblNetzwerkInformation);
 		
 		JSeparator separator = new JSeparator();
@@ -553,14 +555,14 @@ public class C4H_DYNAMIC_GUI {
 		blink.setBackground(new Color(240, 240, 240));
 		blink.setHorizontalAlignment(SwingConstants.CENTER);
 		blink.setHorizontalTextPosition(SwingConstants.CENTER);
-		blink.setBounds(281, 297, 225, 75);
+		blink.setBounds(281, 280, 225, 75);
 		
 		chatPanel.add(blink);
 		
 		JLabel logolabelchat = new JLabel("");
 		logolabelchat.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		logolabelchat.setHorizontalAlignment(SwingConstants.CENTER);
-		logolabelchat.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/3s_logo-2.png")));
+		logolabelchat.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/3s_logo_text4.png")));
 		logolabelchat.setBounds(55, 461, 700, 184);
 		chatPanel.add(logolabelchat);
 		
@@ -590,13 +592,6 @@ public class C4H_DYNAMIC_GUI {
 		systemInfo.addElement("OS Architektur   : "+ bg.getOSArchitecture());
 		systemInfo.addElement("                                          ");
 		systemInfo.addElement("Muster Images   : "+ bg.getMusterImages());
-		
-		
-		//String value = WindowsReqistry.readRegistry("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\"+"CurrentVersion\\OEMInformation", "Model");
-		//systemInfo.addElement("Muster Images   : "+ value);
-		
-		
-		
 		systemInfo.addElement("                                          ");
 		systemInfo.addElement("Rechner Typ        : "+ bg.getRechnertypen());
 		
@@ -629,12 +624,12 @@ public class C4H_DYNAMIC_GUI {
 		netzwekList = new JList<String>(netzwerkInfo);
 		netzwekList.setValueIsAdjusting(true);
 		netzwekList.setSelectionForeground(new Color(0, 0, 255));
-		netzwekList.setSelectionBackground(Color.LIGHT_GRAY);
+		netzwekList.setSelectionBackground(new Color(204, 204, 204));
 		netzwekList.setForeground(Color.BLACK);
 		netzwekList.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		netzwekList.setFont(new Font("Arial", Font.BOLD, 12));
-		netzwekList.setBackground(new Color(204, 204, 204));
-		netzwekList.setBounds(446, 150, 309, 281);
+		netzwekList.setBackground(new Color(192, 192, 192));
+		netzwekList.setBounds(423, 150, 309, 281);
 		PcInfoPanel.add(netzwekList);
 		
 	}
