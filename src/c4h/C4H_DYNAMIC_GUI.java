@@ -307,6 +307,7 @@ public class C4H_DYNAMIC_GUI {
 		separator_1.setPreferredSize(new Dimension(0, 5));
 		menuDatei.add(separator_1);
 		menuDatei.add(exitItem);
+		chatButton.setForeground(new Color(204,204, 204, 204));
 		chatButton.setBorderPainted(false);
 		chatButton.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/chatButton.png")));
 		chatButton.setFont(new Font("Arial", Font.BOLD, 11));
