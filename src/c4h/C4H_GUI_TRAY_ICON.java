@@ -35,7 +35,7 @@ public class C4H_GUI_TRAY_ICON {
 		final TrayIcon           trayIcon    = new TrayIcon(createImage("images/bulb.png", "trayIcon"));  
 		final SystemTray         tray        = SystemTray.getSystemTray();
 		final C4H_PC_INFO_KLASSE bg          = new C4H_PC_INFO_KLASSE();
-		      C4H_WEBSITE_START  web         = new C4H_WEBSITE_START();
+		final C4H_WEBSITE_START  web         = new C4H_WEBSITE_START();
 	
 		if (!SystemTray.isSupported()) {
 			System.out.println("SystemTray is not supported");
