@@ -5,7 +5,7 @@ import java.awt.Graphics;
 
 import javax.swing.JButton;
 
-class MyButton extends JButton {
+class C4H_MyButton extends JButton {
 
     /**
 	 * 
@@ -14,11 +14,11 @@ class MyButton extends JButton {
 	private Color hoverBackgroundColor;
     private Color pressedBackgroundColor;
 
-    public MyButton() {
+    public C4H_MyButton() {
         this(null);
     }
 
-    public MyButton(String text) {
+    public C4H_MyButton(String text) {
         super(text);
         super.setContentAreaFilled(false);
     }

@@ -69,17 +69,17 @@ public class C4H_DYNAMIC_GUI {
 	 * PcInformationbutton
 	 */
 	//JButton pcInfoButton = new JButton("");
-	 MyButton pcInfoButton = new MyButton("");
+	 C4H_MyButton pcInfoButton = new C4H_MyButton("");
 	/**
 	 * Supportbutton
 	 */
 	//JButton fehlermeldenButton = new JButton("");
-	 MyButton fehlermeldenButton = new MyButton("");
+	 C4H_MyButton fehlermeldenButton = new C4H_MyButton("");
 	/**
 	 * Chatbutton
 	 */
 	//JButton chatButton = new JButton("CHAT");
-	 MyButton chatButton = new MyButton("");
+	 C4H_MyButton chatButton = new C4H_MyButton("");
 	
 
 	/**
