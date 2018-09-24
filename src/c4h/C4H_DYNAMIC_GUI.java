@@ -13,7 +13,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -199,6 +198,7 @@ public class C4H_DYNAMIC_GUI {
 		
 		//button
 		pcInfoButton.setBounds(16, 208, 169, 39);
+		fehlermeldenButton.setBorderPainted(false);
 		fehlermeldenButton.setFocusPainted(false);
 		fehlermeldenButton.setBackground(SystemColor.menu);
 		fehlermeldenButton.setForeground(new Color(204, 204, 204));
@@ -307,6 +307,7 @@ public class C4H_DYNAMIC_GUI {
 		separator_1.setPreferredSize(new Dimension(0, 5));
 		menuDatei.add(separator_1);
 		menuDatei.add(exitItem);
+		chatButton.setBorderPainted(false);
 		chatButton.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/chatButton.png")));
 		chatButton.setFont(new Font("Arial", Font.BOLD, 11));
 		
