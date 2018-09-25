@@ -10,9 +10,8 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import at.jta.Key;
+
 import at.jta.RegistryErrorException;
-import at.jta.Regor;
 
 /**
  * Eine Klasse zum Zeigen der wichtigsten informationen &uuml;ber den Client. 
