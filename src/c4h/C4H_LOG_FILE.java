@@ -2,22 +2,14 @@ package src.c4h;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.util.Enumeration;
-import java.util.Properties;
 
 public class C4H_LOG_FILE {
   
   FileWriter writer;
   File file;
   
-  public void schreiben(String loginfotext){
-
-	  
-	  // File anlegen
-	  
-	  
-	 
+  public void schreiben(String loginfotext){  
+	  // File anlegen 
      file = new File("FileWriterTest.txt");
      try {
        // new FileWriter(file ,true) - falls die Datei bereits existiert
