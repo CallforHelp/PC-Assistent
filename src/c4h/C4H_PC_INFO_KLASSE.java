@@ -483,12 +483,33 @@ public class C4H_PC_INFO_KLASSE {
 		return musterImage;
 	}
 	
-	public String getMusterImageAusRegistry() throws RegistryErrorException {
-		at.jta.Regor reg = new at.jta.Regor();
-        String Model="Model";
-        Key key = reg.openKey(reg.HKEY_LOCAL_MACHINE,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation\\Model");
-        reg.closeKey(key);
-		return "";
+	public String getMusterImageAusRegistry() throws RegistryErrorException, IOException {
+//		at.jta.Regor reg = new at.jta.Regor();
+//        String Model="Model";
+//        Key key = reg.openKey(reg.HKEY_LOCAL_MACHINE,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation\\Model");
+//        reg.closeKey(key);
+		String musterausdatei="";
+		ProcessBuilder builder = new ProcessBuilder(
+
+				"reg", "query",
+
+				"\"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation\"", "/v", "Model" );
+
+				Process p = builder.start();
+
+				try ( Scanner scanner = new Scanner( p.getInputStream() ) ) {
+
+				scanner.nextLine(); // Springe über ! REG.EXE VERSION 3.0
+
+				scanner.nextLine(); // Springe über HKEY_CURRENT_USER\Control Panel\Desktop
+
+				scanner.useDelimiter( "\\s+\\w+\\s+\\w+\\s+" );
+				musterausdatei = scanner.next();
+
+				System.out.println(musterausdatei );
+				}
+				return musterausdatei;
 	}
+	
 		
 }

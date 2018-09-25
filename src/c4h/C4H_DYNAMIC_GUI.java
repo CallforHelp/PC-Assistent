@@ -594,6 +594,8 @@ public class C4H_DYNAMIC_GUI {
 		systemInfo.addElement("Muster Images   : "+ bg.getMusterImages());
 		systemInfo.addElement("                                          ");
 		systemInfo.addElement("Rechner Typ        : "+ bg.getRechnertypen());
+		systemInfo.addElement("                                          ");
+		systemInfo.addElement("Musimage        : "+ bg.getMusterImageAusRegistry());
 		
 		pcInfoList= new JList<String>(systemInfo);
 		pcInfoList.setFont(new Font("Arial", Font.BOLD, 12));
