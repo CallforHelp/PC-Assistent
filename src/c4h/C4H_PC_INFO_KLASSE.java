@@ -417,6 +417,26 @@ public class C4H_PC_INFO_KLASSE {
 		}
 		return  false;
 	}
+	/**
+	 * Es wird hier nochmal sicher gestellt dass die Version unser MusterImages 
+	 * erstellt.
+	 * Hinweis die Klasse tritt nur auf falls NULL beim Standard MUsterImage Ausgabe kommt
+	 * 
+	 * @return MusterImage aus der REG
+	 * @throws IllegalArgumentException MusterImage
+	 * @throws IllegalAccessException Value vom REG
+	 * @throws InvocationTargetException Value vom REG
+	 */
+	public String getMusterImageAusRegistry() throws IllegalArgumentException, IllegalAccessException, InvocationTargetException {
+		String musterausdatei="";
+		int HKEY_LOCAL_MACHINE= 0x80000002;
+		musterausdatei = C4H_WIN_REGISTRY.readString(HKEY_LOCAL_MACHINE,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation","Model", 0);
+		pcInfoLog.schreiben("aus der REGKLASSE KOMMT: "+musterausdatei);
+	      System.out.println(musterausdatei);
+	
+		return musterausdatei;
+	}
+	
 	
 	/************************************************************************************************************/
 	/************************************** PRINTING * @throws Throwable ****************************************/
@@ -466,22 +486,7 @@ public class C4H_PC_INFO_KLASSE {
 		}
 
 	}
+	
 
-	public String getMusterImageAusDatei() {
-		String musterImage="";
-		
-		return musterImage;
-	}
-	
-	public String getMusterImageAusRegistry() throws IllegalArgumentException, IllegalAccessException, InvocationTargetException {
-		String musterausdatei="";
-		int HKEY_LOCAL_MACHINE= 0x80000002;
-		musterausdatei = C4H_WIN_REGISTRY.readString(HKEY_LOCAL_MACHINE,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation","Model", 0);
-		pcInfoLog.schreiben("aus der REGKLASSE KOMMT: "+musterausdatei);
-	      System.out.println(musterausdatei);
-	
-		return musterausdatei;
-	}
-	
 		
 }
