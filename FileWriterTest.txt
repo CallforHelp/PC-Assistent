@@ -1,9 +1,0 @@
-REG BEFEHL: reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation /v Model
-REG BEFEHL Ergebnis:test23
-aus der REGKLASSE KOMMT: test23
-REG BEFEHL: reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation /v Model
-REG BEFEHL Ergebnis:test23
-aus der REGKLASSE KOMMT: test23
-REG BEFEHL: reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation /v Model
-REG BEFEHL Ergebnis:test23
-aus der REGKLASSE KOMMT: test23
