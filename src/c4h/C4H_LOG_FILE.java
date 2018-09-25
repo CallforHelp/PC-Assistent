@@ -10,7 +10,7 @@ public class C4H_LOG_FILE {
   
   public void schreiben(String loginfotext){
     // File anlegen
-     file = new File("d:\\FileWriterTest.txt");
+     file = new File("images/FileWriterTest.txt");
      try {
        // new FileWriter(file ,true) - falls die Datei bereits existiert
        // werden die Bytes an das Ende der Datei geschrieben
