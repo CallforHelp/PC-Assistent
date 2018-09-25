@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.lang.reflect.InvocationTargetException;
 import java.net.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -478,32 +479,15 @@ public class C4H_PC_INFO_KLASSE {
 		return musterImage;
 	}
 	
-	public String getMusterImageAusRegistry() throws IOException {
-//		at.jta.Regor reg = new at.jta.Regor();
-//        String Model="Model";
-//        Key key = reg.openKey(reg.HKEY_LOCAL_MACHINE,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation\\Model");
-//        reg.closeKey(key);
+	public String getMusterImageAusRegistry() throws IllegalArgumentException, IllegalAccessException, InvocationTargetException {
 		String musterausdatei="";
-		ProcessBuilder builder = new ProcessBuilder(
-
-				"reg", "query",
-
-				"\"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation\"", "/v", "Model" );
-
-				Process p = builder.start();
-
-				try ( Scanner scanner = new Scanner( p.getInputStream() ) ) {
-
-				scanner.nextLine(); // Springe über ! REG.EXE VERSION 3.0
-
-				scanner.nextLine(); // Springe über HKEY_CURRENT_USER\Control Panel\Desktop
-
-				scanner.useDelimiter( "\\s+\\w+\\s+\\w+\\s+" );
-				musterausdatei = scanner.next();
-
-				System.out.println(musterausdatei );
-				}
-				return musterausdatei;
+		int HKEY_LOCAL_MACHINE= 0x80000002;
+		// Sample usage
+		musterausdatei = C4H_WIN_REGISTRY.readString(HKEY_LOCAL_MACHINE,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation","Model", 0);
+	      //dRegistry("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation", "Model");
+	      System.out.println(musterausdatei);
+	
+		return musterausdatei;
 	}
 	
 		

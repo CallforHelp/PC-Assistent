@@ -70,17 +70,17 @@ public class C4H_DYNAMIC_GUI {
 	 * PcInformationbutton
 	 */
 	//JButton pcInfoButton = new JButton("");
-	 C4H_MyButton pcInfoButton = new C4H_MyButton("");
+	 C4H_MY_BUTTON pcInfoButton = new C4H_MY_BUTTON("");
 	/**
 	 * Supportbutton
 	 */
 	//JButton fehlermeldenButton = new JButton("");
-	 C4H_MyButton fehlermeldenButton = new C4H_MyButton("");
+	 C4H_MY_BUTTON fehlermeldenButton = new C4H_MY_BUTTON("");
 	/**
 	 * Chatbutton
 	 */
 	//JButton chatButton = new JButton("CHAT");
-	 C4H_MyButton chatButton = new C4H_MyButton("");
+	 C4H_MY_BUTTON chatButton = new C4H_MY_BUTTON("");
 	
 
 	/**
@@ -550,7 +550,7 @@ public class C4H_DYNAMIC_GUI {
 				startBrowser();
 			}
 		});
-		C4H_Blink_Label blink = new C4H_Blink_Label("Hier Kommt ein CHAT Fenster");
+		C4H_BLINK_LABEL blink = new C4H_BLINK_LABEL("Hier Kommt ein CHAT Fenster");
 		blink.setBlinking(true);
 		blink.setBackground(new Color(240, 240, 240));
 		blink.setHorizontalAlignment(SwingConstants.CENTER);
