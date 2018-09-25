@@ -210,7 +210,7 @@ public class C4H_DYNAMIC_GUI {
 		fehlermeldenButton.setBounds(16, 258, 169, 39);
 		
 		//Panel
-		Buttonpanel.setBackground(new Color(211, 211, 211));
+		Buttonpanel.setBackground(new Color(220, 220, 220));
 		Buttonpanel.setBounds(0, 40, 200, 670);
 		Buttonpanel.setLayout(null);
 		Buttonpanel.add(pcInfoButton);
@@ -218,27 +218,27 @@ public class C4H_DYNAMIC_GUI {
 		
 		
 		PcInfoPanel.setBounds(200, 40, 787, 670);
-		PcInfoPanel.setBackground(new Color(211, 211, 211));
+		PcInfoPanel.setBackground(new Color(220, 220, 220));
 		PcInfoPanel.setLayout(null);
 		PcInfoPanel.add(titelLabel);
 		
 		FehlerMeldenPanel.setBounds(200, 40, 787, 670);
-		FehlerMeldenPanel.setBackground(new Color(211, 211, 211));
+		FehlerMeldenPanel.setBackground(new Color(220, 220, 220));
 		FehlerMeldenPanel.setLayout(new BorderLayout());
 		
 		chatPanel.setBounds(200, 40, 787, 670);
-		chatPanel.setBackground(new Color(211, 211, 211));
+		chatPanel.setBackground(new Color(220, 220, 220));
 		chatPanel.setLayout(null);
 		chatPanel.setVisible(true);
 		
 		
 		//MENU
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBackground(new Color(211, 211, 211));
+		menuBar.setBackground(new Color(220, 220, 220));
 		menuBar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		JMenu menuDatei = new JMenu("Allgemein");
-		menuDatei.setBackground(new Color(211, 211, 211));
+		menuDatei.setBackground(new Color(220, 220, 220));
 		menuDatei.setSize(new Dimension(10, 0));
 		menuDatei.setBorder(null);
 		menuDatei.setFont(new Font("Arial", Font.BOLD, 12));
@@ -359,7 +359,7 @@ public class C4H_DYNAMIC_GUI {
 		PcInfoPanel.add(separator);
 		frmCh.setForeground(Color.BLACK);
 		frmCh.setIconImage(Toolkit.getDefaultToolkit().getImage(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/Oemlogo.png")));
-		frmCh.setBackground(Color.WHITE);
+		frmCh.setBackground(new Color(211, 211, 211));
 		frmCh.setTitle("C4H");
 		
 		frmCh.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -369,7 +369,7 @@ public class C4H_DYNAMIC_GUI {
 		frmCh.getContentPane().add(menuBar);
 		
 		JMenu mnInfo = new JMenu("Extras");
-		mnInfo.setBackground(new Color(211, 211, 211));
+		mnInfo.setBackground(new Color(220, 220, 220));
 		mnInfo.setSize(new Dimension(20, 10));
 		mnInfo.setBorder(null);
 		mnInfo.setFont(new Font("Arial", Font.BOLD, 12));
@@ -455,7 +455,7 @@ public class C4H_DYNAMIC_GUI {
 		});
 		
 		JMenu menu = new JMenu("Info");
-		menu.setBackground(new Color(211, 211, 211));
+		menu.setBackground(new Color(220, 220, 220));
 		menu.setSize(new Dimension(20, 10));
 		menuBar.add(menu);
 		menu.setHorizontalTextPosition(SwingConstants.LEFT);
@@ -483,6 +483,7 @@ public class C4H_DYNAMIC_GUI {
 		menu.add(c4hHilfeItem);
 		
 		JMenuItem faqItem = new JMenuItem("FAQ");
+		faqItem.setBackground(new Color(211, 211, 211));
 		faqItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("FAQ Browse");
