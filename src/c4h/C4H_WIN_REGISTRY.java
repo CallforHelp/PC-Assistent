@@ -1,7 +1,7 @@
 package src.c4h;
 /**
  * Pure Java Windows Registry access.
- * Modified by petrucio@stackoverflow(828681) to add support for
+ * Modified by Helmi Bani
  * reading (and writing but not creating/deleting keys) the 32-bits
  * registry view from a 64-bits JVM (KEY_WOW64_32KEY)
  * and 64-bits view from a 32-bits JVM (KEY_WOW64_64KEY).
