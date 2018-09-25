@@ -389,11 +389,4 @@ public class C4H_WIN_REGISTRY {
     result[str.length()] = 0;
     return result;
   }
-  public static void main(String[] args) throws IllegalArgumentException, ReflectiveOperationException, InvocationTargetException {
-	  
-      // Sample usage
-      String value = C4H_WIN_REGISTRY.readString(HKEY_LOCAL_MACHINE,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation","Model", 0);
-      //dRegistry("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation", "Model");
-      System.out.println(value);
-  }
 }
