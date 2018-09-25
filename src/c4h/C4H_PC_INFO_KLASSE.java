@@ -10,9 +10,6 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
-import at.jta.RegistryErrorException;
-
 /**
  * Eine Klasse zum Zeigen der wichtigsten informationen &uuml;ber den Client. 
  * Netwerk und PC Information
@@ -35,7 +32,6 @@ public class C4H_PC_INFO_KLASSE {
 	public C4H_PC_INFO_KLASSE() throws Throwable {
 		
 		settSchulNummer();
-		getMusterImageAusRegistry();
 	
 	}
 	
@@ -482,7 +478,7 @@ public class C4H_PC_INFO_KLASSE {
 		return musterImage;
 	}
 	
-	public String getMusterImageAusRegistry() throws RegistryErrorException, IOException {
+	public String getMusterImageAusRegistry() throws IOException {
 //		at.jta.Regor reg = new at.jta.Regor();
 //        String Model="Model";
 //        Key key = reg.openKey(reg.HKEY_LOCAL_MACHINE,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation\\Model");
