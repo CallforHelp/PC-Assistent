@@ -20,7 +20,6 @@ public class C4H {
 		try {
 			start.createshowGui();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

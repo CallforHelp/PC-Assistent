@@ -35,7 +35,7 @@ public class C4H_GUI_TRAY_ICON {
 		final TrayIcon           trayIcon    = new TrayIcon(createImage("images/bulb.png", "trayIcon"));  
 		final SystemTray         tray        = SystemTray.getSystemTray();
 		final C4H_PC_INFO_KLASSE bg          = new C4H_PC_INFO_KLASSE();
-		      C4H_WEBSITE_START  web         = new C4H_WEBSITE_START();
+		final C4H_WEBSITE_START  web         = new C4H_WEBSITE_START();
 	
 		if (!SystemTray.isSupported()) {
 			System.out.println("SystemTray is not supported");
@@ -98,10 +98,17 @@ public class C4H_GUI_TRAY_ICON {
     	trayIcon.addMouseListener(new MouseAdapter() {
     		public void mouseClicked(MouseEvent e ) {
     			if(e.getButton()==MouseEvent.BUTTON1) {
+    				try {
+						window.setlist();
+					} catch (Throwable e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
     				window.frmCh.setVisible(true);
     				window.PcInfoPanel.setVisible(true);
     				window.FehlerMeldenPanel.setVisible(false);
     				window.chatPanel.setVisible(false);
+    				
     			}
 			
     		}

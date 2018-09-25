@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.lang.reflect.InvocationTargetException;
 import java.net.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -20,6 +21,7 @@ import java.util.regex.Pattern;
 public class C4H_PC_INFO_KLASSE {
 	
 	private final int RechnerTypLaenge = 4;
+	private C4H_LOG_FILE pcInfoLog = new C4H_LOG_FILE();
 	
 	String schulNummer="";
 	
@@ -111,7 +113,6 @@ public class C4H_PC_INFO_KLASSE {
 	public String getOSversion(){
 		
 		String OsVersion= new Properties(System.getProperties()).getProperty("os.name");
-		
 		return OsVersion;
 	}
 	
@@ -122,7 +123,6 @@ public class C4H_PC_INFO_KLASSE {
 	public String getOSArchitecture(){
 		
 		String OsArch= new Properties(System.getProperties()).getProperty("os.arch");
-		
 		return OsArch;
 	}
 	/**
@@ -134,27 +134,25 @@ public class C4H_PC_INFO_KLASSE {
 	 */
 	public String getMusterImages() throws Throwable{
 		
-		String musterImages="";
+		String musterImages = "";
 		String line;
-		 
-		
 		String location = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation";
+		String key = "Model";
 		Process process = null ;
-		
-		
 		if(getOSversion().contains("W")||getOSversion().contains("w")) {	// Run reg query, then read output with StreamReader (internal class)
-			//process = Runtime.getRuntime().exec("reg query " +location.toString());
-			process = Runtime.getRuntime().exec("reg query " + location);
-			System.out.println("ist reingegangen mit "+ "reg query " +location );
+			process = Runtime.getRuntime().exec("reg query " +location+" /v "+key);
+			pcInfoLog.schreiben("REG BEFEHL: " +"reg query " +location+" /v "+key);
 			Reader input = new InputStreamReader(process.getInputStream());
-			BufferedReader resultOutput = new BufferedReader(input);
+			BufferedReader resultOutput = new BufferedReader(input);		
 			while((line=resultOutput.readLine()) != null) {
+				
 				if (line.contains("REG")){
 						musterImages=line.split("REG_SZ")[1].trim();
+						pcInfoLog.schreiben("REG BEFEHL Ergebnis:" +musterImages);
 				}				
 			}
 			
-		}
+	   }
 		
 		return musterImages;
 	}
@@ -419,6 +417,26 @@ public class C4H_PC_INFO_KLASSE {
 		}
 		return  false;
 	}
+	/**
+	 * Es wird hier nochmal sicher gestellt dass die Version unser MusterImages 
+	 * erstellt.
+	 * Hinweis die Klasse tritt nur auf falls NULL beim Standard MUsterImage Ausgabe kommt
+	 * 
+	 * @return MusterImage aus der REG
+	 * @throws IllegalArgumentException MusterImage
+	 * @throws IllegalAccessException Value vom REG
+	 * @throws InvocationTargetException Value vom REG
+	 */
+	public String getMusterImageAusRegistry() throws IllegalArgumentException, IllegalAccessException, InvocationTargetException {
+		String musterausdatei="";
+		int HKEY_LOCAL_MACHINE= 0x80000002;
+		musterausdatei = C4H_WIN_REGISTRY.readString(HKEY_LOCAL_MACHINE,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation","Model", 0);
+		pcInfoLog.schreiben("aus der REGKLASSE KOMMT: "+musterausdatei);
+	      System.out.println(musterausdatei);
+	
+		return musterausdatei;
+	}
+	
 	
 	/************************************************************************************************************/
 	/************************************** PRINTING * @throws Throwable ****************************************/
@@ -468,11 +486,7 @@ public class C4H_PC_INFO_KLASSE {
 		}
 
 	}
+	
 
-	public String getMusterImageAusDatei() {
-		String musterImage="";
-		
-		return musterImage;
-	}
 		
 }

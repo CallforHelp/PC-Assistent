@@ -1,0 +1,316 @@
+OS Version: Windows 10
+OS OsArch: amd64
+REG BEFEHL: reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation /v Model
+java.io.BufferedReader@16b3fc9e
+REG BEFEHL Ergebnis:
+REG BEFEHL Ergebnis:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation
+REG BEFEHL Ergebnis:    Model    REG_SZ    test23
+REG BEFEHL Ergebnis:
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS OsArch: amd64
+REG BEFEHL: reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation /v Model
+java.io.BufferedReader@3805efe6
+REG BEFEHL Ergebnis:
+REG BEFEHL Ergebnis:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation
+REG BEFEHL Ergebnis:    Model    REG_SZ    test23
+REG BEFEHL Ergebnis:
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS OsArch: amd64
+REG BEFEHL: reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation /v Model
+java.io.BufferedReader@25b626cb
+REG BEFEHL Ergebnis:
+REG BEFEHL Ergebnis:
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS OsArch: amd64
+REG BEFEHL: reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation /v Model
+java.io.BufferedReader@16b3fc9e
+REG BEFEHL Ergebnis:
+REG BEFEHL Ergebnis:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation
+REG BEFEHL Ergebnis:    Model    REG_SZ    test23
+REG BEFEHL Ergebnis:
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS OsArch: amd64
+REG BEFEHL: reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation /v Model
+java.io.BufferedReader@55e2bcbb
+REG BEFEHL Ergebnis:
+REG BEFEHL Ergebnis:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation
+REG BEFEHL Ergebnis:    Model    REG_SZ    test23
+REG BEFEHL Ergebnis:
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS OsArch: amd64
+REG BEFEHL: reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation /v Model
+java.io.BufferedReader@16b3fc9e
+REG BEFEHL Ergebnis:
+REG BEFEHL Ergebnis:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation
+REG BEFEHL Ergebnis:    Model    REG_SZ    test23
+REG BEFEHL Ergebnis:
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS OsArch: amd64
+REG BEFEHL: reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation /v Model
+java.io.BufferedReader@16b3fc9e
+REG BEFEHL Ergebnis:
+REG BEFEHL Ergebnis:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation
+REG BEFEHL Ergebnis:    Model    REG_SZ    test23
+REG BEFEHL Ergebnis:
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS OsArch: amd64
+REG BEFEHL: reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation /v Model
+java.io.BufferedReader@6a38e57f
+REG BEFEHL Ergebnis:
+REG BEFEHL Ergebnis:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation
+REG BEFEHL Ergebnis:    Model    REG_SZ    test23
+REG BEFEHL Ergebnis:
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS OsArch: amd64
+REG BEFEHL: reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation /v Model
+java.io.BufferedReader@7716c1b9
+REG BEFEHL Ergebnis:
+REG BEFEHL Ergebnis:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation
+REG BEFEHL Ergebnis:    Model    REG_SZ    test23
+REG BEFEHL Ergebnis:
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS OsArch: amd64
+REG BEFEHL: reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation /v Model
+java.io.BufferedReader@7fa9e75e
+REG BEFEHL Ergebnis:
+REG BEFEHL Ergebnis:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation
+REG BEFEHL Ergebnis:    Model    REG_SZ    test23
+REG BEFEHL Ergebnis:
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS OsArch: amd64
+REG BEFEHL: reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation /v Model
+java.io.BufferedReader@38fa9c65
+REG BEFEHL Ergebnis:
+REG BEFEHL Ergebnis:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation
+REG BEFEHL Ergebnis:    Model    REG_SZ    test23
+REG BEFEHL Ergebnis:
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS OsArch: amd64
+REG BEFEHL: reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation /v Model
+java.io.BufferedReader@6d325000
+REG BEFEHL Ergebnis:
+REG BEFEHL Ergebnis:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation
+REG BEFEHL Ergebnis:    Model    REG_SZ    test23
+REG BEFEHL Ergebnis:
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS OsArch: amd64
+REG BEFEHL: reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation /v Model
+java.io.BufferedReader@654b8ac9
+REG BEFEHL Ergebnis:
+REG BEFEHL Ergebnis:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation
+REG BEFEHL Ergebnis:    Model    REG_SZ    test23
+REG BEFEHL Ergebnis:
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS OsArch: amd64
+REG BEFEHL: reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation /v Model
+java.io.BufferedReader@4837221b
+REG BEFEHL Ergebnis:
+REG BEFEHL Ergebnis:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation
+REG BEFEHL Ergebnis:    Model    REG_SZ    test23
+REG BEFEHL Ergebnis:
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS OsArch: amd64
+REG BEFEHL: reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation /v Model
+java.io.BufferedReader@1bf8072f
+REG BEFEHL Ergebnis:
+REG BEFEHL Ergebnis:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation
+REG BEFEHL Ergebnis:    Model    REG_SZ    test23
+REG BEFEHL Ergebnis:
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS OsArch: amd64
+REG BEFEHL: reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation /v Model
+java.io.BufferedReader@6a38e57f
+REG BEFEHL Ergebnis:
+REG BEFEHL Ergebnis:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation
+REG BEFEHL Ergebnis:    Model    REG_SZ    test23
+REG BEFEHL Ergebnis:
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS OsArch: amd64
+REG BEFEHL: reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation /v Model
+java.io.BufferedReader@7716c1b9
+REG BEFEHL Ergebnis:
+REG BEFEHL Ergebnis:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation
+REG BEFEHL Ergebnis:    Model    REG_SZ    test23
+REG BEFEHL Ergebnis:
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS OsArch: amd64
+REG BEFEHL: reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation /v Model
+java.io.BufferedReader@2d363fb3
+REG BEFEHL Ergebnis:
+REG BEFEHL Ergebnis:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation
+REG BEFEHL Ergebnis:    Model    REG_SZ    test23
+REG BEFEHL Ergebnis:
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS OsArch: amd64
+REG BEFEHL: reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation /v Model
+java.io.BufferedReader@6279c85
+REG BEFEHL Ergebnis:
+REG BEFEHL Ergebnis:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation
+REG BEFEHL Ergebnis:    Model    REG_SZ    test23
+REG BEFEHL Ergebnis:
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS OsArch: amd64
+REG BEFEHL: reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation /v Model
+java.io.BufferedReader@7fa9e75e
+REG BEFEHL Ergebnis:
+REG BEFEHL Ergebnis:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation
+REG BEFEHL Ergebnis:    Model    REG_SZ    test23
+REG BEFEHL Ergebnis:
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS OsArch: amd64
+REG BEFEHL: reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation /v Model
+java.io.BufferedReader@61064425
+REG BEFEHL Ergebnis:
+REG BEFEHL Ergebnis:
+OS Version: Windows 10
+OS OsArch: amd64
+REG BEFEHL: reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation /v Model
+java.io.BufferedReader@61064425
+REG BEFEHL Ergebnis:
+REG BEFEHL Ergebnis:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation
+REG BEFEHL Ergebnis:    Model    REG_SZ    test23
+REG BEFEHL Ergebnis:
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS OsArch: amd64
+REG BEFEHL: reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation /v Model
+java.io.BufferedReader@7dc5eb29
+REG BEFEHL Ergebnis:
+REG BEFEHL Ergebnis:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation
+REG BEFEHL Ergebnis:    Model    REG_SZ    test23
+REG BEFEHL Ergebnis:
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS OsArch: amd64
+REG BEFEHL: reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation /v Model
+java.io.BufferedReader@5ba465cc
+REG BEFEHL Ergebnis:
+REG BEFEHL Ergebnis:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation
+REG BEFEHL Ergebnis:    Model    REG_SZ    test23
+REG BEFEHL Ergebnis:
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS OsArch: amd64
+REG BEFEHL: reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation /v Model
+java.io.BufferedReader@2d363fb3
+REG BEFEHL Ergebnis:
+REG BEFEHL Ergebnis:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation
+REG BEFEHL Ergebnis:    Model    REG_SZ    test23
+REG BEFEHL Ergebnis:
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10
+OS Version: Windows 10

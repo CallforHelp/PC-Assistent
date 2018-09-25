@@ -8,7 +8,7 @@ import javax.swing.Timer;
   * @author bani
   *
   */
-public class C4H_Blink_Label extends JLabel {
+public class C4H_BLINK_LABEL extends JLabel {
 	
 	private static final long serialVersionUID = 1L;
   
@@ -16,7 +16,7 @@ public class C4H_Blink_Label extends JLabel {
 
 	private boolean blinkingOn = true;
   
-	public C4H_Blink_Label(String text) {
+	public C4H_BLINK_LABEL(String text) {
 		super(text);
 		Timer timer = new Timer( BLINKING_RATE , new TimerListener(this));
 		timer.setInitialDelay(0);
@@ -32,12 +32,12 @@ public class C4H_Blink_Label extends JLabel {
 
   
 	private class TimerListener implements ActionListener {
-		private C4H_Blink_Label bl;
+		private C4H_BLINK_LABEL bl;
 		private Color bg;
 		private Color fg;
 		private boolean isForeground = true;
     
-		public TimerListener(C4H_Blink_Label bl) {
+		public TimerListener(C4H_BLINK_LABEL bl) {
 			this.bl = bl;
 			fg = bl.getForeground();
 			bg = bl.getBackground();
