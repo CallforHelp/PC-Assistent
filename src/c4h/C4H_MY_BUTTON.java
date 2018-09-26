@@ -1,5 +1,9 @@
 package src.c4h;
-
+/**
+ * eigen Button Class für eine Persouml;nliche Struktur
+ * @author helmi
+ * 
+ */
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -8,21 +12,35 @@ import javax.swing.JButton;
 class C4H_MY_BUTTON extends JButton {
 
     /**
-	 * 
-	 */
+     *Serialilesierung 
+     */
 	private static final long serialVersionUID = 1L;
+	/**
+	 * Hoverbackgroud
+	 */
 	private Color hoverBackgroundColor;
-    private Color pressedBackgroundColor;
-
+    /**
+     * HoverBackgraound
+     */
+	private Color pressedBackgroundColor;
+	/**
+	 * Konstruktor
+	 */
     public C4H_MY_BUTTON() {
         this(null);
     }
-
+    
+    /**
+     * Kontruktor fuuml;r 
+     * @param text
+     */
     public C4H_MY_BUTTON(String text) {
         super(text);
         super.setContentAreaFilled(false);
     }
-
+    /**
+     * Male die nouml;tige Komponennte
+     */
     @Override
     protected void paintComponent(Graphics g) {
         if (getModel().isPressed()) {

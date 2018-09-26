@@ -1,4 +1,9 @@
 package src.c4h;
+/**
+ * Eine Klasse fÃ¼r Monitoringprocess
+ * ist noch nicht Aktiv in dies Tool wird mit dem nauml;chsten Update 
+ * Aktiviert
+ */
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -16,21 +21,21 @@ public class C4H_LOG_FILE {
        // werden die Bytes an das Ende der Datei geschrieben
        
        // new FileWriter(file) - falls die Datei bereits existiert
-       // wird diese überschrieben
+       // wird diese uuml;berschrieben
        writer = new FileWriter(file ,true);
        
        // Text wird in den Stream geschrieben
        writer.write(loginfotext);
        
-       // Platformunabhängiger Zeilenumbruch wird in den Stream geschrieben
+       // Platformunabhuuml;ngiger Zeilenumbruch wird in den Stream geschrieben
        writer.write(System.getProperty("line.separator"));
        
        // Schreibt den Stream in die Datei
-       // Sollte immer am Ende ausgeführt werden, sodass der Stream 
+       // Sollte immer am Ende ausgefï¿½hrt werden, sodass der Stream 
        // leer ist und alles in der Datei steht.
        writer.flush();
        
-       // Schließt den Stream
+       // Schliesst den Stream
        writer.close();
     } catch (IOException e) {
       e.printStackTrace();
