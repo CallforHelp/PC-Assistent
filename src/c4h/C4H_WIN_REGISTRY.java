@@ -1,11 +1,4 @@
 package src.c4h;
-/**
- * Eigne Java Windows Registry.
- * Verändert durch Helmi Bani
- * reading (and writing but not creating/deleting keys) the 32-bits
- * registry view from a 64-bits JVM (KEY_WOW64_32KEY)
- * and 64-bits view from a 32-bits JVM (KEY_WOW64_64KEY).
- *****************************************************************************/
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -14,6 +7,18 @@ import java.util.Map;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.prefs.Preferences;
+
+/**
+ * 
+ * Eigne Java Windows Registry.
+ * Verändert durch Helmi Bani
+ * reading (and writing but not creating/deleting keys) the 32-bits
+ * registry view from a 64-bits JVM (KEY_WOW64_32KEY)
+ * and 64-bits view from a 32-bits JVM (KEY_WOW64_64KEY).
+ * ***************************************************************************
+ * @author helmi
+ *
+ */
 
 public class C4H_WIN_REGISTRY {
   public static final int HKEY_CURRENT_USER = 0x80000001;
@@ -74,15 +79,15 @@ public class C4H_WIN_REGISTRY {
   /**
    * Read a value from key and value name
    * @param hkey   HKEY_CURRENT_USER/HKEY_LOCAL_MACHINE
-   * @param key
-   * @param valueName
+   * @param key	   is Variable for all Keys
+   * @param valueName Name ist variable 
    * @param wow64  0 for standard registry access (32-bits for 32-bit app, 64-bits for 64-bits app)
    *               or KEY_WOW64_32KEY to force access to 32-bit registry view,
    *               or KEY_WOW64_64KEY to force access to 64-bit registry view
    * @return the value
-   * @throws IllegalArgumentException
-   * @throws IllegalAccessException
-   * @throws InvocationTargetException
+   * @throws IllegalArgumentException handling
+   * @throws IllegalAccessException handling
+   * @throws InvocationTargetException handling
    */
   public static String readString(int hkey, String key, String valueName, int wow64) 
     throws IllegalArgumentException, IllegalAccessException,
@@ -102,14 +107,14 @@ public class C4H_WIN_REGISTRY {
   /**
    * Read value(s) and value name(s) form given key 
    * @param hkey  HKEY_CURRENT_USER/HKEY_LOCAL_MACHINE
-   * @param key
+   * @param key	variable
    * @param wow64  0 for standard registry access (32-bits for 32-bit app, 64-bits for 64-bits app)
    *               or KEY_WOW64_32KEY to force access to 32-bit registry view,
    *               or KEY_WOW64_64KEY to force access to 64-bit registry view
    * @return the value name(s) plus the value(s)
-   * @throws IllegalArgumentException
-   * @throws IllegalAccessException
-   * @throws InvocationTargetException
+   * @throws IllegalArgumentException handling
+   * @throws IllegalAccessException handling
+   * @throws InvocationTargetException handling
    */
   public static Map<String, String> readStringValues(int hkey, String key, int wow64) 
     throws IllegalArgumentException, IllegalAccessException, InvocationTargetException 
@@ -128,14 +133,14 @@ public class C4H_WIN_REGISTRY {
   /**
    * Read the value name(s) from a given key
    * @param hkey  HKEY_CURRENT_USER/HKEY_LOCAL_MACHINE
-   * @param key
+   * @param key variable to use
    * @param wow64  0 for standard registry access (32-bits for 32-bit app, 64-bits for 64-bits app)
    *               or KEY_WOW64_32KEY to force access to 32-bit registry view,
    *               or KEY_WOW64_64KEY to force access to 64-bit registry view
    * @return the value name(s)
-   * @throws IllegalArgumentException
-   * @throws IllegalAccessException
-   * @throws InvocationTargetException
+   * @throws IllegalArgumentException handlling
+   * @throws IllegalAccessException handling
+   * @throws InvocationTargetException handling
    */
   public static List<String> readStringSubKeys(int hkey, String key, int wow64) 
     throws IllegalArgumentException, IllegalAccessException, InvocationTargetException 
@@ -154,10 +159,10 @@ public class C4H_WIN_REGISTRY {
   /**
    * Create a key
    * @param hkey  HKEY_CURRENT_USER/HKEY_LOCAL_MACHINE
-   * @param key
-   * @throws IllegalArgumentException
-   * @throws IllegalAccessException
-   * @throws InvocationTargetException
+   * @param key variable to use
+   * @throws IllegalArgumentException handling
+   * @throws IllegalAccessException handling
+   * @throws InvocationTargetException handling
    */
   public static void createKey(int hkey, String key) 
     throws IllegalArgumentException, IllegalAccessException, InvocationTargetException 
@@ -181,16 +186,16 @@ public class C4H_WIN_REGISTRY {
 
   /**
    * Write a value in a given key/value name
-   * @param hkey
-   * @param key
-   * @param valueName
-   * @param value
+   * @param hkey RegVariable
+   * @param key variable to use
+   * @param valueName name to use 
+   * @param value value to use
    * @param wow64  0 for standard registry access (32-bits for 32-bit app, 64-bits for 64-bits app)
    *               or KEY_WOW64_32KEY to force access to 32-bit registry view,
    *               or KEY_WOW64_64KEY to force access to 64-bit registry view
-   * @throws IllegalArgumentException
-   * @throws IllegalAccessException
-   * @throws InvocationTargetException
+   * @throws IllegalArgumentException handling
+   * @throws IllegalAccessException handling
+   * @throws InvocationTargetException handling
    */
   public static void writeStringValue
     (int hkey, String key, String valueName, String value, int wow64) 
@@ -209,11 +214,11 @@ public class C4H_WIN_REGISTRY {
 
   /**
    * Delete a given key
-   * @param hkey
-   * @param key
-   * @throws IllegalArgumentException
-   * @throws IllegalAccessException
-   * @throws InvocationTargetException
+   * @param hkey RegKey
+   * @param key Variable to use
+   * @throws IllegalArgumentException handling
+   * @throws IllegalAccessException handling
+   * @throws InvocationTargetException handling
    */
   public static void deleteKey(int hkey, String key) 
     throws IllegalArgumentException, IllegalAccessException, InvocationTargetException 
@@ -232,15 +237,15 @@ public class C4H_WIN_REGISTRY {
 
   /**
    * delete a value from a given key/value name
-   * @param hkey
-   * @param key
-   * @param value
+   * @param hkey regKey 
+   * @param key variable to use 
+   * @param value value to use 
    * @param wow64  0 for standard registry access (32-bits for 32-bit app, 64-bits for 64-bits app)
    *               or KEY_WOW64_32KEY to force access to 32-bit registry view,
    *               or KEY_WOW64_64KEY to force access to 64-bit registry view
-   * @throws IllegalArgumentException
-   * @throws IllegalAccessException
-   * @throws InvocationTargetException
+   * @throws IllegalArgumentException handling
+   * @throws IllegalAccessException handling
+   * @throws InvocationTargetException handling
    */
   public static void deleteValue(int hkey, String key, String value, int wow64) 
     throws IllegalArgumentException, IllegalAccessException, InvocationTargetException 

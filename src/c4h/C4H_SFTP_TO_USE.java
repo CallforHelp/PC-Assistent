@@ -136,7 +136,7 @@ public class C4H_SFTP_TO_USE {
 	}
 
 	/**
-	 * gibt den Pfad im SFTP zurück.
+	 * gibt den Pfad im SFTP zuruuml;ck.
 	 * @return Pfad 
 	 * @throws SftpException Verbindungsuafbau
 	 */

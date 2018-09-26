@@ -130,7 +130,6 @@ public class C4H_PC_INFO_KLASSE {
 	 * die info bekommen wir aus dem Infobereich des Betriebsystems
 	 * @return musterImages
 	 * @throws IOException RegEintrag
-	 * @throws RegistryErrorException 
 	 */
 	public String getMusterImages() throws Throwable{
 		

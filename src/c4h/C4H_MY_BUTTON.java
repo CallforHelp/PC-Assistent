@@ -1,14 +1,13 @@
 package src.c4h;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import javax.swing.JButton;
 /**
- * eigen Button Class für eine Persouml;nliche Struktur
+ * Eigene Button Class für eine Persouml;nliche Struktur
  * @author helmi
  * 
  */
-import java.awt.Color;
-import java.awt.Graphics;
-
-import javax.swing.JButton;
-
 class C4H_MY_BUTTON extends JButton {
 
     /**
@@ -31,8 +30,8 @@ class C4H_MY_BUTTON extends JButton {
     }
     
     /**
-     * Kontruktor fuuml;r 
-     * @param text
+     * Kontruktor f&uuml;r 
+     * @param text Text ButtonName
      */
     public C4H_MY_BUTTON(String text) {
         super(text);
@@ -41,7 +40,6 @@ class C4H_MY_BUTTON extends JButton {
     /**
      * Male die nouml;tige Komponennte
      */
-    @Override
     protected void paintComponent(Graphics g) {
         if (getModel().isPressed()) {
             g.setColor(pressedBackgroundColor);

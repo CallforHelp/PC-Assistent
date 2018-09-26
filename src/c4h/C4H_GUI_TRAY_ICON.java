@@ -169,10 +169,9 @@ public class C4H_GUI_TRAY_ICON {
 	}
 	/**
 	 * F&uuml;r die realisierung einens Icon f&uuml;r C4H
-	 * @param path
-	 * @param description
-	 * @return pic
-	 * @wbp.parser.entryPoint
+	 * @param path fuer ein Icon
+	 * @param description Zeichen oder hinweis 
+	 * @return neues Foto(Icon)
 	 */
 		protected static Image createImage(String path, String description) {
 			URL imageURL = C4H_GUI_TRAY_ICON.class.getResource(path);
