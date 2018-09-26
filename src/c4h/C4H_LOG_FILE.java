@@ -1,13 +1,14 @@
 package src.c4h;
-/**
- * Eine Klasse für Monitoringprocess
- * ist noch nicht Aktiv in dies Tool wird mit dem nauml;chsten Update 
- * Aktiviert
- */
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-
+/**
+ * Eine Klasse für Monitoringprocess
+ * ist noch nicht Aktiv in dies Tool wird mit dem n&auml;chsten Update 
+ * Aktiviert
+ * @author Helmi 
+ */
 public class C4H_LOG_FILE {
   
   FileWriter writer;

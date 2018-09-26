@@ -47,7 +47,7 @@ public class C4H_BROWSER_INTEGRATION{
  
     /**
      * Ein Konstruktor zum start undinitialisieren dieser Klasse
-     * Es muss zur laufzeit den Panel aus der C4H app zur Verfügungstehen
+     * Es muss zur laufzeit den Panel aus der C4H app zur Verfuuml;gungstehen
      * damit die darstellung in der App ensteht
      * @param fehlermeldenpanel Panel from c4H Gui
      */
@@ -93,6 +93,10 @@ public class C4H_BROWSER_INTEGRATION{
     	Platform.runLater(new Runnable() {
         private Stage stage;
 		private WebView browser;
+		
+		/**
+		 * RUN
+		 */
 
 		@Override 
         public void run() {

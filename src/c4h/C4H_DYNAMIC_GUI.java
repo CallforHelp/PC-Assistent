@@ -109,7 +109,7 @@ public class C4H_DYNAMIC_GUI {
 	private C4H_PC_INFO_KLASSE bg = new C4H_PC_INFO_KLASSE();	
 
 	/**
-	 * Konstruktor zur Laufzeit Start vom GUI UND SFTP Verbindung falls es nötig ist. 
+	 * Konstruktor zur Laufzeit Start vom GUI UND SFTP Verbindung falls es nouml;tig ist. 
 	 * @throws Throwable Hostname
 	 */
 	public C4H_DYNAMIC_GUI() throws Throwable {

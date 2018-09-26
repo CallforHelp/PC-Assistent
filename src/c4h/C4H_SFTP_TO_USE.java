@@ -68,7 +68,7 @@ public class C4H_SFTP_TO_USE {
 		this._USER_PWD=passwort;
 		this._PORT= Integer.parseInt(port);
 		 /*
-		  *  Die erste Option (StrictHostKeyChecking) schaltet die Rï¿½ckfragen aus, 
+		  *  Die erste Option (StrictHostKeyChecking) schaltet die R&uuml;ckfragen aus, 
 		  *  die eine SSH-Installation ueblicherweise dann stellt,
 		  *   wenn Sie sich das erste Mal mit dem jeweiligen Host verbinden
 		  */
@@ -136,7 +136,7 @@ public class C4H_SFTP_TO_USE {
 	}
 
 	/**
-	 * gibt den Pfad im SFTP zurück.
+	 * gibt den Pfad im SFTP zuruuml;ck.
 	 * @return Pfad 
 	 * @throws SftpException Verbindungsuafbau
 	 */
