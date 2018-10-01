@@ -47,7 +47,7 @@ public class C4H_GUI_TRAY_ICON {
 		try {
 			tray.add(trayIcon);
 			if(bg.getState()==false||!bg.pruefeSchulnr()) {
-				trayIcon.setImage(createImage("images/bulbred.png", "trayIcon"));
+				trayIcon.setImage(createImage("images/bulbred2.png", "trayIcon"));
 				trayIcon.setToolTip("Schul-Support-Service - Call for Help:\n "+bg.fehler+ " Korrigieren");
 				//System.out.println("Schulnummer"+bg.getSchulNummer()+" ist :"+ bg.pruefeSchulnr());
 			}
@@ -99,6 +99,15 @@ public class C4H_GUI_TRAY_ICON {
     			if(e.getButton()==MouseEvent.BUTTON1) {
     				try {
 						window.setlist();
+						if(bg.getState()==false||!bg.pruefeSchulnr()) {
+							trayIcon.setImage(createImage("images/bulbred2.png", "trayIcon"));
+							trayIcon.setToolTip("Schul-Support-Service - Call for Help:\n "+bg.fehler+ " Korrigieren");
+							//System.out.println("Schulnummer"+bg.getSchulNummer()+" ist :"+ bg.pruefeSchulnr());
+						}else {
+							trayIcon.setImage(createImage("images/bulb.png", "trayIcon"));
+							trayIcon.setToolTip("Schul-Support-Service - Call for Help");
+						}
+							
 					} catch (Throwable e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();

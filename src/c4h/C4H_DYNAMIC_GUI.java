@@ -445,6 +445,8 @@ public class C4H_DYNAMIC_GUI {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					setlist();
+//					C4H_GUI_TRAY_ICON.setImage(C4H_GUI_TRAY_ICON.this.createImage("images/bulbred2.png", "trayIcon"));
+//					C4H_GUI_TRAY_ICON.setToolTip("Schul-Support-Service - Call for Help:\n "+bg.fehler+ " Korrigieren");
 				} catch (Throwable e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

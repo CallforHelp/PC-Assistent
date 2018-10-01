@@ -103,7 +103,7 @@ public class C4H_PC_INFO_KLASSE {
 	 */
 	public String getSchulNummer() throws Throwable {
 		
-		return "5678";
+		return schulNummer;
 	}
 	
 	/**
