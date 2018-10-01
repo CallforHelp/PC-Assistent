@@ -64,13 +64,13 @@ public class C4H_BROWSER_INTEGRATION{
     private void initComponents() {
     	
     	jfxPanel = new JFXPanel();
-    	jfxPanel.setBounds(0, 0, 787, 637);
-    	jfxPanel.setBackground(new Color(255,255,255,255));
+    	jfxPanel.setBounds(0, 0, 787, 650);
+    	jfxPanel.setBackground(new Color(220, 220, 220));
     	
-    	panel.setBackground(Color.WHITE);
+    	panel.setBackground(new Color(220, 220, 220));
     	panel.setLayout(null);
     	panel.setBounds(200, 40, 787, 670);
-    	progressBar.setBounds(0, 650, 787, 18);
+    	progressBar.setBounds(0, 650, 787, 19);
     	panel.add(progressBar);
 
     	progressBar.setPreferredSize(new Dimension(150, 18));

@@ -148,7 +148,7 @@ public class C4H_DYNAMIC_GUI {
 		frmCh.setModalExclusionType(ModalExclusionType.APPLICATION_EXCLUDE);
 		frmCh.setType(Type.POPUP);
 		frmCh.setResizable(false);
-		frmCh.setBounds(100, 100, 997, 750);
+		frmCh.setBounds(100, 100, 995, 740);
 		
 		//PANELS
 		Buttonpanel = new JPanel();
@@ -234,6 +234,7 @@ public class C4H_DYNAMIC_GUI {
 		
 		//MENU
 		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		menuBar.setBackground(new Color(220, 220, 220));
 		menuBar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
@@ -284,7 +285,7 @@ public class C4H_DYNAMIC_GUI {
 		});
 		
 		
-		menuBar.setBounds(0, 0, 991, 40);
+		menuBar.setBounds(0, 0, 987, 40);
 		menuBar.add(menuDatei);
 		
 		menuDatei.add(pcInfoItem);
@@ -531,7 +532,7 @@ public class C4H_DYNAMIC_GUI {
 		logo3sLabel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		logo3sLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		logo3sLabel.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/3s_logo_text4.png")));
-		logo3sLabel.setBounds(56, 461, 699, 184);
+		logo3sLabel.setBounds(56, 461, 676, 184);
 		PcInfoPanel.add(logo3sLabel);
 
 		
@@ -576,7 +577,7 @@ public class C4H_DYNAMIC_GUI {
 		logolabelchat.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		logolabelchat.setHorizontalAlignment(SwingConstants.CENTER);
 		logolabelchat.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/3s_logo_text4.png")));
-		logolabelchat.setBounds(55, 461, 700, 184);
+		logolabelchat.setBounds(55, 461, 676, 184);
 		chatPanel.add(logolabelchat);
 		
 		
@@ -604,10 +605,7 @@ public class C4H_DYNAMIC_GUI {
 		systemInfo.addElement("                                          ");
 		systemInfo.addElement("OS Architektur   : "+ bg.getOSArchitecture());
 		systemInfo.addElement("                                          ");
-		if (bg.getMusterImages()!=null)
-			systemInfo.addElement("Muster Images   : "+ bg.getMusterImages());
-		else 
-			systemInfo.addElement("Musimage        : "+ bg.getMusterImageAusRegistry());
+		systemInfo.addElement("Muster Images   : "+ bg.getMusterImageAusRegistry());
 		systemInfo.addElement("                                          ");
 		systemInfo.addElement("Rechner Typ        : "+ bg.getRechnertypen());
 

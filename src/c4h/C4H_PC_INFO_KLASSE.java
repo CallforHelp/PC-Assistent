@@ -21,7 +21,7 @@ import java.util.regex.Pattern;
 public class C4H_PC_INFO_KLASSE {
 	
 	private final int RechnerTypLaenge = 4;
-	private C4H_LOG_FILE pcInfoLog = new C4H_LOG_FILE();
+	//private C4H_LOG_FILE pcInfoLog = new C4H_LOG_FILE();
 	
 	String schulNummer="";
 	
@@ -88,7 +88,6 @@ public class C4H_PC_INFO_KLASSE {
 			schulNummer= m.group();
 		
 		if(!pruefeSchulnr())
-
 			this.schulNummer="FalscheSchulnummer";
 
 		
@@ -140,14 +139,14 @@ public class C4H_PC_INFO_KLASSE {
 		Process process = null ;
 		if(getOSversion().contains("W")||getOSversion().contains("w")) {	// Run reg query, then read output with StreamReader (internal class)
 			process = Runtime.getRuntime().exec("reg query " +location+" /v "+key);
-			pcInfoLog.schreiben("REG BEFEHL: " +"reg query " +location+" /v "+key);
+		//	pcInfoLog.schreiben("REG BEFEHL: " +"reg query " +location+" /v "+key);
 			Reader input = new InputStreamReader(process.getInputStream());
 			BufferedReader resultOutput = new BufferedReader(input);		
 			while((line=resultOutput.readLine()) != null) {
 				
 				if (line.contains("REG")){
 						musterImages=line.split("REG_SZ")[1].trim();
-						pcInfoLog.schreiben("REG BEFEHL Ergebnis:" +musterImages);
+			//			pcInfoLog.schreiben("REG BEFEHL Ergebnis:" +musterImages);
 				}				
 			}
 			
@@ -430,8 +429,8 @@ public class C4H_PC_INFO_KLASSE {
 		String musterausdatei="";
 		int HKEY_LOCAL_MACHINE= 0x80000002;
 		musterausdatei = C4H_WIN_REGISTRY.readString(HKEY_LOCAL_MACHINE,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation","Model", 0);
-		pcInfoLog.schreiben("aus der REGKLASSE KOMMT: "+musterausdatei);
-	      System.out.println(musterausdatei);
+		//pcInfoLog.schreiben("aus der REGKLASSE KOMMT: "+musterausdatei);
+	    //  System.out.println(musterausdatei);
 	
 		return musterausdatei;
 	}
