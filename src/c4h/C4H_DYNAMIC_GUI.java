@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,8 +22,8 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
-import javax.swing.border.EtchedBorder;
 import javax.swing.UIManager;
+import javax.swing.border.EtchedBorder;
 
 
 /**
@@ -122,7 +123,7 @@ public class C4H_DYNAMIC_GUI {
 		NetzwerkInfowerte= new DefaultListModel<>();
 		DoppelPunktListe = new DefaultListModel<>();
 		initialize();
-		connectToSftp();	
+		//connectToSftp();	
 		
 	}
 
@@ -130,6 +131,7 @@ public class C4H_DYNAMIC_GUI {
 	 * SFTP Verbindung zur Speicherung der Information zur zwecke der Fehlermeldung.
 	 * @throws Throwable Connection Verbindung.
 	 */
+	@SuppressWarnings("unused")
 	private void connectToSftp() throws Throwable {
 		// TODO Auto-generated method stub
 		C4H_SFTP_TO_USE sftpClient=null;
@@ -151,9 +153,12 @@ public class C4H_DYNAMIC_GUI {
 	public void initialize() throws Throwable{
 		
 		frmCh = new JFrame();
-		frmCh.setResizable(false);
-		frmCh.setBounds(100, 100, 988, 713);
+		frmCh.setBounds(new Rectangle(0, 0, 988, 713));
 		frmCh.setUndecorated(true);
+		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+	    int x = (int) ((dimension.getWidth() - frmCh.getWidth()) / 2);
+	    int y = (int) ((dimension.getHeight() - frmCh.getHeight()) / 2);
+	    frmCh.setLocation(x, y-15);
 		//PANELS
 		Buttonpanel = new JPanel();
 		Buttonpanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
@@ -584,12 +589,6 @@ public class C4H_DYNAMIC_GUI {
 		logolabelchat.setBounds(55, 461, 659, 184);
 		chatPanel.add(logolabelchat);
 		
-		
-		
-		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
-	    int x = (int) ((dimension.getWidth() - frmCh.getWidth()) / 2);
-	    int y = (int) ((dimension.getHeight() - frmCh.getHeight()) / 2);
-	    frmCh.setLocation(x, y);
 	    setlist();
 
 	}
