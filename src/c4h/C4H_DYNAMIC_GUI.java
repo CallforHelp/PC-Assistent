@@ -153,7 +153,7 @@ public class C4H_DYNAMIC_GUI {
 		frmCh = new JFrame();
 		frmCh.setResizable(false);
 		frmCh.setBounds(100, 100, 995, 740);
-		
+		frmCh.setUndecorated(true);
 		//PANELS
 		Buttonpanel = new JPanel();
 		Buttonpanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
