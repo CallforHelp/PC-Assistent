@@ -22,6 +22,7 @@ public class C4H_PC_INFO_KLASSE {
 	
 	private final int RechnerTypLaenge = 4;
 	//private C4H_LOG_FILE pcInfoLog = new C4H_LOG_FILE();
+	public String fehler;
 	
 	String schulNummer="";
 	
@@ -69,7 +70,8 @@ public class C4H_PC_INFO_KLASSE {
 	public String getUserName() {
 		
 		String userName = new Properties(System.getProperties()).getProperty("user.name");
-		
+		if(userName==""||userName==null)
+			return "Fehler-UserName";
 		return userName;
 	}
 	
@@ -88,7 +90,7 @@ public class C4H_PC_INFO_KLASSE {
 			schulNummer= m.group();
 		
 		if(!pruefeSchulnr())
-			this.schulNummer="FalscheSchulnummer";
+			this.schulNummer="Fehler-Schulnummer";
 
 		
     return schulNummer;
@@ -112,6 +114,8 @@ public class C4H_PC_INFO_KLASSE {
 	public String getOSversion(){
 		
 		String OsVersion= new Properties(System.getProperties()).getProperty("os.name");
+		if(OsVersion==""||OsVersion==null)
+			return "Fehler OS-Version";
 		return OsVersion;
 	}
 	
@@ -139,18 +143,18 @@ public class C4H_PC_INFO_KLASSE {
 		Process process = null ;
 		if(getOSversion().contains("W")||getOSversion().contains("w")) {	// Run reg query, then read output with StreamReader (internal class)
 			process = Runtime.getRuntime().exec("reg query " +location+" /v "+key);
-		//	pcInfoLog.schreiben("REG BEFEHL: " +"reg query " +location+" /v "+key);
 			Reader input = new InputStreamReader(process.getInputStream());
 			BufferedReader resultOutput = new BufferedReader(input);		
 			while((line=resultOutput.readLine()) != null) {
 				
 				if (line.contains("REG")){
 						musterImages=line.split("REG_SZ")[1].trim();
-			//			pcInfoLog.schreiben("REG BEFEHL Ergebnis:" +musterImages);
 				}				
 			}
 			
 	   }
+		if(musterImages==""|| musterImages==null)
+			return"Fehler-MusterImage";
 		
 		return musterImages;
 	}
@@ -184,6 +188,8 @@ public class C4H_PC_INFO_KLASSE {
 		
 		String result ="";
 		result= InetAddress.getLocalHost().getHostAddress();
+		if(result=="")
+			return "Fehler-Netzwerk";
 		return result;
 		
 	}
@@ -223,7 +229,8 @@ public class C4H_PC_INFO_KLASSE {
 		
 		String result ="";
 		result= InetAddress.getLocalHost().getHostName();
-		
+		if(result=="")
+			return "Fehler-Netzwerk";
 		return result;
 		
 	}
@@ -259,6 +266,8 @@ public class C4H_PC_INFO_KLASSE {
 				}
 			}
 		}
+		if(domain=="")
+			return "keine-Domain";
 		
 		return domain;
 	}
@@ -319,7 +328,8 @@ public class C4H_PC_INFO_KLASSE {
 				}
 			}
 		}
-		
+		if(defaultgateway=="")
+			return "Fehler-Netzwerk";
 		return defaultgateway;
 	}
 	
@@ -357,7 +367,8 @@ public class C4H_PC_INFO_KLASSE {
 				}
 			}
 		}
-		
+		if(dhcpserver=="")
+			return "Fehler-Netzwerk";
 		return dhcpserver;
 	}
 	
@@ -396,7 +407,8 @@ public class C4H_PC_INFO_KLASSE {
 					}
 				}
 		}
-		
+		if(dnsserver=="")
+			return "Fehler-Netzwerk";
 		return dnsserver;
 	}
 	/**
@@ -429,9 +441,8 @@ public class C4H_PC_INFO_KLASSE {
 		String musterausdatei="";
 		int HKEY_LOCAL_MACHINE= 0x80000002;
 		musterausdatei = C4H_WIN_REGISTRY.readString(HKEY_LOCAL_MACHINE,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation","Model", 0);
-		//pcInfoLog.schreiben("aus der REGKLASSE KOMMT: "+musterausdatei);
-	    //  System.out.println(musterausdatei);
-	
+		if(musterausdatei==""|| musterausdatei==null)
+			return "Fehler-MusterImage";
 		return musterausdatei;
 	}
 	
@@ -444,45 +455,72 @@ public class C4H_PC_INFO_KLASSE {
 	 */
 	public void printBGinfo() throws Throwable{
 	
-		C4H_PC_INFO_KLASSE BG = new C4H_PC_INFO_KLASSE();
-	
 		System.out.println("3S");
 		System.out.println("BG_Info");
-		System.out.println("time to build :"+ BG.timetoBuild());
+		System.out.println("time to build :"+ timetoBuild());
 		System.out.println("*********************************");	
 		System.out.println("Schul-Support-Services HiTEC e.V.");
 		
 		System.out.println("*********************************");
 		System.out.println("            PC Info              ");
 		System.out.println("*********************************");
-		System.out.println("Host Name     :"+ BG.getLocalHost());
-		System.out.println("User Name     :"+ BG.getUserName());
-		System.out.println("SchulNummer   :"+ BG.getSchulNummer());
-		System.out.println("OS Version    :"+ BG.getOSversion());
-		System.out.println("OS Architektur:"+ BG.getOSArchitecture());
-		System.out.println("Muster Images :"+ BG.getMusterImages());
-		System.out.println("Rechner Typen :"+ BG.getRechnertypen());
+		System.out.println("Host Name     :"+ getLocalHost());
+		System.out.println("User Name     :"+ getUserName());
+		System.out.println("SchulNummer   :"+ getSchulNummer());
+		System.out.println("OS Version    :"+ getOSversion());
+		System.out.println("OS Architektur:"+ getOSArchitecture());
+		System.out.println("Muster Images :"+ getMusterImages());
+		System.out.println("Rechner Typen :"+ getRechnertypen());
 		
 	
 		System.out.println("*********************************");
 		System.out.println("            NETZWERK             ");
 		System.out.println("*********************************");
 	
-		System.out.println("Adresse local  :"+ BG.getLocalAdresse());
-		System.out.println("Subnet Mask    :"+ BG.getSubnetMask());
-		System.out.println("MAC Adresse    :"+ BG.getMacAddress());
-		System.out.println("Machine Domain :"+ BG.getMachindomain());
-		System.out.println("Default Gateway:"+ BG.getDefaultgateway());
-		System.out.println("DHCP Server    :"+ BG.getDHCPServer());
-		System.out.println("DNS Server     :"+ BG.getDNSServer());
+		System.out.println("Adresse local  :"+ getLocalAdresse());
+		System.out.println("Subnet Mask    :"+ getSubnetMask());
+		System.out.println("MAC Adresse    :"+ getMacAddress());
+		System.out.println("Machine Domain :"+ getMachindomain());
+		System.out.println("Default Gateway:"+ getDefaultgateway());
+		System.out.println("DHCP Server    :"+ getDHCPServer());
+		System.out.println("DNS Server     :"+ getDNSServer());
 		
 		
 		try {
-			System.out.println("Pruenfung der Schulnummer: "+BG.getSchulNummer()+" is "+ BG.pruefeSchulnr());
+			System.out.println("Pruenfung der Schulnummer: "+getSchulNummer()+" is "+ pruefeSchulnr());
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
 
+	}
+
+	public boolean getState() throws Throwable {
+		ArrayList<String> list = new ArrayList<>();
+		//PC
+		list.add(getLocalHost());
+		list.add(getUserName());
+		list.add(getSchulNummer());
+		list.add(getOSversion());
+		list.add(getOSArchitecture());
+		list.add(getMusterImageAusRegistry());
+		list.add(getRechnertypen());
+		//Netzwerk
+		list.add(getLocalAdresse());
+		list.add(getSubnetMask());
+		list.add(getMacAddress());
+		list.add(getMachindomain());
+		list.add(getDefaultgateway());
+		list.add(getDHCPServer());
+		list.add(getDNSServer());
+		
+		for (int i = 0; i < list.size(); i++) {
+			if(list.get(i).equalsIgnoreCase("Fehler-Netzwerk")||(list.get(i).equalsIgnoreCase("Fehler-MusterImage")||(list.get(i).equalsIgnoreCase("Fehler-Schulnummer")))) {
+				fehler=list.get(i).replaceAll("Fehler-", "");
+				System.out.println("hh"+ list.get(i).replaceAll("Fehler-", ""));
+				return false;
+			}
+		}
+		return true;
 	}
 	
 

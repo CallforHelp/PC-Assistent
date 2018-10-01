@@ -46,20 +46,19 @@ public class C4H_GUI_TRAY_ICON {
 		//Hinzufuegen(start) the Icon_tray 
 		try {
 			tray.add(trayIcon);
-			System.out.println("Schulnummer Aktuell: "+bg.getSchulNummer()+" ist :"+ bg.pruefeSchulnr());
-			if(!bg.pruefeSchulnr()) {
+			if(bg.getState()==false||!bg.pruefeSchulnr()) {
 				trayIcon.setImage(createImage("images/bulbred.png", "trayIcon"));
-				trayIcon.setToolTip("Schul-Support-Service - Call for Help: Bitte die Schulnummer Korrigieren");
+				trayIcon.setToolTip("Schul-Support-Service - Call for Help:\n "+bg.fehler+ " Korrigieren");
+				//System.out.println("Schulnummer"+bg.getSchulNummer()+" ist :"+ bg.pruefeSchulnr());
 			}
-    			}catch(Throwable e2) {
-    				System.out.println("TrayIcon could not be added."+e2.getMessage());
-    			return;
-    		}
+		}catch(Throwable e2) {
+    		System.out.println("TrayIcon could not be added."+e2.getMessage());
+    		return;
+    	}
             
     	MenuItem BG_Info_MenuItem = new MenuItem("PC Information");
     	MenuItem Fehler_Meldung_Menu_Item = new MenuItem("Support");
     	MenuItem Chat_Menu_Item = new MenuItem("Chat");
-    	
     	MenuItem fwt_Menu_Item = new MenuItem("Fernwartung");
     	
     	fwt_Menu_Item.addActionListener(new ActionListener() {

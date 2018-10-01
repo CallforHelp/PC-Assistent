@@ -84,11 +84,12 @@ public class C4H_DYNAMIC_GUI {
 	 * Allgemeine Model fue eine Liste PcInfo
 	 */
 	private DefaultListModel<String> systemInfo;
+	private DefaultListModel<String> systemInfowerte;
 	/**
 	 * Allgemeine Model fue eine Liste Netzwerk
 	 */
 	private DefaultListModel<String> netzwerkInfo;
-	
+	private DefaultListModel<String> NetzwerkInfowerte;
 	/**
 	 * ALggemeine Liste
 	 */
@@ -98,6 +99,8 @@ public class C4H_DYNAMIC_GUI {
 	 */
 	@SuppressWarnings("rawtypes")
 	private JList pcInfoList;
+	@SuppressWarnings({ "rawtypes", "unused" })
+	private DefaultListModel DoppelPunktListe;	
 	/**
 	 * Liste Oc Info
 	 */
@@ -106,7 +109,9 @@ public class C4H_DYNAMIC_GUI {
 	/**
 	 * Objekt zur erstellung und anzeigen von Pc_information. 
 	 */
-	private C4H_PC_INFO_KLASSE bg = new C4H_PC_INFO_KLASSE();	
+	private C4H_PC_INFO_KLASSE bg = new C4H_PC_INFO_KLASSE();
+
+	
 
 	/**
 	 * Konstruktor zur Laufzeit Start vom GUI UND SFTP Verbindung falls es nouml;tig ist. 
@@ -115,6 +120,9 @@ public class C4H_DYNAMIC_GUI {
 	public C4H_DYNAMIC_GUI() throws Throwable {
 		systemInfo = new DefaultListModel<>();
 		netzwerkInfo = new DefaultListModel<>();
+		systemInfowerte= new DefaultListModel<>();
+		NetzwerkInfowerte= new DefaultListModel<>();
+		DoppelPunktListe = new DefaultListModel<>();
 		initialize();
 		connectToSftp();	
 		
@@ -532,7 +540,7 @@ public class C4H_DYNAMIC_GUI {
 		logo3sLabel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		logo3sLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		logo3sLabel.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/3s_logo_text4.png")));
-		logo3sLabel.setBounds(56, 461, 676, 184);
+		logo3sLabel.setBounds(56, 461, 659, 184);
 		PcInfoPanel.add(logo3sLabel);
 
 		
@@ -577,7 +585,7 @@ public class C4H_DYNAMIC_GUI {
 		logolabelchat.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		logolabelchat.setHorizontalAlignment(SwingConstants.CENTER);
 		logolabelchat.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/3s_logo_text4.png")));
-		logolabelchat.setBounds(55, 461, 676, 184);
+		logolabelchat.setBounds(55, 461, 681, 184);
 		chatPanel.add(logolabelchat);
 		
 		
@@ -594,58 +602,142 @@ public class C4H_DYNAMIC_GUI {
 		systemInfo.removeAllElements();
 		netzwerkInfo.removeAllElements();
 		
-		systemInfo.addElement("                                          ");
-		systemInfo.addElement("HostName          : "+ bg.getLocalHost());
-		systemInfo.addElement("                                          ");
-		systemInfo.addElement("User Name         : "+ bg.getUserName());
-		systemInfo.addElement("                                          ");
-		systemInfo.addElement("SchulNummer   : "+ bg.getSchulNummer());
-		systemInfo.addElement("                                          ");
-		systemInfo.addElement("OS Version         : "+ bg.getOSversion());
-		systemInfo.addElement("                                          ");
-		systemInfo.addElement("OS Architektur   : "+ bg.getOSArchitecture());
-		systemInfo.addElement("                                          ");
-		systemInfo.addElement("Muster Images   : "+ bg.getMusterImageAusRegistry());
-		systemInfo.addElement("                                          ");
-		systemInfo.addElement("Rechner Typ        : "+ bg.getRechnertypen());
+		systemInfowerte.removeAllElements();
+		NetzwerkInfowerte.removeAllElements();
+		
+		systemInfo.addElement("\n");
+		systemInfo.addElement("HostName");
+		systemInfo.addElement("\n");
+		systemInfo.addElement("User Name");
+		systemInfo.addElement("\n");
+		systemInfo.addElement("SchulNummer");
+		systemInfo.addElement("\n");
+		systemInfo.addElement("OS Version");
+		systemInfo.addElement("\n");
+		systemInfo.addElement("OS Architektur");
+		systemInfo.addElement("\n");
+		systemInfo.addElement("Muster Images");
+		systemInfo.addElement("\n");
+		systemInfo.addElement("Rechner Typ");
 
 		
 		pcInfoList= new JList<String>(systemInfo);
 		pcInfoList.setFont(new Font("Arial", Font.BOLD, 12));
 		pcInfoList.setBackground(new Color(192, 192, 192));
-		pcInfoList.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		pcInfoList.setForeground(Color.BLACK);
 		pcInfoList.setSelectionForeground(new Color(0, 0, 255));
 		pcInfoList.setSelectionBackground(Color.LIGHT_GRAY);
-		pcInfoList.setBounds(55, 150, 309, 281);
+		pcInfoList.setBounds(55, 150, 121, 281);
 		PcInfoPanel.add(pcInfoList);
 		
 		
 		netzwerkInfo.addElement("\n");
-		netzwerkInfo.addElement("Locale IP Adresse      : "+ bg.getLocalAdresse());
+		netzwerkInfo.addElement("Locale IP Adresse");
 		netzwerkInfo.addElement("\n");
-		netzwerkInfo.addElement("Subnetzmaske            : "+ bg.getSubnetMask());
+		netzwerkInfo.addElement("Subnetzmaske");
 		netzwerkInfo.addElement("\n");
-		netzwerkInfo.addElement("MAC Adresse              : "+ bg.getMacAddress());
+		netzwerkInfo.addElement("MAC Adresse");
 		netzwerkInfo.addElement("\n");
-		netzwerkInfo.addElement("Domain                         : "+ bg.getMachindomain());
+		netzwerkInfo.addElement("Domain");
 		netzwerkInfo.addElement("\n");
-		netzwerkInfo.addElement("Default Gateway         : "+ bg.getDefaultgateway());
+		netzwerkInfo.addElement("Default Gateway");
 		netzwerkInfo.addElement("\n");
-		netzwerkInfo.addElement("DHCP Server               : "+ bg.getDHCPServer());
+		netzwerkInfo.addElement("DHCP Server");
 		netzwerkInfo.addElement("\n");
-		netzwerkInfo.addElement("DNS Server                  : "+ bg.getDNSServer());
+		netzwerkInfo.addElement("DNS Server");
 		
 		netzwekList = new JList<String>(netzwerkInfo);
 		netzwekList.setValueIsAdjusting(true);
 		netzwekList.setSelectionForeground(new Color(0, 0, 255));
 		netzwekList.setSelectionBackground(new Color(204, 204, 204));
 		netzwekList.setForeground(Color.BLACK);
-		netzwekList.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		netzwekList.setFont(new Font("Arial", Font.BOLD, 12));
 		netzwekList.setBackground(new Color(192, 192, 192));
-		netzwekList.setBounds(423, 150, 309, 281);
+		netzwekList.setBounds(423, 150, 121, 281);
 		PcInfoPanel.add(netzwekList);
+		
+		systemInfowerte.addElement("\n");
+		systemInfowerte.addElement(bg.getLocalHost());
+		systemInfowerte.addElement("\n");
+		systemInfowerte.addElement(bg.getUserName());
+		systemInfowerte.addElement("\n");
+		systemInfowerte.addElement(bg.getSchulNummer());
+		systemInfowerte.addElement("\n");
+		systemInfowerte.addElement(bg.getOSversion());
+		systemInfowerte.addElement("\n");
+		systemInfowerte.addElement(bg.getOSArchitecture());
+		systemInfowerte.addElement("\n");
+		systemInfowerte.addElement(bg.getMusterImageAusRegistry());
+		systemInfowerte.addElement("\n");
+		systemInfowerte.addElement(bg.getRechnertypen());
+		
+		JList<String> list_1PCINFO = new JList<String>(systemInfowerte);
+		list_1PCINFO.setSelectionForeground(Color.BLUE);
+		list_1PCINFO.setSelectionBackground(Color.LIGHT_GRAY);
+		list_1PCINFO.setForeground(Color.BLACK);
+		list_1PCINFO.setFont(new Font("Arial", Font.BOLD, 12));
+		list_1PCINFO.setBackground(Color.LIGHT_GRAY);
+		list_1PCINFO.setBounds(187, 150, 158, 281);
+		PcInfoPanel.add(list_1PCINFO);
+		
+		
+		NetzwerkInfowerte.addElement("\n");
+		NetzwerkInfowerte.addElement(bg.getLocalAdresse());
+		NetzwerkInfowerte.addElement("\n");
+		NetzwerkInfowerte.addElement(bg.getSubnetMask());
+		NetzwerkInfowerte.addElement("\n");
+		NetzwerkInfowerte.addElement(bg.getMacAddress());
+		NetzwerkInfowerte.addElement("\n");
+		NetzwerkInfowerte.addElement(bg.getMachindomain());
+		NetzwerkInfowerte.addElement("\n");
+		NetzwerkInfowerte.addElement(bg.getDefaultgateway());
+		NetzwerkInfowerte.addElement("\n");
+		NetzwerkInfowerte.addElement(bg.getDHCPServer());
+		NetzwerkInfowerte.addElement("\n");
+		NetzwerkInfowerte.addElement(bg.getDNSServer());
+			
+		JList<String> list_2NetzwerkInfo = new JList<String>(NetzwerkInfowerte);
+		list_2NetzwerkInfo.setValueIsAdjusting(true);
+		list_2NetzwerkInfo.setSelectionForeground(Color.BLUE);
+		list_2NetzwerkInfo.setSelectionBackground(new Color(204, 204, 204));
+		list_2NetzwerkInfo.setForeground(Color.BLACK);
+		list_2NetzwerkInfo.setFont(new Font("Arial", Font.BOLD, 12));
+		list_2NetzwerkInfo.setBackground(Color.LIGHT_GRAY);
+		list_2NetzwerkInfo.setBounds(557, 150, 158, 281);
+		PcInfoPanel.add(list_2NetzwerkInfo);
+		
+		DefaultListModel<String> doppelpunkt = new DefaultListModel<>();
+		doppelpunkt.addElement("\n");
+		doppelpunkt.addElement(":");
+		doppelpunkt.addElement("\n");
+		doppelpunkt.addElement(":");
+		doppelpunkt.addElement("\n");
+		doppelpunkt.addElement(":");
+		doppelpunkt.addElement("\n");
+		doppelpunkt.addElement(":");
+		doppelpunkt.addElement("\n");
+		doppelpunkt.addElement(":");
+		doppelpunkt.addElement("\n");
+		doppelpunkt.addElement(":");
+		doppelpunkt.addElement("\n");
+		doppelpunkt.addElement(":");
+		JList<String> list_DoppelPunkt = new JList<String>(doppelpunkt);
+		list_DoppelPunkt.setSelectionForeground(Color.BLUE);
+		list_DoppelPunkt.setSelectionBackground(Color.LIGHT_GRAY);
+		list_DoppelPunkt.setForeground(Color.BLACK);
+		list_DoppelPunkt.setFont(new Font("Arial", Font.BOLD, 12));
+		list_DoppelPunkt.setBackground(Color.LIGHT_GRAY);
+		list_DoppelPunkt.setBounds(175, 150, 13, 281);
+		PcInfoPanel.add(list_DoppelPunkt);
+		
+		JList<String> list_1_Doppelpunkt = new JList<String>(doppelpunkt);
+		list_1_Doppelpunkt.setSelectionForeground(Color.BLUE);
+		list_1_Doppelpunkt.setSelectionBackground(Color.LIGHT_GRAY);
+		list_1_Doppelpunkt.setForeground(Color.BLACK);
+		list_1_Doppelpunkt.setFont(new Font("Arial", Font.BOLD, 12));
+		list_1_Doppelpunkt.setBackground(Color.LIGHT_GRAY);
+		list_1_Doppelpunkt.setBounds(544, 150, 13, 281);
+		PcInfoPanel.add(list_1_Doppelpunkt);
 		
 	}
 
