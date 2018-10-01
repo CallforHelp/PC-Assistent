@@ -152,7 +152,7 @@ public class C4H_DYNAMIC_GUI {
 		
 		frmCh = new JFrame();
 		frmCh.setResizable(false);
-		frmCh.setBounds(100, 100, 995, 740);
+		frmCh.setBounds(100, 100, 988, 713);
 		frmCh.setUndecorated(true);
 		//PANELS
 		Buttonpanel = new JPanel();
@@ -578,10 +578,10 @@ public class C4H_DYNAMIC_GUI {
 		chatPanel.add(blink);
 		
 		JLabel logolabelchat = new JLabel("");
-		logolabelchat.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		logolabelchat.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		logolabelchat.setHorizontalAlignment(SwingConstants.CENTER);
 		logolabelchat.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/3s_logo_text4.png")));
-		logolabelchat.setBounds(55, 461, 681, 184);
+		logolabelchat.setBounds(55, 461, 659, 184);
 		chatPanel.add(logolabelchat);
 		
 		
