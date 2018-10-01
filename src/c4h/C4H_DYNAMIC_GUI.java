@@ -3,11 +3,9 @@ package src.c4h;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
-import java.awt.Dialog.ModalExclusionType;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
-import java.awt.Window.Type;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -153,8 +151,6 @@ public class C4H_DYNAMIC_GUI {
 	public void initialize() throws Throwable{
 		
 		frmCh = new JFrame();
-		frmCh.setModalExclusionType(ModalExclusionType.APPLICATION_EXCLUDE);
-		frmCh.setType(Type.POPUP);
 		frmCh.setResizable(false);
 		frmCh.setBounds(100, 100, 995, 740);
 		
@@ -367,9 +363,9 @@ public class C4H_DYNAMIC_GUI {
 		
 		PcInfoPanel.add(separator);
 		frmCh.setForeground(Color.BLACK);
-		frmCh.setIconImage(Toolkit.getDefaultToolkit().getImage(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/Oemlogo.png")));
+		frmCh.setIconImage(Toolkit.getDefaultToolkit().getImage(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/3s_logo_c4h.png")));
 		frmCh.setBackground(new Color(211, 211, 211));
-		frmCh.setTitle("C4H");
+		frmCh.setTitle("Call for Help");
 		
 		frmCh.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		frmCh.getContentPane().setBackground(new Color(240,240,240));
