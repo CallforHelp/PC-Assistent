@@ -29,10 +29,12 @@ public class C4H_GUI_TRAY_ICON {
  * Ein Menu F&uuml;hrung zur bedienung ist auch vorhanden(pc-information, support,chat)
  * @throws Throwable IconTray
  */
+	static TrayIcon trayIcon    = new TrayIcon(createImage("images/bulb.png", "trayIcon"));  
+	
 	public void createshowGui() throws Throwable {
 		final C4H_DYNAMIC_GUI    window      = new C4H_DYNAMIC_GUI();
 		final PopupMenu          popup       = new PopupMenu();
-		final TrayIcon           trayIcon    = new TrayIcon(createImage("images/bulb.png", "trayIcon"));  
+		
 		final SystemTray         tray        = SystemTray.getSystemTray();
 		final C4H_PC_INFO_KLASSE bg          = new C4H_PC_INFO_KLASSE();
 		final C4H_WEBSITE_START  web         = new C4H_WEBSITE_START();

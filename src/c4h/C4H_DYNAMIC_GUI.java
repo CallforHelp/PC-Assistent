@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -24,6 +25,8 @@ import javax.swing.SwingConstants;
 import javax.swing.Timer;
 import javax.swing.UIManager;
 import javax.swing.border.EtchedBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.border.BevelBorder;
 
 
 /**
@@ -209,11 +212,6 @@ public class C4H_DYNAMIC_GUI {
 		fehlermeldenButton.setFocusPainted(false);
 		fehlermeldenButton.setBackground(new Color(211, 211, 211));
 		fehlermeldenButton.setForeground(new Color(192, 192, 192));
-		
-		
-		
-		
-		
 		fehlermeldenButton.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/supportbutton.png")));
 		fehlermeldenButton.setFont(new Font("Arial", Font.BOLD, 11));
 		fehlermeldenButton.setBounds(16, 258, 169, 39);
@@ -445,8 +443,15 @@ public class C4H_DYNAMIC_GUI {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					setlist();
-//					C4H_GUI_TRAY_ICON.setImage(C4H_GUI_TRAY_ICON.this.createImage("images/bulbred2.png", "trayIcon"));
-//					C4H_GUI_TRAY_ICON.setToolTip("Schul-Support-Service - Call for Help:\n "+bg.fehler+ " Korrigieren");
+					if(bg.getState()==false||!bg.pruefeSchulnr()) {
+						C4H_GUI_TRAY_ICON.trayIcon.setImage(C4H_GUI_TRAY_ICON.createImage("images/bulbred2.png", "trayIcon"));
+						C4H_GUI_TRAY_ICON.trayIcon.setToolTip("Schul-Support-Service - Call for Help:\n "+bg.fehler+ " Korrigieren");
+					}else {
+						C4H_GUI_TRAY_ICON.trayIcon.setImage(C4H_GUI_TRAY_ICON.createImage("images/bulb.png", "trayIcon"));
+						C4H_GUI_TRAY_ICON.trayIcon.setToolTip("Schul-Support-Service - Call for Help");
+					}
+						
+					
 				} catch (Throwable e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -619,6 +624,7 @@ public class C4H_DYNAMIC_GUI {
 
 		
 		pcInfoList= new JList<String>(systemInfo);
+		pcInfoList.setBorder(null);
 		pcInfoList.setFont(new Font("Arial", Font.BOLD, 12));
 		pcInfoList.setBackground(new Color(192, 192, 192));
 		pcInfoList.setForeground(Color.BLACK);
@@ -669,6 +675,7 @@ public class C4H_DYNAMIC_GUI {
 		systemInfowerte.addElement(bg.getRechnertypen());
 		
 		JList<String> list_1PCINFO = new JList<String>(systemInfowerte);
+		list_1PCINFO.setBorder(null);
 		list_1PCINFO.setSelectionForeground(Color.BLUE);
 		list_1PCINFO.setSelectionBackground(Color.LIGHT_GRAY);
 		list_1PCINFO.setForeground(Color.BLACK);
@@ -719,6 +726,7 @@ public class C4H_DYNAMIC_GUI {
 		doppelpunkt.addElement("\n");
 		doppelpunkt.addElement(":");
 		JList<String> list_DoppelPunkt = new JList<String>(doppelpunkt);
+		list_DoppelPunkt.setBorder(null);
 		list_DoppelPunkt.setSelectionForeground(Color.BLUE);
 		list_DoppelPunkt.setSelectionBackground(Color.LIGHT_GRAY);
 		list_DoppelPunkt.setForeground(Color.BLACK);
