@@ -22,7 +22,7 @@ public class C4H_PC_INFO_KLASSE {
 	
 	private final int RechnerTypLaenge = 4;
 	//private C4H_LOG_FILE pcInfoLog = new C4H_LOG_FILE();
-	public String fehler;
+	public String toolTipFehlerHinweisText;
 	
 	String schulNummer="";
 	
@@ -515,8 +515,8 @@ public class C4H_PC_INFO_KLASSE {
 		
 		for (int i = 0; i < list.size(); i++) {
 			if(list.get(i).equalsIgnoreCase("Fehler-Netzwerk")||(list.get(i).equalsIgnoreCase("Fehler-MusterImage")||(list.get(i).equalsIgnoreCase("Fehler-Schulnummer")))) {
-				fehler=list.get(i).replaceAll("Fehler-", "");
-				System.out.println("hh"+ list.get(i).replaceAll("Fehler-", ""));
+				toolTipFehlerHinweisText=list.get(i).replaceAll("Fehler-", "");
+				System.out.println(toolTipFehlerHinweisText);
 				return false;
 			}
 		}

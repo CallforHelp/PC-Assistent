@@ -442,7 +442,7 @@ public class C4H_DYNAMIC_GUI {
 					setlist();
 					if(bg.getState()==false||!bg.pruefeSchulnr()) {
 						C4H_GUI_TRAY_ICON.trayIcon.setImage(C4H_GUI_TRAY_ICON.createImage("images/bulbred2.png", "trayIcon"));
-						C4H_GUI_TRAY_ICON.trayIcon.setToolTip("Schul-Support-Service - Call for Help:\n "+bg.fehler+ " Korrigieren");
+						C4H_GUI_TRAY_ICON.trayIcon.setToolTip("Schul-Support-Service - Call for Help:\n "+bg.toolTipFehlerHinweisText+ " Korrigieren");
 					}else {
 						C4H_GUI_TRAY_ICON.trayIcon.setImage(C4H_GUI_TRAY_ICON.createImage("images/bulb.png", "trayIcon"));
 						C4H_GUI_TRAY_ICON.trayIcon.setToolTip("Schul-Support-Service - Call for Help");
