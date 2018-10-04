@@ -30,8 +30,6 @@ public class C4H_BLINK_LABEL extends JLabel {
 	public boolean getBlinking(boolean flag) {
 		return this.blinkingOn;
 	}
-
-  
 	private class TimerListener implements ActionListener {
 		private C4H_BLINK_LABEL bl;
 		private Color bg;

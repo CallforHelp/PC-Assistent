@@ -25,24 +25,23 @@ public class C4H_DIALOG extends JDialog {
 	 * 
 	 */
 	public C4H_DIALOG() {
-    	setType(Type.UTILITY);
+    	setUndecorated(true);
     	setIconImage(Toolkit.getDefaultToolkit().getImage(C4H_DIALOG.class.getResource("images/bulb.png")));
 	
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(C4H_DIALOG.class.getResource("images/3s_logo.png")));
-		getContentPane().setBackground(Color.WHITE);
+		getContentPane().setBackground(new Color(220, 220,220));
 		setBounds(100, 100, 494, 247);
 		getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setIcon(new ImageIcon(C4H_DIALOG.class.getResource("images/3s_logo.png")));
 		lblNewLabel_1.setVerticalAlignment(SwingConstants.TOP);
-		lblNewLabel_1.setBounds(10, 49, 458, 91);
+		lblNewLabel_1.setBounds(5, 49, 484, 91);
 		getContentPane().add(lblNewLabel_1);
-		lblNewLabel_1.setIcon(new ImageIcon(C4H_DIALOG.class.getResource("images/3s_logo.png")));
+		lblNewLabel_1.setIcon(new ImageIcon(C4H_DIALOG.class.getResource("/src/c4h/images/3s_logo_text3.png")));
 		
 		JLabel lblCopyright = new JLabel("Copyright \u00A9 2018 Hamburger Informatik Technologie-Center e.V. (HITeC).");
 		lblCopyright.setFont(new Font("Times New Roman", Font.PLAIN, 11));

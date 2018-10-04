@@ -29,10 +29,12 @@ public class C4H_GUI_TRAY_ICON {
  * Ein Menu F&uuml;hrung zur bedienung ist auch vorhanden(pc-information, support,chat)
  * @throws Throwable IconTray
  */
+	static TrayIcon trayIcon    = new TrayIcon(createImage("images/bulb.png", "trayIcon"));  
+	
 	public void createshowGui() throws Throwable {
 		final C4H_DYNAMIC_GUI    window      = new C4H_DYNAMIC_GUI();
 		final PopupMenu          popup       = new PopupMenu();
-		final TrayIcon           trayIcon    = new TrayIcon(createImage("images/bulb.png", "trayIcon"));  
+		
 		final SystemTray         tray        = SystemTray.getSystemTray();
 		final C4H_PC_INFO_KLASSE bg          = new C4H_PC_INFO_KLASSE();
 		final C4H_WEBSITE_START  web         = new C4H_WEBSITE_START();
@@ -46,20 +48,19 @@ public class C4H_GUI_TRAY_ICON {
 		//Hinzufuegen(start) the Icon_tray 
 		try {
 			tray.add(trayIcon);
-			System.out.println("Schulnummer Aktuell: "+bg.getSchulNummer()+" ist :"+ bg.pruefeSchulnr());
-			if(!bg.pruefeSchulnr()) {
-				trayIcon.setImage(createImage("images/bulbred.png", "trayIcon"));
-				trayIcon.setToolTip("Schul-Support-Service - Call for Help: Bitte die Schulnummer Korrigieren");
+			if(bg.getState()==false||!bg.pruefeSchulnr()) {
+				trayIcon.setImage(createImage("images/bulbred2.png", "trayIcon"));
+				trayIcon.setToolTip("Schul-Support-Service - Call for Help:\n "+bg.toolTipFehlerHinweisText+ " Korrigieren");
+				//System.out.println("Schulnummer"+bg.getSchulNummer()+" ist :"+ bg.pruefeSchulnr());
 			}
-    			}catch(Throwable e2) {
-    				System.out.println("TrayIcon could not be added."+e2.getMessage());
-    			return;
-    		}
+		}catch(Throwable e2) {
+    		System.out.println("TrayIcon could not be added."+e2.getMessage());
+    		return;
+    	}
             
     	MenuItem BG_Info_MenuItem = new MenuItem("PC Information");
     	MenuItem Fehler_Meldung_Menu_Item = new MenuItem("Support");
     	MenuItem Chat_Menu_Item = new MenuItem("Chat");
-    	
     	MenuItem fwt_Menu_Item = new MenuItem("Fernwartung");
     	
     	fwt_Menu_Item.addActionListener(new ActionListener() {
@@ -100,6 +101,15 @@ public class C4H_GUI_TRAY_ICON {
     			if(e.getButton()==MouseEvent.BUTTON1) {
     				try {
 						window.setlist();
+						if(bg.getState()==false||!bg.pruefeSchulnr()) {
+							trayIcon.setImage(createImage("images/bulbred2.png", "trayIcon"));
+							trayIcon.setToolTip("Schul-Support-Service - Call for Help:\n "+bg.toolTipFehlerHinweisText+ " Korrigieren");
+							//System.out.println("Schulnummer"+bg.getSchulNummer()+" ist :"+ bg.pruefeSchulnr());
+						}else {
+							trayIcon.setImage(createImage("images/bulb.png", "trayIcon"));
+							trayIcon.setToolTip("Schul-Support-Service - Call for Help");
+						}
+							
 					} catch (Throwable e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
