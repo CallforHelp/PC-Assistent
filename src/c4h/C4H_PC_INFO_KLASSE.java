@@ -440,12 +440,15 @@ public class C4H_PC_INFO_KLASSE {
 	public String getMusterImageAusRegistry() throws IllegalArgumentException, IllegalAccessException, InvocationTargetException {
 		String musterausdatei="";
 		int HKEY_LOCAL_MACHINE= 0x80000002;
-		musterausdatei = C4H_WIN_REGISTRY.readString(HKEY_LOCAL_MACHINE,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation","Model", 0);
-		if(musterausdatei==""|| musterausdatei==null)
-			return "Fehler-MusterImage";
-		return musterausdatei;
+		if(getOSversion().contains("W")||getOSversion().contains("w")){
+			musterausdatei = C4H_WIN_REGISTRY.readString(HKEY_LOCAL_MACHINE,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation","Model", 0);
+			if(musterausdatei.equals("")|| musterausdatei==null)
+				return "Fehler-MusterImage";
+			else 
+				return musterausdatei;
+		}else 
+			return "";
 	}
-	
 	
 	/************************************************************************************************************/
 	/************************************** PRINTING * @throws Throwable ****************************************/
