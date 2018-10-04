@@ -190,10 +190,10 @@ public class C4H_DYNAMIC_GUI {
 		titelLabel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		JLabel systemInfoLabel = new JLabel("System Information");
 		systemInfoLabel.setBackground(UIManager.getColor("Button.light"));
-		systemInfoLabel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		systemInfoLabel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		JLabel lblNetzwerkInformation = new JLabel("Netzwerk Information");
 		lblNetzwerkInformation.setBackground(UIManager.getColor("Button.light"));
-		lblNetzwerkInformation.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		lblNetzwerkInformation.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		pcInfoButton.setForeground(new Color(192, 192, 192));
 		
 		pcInfoButton.setFocusPainted(false);
@@ -590,7 +590,7 @@ public class C4H_DYNAMIC_GUI {
 		logolabelchat.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		logolabelchat.setHorizontalAlignment(SwingConstants.CENTER);
 		logolabelchat.setIcon(new ImageIcon(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/3s_logo_text4.png")));
-		logolabelchat.setBounds(55, 461, 659, 184);
+		logolabelchat.setBounds(56, 461, 659, 184);
 		chatPanel.add(logolabelchat);
 		
 	    setlist();
