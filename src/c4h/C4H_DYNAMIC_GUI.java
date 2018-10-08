@@ -605,19 +605,19 @@ public class C4H_DYNAMIC_GUI {
 		NetzwerkInfowerte.removeAllElements();
 		
 		systemInfo.addElement("\n");
-		systemInfo.addElement("HostName");
+		systemInfo.addElement("Hostname");
 		systemInfo.addElement("\n");
-		systemInfo.addElement("User Name");
+		systemInfo.addElement("Username");
 		systemInfo.addElement("\n");
-		systemInfo.addElement("SchulNummer");
+		systemInfo.addElement("Schulnummer");
 		systemInfo.addElement("\n");
-		systemInfo.addElement("OS Version");
+		systemInfo.addElement("OS-Version");
 		systemInfo.addElement("\n");
-		systemInfo.addElement("OS Architektur");
+		systemInfo.addElement("OS-Architektur");
 		systemInfo.addElement("\n");
-		systemInfo.addElement("Muster Images");
+		systemInfo.addElement("Musterimages");
 		systemInfo.addElement("\n");
-		systemInfo.addElement("Rechner Typ");
+		systemInfo.addElement("Rechnertyp");
 
 		
 		pcInfoList= new JList<String>(systemInfo);
@@ -632,19 +632,19 @@ public class C4H_DYNAMIC_GUI {
 		
 		
 		netzwerkInfo.addElement("\n");
-		netzwerkInfo.addElement("Locale IP Adresse");
+		netzwerkInfo.addElement("IP-Adresse");
 		netzwerkInfo.addElement("\n");
 		netzwerkInfo.addElement("Subnetzmaske");
 		netzwerkInfo.addElement("\n");
-		netzwerkInfo.addElement("MAC Adresse");
+		netzwerkInfo.addElement("Macadresse");
 		netzwerkInfo.addElement("\n");
-		netzwerkInfo.addElement("Domain");
+		netzwerkInfo.addElement("Schuldomain");
 		netzwerkInfo.addElement("\n");
-		netzwerkInfo.addElement("Default Gateway");
+		netzwerkInfo.addElement("Gateway");
 		netzwerkInfo.addElement("\n");
-		netzwerkInfo.addElement("DHCP Server");
+		netzwerkInfo.addElement("DHCP-Server");
 		netzwerkInfo.addElement("\n");
-		netzwerkInfo.addElement("DNS Server");
+		netzwerkInfo.addElement("DNS-Server");
 		
 		netzwekList = new JList<String>(netzwerkInfo);
 		netzwekList.setValueIsAdjusting(true);

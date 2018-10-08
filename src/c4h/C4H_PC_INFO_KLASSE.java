@@ -442,7 +442,9 @@ public class C4H_PC_INFO_KLASSE {
 		int HKEY_LOCAL_MACHINE= 0x80000002;
 		if(getOSversion().contains("W")||getOSversion().contains("w")){
 			musterausdatei = C4H_WIN_REGISTRY.readString(HKEY_LOCAL_MACHINE,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation","Model", 0);
-			if(musterausdatei.equals("")|| musterausdatei==null)
+			if(musterausdatei==null)
+				return "Fehler-MusterImage";
+			if(musterausdatei.equals(""))
 				return "Fehler-MusterImage";
 			else 
 				return musterausdatei;
