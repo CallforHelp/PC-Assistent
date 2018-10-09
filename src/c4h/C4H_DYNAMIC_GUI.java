@@ -190,10 +190,10 @@ public class C4H_DYNAMIC_GUI {
 		titelLabel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		JLabel systemInfoLabel = new JLabel("System Information");
 		systemInfoLabel.setBackground(UIManager.getColor("Button.light"));
-		systemInfoLabel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		systemInfoLabel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		JLabel lblNetzwerkInformation = new JLabel("Netzwerk Information");
 		lblNetzwerkInformation.setBackground(UIManager.getColor("Button.light"));
-		lblNetzwerkInformation.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		lblNetzwerkInformation.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		pcInfoButton.setForeground(new Color(192, 192, 192));
 		
 		pcInfoButton.setFocusPainted(false);
@@ -313,7 +313,7 @@ public class C4H_DYNAMIC_GUI {
 		
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBackground(new Color(211, 211, 211));
-		separator_1.setPreferredSize(new Dimension(0, 5));
+		separator_1.setPreferredSize(new Dimension(0, 3));
 		menuDatei.add(separator_1);
 		menuDatei.add(exitItem);
 		chatButton.setFocusPainted(false);
@@ -343,23 +343,23 @@ public class C4H_DYNAMIC_GUI {
 		Buttonpanel.add(logoLabel);
 		
 		
-		titelLabel.setBounds(183, 11, 377, 50);
+		titelLabel.setBounds(56, 11, 659, 50);
 		titelLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		titelLabel.setFont(new Font("Arial", Font.BOLD, 29));
 		titelLabel.setText("PC Information");
 		
 		systemInfoLabel.setFont(new Font("Arial", Font.BOLD, 18));
 		systemInfoLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		systemInfoLabel.setBounds(90, 89, 238, 50);
+		systemInfoLabel.setBounds(56, 89, 289, 50);
 		PcInfoPanel.add(systemInfoLabel);
 		
 		lblNetzwerkInformation.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNetzwerkInformation.setFont(new Font("Arial", Font.BOLD, 18));
-		lblNetzwerkInformation.setBounds(455, 89, 238, 50);
+		lblNetzwerkInformation.setBounds(423, 89, 292, 50);
 		PcInfoPanel.add(lblNetzwerkInformation);
 		
 		JSeparator separator = new JSeparator();
-		separator.setBounds(10, 69, 767, 2);
+		separator.setBounds(10, 69, 767, 4);
 		
 		PcInfoPanel.add(separator);
 		frmCh.setForeground(Color.BLACK);
@@ -429,7 +429,7 @@ public class C4H_DYNAMIC_GUI {
 		
 		JSeparator separator_2 = new JSeparator();
 		separator_2.setBackground(new Color(211, 211, 211));
-		separator_2.setPreferredSize(new Dimension(0, 5));
+		separator_2.setPreferredSize(new Dimension(0, 3));
 		mnInfo.add(separator_2);
 		
 		JMenuItem AktualisierItem = new JMenuItem("Aktualisieren");
