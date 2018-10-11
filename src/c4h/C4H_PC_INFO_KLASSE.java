@@ -442,9 +442,11 @@ public class C4H_PC_INFO_KLASSE {
 		int HKEY_LOCAL_MACHINE= 0x80000002;
 		if(getOSversion().contains("W")||getOSversion().contains("w")){
 			musterausdatei = C4H_WIN_REGISTRY.readString(HKEY_LOCAL_MACHINE,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation","Model", 0);
-			if(getOSversion().contains("7")) {
-				String s=musterausdatei.split("Musterimage")[1].trim();
-				musterausdatei=s;
+			if(getOSversion().contains("10")) {
+				if(musterausdatei.contains("Musterimage")) {
+					String s=musterausdatei.split("Musterimage")[1].trim();
+					musterausdatei=s;
+				}
 				System.out.println(musterausdatei);
 			}
 				
