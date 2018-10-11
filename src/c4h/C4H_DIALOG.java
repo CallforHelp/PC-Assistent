@@ -25,34 +25,37 @@ public class C4H_DIALOG extends JDialog {
 	 * 
 	 */
 	public C4H_DIALOG() {
+    	//setUndecorated(true);
     	setUndecorated(true);
-    	setIconImage(Toolkit.getDefaultToolkit().getImage(C4H_DIALOG.class.getResource("images/bulb.png")));
-	
+    	//setIconImage(Toolkit.getDefaultToolkit().getImage(C4H_DIALOG.class.getResource("images/bulb.png")));
+    	
+    
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(C4H_DIALOG.class.getResource("images/3s_logo.png")));
-		getContentPane().setBackground(new Color(220, 220,220));
-		setBounds(100, 100, 494, 247);
+		getContentPane().setBackground(Color.LIGHT_GRAY);
+		//setBounds(100, 100, 680, 350);
+		setSize(670, 300);
 		getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setVerticalAlignment(SwingConstants.TOP);
-		lblNewLabel_1.setBounds(5, 49, 484, 91);
+		lblNewLabel_1.setBounds(10, 103, 654, 91);
 		getContentPane().add(lblNewLabel_1);
 		lblNewLabel_1.setIcon(new ImageIcon(C4H_DIALOG.class.getResource("/src/c4h/images/3s_logo_text3.png")));
 		
 		JLabel lblCopyright = new JLabel("Copyright \u00A9 2018 Hamburger Informatik Technologie-Center e.V. (HITeC).");
 		lblCopyright.setFont(new Font("Times New Roman", Font.PLAIN, 11));
 		lblCopyright.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCopyright.setBounds(30, 161, 448, 14);
+		lblCopyright.setBounds(127, 229, 448, 14);
 		getContentPane().add(lblCopyright);
 		
 		JLabel lblAlleRechteVorbehalten = new JLabel("Alle Rechte vorbehalten. ");
 		lblAlleRechteVorbehalten.setFont(new Font("Times New Roman", Font.PLAIN, 11));
 		lblAlleRechteVorbehalten.setHorizontalAlignment(SwingConstants.CENTER);
-		lblAlleRechteVorbehalten.setBounds(99, 176, 296, 21);
+		lblAlleRechteVorbehalten.setBounds(212, 254, 296, 21);
 		getContentPane().add(lblAlleRechteVorbehalten);
 		
 		C4H_BLINK_LABEL lblNewLabel = new C4H_BLINK_LABEL("C4H - Call For Help ");
@@ -60,12 +63,14 @@ public class C4H_DIALOG extends JDialog {
 		lblNewLabel.setBlinking(true);
 		lblNewLabel.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(99, 11, 279, 27);
+		lblNewLabel.setBounds(212, 51, 279, 27);
 		getContentPane().add(lblNewLabel);
 		
 		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
 	    int x = (int) ((dimension.getWidth() - getWidth()) / 2);
 	    int y = (int) ((dimension.getHeight() - getHeight()) / 2);
-	    setLocation(x, y);
+	    setLocation(x+90, y-25);
+	
+		
 	}
 }

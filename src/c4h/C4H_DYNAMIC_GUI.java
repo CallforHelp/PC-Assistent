@@ -158,7 +158,7 @@ public class C4H_DYNAMIC_GUI {
 		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
 	    int x = (int) ((dimension.getWidth() - frmCh.getWidth()) / 2);
 	    int y = (int) ((dimension.getHeight() - frmCh.getHeight()) / 2);
-	    frmCh.setLocation(x, y-15);
+	    frmCh.setLocation(x, y);
 		//PANELS
 		Buttonpanel = new JPanel();
 		Buttonpanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
@@ -647,9 +647,8 @@ public class C4H_DYNAMIC_GUI {
 		netzwerkInfo.addElement("DNS-Server");
 		
 		netzwekList = new JList<String>(netzwerkInfo);
-		netzwekList.setValueIsAdjusting(true);
 		netzwekList.setSelectionForeground(new Color(0, 0, 255));
-		netzwekList.setSelectionBackground(new Color(204, 204, 204));
+		netzwekList.setSelectionBackground(Color.LIGHT_GRAY);
 		netzwekList.setForeground(Color.BLACK);
 		netzwekList.setFont(new Font("Arial", Font.BOLD, 12));
 		netzwekList.setBackground(new Color(192, 192, 192));
@@ -698,9 +697,8 @@ public class C4H_DYNAMIC_GUI {
 		NetzwerkInfowerte.addElement(bg.getDNSServer());
 			
 		JList<String> list_2NetzwerkInfo = new JList<String>(NetzwerkInfowerte);
-		list_2NetzwerkInfo.setValueIsAdjusting(true);
 		list_2NetzwerkInfo.setSelectionForeground(Color.BLUE);
-		list_2NetzwerkInfo.setSelectionBackground(new Color(204, 204, 204));
+		list_2NetzwerkInfo.setSelectionBackground(Color.LIGHT_GRAY);
 		list_2NetzwerkInfo.setForeground(Color.BLACK);
 		list_2NetzwerkInfo.setFont(new Font("Arial", Font.BOLD, 12));
 		list_2NetzwerkInfo.setBackground(Color.LIGHT_GRAY);
