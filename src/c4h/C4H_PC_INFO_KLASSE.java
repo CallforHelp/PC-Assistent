@@ -23,7 +23,7 @@ public class C4H_PC_INFO_KLASSE {
 	private final int RechnerTypLaenge = 4;
 	//private C4H_LOG_FILE pcInfoLog = new C4H_LOG_FILE();
 	public String toolTipFehlerHinweisText;
-	
+	ArrayList<String> list = new ArrayList<>();
 	String schulNummer="";
 	
 	/**
@@ -442,7 +442,7 @@ public class C4H_PC_INFO_KLASSE {
 		int HKEY_LOCAL_MACHINE= 0x80000002;
 		if(getOSversion().contains("W")||getOSversion().contains("w")){
 			musterausdatei = C4H_WIN_REGISTRY.readString(HKEY_LOCAL_MACHINE,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation","Model", 0);
-			if(getOSversion().contains("10")) {
+			if(getOSversion().contains("7")) {
 				if(musterausdatei.contains("Musterimage")) {
 					String s=musterausdatei.split("Musterimage")[1].trim();
 					musterausdatei=s;
@@ -508,7 +508,7 @@ public class C4H_PC_INFO_KLASSE {
 	}
 
 	public boolean getState() throws Throwable {
-		ArrayList<String> list = new ArrayList<>();
+		
 		//PC
 		list.add(getLocalHost());
 		list.add(getUserName());
