@@ -748,7 +748,7 @@ public class C4H_DYNAMIC_GUI {
 	public void startBrowser(){
 		try {
 			browser.createScene(URL+"?schulnummer="+bg.getSchulNummer()+"&pcname="+bg.getLocalHost()
-			+"&ipadress="+bg.getLocalAdresse()+"&MusterImge="+bg.getMusterImageAusRegistry().replaceAll(" ", ""));
+			+"&ipadress="+bg.getLocalAdresse()+"&MusterImage="+bg.getMusterImageAusRegistry().replaceAll(" ", ""));
 			
 		} catch (Throwable e) {
 			System.out.println("Exception: "+e);
