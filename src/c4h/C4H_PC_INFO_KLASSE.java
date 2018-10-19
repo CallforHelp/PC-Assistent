@@ -510,6 +510,9 @@ public class C4H_PC_INFO_KLASSE {
 	public boolean getState() throws Throwable {
 		
 		//PC
+		if (!list.isEmpty())
+			list.removeAll(list);
+		
 		list.add(getLocalHost());
 		list.add(getUserName());
 		list.add(getSchulNummer());
