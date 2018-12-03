@@ -153,7 +153,10 @@ public class C4H_DYNAMIC_GUI {
 	public void initialize() throws Throwable{
 		
 		frmCh = new JFrame();
-		frmCh.setBounds(new Rectangle(0, 0, 988, 713));
+		frmCh.setIgnoreRepaint(true);
+		frmCh.setAutoRequestFocus(false);
+		frmCh.setResizable(false);
+		frmCh.setBounds(new Rectangle(0, 0, 995, 720));
 		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
 	    int x = (int) ((dimension.getWidth() - frmCh.getWidth()) / 2);
 	    int y = (int) ((dimension.getHeight() - frmCh.getHeight()) / 2);
@@ -214,13 +217,13 @@ public class C4H_DYNAMIC_GUI {
 		
 		//Panel
 		Buttonpanel.setBackground(new Color(220, 220, 220));
-		Buttonpanel.setBounds(0, 40, 200, 670);
+		Buttonpanel.setBounds(0, 40, 200, 687);
 		Buttonpanel.setLayout(null);
 		Buttonpanel.add(pcInfoButton);
 		Buttonpanel.add(fehlermeldenButton);
 		
 		
-		PcInfoPanel.setBounds(200, 40, 787, 670);
+		PcInfoPanel.setBounds(200, 40, 787, 687);
 		PcInfoPanel.setBackground(new Color(220, 220, 220));
 		PcInfoPanel.setLayout(null);
 		PcInfoPanel.add(titelLabel);
@@ -338,7 +341,7 @@ public class C4H_DYNAMIC_GUI {
 		});
 		
 		//LABEL Settings
-		logoLabel.setBounds(10, 461, 175, 184);
+		logoLabel.setBounds(16, 457, 180, 194);
 		Buttonpanel.add(logoLabel);
 		
 		
