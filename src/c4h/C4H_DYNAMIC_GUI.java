@@ -154,7 +154,7 @@ public class C4H_DYNAMIC_GUI {
 		
 		frmCh = new JFrame();
 		frmCh.setResizable(false);
-		frmCh.setBounds(new Rectangle(0, 0, 990, 737));
+		frmCh.setBounds(new Rectangle(0, 0, 995, 741));
 		//frmCh.setUndecorated(true);
 		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
 	    int x = (int) ((dimension.getWidth() - frmCh.getWidth()) / 2);
