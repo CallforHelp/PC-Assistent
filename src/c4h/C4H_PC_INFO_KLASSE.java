@@ -457,7 +457,7 @@ public class C4H_PC_INFO_KLASSE {
 			else 
 				return musterausdatei;
 		}else 
-			return "";
+			return "Fehler-MusterImage";
 	}
 	
 	/************************************************************************************************************/
