@@ -153,6 +153,7 @@ public class C4H_DYNAMIC_GUI {
 	public void initialize() throws Throwable{
 		
 		frmCh = new JFrame();
+		frmCh.setResizable(false);
 		frmCh.setBounds(new Rectangle(0, 0, 990, 737));
 		//frmCh.setUndecorated(true);
 		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
@@ -192,6 +193,7 @@ public class C4H_DYNAMIC_GUI {
 		systemInfoLabel.setBackground(UIManager.getColor("Button.light"));
 		systemInfoLabel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		JLabel lblNetzwerkInformation = new JLabel("Netzwerk Information");
+		lblNetzwerkInformation.setIgnoreRepaint(true);
 		lblNetzwerkInformation.setBackground(UIManager.getColor("Button.light"));
 		lblNetzwerkInformation.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		pcInfoButton.setForeground(new Color(192, 192, 192));

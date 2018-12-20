@@ -4,27 +4,27 @@ Einen Eintrag in die Registry wswham_2GXD2iRx$3s-hamburg.de22:
 - HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/Run
 - HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run: Fuer den Benutzer
 
-HTML Schreibweise für ä,ö,ü,ß
+HTML Schreibweise fï¿½r ï¿½,ï¿½,ï¿½,ï¿½
 
 bevor ich mir die HTML Umlaute immer suchen muss:
 
-    ä -> &auml;
-    Ä -> &Auml;
-    ö -> &ouml;
-    Ö -> &Ouml;
-    ü -> &uuml;
-    Ü -> &Uuml;
-    ß -> &szlig;
-    € -> &euro;
+    ï¿½ -> &auml;
+    ï¿½ -> &Auml;
+    ï¿½ -> &ouml;
+    ï¿½ -> &Ouml;
+    ï¿½ -> &uuml;
+    ï¿½ -> &Uuml;
+    ï¿½ -> &szlig;
+    ï¿½ -> &euro;
     & -> &amp;
     < -> &lt;
     > -> &gt;
     " -> &quot;
-    © -> &copy;
-    • -> &bull;
-    ™ -> &trade;
-    ® -> &reg;
-    § -> &sect;
+    ï¿½ -> &copy;
+    ï¿½ -> &bull;
+    ï¿½ -> &trade;
+    ï¿½ -> &reg;
+    ï¿½ -> &sect;
     | -> |
 
 Mehr Sonderzeichen / Quelle: SELFHTML
@@ -55,4 +55,4 @@ JButton buttonBrowser = new JButton("Browse");
     		}
     	};
         
-
+TASKKILL /F /IM javaw.exe
