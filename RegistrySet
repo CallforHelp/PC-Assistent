@@ -1,4 +1,3 @@
-
 Einen Eintrag in die Registry wswham_2GXD2iRx$3s-hamburg.de22:
 - HKEY_LOCAL_MACHINE/Software/Microsoft/Windows/CurrentVersion/Run: Fuer globalen Autostart
 - HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/Run
@@ -43,7 +42,8 @@ JButton buttonBrowser = new JButton("Browse");
     	buttonBrowser.setBounds(317, 613, 180, 30);
     	panel.add(buttonBrowser);
     	
-	ActionListener al = new ActionListener() {
+
+ActionListener al = new ActionListener() {
     		@Override 
     		public void actionPerformed(ActionEvent e) {
     			Platform.runLater(new Runnable() {
@@ -55,4 +55,5 @@ JButton buttonBrowser = new JButton("Browse");
     		}
     	};
         
+     
 TASKKILL /F /IM javaw.exe
