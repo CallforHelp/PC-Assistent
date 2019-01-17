@@ -68,11 +68,12 @@ public class C4H_PC_INFO_KLASSE {
 	 * @return userName
 	 */
 	public String getUserName() {
-		
+		if(getOSversion().contains("W")||getOSversion().contains("w")) {
 		String userName = new Properties(System.getProperties()).getProperty("user.name");
 		if(userName==""||userName==null)
 			return "Fehler-UserName";
 		return userName;
+		}return "Mac-Rechner";
 	}
 	
 	/**
@@ -81,7 +82,7 @@ public class C4H_PC_INFO_KLASSE {
 	 * @throws Throwable Hostname
 	 */
 	public String settSchulNummer() throws Throwable {
-		
+		if(getOSversion().contains("W")||getOSversion().contains("w")) {
 		Pattern p = Pattern.compile("[0-9]{4}");
 		Matcher m = p.matcher(InetAddress.getLocalHost().getHostName());
 		
@@ -91,9 +92,12 @@ public class C4H_PC_INFO_KLASSE {
 		
 		if(!pruefeSchulnr())
 			this.schulNummer="Fehler-Schulnummer";
-
+		return schulNummer;
 		
-    return schulNummer;
+		}else {
+			this.schulNummer= "Fehler-SchulNummer";
+			return schulNummer;
+		}
 
 	}
 	/**
@@ -124,9 +128,10 @@ public class C4H_PC_INFO_KLASSE {
 	 * @return OSArchitektur
 	 */
 	public String getOSArchitecture(){
-		
-		String OsArch= new Properties(System.getProperties()).getProperty("os.arch");
-		return OsArch;
+		if(getOSversion().contains("W")||getOSversion().contains("w")) {
+			String OsArch= new Properties(System.getProperties()).getProperty("os.arch");
+			return OsArch;
+		}else return "Mac-Rechner";
 	}
 	/**
 	 * Muster Image von 3s
@@ -167,10 +172,14 @@ public class C4H_PC_INFO_KLASSE {
 		
 		String rechnerTyp="";
 		
-		String hostname = InetAddress.getLocalHost().getHostName();
 		
-		for (int i = RechnerTypLaenge; i < (RechnerTypLaenge*2); i++) {
-			rechnerTyp=rechnerTyp+(hostname.charAt(i));
+		if(getOSversion().contains("W")||getOSversion().contains("w")) {
+			String hostname = InetAddress.getLocalHost().getHostName();
+			for (int i = RechnerTypLaenge; i < (RechnerTypLaenge*2); i++) {
+				rechnerTyp=rechnerTyp+(hostname.charAt(i));
+			}
+		}else {
+			return "Mac-Rechner";
 		}
 		
 		return rechnerTyp; 
@@ -187,11 +196,13 @@ public class C4H_PC_INFO_KLASSE {
 	public String getLocalAdresse() throws UnknownHostException {
 		
 		String result ="";
-		result= InetAddress.getLocalHost().getHostAddress();
-		if(result=="")
+		if(getOSversion().contains("W")||getOSversion().contains("w")) {
+			result= InetAddress.getLocalHost().getHostAddress();
+			if(result=="")
+				return "Fehler-Netzwerk";
+			return result;
+		}else 
 			return "Fehler-Netzwerk";
-		return result;
-		
 	}
 	/**
 	 * MacAdresse auslesen. 
@@ -209,14 +220,15 @@ public class C4H_PC_INFO_KLASSE {
 			result=macAdre[0].replace('"','\0').trim();
 			//for mac 
 			}else {
-				for( NetworkInterface ni : Collections.list( NetworkInterface.getNetworkInterfaces() ) ){
+				return "Mac Rechner ";
+				/*for( NetworkInterface ni : Collections.list( NetworkInterface.getNetworkInterfaces() ) ){
 					byte[] hardwareAddress = ni.getHardwareAddress();
 					if( hardwareAddress != null ){
 						for ( int i = 0; i < hardwareAddress.length; i++ )
 							result += String.format( (i==0?"":"-")+"%02X", hardwareAddress[i] );
-					}
+					*/
 				}
-			}
+			
 		return result;
 	}
 	
@@ -228,11 +240,14 @@ public class C4H_PC_INFO_KLASSE {
 	public String getLocalHost() throws UnknownHostException {
 		
 		String result ="";
-		result= InetAddress.getLocalHost().getHostName();
-		if(result=="")
-			return "Fehler-Netzwerk";
-		return result;
-		
+		if(getOSversion().contains("W")||getOSversion().contains("w")) {
+			result= InetAddress.getLocalHost().getHostName();
+			if(result=="")
+				return "Fehler-Netzwerk";
+			return result;
+		}else{
+			return "MAC-Rechner";
+		}
 	}
 	/**
 	 * angemeldete Domaine auslesen.
@@ -279,7 +294,7 @@ public class C4H_PC_INFO_KLASSE {
 	 * @throws IOException Localhost
 	 */
 	public String getSubnetMask() throws SocketException, IOException {
-		
+		if(getOSversion().contains("W")||getOSversion().contains("w")) {
 		NetworkInterface networkInterface = NetworkInterface.getByInetAddress(InetAddress.getLocalHost());
 		short prflen= networkInterface.getInterfaceAddresses().get(0).getNetworkPrefixLength();
 		int shft = 0xffffffff<<(32-prflen);
@@ -290,6 +305,8 @@ public class C4H_PC_INFO_KLASSE {
 		String submask = oct1+"."+oct2+"."+oct3+"."+oct4+"/"+prflen;
 		
 		return submask;
+		}else 
+			return "MAC-Rechner";
 		
 	}
 	
@@ -457,7 +474,7 @@ public class C4H_PC_INFO_KLASSE {
 			else 
 				return musterausdatei;
 		}else 
-			return "";
+			return "Fehler-MusterImage";
 	}
 	
 	/************************************************************************************************************/
@@ -510,6 +527,9 @@ public class C4H_PC_INFO_KLASSE {
 	public boolean getState() throws Throwable {
 		
 		//PC
+		if (!list.isEmpty())
+			list.removeAll(list);
+		
 		list.add(getLocalHost());
 		list.add(getUserName());
 		list.add(getSchulNummer());
