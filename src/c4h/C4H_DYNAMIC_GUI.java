@@ -368,7 +368,7 @@ public class C4H_DYNAMIC_GUI {
 		frmCh.setForeground(Color.BLACK);
 		frmCh.setIconImage(Toolkit.getDefaultToolkit().getImage(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/3s_logo_c4h.png")));
 		frmCh.setBackground(new Color(211, 211, 211));
-		frmCh.setTitle("Call for Help");
+		frmCh.setTitle("Call for Help 1.0");
 		
 		frmCh.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		frmCh.getContentPane().setBackground(new Color(240,240,240));

@@ -246,7 +246,7 @@ public class C4H_PC_INFO_KLASSE {
 				return "Fehler-Netzwerk";
 			return result;
 		}else{
-			return "MAC-Rechner";
+			return "Mac-Rechner";
 		}
 	}
 	/**
@@ -306,7 +306,7 @@ public class C4H_PC_INFO_KLASSE {
 		
 		return submask;
 		}else 
-			return "MAC-Rechner";
+			return "Mac-Rechner";
 		
 	}
 	
