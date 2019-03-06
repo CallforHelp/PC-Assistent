@@ -25,6 +25,7 @@ public class C4H_TEST_MODUL {
 	private JCheckBox chckbxc4H;
 	private JCheckBox chckbxTestWeb;
 	private JButton buttonReset;
+	String url="http://fehlermeldung.3s-hamburg.de/test";
 
 	/**
 	 * Launch the application.
@@ -41,6 +42,8 @@ public class C4H_TEST_MODUL {
 	 * Initialize the contents of the frame.
 	 */
 	public void initialize() {
+		
+		
 		frmTestingBorad = new JFrame();
 		frmTestingBorad.setTitle("Testing Borad beta 1.0");
 		frmTestingBorad.setIconImage(Toolkit.getDefaultToolkit().getImage(C4H_TEST_MODUL.class.getResource("/src/c4h/images/3s_logo_c4h.png")));
@@ -76,20 +79,7 @@ public class C4H_TEST_MODUL {
 		
 		JButton btnBesttigen = new JButton("Bestaetigen");
 		btnBesttigen.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		String url="";
-		btnBesttigen.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.out.println(textField.getText());
-				if(textField.getText().equals("")|textField.getText().equals(null))
-					textField.setBackground(Color.RED);
-				else {
-					C4H_DYNAMIC_GUI gui = new C4H_DYNAMIC_GUI(textField.getText(), url);
-					gui.frmCh.setVisible(true);
-					gui.chatPanel.setVisible(false);
-				}
-				
-			}
-		});
+		
 		btnBesttigen.setBounds(167, 180, 117, 29);
 		frmTestingBorad.getContentPane().add(btnBesttigen);
 		
@@ -104,12 +94,16 @@ public class C4H_TEST_MODUL {
 		frmTestingBorad.getContentPane().add(chckbxc4H);
 		
 		chckbxTestWeb = new JCheckBox("C4H Testbereich");
+		chckbxTestWeb.setSelected(true);
+		
 		chckbxTestWeb.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
-				if(e.getStateChange()==1)
+				if(e.getStateChange()==1) {
 					chckbxc4H.setSelected(false);
+				}
 				if(e.getStateChange()==0)
 					chckbxc4H.setSelected(true);
+				
 			}
 		});
 		chckbxTestWeb.setBounds(40, 88, 132, 23);
@@ -127,15 +121,37 @@ public class C4H_TEST_MODUL {
 		
 		chckbxc4H.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
-				if(e.getStateChange()==1)
+				if(e.getStateChange()==1) {
 					chckbxTestWeb.setSelected(false);
-				if(e.getStateChange()==0)
+				}
+				if(e.getStateChange()==0) {
 					chckbxTestWeb.setSelected(true);
+				}
+			}
+		});
+	
+		
+		btnBesttigen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println(textField.getText());
+				if(textField.getText().equals("")|textField.getText().equals(null))
+					textField.setBackground(Color.RED);
+				else {
+					if (chckbxc4H.isSelected()) {
+						url="http://fehlermeldung.3s-hamburg.de";
+					}
+					System.out.println(url);
+					C4H_DYNAMIC_GUI gui = new C4H_DYNAMIC_GUI(textField.getText(), url);
+					if(gui.frmCh.isEnabled()){
+						gui.frmCh.setVisible(false);
+						gui= new C4H_DYNAMIC_GUI(textField.getText(), url);
+					}
+					gui.frmCh.setVisible(true);
+					gui.chatPanel.setVisible(false);
+				}
+				
 			}
 		});
 		frmTestingBorad.setVisible(true);
-	}
-	public static void main(String[] args) {	
-	
 	}
 }

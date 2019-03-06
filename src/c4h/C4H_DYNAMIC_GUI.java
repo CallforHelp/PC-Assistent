@@ -48,7 +48,7 @@ public class C4H_DYNAMIC_GUI {
 	/**
 	 * Objekt zur erstellung und anzeigen von Pc_information. 
 	 */
-	public C4H_PC_INFO_KLASSE bg = new C4H_PC_INFO_KLASSE(schulNummer);
+	public C4H_PC_INFO_KLASSE bg;
 	/**
 	 * FrameC4H
 	 */
@@ -136,6 +136,19 @@ public class C4H_DYNAMIC_GUI {
 	public C4H_DYNAMIC_GUI(String schulNummmerTest, String URLTest) {
 		this.testUrl=URL+URLTest;
 		this.schulNummer= schulNummmerTest;
+		bg = new C4H_PC_INFO_KLASSE(schulNummer);
+		systemInfo = new DefaultListModel<>();
+		netzwerkInfo = new DefaultListModel<>();
+		systemInfowerte= new DefaultListModel<>();
+		NetzwerkInfowerte= new DefaultListModel<>();
+		DoppelPunktListe = new DefaultListModel<>();
+		try {
+			initialize();
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//connectToSftp();	
 	}
 
 	/**

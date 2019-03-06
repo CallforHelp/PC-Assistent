@@ -18,13 +18,21 @@ public class C4H_WEBSITE_START  {
 	 */
 	String webSeite ="http://fehlermeldung.3s-hamburg.de";
 	private C4H_PC_INFO_KLASSE bginfo;
-	private String schulnummer; 
+	
+	private String schulnummer=""; 
 	/**
 	 * Konstruktor zum hinzuf&uuml;gen von  PC Information
 	 * @throws Throwable Hostname
 	 */
-	public C4H_WEBSITE_START() {
+	public C4H_WEBSITE_START(String schulnummer2) {
+		this.schulnummer=schulnummer2;
+		
 		bginfo= new  C4H_PC_INFO_KLASSE(schulnummer);
+		
+	}
+	public C4H_WEBSITE_START() {
+		
+		bginfo= new  C4H_PC_INFO_KLASSE();
 		
 	}
 

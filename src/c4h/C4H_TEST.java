@@ -15,7 +15,7 @@ public class C4H_TEST {
 	 */
 	public static void main(String[] args) {	
 		C4H_TEST_MODUL test = new C4H_TEST_MODUL();
-		test.initialize();
+	//	test.initialize();
 		/*
 		C4H_GUI_TRAY_ICON start=new C4H_GUI_TRAY_ICON();
 		
