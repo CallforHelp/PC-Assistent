@@ -99,7 +99,7 @@ public class C4H_SFTP_TO_USE {
 	 * Schreibe in einer Datei die Schulnummer.
 	 * @throws Throwable Hostname
 	 */
-	public  void uploadFileWithSchoolNumber() throws Throwable {
+	public  void uploadFileWithSchoolNumber() throws Throwable{
 		C4H_PC_INFO_KLASSE bg = new C4H_PC_INFO_KLASSE();
 		//channel.rm("/standort/"+bg.getSchulNummer());
 		try {

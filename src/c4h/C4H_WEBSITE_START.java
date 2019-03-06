@@ -22,7 +22,7 @@ public class C4H_WEBSITE_START  {
 	 * Konstruktor zum hinzuf&uuml;gen von  PC Information
 	 * @throws Throwable Hostname
 	 */
-	public C4H_WEBSITE_START() throws Throwable {
+	public C4H_WEBSITE_START() {
 		bginfo= new  C4H_PC_INFO_KLASSE();
 		
 	}

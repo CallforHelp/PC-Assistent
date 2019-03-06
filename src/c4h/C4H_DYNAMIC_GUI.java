@@ -116,13 +116,18 @@ public class C4H_DYNAMIC_GUI {
 	 * Konstruktor zur Laufzeit Start vom GUI UND SFTP Verbindung falls es nouml;tig ist. 
 	 * @throws Throwable Hostname
 	 */
-	public C4H_DYNAMIC_GUI() throws Throwable {
+	public C4H_DYNAMIC_GUI() {
 		systemInfo = new DefaultListModel<>();
 		netzwerkInfo = new DefaultListModel<>();
 		systemInfowerte= new DefaultListModel<>();
 		NetzwerkInfowerte= new DefaultListModel<>();
 		DoppelPunktListe = new DefaultListModel<>();
-		initialize();
+		try {
+			initialize();
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		//connectToSftp();	
 		
 	}

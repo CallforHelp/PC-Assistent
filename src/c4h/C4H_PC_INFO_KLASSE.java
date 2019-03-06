@@ -31,9 +31,14 @@ public class C4H_PC_INFO_KLASSE {
 	 * SchulNummer erstellen 
 	 * @throws Throwable Hostname
 	 */
-	public C4H_PC_INFO_KLASSE() throws Throwable {
+	public C4H_PC_INFO_KLASSE() {
 		
-		settSchulNummer();
+		try {
+			settSchulNummer();
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	
 	}
 	
