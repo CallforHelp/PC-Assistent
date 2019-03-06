@@ -108,7 +108,7 @@ public class C4H_DYNAMIC_GUI {
 	/**
 	 * Objekt zur erstellung und anzeigen von Pc_information. 
 	 */
-	private C4H_PC_INFO_KLASSE bg = new C4H_PC_INFO_KLASSE();
+	public C4H_PC_INFO_KLASSE bg = new C4H_PC_INFO_KLASSE();
 
 	/**
 	 * Konstruktor zur Laufzeit Start vom GUI UND SFTP Verbindung falls es nouml;tig ist. 

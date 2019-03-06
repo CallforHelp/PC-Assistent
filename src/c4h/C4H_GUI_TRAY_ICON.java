@@ -33,12 +33,11 @@ public class C4H_GUI_TRAY_ICON {
 	
 	public void createshowGui(){
 
-		final C4H_DYNAMIC_GUI    window      = new C4H_DYNAMIC_GUI();
-		final PopupMenu          popup       = new PopupMenu();
 		
+		final PopupMenu          popup       = new PopupMenu();		
 		final SystemTray         tray        = SystemTray.getSystemTray();
-		final C4H_PC_INFO_KLASSE bg          = new C4H_PC_INFO_KLASSE();
 		final C4H_WEBSITE_START  web         = new C4H_WEBSITE_START();
+		final C4H_DYNAMIC_GUI    window      = new C4H_DYNAMIC_GUI();
 	
 		if (!SystemTray.isSupported()) {
 			System.out.println("SystemTray is not supported");
@@ -49,9 +48,9 @@ public class C4H_GUI_TRAY_ICON {
 		//Hinzufuegen(start) the Icon_tray 
 		try {
 			tray.add(trayIcon);
-			if(bg.getState()==false||!bg.pruefeSchulnr()) {
+			if(window.bg.getState()==false||!window.bg.pruefeSchulnr()) {
 				trayIcon.setImage(createImage("images/bulbred2.png", "trayIcon"));
-				trayIcon.setToolTip("Schul-Support-Service - Call for Help:\n "+bg.toolTipFehlerHinweisText+ " Korrigieren");
+				trayIcon.setToolTip("Schul-Support-Service - Call for Help:\n "+window.bg.toolTipFehlerHinweisText+ " Korrigieren");
 				//System.out.println("Schulnummer"+bg.getSchulNummer()+" ist :"+ bg.pruefeSchulnr());
 			}
 		}catch(Throwable e2) {
@@ -102,9 +101,9 @@ public class C4H_GUI_TRAY_ICON {
     			if(e.getButton()==MouseEvent.BUTTON1) {
     				try {
 						window.setlist();
-						if(bg.getState()== false||!bg.pruefeSchulnr()) {
+						if(window.bg.getState()== false||!window.bg.pruefeSchulnr()) {
 							trayIcon.setImage(createImage("images/bulbred2.png", "trayIcon"));
-							trayIcon.setToolTip("Schul-Support-Service - Call for Help:\n "+bg.toolTipFehlerHinweisText+ " Korrigieren");
+							trayIcon.setToolTip("Schul-Support-Service - Call for Help:\n "+window.bg.toolTipFehlerHinweisText+ " Korrigieren");
 							//System.out.println("Schulnummer"+bg.getSchulNummer()+" ist :"+ bg.pruefeSchulnr());
 						}else {
 							trayIcon.setImage(createImage("images/bulb.png", "trayIcon"));
@@ -146,7 +145,7 @@ public class C4H_GUI_TRAY_ICON {
 			public void actionPerformed(ActionEvent e) {
 				//todo hier
 				try {
-					bg.printBGinfo();
+					window.bg.printBGinfo();
 					window.frmCh.setVisible(true);
 					window.PcInfoPanel.setVisible(true);
 					window.FehlerMeldenPanel.setVisible(false);
