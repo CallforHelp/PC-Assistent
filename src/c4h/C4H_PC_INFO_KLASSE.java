@@ -25,11 +25,6 @@ public class C4H_PC_INFO_KLASSE {
 	public String toolTipFehlerHinweisText;
 	ArrayList<String> list = new ArrayList<>();
 	String schulNummer="";
-	
-	
-	public C4H_PC_INFO_KLASSE(String s) {
-		this.schulNummer=s;
-	}
 	/**
 	 * Die Schulnummer muss erstellt werden damit f&uuml;r die Fehleranmeldung sofort mitgenommen wird.
 	 * SchulNummer erstellen 
@@ -46,6 +41,16 @@ public class C4H_PC_INFO_KLASSE {
 	
 	}
 	
+	public C4H_PC_INFO_KLASSE(String schulNummer2) {
+		this.schulNummer=schulNummer2;
+		try {
+			settSchulNummer();
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 	/**
 	 * Ueberschrift Name Des Tool. 
 	 * @return uebrschrift

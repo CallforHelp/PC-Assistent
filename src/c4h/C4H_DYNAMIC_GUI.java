@@ -37,11 +37,18 @@ public class C4H_DYNAMIC_GUI {
 	 * URL fuer und FehlermeldenscriptScript
 	 */
 	public String URL = "http://fehlermeldung.3s-hamburg.de";
-	
+	public String testUrl="";
 	private C4H_BROWSER_INTEGRATION browser ;
 	private C4H_WEBSITE_START web = new C4H_WEBSITE_START();
 
-	
+	/**
+	 * Schulnummer For Test
+	 */
+	public String schulNummer;
+	/**
+	 * Objekt zur erstellung und anzeigen von Pc_information. 
+	 */
+	public C4H_PC_INFO_KLASSE bg = new C4H_PC_INFO_KLASSE(schulNummer);
 	/**
 	 * FrameC4H
 	 */
@@ -105,10 +112,7 @@ public class C4H_DYNAMIC_GUI {
 	 */
 	@SuppressWarnings("rawtypes")
 	private JList netzwekList;
-	/**
-	 * Objekt zur erstellung und anzeigen von Pc_information. 
-	 */
-	public C4H_PC_INFO_KLASSE bg = new C4H_PC_INFO_KLASSE();
+
 
 	/**
 	 * Konstruktor zur Laufzeit Start vom GUI UND SFTP Verbindung falls es nouml;tig ist. 
@@ -128,6 +132,10 @@ public class C4H_DYNAMIC_GUI {
 		}
 		//connectToSftp();	
 		
+	}
+	public C4H_DYNAMIC_GUI(String schulNummmerTest, String URLTest) {
+		this.testUrl=URL+URLTest;
+		this.schulNummer= schulNummmerTest;
 	}
 
 	/**
@@ -396,7 +404,7 @@ public class C4H_DYNAMIC_GUI {
 				try {
 					if(!bg.pruefeSchulnr())
 						//displayMessage("Die SchulNummer ist Fehlerhaft!!!"+bg.getSchulNummer(),"Schul Support Service\nTEAM C4H", MessageType.WARNING);
-						web.openWebSite(URL);
+						web.openWebSite(testUrl);
 					else
 						web.openWebSite();
 					
@@ -753,7 +761,7 @@ public class C4H_DYNAMIC_GUI {
 	 */
 	public void startBrowser(){
 		try {
-			browser.createScene(URL+"?schulnummer="+bg.getSchulNummer()+"&pcname="+bg.getLocalHost()
+			browser.createScene(testUrl+"?schulnummer="+bg.getSchulNummer()+"&pcname="+bg.getLocalHost()
 			+"&ipadress="+bg.getLocalAdresse()+"&MusterImage="+bg.getMusterImageAusRegistry().replaceAll(" ", ""));
 			
 		} catch (Throwable e) {

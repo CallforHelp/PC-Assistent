@@ -76,14 +76,16 @@ public class C4H_TEST_MODUL {
 		
 		JButton btnBesttigen = new JButton("Bestaetigen");
 		btnBesttigen.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		
+		String url="";
 		btnBesttigen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println(textField.getText());
 				if(textField.getText().equals("")|textField.getText().equals(null))
 					textField.setBackground(Color.RED);
 				else {
-					
+					C4H_DYNAMIC_GUI gui = new C4H_DYNAMIC_GUI(textField.getText(), url);
+					gui.frmCh.setVisible(true);
+					gui.chatPanel.setVisible(false);
 				}
 				
 			}
@@ -131,8 +133,6 @@ public class C4H_TEST_MODUL {
 					chckbxTestWeb.setSelected(true);
 			}
 		});
-	
-		
 		frmTestingBorad.setVisible(true);
 	}
 	public static void main(String[] args) {	
@@ -144,5 +144,7 @@ public class C4H_TEST_MODUL {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		C4H_TEST_MODUL test = new C4H_TEST_MODUL();
+		test.initialize();
 	}
 }
