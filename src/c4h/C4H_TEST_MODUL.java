@@ -133,6 +133,16 @@ public class C4H_TEST_MODUL {
 		});
 	
 		
-	
+		frmTestingBorad.setVisible(true);
+	}
+	public static void main(String[] args) {	
+		
+		C4H_TEST_MODUL start=new C4H_TEST_MODUL();
+		
+		try {
+			start.initialize();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

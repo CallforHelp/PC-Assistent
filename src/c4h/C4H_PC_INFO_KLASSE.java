@@ -26,6 +26,10 @@ public class C4H_PC_INFO_KLASSE {
 	ArrayList<String> list = new ArrayList<>();
 	String schulNummer="";
 	
+	
+	public C4H_PC_INFO_KLASSE(String s) {
+		this.schulNummer=s;
+	}
 	/**
 	 * Die Schulnummer muss erstellt werden damit f&uuml;r die Fehleranmeldung sofort mitgenommen wird.
 	 * SchulNummer erstellen 
@@ -87,6 +91,10 @@ public class C4H_PC_INFO_KLASSE {
 	 * @throws Throwable Hostname
 	 */
 	public String settSchulNummer() throws Throwable {
+		
+		if(!schulNummer.equals("")||schulNummer.equals(null))
+			return schulNummer;
+		
 		if(getOSversion().contains("W")||getOSversion().contains("w")) {
 		Pattern p = Pattern.compile("[0-9]{4}");
 		Matcher m = p.matcher(InetAddress.getLocalHost().getHostName());

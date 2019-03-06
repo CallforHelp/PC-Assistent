@@ -32,6 +32,7 @@ public class C4H_GUI_TRAY_ICON {
 	static TrayIcon trayIcon    = new TrayIcon(createImage("images/bulb.png", "trayIcon"));  
 	
 	public void createshowGui(){
+
 		final C4H_DYNAMIC_GUI    window      = new C4H_DYNAMIC_GUI();
 		final PopupMenu          popup       = new PopupMenu();
 		
