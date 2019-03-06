@@ -7,14 +7,16 @@ package src.c4h;
  * @version 1.0
  * 
  * */
-public class C4H {
+public class C4H_TEST {
 
 	/** Startfunktion
 	 * @param args Keine Argumente n&ouml;tig 
 	 * @throws Throwable Gui-Start
 	 */
 	public static void main(String[] args) {	
-		
+		C4H_TEST_MODUL test = new C4H_TEST_MODUL();
+		test.initialize();
+		/*
 		C4H_GUI_TRAY_ICON start=new C4H_GUI_TRAY_ICON();
 		
 		try {
@@ -22,6 +24,7 @@ public class C4H {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		*/
 	}
 
 }
