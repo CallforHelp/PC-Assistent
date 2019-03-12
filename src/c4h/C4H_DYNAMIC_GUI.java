@@ -127,25 +127,26 @@ public class C4H_DYNAMIC_GUI {
 		try {
 			initialize();
 		} catch (Throwable e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		//connectToSftp();	
 		
 	}
 	public C4H_DYNAMIC_GUI(String schulNummmerTest, String URLTest) {
-		this.testUrl=URL+URLTest;
+		
+		this.testUrl=URLTest;
 		this.schulNummer= schulNummmerTest;
+		
 		bg = new C4H_PC_INFO_KLASSE(schulNummer);
 		systemInfo = new DefaultListModel<>();
 		netzwerkInfo = new DefaultListModel<>();
 		systemInfowerte= new DefaultListModel<>();
 		NetzwerkInfowerte= new DefaultListModel<>();
 		DoppelPunktListe = new DefaultListModel<>();
+		
 		try {
 			initialize();
 		} catch (Throwable e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		//connectToSftp();	
@@ -776,7 +777,7 @@ public class C4H_DYNAMIC_GUI {
 		try {
 			browser.createScene(testUrl+"?schulnummer="+bg.getSchulNummer()+"&pcname="+bg.getLocalHost()
 			+"&ipadress="+bg.getLocalAdresse()+"&MusterImage="+bg.getMusterImageAusRegistry().replaceAll(" ", ""));
-			
+			System.out.println("ena: \n"+testUrl);
 		} catch (Throwable e) {
 			System.out.println("Exception: "+e);
 		}

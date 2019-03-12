@@ -35,7 +35,6 @@ public class C4H_TEST_MODUL {
 	 * Create the application.
 	 */
 	public C4H_TEST_MODUL() {
-		initialize();
 	}
 
 	/**
