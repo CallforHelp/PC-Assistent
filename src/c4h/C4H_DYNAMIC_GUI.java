@@ -468,7 +468,7 @@ public class C4H_DYNAMIC_GUI {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("download Starten");
 				try {
-					web.openWebSite(URL+"/downloads");
+					web.openWebSite(URL+"/downloads?schulnummer="+bg.getSchulNummer());
 				} catch (Throwable e1) {
 					System.out.println(e1);
 				}
