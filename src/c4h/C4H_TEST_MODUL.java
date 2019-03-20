@@ -33,8 +33,10 @@ public class C4H_TEST_MODUL {
 
 	/**
 	 * Create the application.
+	 * @wbp.parser.entryPoint
 	 */
 	public C4H_TEST_MODUL() {
+		 initialize();
 	}
 
 	/**
@@ -55,6 +57,7 @@ public class C4H_TEST_MODUL {
 		textField.setHorizontalAlignment(SwingConstants.CENTER);
 		textField.setBounds(167, 123, 117, 29);
 		frmTestingBorad.getContentPane().add(textField);
+		
 		textField.addKeyListener(new KeyAdapter() {
 			    public void keyTyped(KeyEvent e) {
 			    	textField.setBackground(Color.WHITE);
@@ -76,11 +79,7 @@ public class C4H_TEST_MODUL {
 		lblNewLabel.setBounds(40, 125, 117, 23);
 		frmTestingBorad.getContentPane().add(lblNewLabel);
 		
-		JButton btnBesttigen = new JButton("Bestaetigen");
-		btnBesttigen.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		
-		btnBesttigen.setBounds(167, 180, 117, 29);
-		frmTestingBorad.getContentPane().add(btnBesttigen);
+	
 		
 		lblTestingModulCh = new JLabel("Testing Modul C4H");
 		lblTestingModulCh.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
@@ -95,6 +94,16 @@ public class C4H_TEST_MODUL {
 		chckbxTestWeb = new JCheckBox("C4H Testbereich");
 		chckbxTestWeb.setSelected(true);
 		
+		buttonReset = new JButton("Reset");
+		buttonReset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+	
+			}
+		});
+		buttonReset.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		buttonReset.setBounds(40, 180, 117, 29);
+		frmTestingBorad.getContentPane().add(buttonReset);
+		
 		chckbxTestWeb.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				if(e.getStateChange()==1) {
@@ -108,15 +117,7 @@ public class C4H_TEST_MODUL {
 		chckbxTestWeb.setBounds(40, 88, 132, 23);
 		frmTestingBorad.getContentPane().add(chckbxTestWeb);
 		
-		buttonReset = new JButton("Reset");
-		buttonReset.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-	
-			}
-		});
-		buttonReset.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		buttonReset.setBounds(40, 180, 117, 29);
-		frmTestingBorad.getContentPane().add(buttonReset);
+		
 		
 		chckbxc4H.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
@@ -129,22 +130,32 @@ public class C4H_TEST_MODUL {
 			}
 		});
 	
+		JButton btnBesttigen = new JButton("Bestaetigen");
+		btnBesttigen.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		
+		btnBesttigen.setBounds(167, 180, 117, 29);
+		frmTestingBorad.getContentPane().add(btnBesttigen);
 		
 		btnBesttigen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println(textField.getText());
+				
 				if(textField.getText().equals("")|textField.getText().equals(null))
 					textField.setBackground(Color.RED);
 				else {
+					
 					if (chckbxc4H.isSelected()) {
 						url="http://fehlermeldung.3s-hamburg.de";
-					}
+					}else 
+						url="http://fehlermeldung.3s-hamburg.de/test";
+					
 					System.out.println(url);
 					C4H_DYNAMIC_GUI gui = new C4H_DYNAMIC_GUI(textField.getText(), url);
 					if(gui.frmCh.isEnabled()){
 						gui.frmCh.setVisible(false);
 						gui= new C4H_DYNAMIC_GUI(textField.getText(), url);
 					}
+					
 					gui.frmCh.setVisible(true);
 					gui.chatPanel.setVisible(false);
 				}
