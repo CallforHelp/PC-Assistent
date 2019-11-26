@@ -13,7 +13,7 @@ public class C4H {
 	 * @param args Keine Argumente n&ouml;tig 
 	 * @throws Throwable Gui-Start
 	 */
-	public static void main(String[] args) {	
+	public static void main(String[] args) throws Throwable {	
 		
 		C4H_GUI_TRAY_ICON start=new C4H_GUI_TRAY_ICON();
 		
