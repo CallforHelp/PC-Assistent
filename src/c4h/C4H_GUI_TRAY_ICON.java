@@ -31,7 +31,7 @@ public class C4H_GUI_TRAY_ICON {
  */
 	static TrayIcon trayIcon    = new TrayIcon(createImage("images/bulb.png", "trayIcon"));  
 	
-	public void createshowGui() throws Throwable {
+	public void createshowGui(){
 		final C4H_DYNAMIC_GUI    window      = new C4H_DYNAMIC_GUI();
 		final PopupMenu          popup       = new PopupMenu();
 		
@@ -101,7 +101,7 @@ public class C4H_GUI_TRAY_ICON {
     			if(e.getButton()==MouseEvent.BUTTON1) {
     				try {
 						window.setlist();
-						if(bg.getState()==false||!bg.pruefeSchulnr()) {
+						if(bg.getState()== false||!bg.pruefeSchulnr()) {
 							trayIcon.setImage(createImage("images/bulbred2.png", "trayIcon"));
 							trayIcon.setToolTip("Schul-Support-Service - Call for Help:\n "+bg.toolTipFehlerHinweisText + " Korrigieren");
 							//System.out.println("Schulnummer"+bg.getSchulNummer()+" ist :"+ bg.pruefeSchulnr());
