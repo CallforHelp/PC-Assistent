@@ -474,7 +474,7 @@ public class C4H_DYNAMIC_GUI {
 				System.out.println("BildschirmFoto");
 				frmCh.setVisible(false);
 				try {
-					TimeUnit.MILLISECONDS.sleep(3000);
+					TimeUnit.MILLISECONDS.sleep(500);
 				} catch (InterruptedException e2) {
 					// TODO Auto-generated catch block
 					e2.printStackTrace();
