@@ -1,15 +1,24 @@
 package src.c4h;
 
+import java.awt.AWTException;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Rectangle;
+import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.concurrent.TimeUnit;
 
+import javax.imageio.ImageIO;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -438,6 +447,7 @@ public class C4H_DYNAMIC_GUI {
 		AktualisierItem.setBackground(new Color(211, 211, 211));
 		mnInfo.add(AktualisierItem);
 		AktualisierItem.setFont(new Font("Arial", Font.BOLD, 12));
+		
 		AktualisierItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
@@ -457,6 +467,40 @@ public class C4H_DYNAMIC_GUI {
 				}
 			}
 		});
+		JMenuItem screenShot = new JMenuItem("Bildschirm Foto");
+		screenShot.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("BildschirmFoto");
+				frmCh.setVisible(false);
+				try {
+					TimeUnit.MILLISECONDS.sleep(3000);
+				} catch (InterruptedException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd hh mm ss a");
+				Calendar now = Calendar.getInstance();
+			    Robot robot = null;
+				try {
+						robot = new Robot();
+					} catch (AWTException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+			        BufferedImage screenShot = robot.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+			        try {
+						ImageIO.write(screenShot, "JPG", new File("d:\\"+formatter.format(now.getTime())+" screenshot"+".jpg"));
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+			        System.out.println(formatter.format(now.getTime()));
+			        frmCh.setVisible(true);
+			}
+		});
+		screenShot.setFont(new Font("Arial", Font.BOLD, 12));
+		screenShot.setBackground(new Color(211, 211, 211));
+		mnInfo.add(screenShot);
 		
 		downloadMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
