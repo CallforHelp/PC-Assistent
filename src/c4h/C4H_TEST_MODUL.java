@@ -36,7 +36,7 @@ public class C4H_TEST_MODUL {
 	 * @wbp.parser.entryPoint
 	 */
 	public C4H_TEST_MODUL() {
-		 initialize();
+		// initialize();
 	}
 
 	/**
