@@ -64,7 +64,7 @@ public class C4H_BROWSER_INTEGRATION{
     private void initComponents() {
     	
     	jfxPanel = new JFXPanel();
-    	jfxPanel.setBounds(0, 0, 787, 648);
+    	jfxPanel.setBounds(0, 0, 797, 648);
     	jfxPanel.setBackground(new Color(220, 220, 220));
     	
     	panel.setBackground(new Color(220, 220, 220));

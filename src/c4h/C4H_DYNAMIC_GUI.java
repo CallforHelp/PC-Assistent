@@ -1,11 +1,13 @@
 package src.c4h;
 
+import java.awt.AWTException;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Rectangle;
+import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,6 +26,15 @@ import javax.swing.SwingConstants;
 import javax.swing.Timer;
 import javax.swing.UIManager;
 import javax.swing.border.EtchedBorder;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.concurrent.TimeUnit;
+
+import javax.imageio.ImageIO;
+
 
 
 /**
@@ -178,10 +189,10 @@ public class C4H_DYNAMIC_GUI {
 	public void initialize() throws Throwable{
 		
 		frmCh = new JFrame();
+		frmCh.setTitle("Call for Help 1.0.4");
 		frmCh.setResizable(false);
-		frmCh.setBounds(new Rectangle(0, 0, 995, 741));
-		//frmCh.setUndecorated(true);
-
+		frmCh.setBounds(new Rectangle(0, 0, 997, 740));
+		frmCh.setUndecorated(false);
 		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
 	    int x = (int) ((dimension.getWidth() - frmCh.getWidth()) / 2);
 	    int y = (int) ((dimension.getHeight() - frmCh.getHeight()) / 2);
@@ -219,7 +230,6 @@ public class C4H_DYNAMIC_GUI {
 		systemInfoLabel.setBackground(UIManager.getColor("Button.light"));
 		systemInfoLabel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		JLabel lblNetzwerkInformation = new JLabel("Netzwerk Information");
-		lblNetzwerkInformation.setIgnoreRepaint(true);
 		lblNetzwerkInformation.setBackground(UIManager.getColor("Button.light"));
 		lblNetzwerkInformation.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		pcInfoButton.setForeground(new Color(192, 192, 192));
@@ -249,16 +259,16 @@ public class C4H_DYNAMIC_GUI {
 		Buttonpanel.add(fehlermeldenButton);
 		
 		
-		PcInfoPanel.setBounds(200, 40, 787, 687);
+		PcInfoPanel.setBounds(200, 40, 797, 687);
 		PcInfoPanel.setBackground(new Color(220, 220, 220));
 		PcInfoPanel.setLayout(null);
 		PcInfoPanel.add(titelLabel);
 		
-		FehlerMeldenPanel.setBounds(200, 40, 787, 670);
+		FehlerMeldenPanel.setBounds(200, 40, 797, 687);
 		FehlerMeldenPanel.setBackground(new Color(220, 220, 220));
 		FehlerMeldenPanel.setLayout(new BorderLayout());
 		
-		chatPanel.setBounds(200, 40, 787, 670);
+		chatPanel.setBounds(200, 40, 797, 687);
 		chatPanel.setBackground(new Color(220, 220, 220));
 		chatPanel.setLayout(null);
 		chatPanel.setVisible(true);
@@ -317,7 +327,7 @@ public class C4H_DYNAMIC_GUI {
 		});
 		
 		
-		menuBar.setBounds(0, 0, 987, 40);
+		menuBar.setBounds(0, 0, 997, 40);
 		menuBar.add(menuDatei);
 		
 		menuDatei.add(pcInfoItem);
@@ -367,7 +377,7 @@ public class C4H_DYNAMIC_GUI {
 		});
 		
 		//LABEL Settings
-		logoLabel.setBounds(16, 457, 180, 194);
+		logoLabel.setBounds(10, 461, 175, 184);
 		Buttonpanel.add(logoLabel);
 		
 		
@@ -393,7 +403,7 @@ public class C4H_DYNAMIC_GUI {
 		frmCh.setForeground(Color.BLACK);
 		frmCh.setIconImage(Toolkit.getDefaultToolkit().getImage(C4H_DYNAMIC_GUI.class.getResource("/src/c4h/images/3s_logo_c4h.png")));
 		frmCh.setBackground(new Color(211, 211, 211));
-		frmCh.setTitle("Call for Help 1.0");
+
 		
 		frmCh.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		frmCh.getContentPane().setBackground(new Color(240,240,240));
@@ -418,7 +428,7 @@ public class C4H_DYNAMIC_GUI {
 				try {
 					if(!bg.pruefeSchulnr())
 						//displayMessage("Die SchulNummer ist Fehlerhaft!!!"+bg.getSchulNummer(),"Schul Support Service\nTEAM C4H", MessageType.WARNING);
-						web.openWebSite(testUrl);
+						web.openWebSite(URL);
 					else
 						web.openWebSite();
 					
@@ -464,6 +474,7 @@ public class C4H_DYNAMIC_GUI {
 		AktualisierItem.setBackground(new Color(211, 211, 211));
 		mnInfo.add(AktualisierItem);
 		AktualisierItem.setFont(new Font("Arial", Font.BOLD, 12));
+		
 		AktualisierItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
@@ -483,12 +494,46 @@ public class C4H_DYNAMIC_GUI {
 				}
 			}
 		});
+		JMenuItem screenShot = new JMenuItem("Bildschirm Foto");
+		screenShot.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("BildschirmFoto");
+				frmCh.setVisible(false);
+				try {
+					TimeUnit.MILLISECONDS.sleep(500);
+				} catch (InterruptedException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd hh mm ss a");
+				Calendar now = Calendar.getInstance();
+			    Robot robot = null;
+				try {
+						robot = new Robot();
+					} catch (AWTException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+			        BufferedImage screenShot = robot.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+			        try {
+						ImageIO.write(screenShot, "JPG", new File("d:\\"+formatter.format(now.getTime())+" screenshot"+".jpg"));
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+			        System.out.println(formatter.format(now.getTime()));
+			        frmCh.setVisible(true);
+			}
+		});
+		screenShot.setFont(new Font("Arial", Font.BOLD, 12));
+		screenShot.setBackground(new Color(211, 211, 211));
+		mnInfo.add(screenShot);
 		
 		downloadMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("download Starten");
 				try {
-					web.openWebSite(URL+"/downloads?schulnummer="+bg.getSchulNummer());
+					web.openWebSite(URL+"/downloads");
 				} catch (Throwable e1) {
 					System.out.println(e1);
 				}
@@ -775,11 +820,13 @@ public class C4H_DYNAMIC_GUI {
 	 */
 	public void startBrowser(){
 		try {
-			browser.createScene(testUrl+"?schulnummer="+bg.getSchulNummer()+"&pcname="+bg.getLocalHost()
+			browser.createScene(URL+"?schulnummer="+bg.getSchulNummer()+"&pcname="+bg.getLocalHost()
 			+"&ipadress="+bg.getLocalAdresse()+"&MusterImage="+bg.getMusterImageAusRegistry().replaceAll(" ", ""));
-			System.out.println("ena: \n"+testUrl);
+			//browser.createScene("http://fehlermeldung.3s-hamburg.de");
+			
 		} catch (Throwable e) {
 			System.out.println("Exception: "+e);
 		}
 	}
+
 }

@@ -103,7 +103,7 @@ public class C4H_GUI_TRAY_ICON {
 						window.setlist();
 						if(window.bg.getState()== false||!window.bg.pruefeSchulnr()) {
 							trayIcon.setImage(createImage("images/bulbred2.png", "trayIcon"));
-							trayIcon.setToolTip("Schul-Support-Service - Call for Help:\n "+window.bg.toolTipFehlerHinweisText+ " Korrigieren");
+							trayIcon.setToolTip("Schul-Support-Service - Call for Help:\n "+window.bg.toolTipFehlerHinweisText + " Korrigieren");
 							//System.out.println("Schulnummer"+bg.getSchulNummer()+" ist :"+ bg.pruefeSchulnr());
 						}else {
 							trayIcon.setImage(createImage("images/bulb.png", "trayIcon"));
