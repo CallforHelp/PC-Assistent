@@ -490,7 +490,7 @@ public class C4H_DYNAMIC_GUI {
 					}
 			        BufferedImage screenShot = robot.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
 			        try {
-						ImageIO.write(screenShot, "JPG", new File("d:\\"+formatter.format(now.getTime())+" screenshot"+".jpg"));
+						ImageIO.write(screenShot, "JPG", new File("D:\\test\\c4h "+formatter.format(now.getTime())+".jpg"));
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
