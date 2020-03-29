@@ -1,0 +1,7 @@
+
+3s-Schul-Support-Service
+www.3s-hamburg.de
+
+Die Software C4H wird ausschliesslich mit unseren 3S- Musterimage verwendet (Windows 10 und Windows 7 x64). 
+Die Software C4H wird auf allen anderen Betriebssystemen lediglich installiert, nicht unterstuetzt.
+Der Installationspfad lautet: 'C:\Program Files (x86)\Schul-Support-Service\C4H'.
