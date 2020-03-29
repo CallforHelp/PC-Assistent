@@ -1,0 +1,16 @@
+@echo off
+
+REM ##################### DELETE PROCESS ########################
+TASKKILL /F /IM javaw.exe
+
+
+REM ##################### DELETE REGISTRY ########################
+REG DELETE "HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run" /v "C4H_APP" /f
+REG DELETE "HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run" /v "C4H_APP_Test" /f
+
+
+REM ##################### DELETE ORDNER ########################
+rmdir /Q /S "C:\Program Files (x86)\Schul-Support-Service\"
+
+
+
