@@ -489,7 +489,17 @@ public class C4H_DYNAMIC_GUI {
 						e1.printStackTrace();
 					}
 			        BufferedImage screenShot = robot.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+			        
+			        File file = new File("D:\\Screenshot");
+			        if (!file.exists()) {
+			            if (file.mkdir()) {
+			                System.out.println("Directory is created!");
+			            }else
+			            	System.out.println("Directory exist!");
+			        }
+			       
 			        try {
+			        	
 						ImageIO.write(screenShot, "JPG", new File("D:\\Screenshot\\c4h "+formatter.format(now.getTime())+".jpg"));
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
