@@ -163,7 +163,7 @@ public class C4H_DYNAMIC_GUI {
 	public void initialize() throws Throwable{
 		
 		frmCh = new JFrame();
-		frmCh.setTitle("Call for Help 1.0.4");
+		frmCh.setTitle("Call for Help 1.2.0");
 		frmCh.setResizable(false);
 		frmCh.setBounds(new Rectangle(0, 0, 997, 740));
 		frmCh.setUndecorated(false);
