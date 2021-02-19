@@ -67,7 +67,7 @@ public class C4H_GUI_TRAY_ICON {
     		@Override
     		public void actionPerformed(ActionEvent e) {
     			try {
-					web.openWebSite("www.ntrglobal.com/code");
+					web.openWebSite("http://get.teamviewer.com/");
 				} catch (Throwable e1) {
 					System.out.println(e1);
 				}
