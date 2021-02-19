@@ -46,7 +46,7 @@ public class C4H_DIALOG extends JDialog {
 		getContentPane().add(lblNewLabel_1);
 		lblNewLabel_1.setIcon(new ImageIcon(C4H_DIALOG.class.getResource("/src/c4h/images/3s_logo_text3.png")));
 		
-		JLabel lblCopyright = new JLabel("Copyright \u00A9 2018 Hamburger Informatik Technologie-Center e.V. (HITeC).");
+		JLabel lblCopyright = new JLabel("Copyright \u00A9 2020 Hamburger Informatik Technologie-Center e.V. (HITeC).");
 		lblCopyright.setFont(new Font("Times New Roman", Font.PLAIN, 11));
 		lblCopyright.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCopyright.setBounds(127, 229, 448, 14);
@@ -59,7 +59,7 @@ public class C4H_DIALOG extends JDialog {
 		getContentPane().add(lblAlleRechteVorbehalten);
 		
 		C4H_BLINK_LABEL lblNewLabel = new C4H_BLINK_LABEL("C4H - Call For Help ");
-		lblNewLabel.setText("C4H - Call For Help v.1.0.3");
+		lblNewLabel.setText("C4H - Call For Help v.1.2.1");
 		lblNewLabel.setForeground(Color.RED);
 		lblNewLabel.setBlinking(true);
 		lblNewLabel.setFont(new Font("Times New Roman", Font.PLAIN, 18));

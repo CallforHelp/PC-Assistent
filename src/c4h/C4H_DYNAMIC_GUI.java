@@ -163,7 +163,7 @@ public class C4H_DYNAMIC_GUI {
 	public void initialize() throws Throwable{
 		
 		frmCh = new JFrame();
-		frmCh.setTitle("Call for Help 1.2.0");
+		frmCh.setTitle("Call for Help 1.2.1");
 		frmCh.setResizable(false);
 		frmCh.setBounds(new Rectangle(0, 0, 997, 740));
 		frmCh.setUndecorated(false);
@@ -426,7 +426,7 @@ public class C4H_DYNAMIC_GUI {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("fernwartung Starten");
 				try {
-					web.openWebSite("www.ntrglobal.com/code");
+					web.openWebSite("http://get.teamviewer.com/");
 				} catch (Throwable e1) {
 					System.out.println(e1);
 				}
