@@ -48,11 +48,11 @@ public class C4H_GUI_TRAY_ICON {
 		//Hinzufuegen(start) the Icon_tray 
 		try {
 			tray.add(trayIcon);
-			if(bg.getState()==false||!bg.pruefeSchulnr()) {
+			/*if(bg.getState()==false||!bg.pruefeSchulnr()) {
 				trayIcon.setImage(createImage("images/bulbred2.png", "trayIcon"));
-				trayIcon.setToolTip("Schul-Support-Service - Call for Help:\n "+bg.toolTipFehlerHinweisText+ " Korrigieren");
+				//trayIcon.setToolTip("Schul-Support-Service - Call for Help:\n "+bg.toolTipFehlerHinweisText+ " Korrigieren");
 				//System.out.println("Schulnummer"+bg.getSchulNummer()+" ist :"+ bg.pruefeSchulnr());
-			}
+			}*/
 		}catch(Throwable e2) {
     		System.out.println("TrayIcon could not be added."+e2.getMessage());
     		return;
@@ -100,15 +100,15 @@ public class C4H_GUI_TRAY_ICON {
     		public void mouseClicked(MouseEvent e ) {
     			if(e.getButton()==MouseEvent.BUTTON1) {
     				try {
-						window.setlist();
+						/*window.setlist();
 						if(bg.getState()== false||!bg.pruefeSchulnr()) {
 							trayIcon.setImage(createImage("images/bulbred2.png", "trayIcon"));
-							trayIcon.setToolTip("Schul-Support-Service - Call for Help:\n "+bg.toolTipFehlerHinweisText + " Korrigieren");
+							//trayIcon.setToolTip("Schul-Support-Service - Call for Help:\n "+bg.toolTipFehlerHinweisText + " Korrigieren");
 							//System.out.println("Schulnummer"+bg.getSchulNummer()+" ist :"+ bg.pruefeSchulnr());
-						}else {
+						}else {}*/
 							trayIcon.setImage(createImage("images/bulb.png", "trayIcon"));
 							trayIcon.setToolTip("Schul-Support-Service - Call for Help");
-						}
+						
 							
 					} catch (Throwable e1) {
 						// TODO Auto-generated catch block
