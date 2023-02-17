@@ -87,13 +87,14 @@ public class C4H_PC_INFO_KLASSE {
 	 * @throws Throwable Hostname
 	 */
 	public String settSchulNummer() throws Throwable {
-		if(getOSversion().contains("W")||getOSversion().contains("w")) {
+		/*if(getOSversion().contains("W")||getOSversion().contains("w")) {
 		Pattern p = Pattern.compile("[0-9]{4}");
 		Matcher m = p.matcher(InetAddress.getLocalHost().getHostName());
 		
 		// match
 		if (m.find())
 			schulNummer= m.group();
+		
 		
 		if(!pruefeSchulnr())
 			this.schulNummer="Fehler-Schulnummer";
@@ -102,8 +103,13 @@ public class C4H_PC_INFO_KLASSE {
 		}else {
 			this.schulNummer= "Fehler-SchulNummer";
 			return schulNummer;
-		}
-
+		}*/
+		
+		String s =System.getenv("SNR");
+		if(s==null) 
+			return "Bitte Variable eintagen";
+		else
+			return s;
 	}
 	/**
 	 * Gibt Einfach die Schulnummer zurueck.
@@ -111,8 +117,12 @@ public class C4H_PC_INFO_KLASSE {
 	 * @throws Throwable Hostname
 	 */
 	public String getSchulNummer() throws Throwable {
+		String schulNummer =System.getenv("SNRg");
 		
-		return "5063";
+		if(schulNummer==null) 
+			return "Keine SchulNummer";
+		else
+			return schulNummer;
 	}
 	
 	/**
@@ -127,7 +137,29 @@ public class C4H_PC_INFO_KLASSE {
 			return "Fehler OS-Version";
 		return OsVersion;
 	}
+	/**
+	 * System Properties 
+	 * Auslesen von Hersteller
+	 * @return OsVersion
+	 */
+	public String getHersteller(){
+		
+		String Hersteller=""; ;
+		if(Hersteller==""||Hersteller==null)
+			return "Fehler OS-Version";
+		return Hersteller;
+	}
 	
+	/**
+	 * PC-Modell
+	 * @return OSArchitektur
+	 */
+	public String getPcModell(){
+		if(getOSversion().contains("W")||getOSversion().contains("w")) {
+			String PcModell= "";
+			return PcModell;
+		}else return "Mac-Rechner";
+	}
 	/**
 	 * Betriebsystemarchitektur
 	 * @return OSArchitektur
