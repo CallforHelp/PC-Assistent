@@ -668,13 +668,13 @@ public class C4H_DYNAMIC_GUI {
 		systemInfo.addElement("\n");
 		systemInfo.addElement("Schulnummer");
 		systemInfo.addElement("\n");
-		systemInfo.addElement("OS-Version");
+		systemInfo.addElement("Hersteller");
 		systemInfo.addElement("\n");
-		systemInfo.addElement("OS-Architektur");
+		systemInfo.addElement("Modell");
 		systemInfo.addElement("\n");
 		systemInfo.addElement("Musterimages");
 		systemInfo.addElement("\n");
-		systemInfo.addElement("Rechnertyp");
+		systemInfo.addElement("Seriennummer");
 
 		
 		pcInfoList= new JList<String>(systemInfo);
@@ -719,13 +719,13 @@ public class C4H_DYNAMIC_GUI {
 		systemInfowerte.addElement("\n");
 		systemInfowerte.addElement(bg.getSchulNummer());
 		systemInfowerte.addElement("\n");
-		systemInfowerte.addElement(bg.getOSversion());
+		systemInfowerte.addElement(bg.getHersteller());
 		systemInfowerte.addElement("\n");
-		systemInfowerte.addElement(bg.getOSArchitecture());
+		systemInfowerte.addElement(bg.getPcModell());
 		systemInfowerte.addElement("\n");
 		systemInfowerte.addElement(bg.getMusterImageAusRegistry());
 		systemInfowerte.addElement("\n");
-		systemInfowerte.addElement(bg.getRechnertypen());
+		systemInfowerte.addElement(bg.getSerienNummer());
 		
 		JList<String> list_1PCINFO = new JList<String>(systemInfowerte);
 		list_1PCINFO.setBorder(null);

@@ -31,7 +31,9 @@ public class C4H_PC_INFO_KLASSE {
 	 * SchulNummer erstellen 
 	 * @throws Throwable Hostname
 	 */
-	public C4H_PC_INFO_KLASSE() {
+	public C4H_PC_INFO_KLASSE() {}
+	
+	public C4H_PC_INFO_KLASSE(String s) {
 		
 		try {
 			settSchulNummer();
@@ -117,10 +119,10 @@ public class C4H_PC_INFO_KLASSE {
 	 * @throws Throwable Hostname
 	 */
 	public String getSchulNummer() throws Throwable {
-		String schulNummer =System.getenv("SNRg");
+		String schulNummer =System.getenv("SNR");
 		
 		if(schulNummer==null) 
-			return "Keine SchulNummer";
+			return "Fehler-SchulNummer";
 		else
 			return schulNummer;
 	}
@@ -140,26 +142,51 @@ public class C4H_PC_INFO_KLASSE {
 	/**
 	 * System Properties 
 	 * Auslesen von Hersteller
-	 * @return OsVersion
+	 * @return Hersteller
+	 * @throws IOException 
 	 */
-	public String getHersteller(){
+	public String getHersteller() throws IOException{
 		
-		String Hersteller=""; ;
-		if(Hersteller==""||Hersteller==null)
-			return "Fehler OS-Version";
-		return Hersteller;
+		String line;
+		String systemHersteller = "";
+		if(getOSversion().contains("W")||getOSversion().contains("w")) {
+			
+			Process Herstteller= Runtime.getRuntime().exec("powershell.exe Get-WmiObject -Class Win32_BIOS");
+			InputStreamReader input = new InputStreamReader(Herstteller.getInputStream());
+			BufferedReader resultOutput = new BufferedReader(input);
+			
+			while((line=resultOutput.readLine()) != null)
+				if (line.contains("Manufacturer"))
+					systemHersteller=line.split(":")[1].trim();
+			return systemHersteller;
+			}
+		else 
+			return "Mac-Rechner";
 	}
 	
 	/**
 	 * PC-Modell
-	 * @return OSArchitektur
+	 * @return PC-Modell
+	 * @throws IOException 
 	 */
-	public String getPcModell(){
+	public String getPcModell() throws IOException{
 		if(getOSversion().contains("W")||getOSversion().contains("w")) {
-			String PcModell= "";
-			return PcModell;
-		}else return "Mac-Rechner";
-	}
+			String line;
+			String systemModell = "";
+			Process Systemmodell= Runtime.getRuntime().exec("Systeminfo");	
+			InputStreamReader input = new InputStreamReader(Systemmodell.getInputStream());
+			BufferedReader resultOutput = new BufferedReader(input);
+			
+			while((line=resultOutput.readLine()) != null){
+				
+				if(line.contains("Systemmodell"))
+					systemModell= line.split(":\\s")[1];
+				    systemModell=systemModell.replace(" ", "");
+			}
+			return systemModell;
+		}else 
+			return "Mac-Rechner";	
+		}
 	/**
 	 * Betriebsystemarchitektur
 	 * @return OSArchitektur
@@ -199,6 +226,31 @@ public class C4H_PC_INFO_KLASSE {
 			return"Fehler-MusterImage";
 		
 		return musterImages;
+	}
+	/**
+	 * Seriennummer aus dem Rechner auslesen. 
+	 * @return Seriennummer
+	 * @throws Exception Seriennummer
+	 */
+	public String getSerienNummer() throws Exception {
+		String line;
+		String serienNummer="";
+		if(getOSversion().contains("W")||getOSversion().contains("w")) {
+			
+			Process SerienNummer= Runtime.getRuntime().exec("powershell.exe Get-WmiObject -Class Win32_BIOS");
+			InputStreamReader input = new InputStreamReader(SerienNummer.getInputStream());
+			BufferedReader resultOutput = new BufferedReader(input);
+			
+			while((line=resultOutput.readLine()) != null)
+				if (line.contains("SerialNumber"))
+					serienNummer=line.split(":")[1].trim();
+		
+			return serienNummer; 
+		}else 
+			return "Mac-Rechner";
+		
+		
+		
 	}
 	/**
 	 * RechnerTyp aus dem Hostname auslesen. 
