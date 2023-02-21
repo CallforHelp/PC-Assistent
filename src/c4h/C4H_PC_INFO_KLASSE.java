@@ -545,7 +545,7 @@ public class C4H_PC_INFO_KLASSE {
 	 * @throws IOException 
 	 */
 	public String getMusterImageAusRegistry() throws IllegalArgumentException, IllegalAccessException, InvocationTargetException, IOException {
-		String PATH = "powershell.exe (Get-ItemProperty -Path 'HKLM:\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\OEMInformation' -Name 'Modell').Modell";
+		String PATH = "powershell.exe (Get-ItemProperty -Path 'HKLM:\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\OEMInformation' -Name 'Model').Modell";
 		
 		String musterImageName="";
 		Process modellAusRegistry= Runtime.getRuntime().exec(PATH);
