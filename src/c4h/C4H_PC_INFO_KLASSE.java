@@ -542,28 +542,27 @@ public class C4H_PC_INFO_KLASSE {
 	 * @throws IllegalArgumentException MusterImage
 	 * @throws IllegalAccessException Value vom REG
 	 * @throws InvocationTargetException Value vom REG
+	 * @throws IOException 
 	 */
-	public String getMusterImageAusRegistry() throws IllegalArgumentException, IllegalAccessException, InvocationTargetException {
-		String musterausdatei="";
-		int HKEY_LOCAL_MACHINE= 0x80000002;
-		if(getOSversion().contains("W")||getOSversion().contains("w")){
-			musterausdatei = C4H_WIN_REGISTRY.readString(HKEY_LOCAL_MACHINE,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OEMInformation","Model", 0);
-			if(getOSversion().contains("7")) {
-				if(musterausdatei.contains("Musterimage")) {
-					String s=musterausdatei.split("Musterimage")[1].trim();
-					musterausdatei=s;
-				}
-				System.out.println(musterausdatei);
-			}
-				
-			if(musterausdatei==null)
-				return "Fehler-MusterImage";
-			if(musterausdatei.equals(""))
-				return "Fehler-MusterImage";
-			else 
-				return musterausdatei;
-		}else 
+	public String getMusterImageAusRegistry() throws IllegalArgumentException, IllegalAccessException, InvocationTargetException, IOException {
+		String PATH = "powershell.exe (Get-ItemProperty -Path 'HKLM:\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\OEMInformation' -Name 'Modell').Modell";
+		
+		String musterImageName="";
+		Process modellAusRegistry= Runtime.getRuntime().exec(PATH);
+		InputStreamReader input = new InputStreamReader(modellAusRegistry.getInputStream());
+		BufferedReader resultOutput = new BufferedReader(input);
+		
+		if((musterImageName=resultOutput.readLine()) != null)
+			System.out.println(musterImageName);
+			
+		if(musterImageName==null)
 			return "Fehler-MusterImage";
+		
+		if(musterImageName.equals(""))
+			return "Fehler-MusterImage";
+		else 
+			return musterImageName;
+		
 	}
 	
 	/************************************************************************************************************/
