@@ -12,5 +12,14 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< Updated upstream
+=======
+	<classpathentry kind="src" path=""/>
+	<classpathentry kind="lib" path="src/jsch-0.1.54.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Oracle/JavaFX 2.2 Runtime/lib/jfxrt.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Oracle/JavaFX 2.2 Runtime/lib/plugin.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Oracle/JavaFX 2.2 Runtime/lib/javaws.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Oracle/JavaFX 2.2 Runtime/lib/deploy.jar"/>
+>>>>>>> Stashed changes
 	<classpathentry kind="output" path=""/>
 </classpath>
